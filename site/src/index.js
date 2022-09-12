@@ -7,7 +7,7 @@ import Rodape from './Components/Rodapé';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Rodape />
+    <Index />
   </React.StrictMode>
 );
 
