@@ -1,0 +1,41 @@
+.background-logo{
+    hr{
+        position: relative;
+        margin-right: 81.5em;
+        margin-top: 0;
+        
+        width: 18em;
+        height: 0.1em;
+        
+        border: #f27400;
+        background-color: #f27400;
+    }
+    
+}
+
+.espacamento-logo{
+    display: flex;
+    flex-direction: row;
+
+    width: 17.2em;
+    height: 4.4em;  
+    margin-left: 1em;
+
+    h1{
+        text-transform: uppercase;
+        font-family: 'Goldman';
+        font-size: 2em;
+
+        color: #fff;
+    }
+
+    img{
+        position: relative;
+        margin: 1.3em 0;
+        padding-left: 0.3em;
+
+        height: 3em;
+
+        color: #fff;
+    }
+}
