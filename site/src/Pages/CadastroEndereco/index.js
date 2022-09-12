@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 
-export default function CadastroEndereço(){
+export default function CadastroEndereco(){
     return(
         <main>
             <section>

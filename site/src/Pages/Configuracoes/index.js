@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 
-export default function Configurações(){
+export default function Configuracoes(){
     return(
         <main>
             <section>
