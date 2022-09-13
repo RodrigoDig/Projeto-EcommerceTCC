@@ -1,7 +1,7 @@
 .cabecalho1{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     width: 100%;
@@ -14,18 +14,19 @@
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
-
+        
+        margin-right: 30px;
+        margin-left: 50px;
 
         width: 25em;
         height: 4em;
 
-        border: 0.1px solid red;
     }
     
     .input-pesquisa{
         padding-left: 10px;
         width: 22em;
-        height: 2.3em;
+        height: 2.5em;
         margin-left: 1em;
         margin-right: -10px;
 
@@ -35,6 +36,12 @@
         border: none;
         background-color: #D9D9D9;
     }
+
+    textarea:focus, input:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    } 
 
     input::placeholder{
         color: black;
@@ -58,12 +65,13 @@
     .cont-logo{
         display: flex;
         flex-direction: row; 
-        align-items: center;   
+        align-items: center;       
 
         width: 50em;
         height: 4em;
 
-        border: 0.1px solid red;
+
+        margin-right: 30px;
     }
 
     .linha-cabeçalho{
@@ -77,9 +85,104 @@
     }
 
     .cont-login{
-        width: 25em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+        width: 29em;
         height: 4em; 
 
-        border: 0.1px solid red;
+    }
+
+    .cont-carrinho{
+        width: 5em;
+        height: 4em;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carrinho{
+        position: absolute;
+
+    }
+
+    .carrinho:hover{
+        width: 60px;
+        height: 40px;
+    }
+
+    .numbercar{
+        position: absolute;
+        margin-left: 1.6em;
+        margin-top: -0.9em;
+    }
+
+    .numbercar:hover{
+        width: 30px;
+        height: 32px;
+    }
+
+    .cont-icon-login{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon-login{
+        margin-right: 10px;
+        display: inline-block;
+    }
+
+    .text-login{
+        font-family: 'Goldman';
+        font-weight: 200;
+        color: #fff;
+
+        margin-right: 10px;
+
+        cursor: pointer;
+    }
+
+    .text-login:hover{
+        font-size: 26px;
+    }
+
+    .link{
+        color: transparent;
+    }
+
+    .botao-cadastro{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+
+        width: 9em;
+        height: 2.2em;
+
+        border: 3.2px solid white;
+        border-radius: 8px;
+        background-color: transparent;
+
+        cursor: pointer;
+
+        color: #fff;
+
+        font-family: 'Goldman';
+        font-size: 19px;
+    }
+
+    .botao-cadastro:hover{
+        width: 9.1em;
+        height: 2.2em;
+
+        border: 4px solid #fff ;
+
     }
 }
