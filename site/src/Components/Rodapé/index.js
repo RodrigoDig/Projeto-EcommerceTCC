@@ -1,7 +1,8 @@
 import './index.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Logo from '../Logo'
+import Logo from '../Logo';
+
 
 export default function Rodape(){
     return(
@@ -60,14 +61,16 @@ export default function Rodape(){
                         <img alt='twitter' src='/images/twitter.png' />
                         <img alt='instagram' src='/images/instagram.png' />
                     </div>
+
+                    <hr/>
                 </div>
                 <div className='componentes-3'>
-                    <div className='espacamento-logo'>
-                        <Logo />
+                    <div>
+                       <Logo/>
                     </div>
 
                     <div className='botão'>
-                        <button>Voltar ao início</button>
+                        <Link to="/"><button>Voltar ao início</button></Link>
                     </div>
                 </div>
             </section>

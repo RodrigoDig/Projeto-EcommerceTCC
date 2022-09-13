@@ -1,19 +1,20 @@
 .fundo-rodape{
     background-color: #1e1e1e;
+    height: 40vh;
 }
 
 .componentes-1{
     display: flex;
     flex-direction: row;
-
 }
 
+
 .titulo-principal{
-    margin-left:4.3em;
-    margin-right: 4em;
-    
+    margin-left:7em;
+    margin-right: 3em;
+
     h1{
-        font-size: 45.5px;
+        font-size: 75px;
         font-family: 'Goldman';
 
         width: 6em;
@@ -28,11 +29,11 @@
 }
 
 .coluna{
-    margin-top: 2.4em;
-    margin-right: 2.6em;
+    margin-top: 3.5em;
+    margin-right: 5em;
 
     h2{
-        font-size: 17px;
+        font-size: 25px;
         font-family:'Goldman' ;
 
         color: #f27400;
@@ -47,20 +48,23 @@
         
         font-family: 'Goldman';
         font-weight: normal;
+        font-size: 23px;
         color: #fff;
 
         text-decoration: none;
-        line-height: 25px;
+        line-height: 1.6em;
 
     }
 
     p{
         font-family: 'Goldman';
         font-weight: normal;
-        
-        line-height: 1px;
-        padding-bottom: 10px;
+        font-size: 23px;
+        line-height: 13px;
+
         color: #fff;
+
+        margin-top: 17px;
     }
 
     a:hover{
@@ -69,25 +73,57 @@
 }
 
 .componentes-2{
-    margin-top: 4em;
+    margin-top: 0.3em;
+    margin-left: 7em;
+
+    hr{
+       height: 5px;
+       width: 106em;
+
+       margin-top:20px ;
+        margin-left: 0em;
+
+       background-color: #f27400;
+       border: #f27400;
+    }
 }
 
 .espacamento-imgs{
     img{
-        padding-right: 1em;
+        height: 3em;
+        padding-right: 3.5em;
     }
 }
 
 .componentes-3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-}
-
-.especamento-logo{
+    margin-top: 1.5em;
+    margin-left: 6em;
 
 }
 
 .botão{
+    margin-right: 6.8em;
     button{
 
+        font-family: 'Goldman';
+        font-size: 1.5em;
+
+        background-color: #f27400;
+        color: #fff;
+
+        border: none;
+        border-radius: 5px;
+
+        padding: 15px 20px;
+
+    }
+
+    button:hover{
+        transform: scale(1.1);
     }
 }
