@@ -8,7 +8,7 @@ export default function Cabecalho1(){
                 <div className='cont-pesquisa'>
                     <input className='input-pesquisa' placeholder='O que você procura?'/>
                     <button className='botao-pesquisa'>
-                        <img src='/images/Lupa-logo.png' height={21} width={21} />
+                        <img src='/images/Lupa-pesquisa.png' height={21} width={21} />
                     </button>
                 </div>
                 <div className='cont-logo'>
