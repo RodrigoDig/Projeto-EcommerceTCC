@@ -1,0 +1,36 @@
+.cabecalho2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+
+    width: 100%;
+    height: 6em;
+
+    .cont-logo{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+    
+        padding: 0px;
+    
+        width: 19em;
+        height: 4em;
+        border-bottom: 2px solid #F27400;
+    }
+
+    .text-bemvindo{
+        color: #fff;
+        font-family: 'Goldman';
+        font-weight: 100;
+
+        margin-left: -2em;
+    }
+
+    .login-icon{
+        margin-right: 4em;
+    }
+
+}
