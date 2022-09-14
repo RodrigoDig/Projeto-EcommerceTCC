@@ -47,7 +47,7 @@ export default function Index(){
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/produto" element={<Produto />} />
 
-                <Route path="/loginAdm" element={<LoginAdmin />} />
+                <Route path="/loginadm" element={<LoginAdmin />} />
             </Routes>
         </BrowserRouter>
     )

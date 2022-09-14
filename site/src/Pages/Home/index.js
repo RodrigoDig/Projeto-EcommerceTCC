@@ -10,7 +10,7 @@ export default function Home(){
             <section className='teste'>
                 <h1>Olá</h1>
                 <Link to="/departamentos">Departamento</Link>
-                <Link to="/LoginAdmin">LoginADM</Link>
+                <Link to="/Loginadm">LoginADM</Link>
             </section>
         </main>
     )

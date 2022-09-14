@@ -10,7 +10,10 @@ export default function LoginAdmin(){
         <main className="cont-main">
             <Cabecalho3 />
             <section className="cont-login">
+                <div className='cont-info-login'>
 
+                </div>
+                <img src='/images/Foguete logo.png' />
             </section>
 
         </main>
