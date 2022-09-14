@@ -22,4 +22,23 @@
         height: 4em;
         border-bottom: 2px solid #F27400;
     }
+
+    .cont-login{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 10em;
+        height: 4em;
+
+        margin-right: 2em;
+    }
+
+    .text-user{
+        color: #fff;
+        text-align: center;
+
+        font-family: 'Goldman';
+    }
 }

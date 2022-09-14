@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.scss';
-import Cabecalho1 from '../../Components/Cabeçalho';
 import Cabecalho2 from '../../Components/Cabeçalho02';
 
 export default function Home(){

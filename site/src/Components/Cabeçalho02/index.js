@@ -9,7 +9,12 @@ export default function Cabecalho2(){
                 <div className='cont-logo'>
                     <Logo className='logo-bt'/>
                 </div>
-                <img src='/images/login.png' />
+                <div className='cont-login'>
+                    <img src='/images/login.png' />
+                    <p className='text-user'>
+                        Bem vindo user001
+                    </p>
+                </div>
             </section>
         </main>
     )
