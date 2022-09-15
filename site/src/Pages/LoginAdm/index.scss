@@ -8,7 +8,7 @@
     .cont-login{
         display: flex;
         flex-direction: row;
-        align-items: flex-end;
+        align-items: center;
         justify-content: space-between;
 
         width: 100%;
@@ -27,7 +27,21 @@
         width: 600px;
         height: 640px;
 
+        border-radius: 20px;
+
         background-color: rgba(255, 255, 255, 0.84);
+
+        margin-left: 7em;
+    }
+
+    .cont-logo-final{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        margin-right: 2em;
+        height: 55em;
     }
     
 }

@@ -13,7 +13,9 @@ export default function LoginAdmin(){
                 <div className='cont-info-login'>
 
                 </div>
-                <img src='/images/Foguete logo.png' />
+                <div className='cont-logo-final'>
+                    <img src='/images/Foguete logo.png' />
+                </div>
             </section>
 
         </main>
