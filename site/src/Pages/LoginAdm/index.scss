@@ -22,16 +22,140 @@
     .cont-info-login{
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
 
-        width: 600px;
+        width: 590px;
         height: 640px;
 
         border-radius: 20px;
 
         background-color: rgba(255, 255, 255, 0.84);
 
-        margin-left: 7em;
+        margin-left: 8em;
+    }
+
+    .cont-01{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+
+        border-bottom: 2px solid #F36E6A;
+
+        padding-bottom: 11px;
+
+        margin-bottom: 5em;
+
+        height: 2em;
+        width: 260px;
+    }
+
+    .text-cont01{
+        font-size: 35px;
+        font-family: 'Goldman';
+        font-weight: 100;
+
+        color: #F36E6A;
+    }
+
+    .cont-02{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 500px;
+        height: 2.6em;
+    }
+
+    .text-02{
+        font-family: 'Goldman';
+        font-size: 23px;
+
+        color: #F36E6A;
+    }
+
+    .img-login-adm{
+        margin-right: 5px;
+    }
+
+    .input-user{
+        height: 2.6em;
+        width: 470px;
+
+        font-size: 16px;
+        padding-left: 0.8em;
+
+        margin-bottom: 1em;
+
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid black;
+    }
+
+    textarea:focus, input:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        border-bottom: 1px solid black;
+        outline: 0;
+    } 
+
+    .cont-03{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 500px;
+        height: 2.6em;
+    }
+
+    .text-03{
+        font-family: 'Goldman';
+        font-size: 23px;
+
+        color: #F36E6A;
+    }
+
+    .input-senha{
+        height: 2.6em;
+        width: 470px;
+
+        font-size: 16px;
+        padding-left: 0.8em;
+
+        margin-bottom: 5em;
+
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid black;
+    }
+
+    .botao-entrar{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+        background-color: #F36E6A;
+        border-radius: 10px;
+
+        border: none;
+
+        width: 190px;
+        height: 4.3em;
+
+        cursor: pointer;
+    }
+
+    .txt-botao-entrar{
+        font-family: 'Goldman';
+        font-weight: 600;
+
+        font-size: 25px;
     }
 
     .cont-logo-final{
@@ -43,5 +167,4 @@
         margin-right: 2em;
         height: 55em;
     }
-    
 }
