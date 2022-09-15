@@ -1,6 +1,5 @@
 import './index.scss';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Logo from '../Logo';
 
 
@@ -70,7 +69,7 @@ export default function Rodape(){
                     </div>
 
                     <div className='botão'>
-                        <Link to="/"><button>Voltar ao início</button></Link>
+                        <button>Voltar ao início</button>
                     </div>
                 </div>
             </section>
