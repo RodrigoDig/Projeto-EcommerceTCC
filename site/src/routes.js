@@ -1,34 +1,35 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-import Home from './Pages/Home';
-import Departamentos from './Pages/Departamentos';
-import Atendimento from './Pages/Atendimentos';
-import CadastroEnd from './Pages/CadastroEndereco';
-import CadastroUser from './Pages/CadastroUser';
-import Carrinho from './Pages/Carrinho';
-import Configurações from './Pages/Configuracoes';
-import EtapaCompraI from './Pages/EtapaCompraI';
-import EtapaCompraII from './Pages/EtapaCompraII';
-import EtapaCompraIII from './Pages/EtapaCompraIII';
-import EtapaCompraIV from './Pages/EtapaCompraIV';
-import Favoritos from './Pages/Favoritos';
-import Login from './Pages/LoginI';
-import LoginII from './Pages/LoginII';
-import LoginIII from './Pages/LoginIII';
-import LoginIV from './Pages/LoginIV';
-import Pedido from './Pages/Pedido';
-import Perfil from './Pages/Perfil';
-import Produto from './Pages/Produto';
+import Home from './Pages/User/Home';
+import Departamentos from './Pages/User/Departamentos';
+import Atendimento from './Pages/User/Atendimentos';
+import CadastroEnd from './Pages/User/CadastroEndereco';
+import CadastroUser from './Pages/User/CadastroUser';
+import Carrinho from './Pages/User/Carrinho'; 
+import Configurações from './Pages/User/Configuracoes';
+import EtapaCompraI from './Pages/User/EtapaCompraI';
+import EtapaCompraII from './Pages/User/EtapaCompraII';
+import EtapaCompraIII from './Pages/User/EtapaCompraIII';
+import EtapaCompraIV from './Pages/User/EtapaCompraIV'
+import Favoritos from './Pages/User/Favoritos';
+import Login from './Pages/User/LoginI';
+import LoginII from './Pages/User/LoginII';
+import LoginIII from './Pages/User/LoginIII';
+import LoginIV from './Pages/User/LoginIV';
+import Pedido from './Pages/User/Pedido';
+import Perfil from './Pages/User/Perfil';
+import Produto from './Pages/User/Produto';
 
-import LoginAdmin from './Pages/LoginAdm';
+import LoginAdmin from './Pages/Admin/LoginAdm';
+import Cadastro from './Pages/Admin/CadastroProduto';
 
 export default function Index(){
     return(
         <BrowserRouter>
             <Routes>
                 <Route path="/" exact element={<Home />} />
-                <Route path='/departamentos' element={<Departamentos/>} />
+                <Route path="/departamentos" element={<Departamentos/>} />
                 <Route path="/atendimento" element={<Atendimento />} />
                 <Route path="/cadastroendereço" element={<CadastroEnd />} />
                 <Route path="/cadastrouser" element={<CadastroUser />} />
@@ -48,6 +49,7 @@ export default function Index(){
                 <Route path="/produto" element={<Produto />} />
 
                 <Route path="/loginadm" element={<LoginAdmin />} />
+                <Route path="/cadastro" element={<Cadastro />} />
             </Routes>
         </BrowserRouter>
     )

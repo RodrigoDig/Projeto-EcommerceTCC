@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './index.scss';
-import Cabecalho3 from '../../Components/Cabeçalho03';
+import Cabecalho3 from '../../../Components/Cabeçalho03';
 
 
 export default function LoginAdmin(){

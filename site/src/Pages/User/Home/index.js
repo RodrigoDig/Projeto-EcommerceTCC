@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.scss';
-import Cabecalho2 from '../../Components/Cabeçalho02';
-import Cabecalho3 from '../../Components/Cabeçalho03';
-import CadastroProduto from '../CadastroProduto';
 
 export default function Home(){
     return(
@@ -14,7 +11,7 @@ export default function Home(){
                 <br/>
                 <Link to="/Loginadm">LoginADM</Link>
                 <br/>
-                <Link to="/CadastroProduto">CadastroProduto</Link>
+                <Link to="/cadastro">CadastroProduto</Link>
                 
             </section>
         </main>

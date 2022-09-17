@@ -1,11 +1,12 @@
 import React from 'react';
 import './index.scss';
+import { Link } from 'react-router-dom';
 
-export default function cadastro(){
+export default function Cadastro(){
     return(
         <main>  
             <section className='fundo-cadastro'>
-                <div >    
+                <div>    
                     <div className='f2'>
                         <p className='Nome'>Nome</p>
                         <input type='text' name='nome' className='input-nome'></input>
@@ -24,8 +25,12 @@ export default function cadastro(){
 
                         <p className='Nome'>Características</p>
                         <input type='text' name='carac' className='input-nome'></input>
-                     </div> 
-                -</div>
+                    </div>
+
+                    <Link to="/">Voltar</Link> 
+
+
+                </div>
             </section>  
             
         </main>
