@@ -1,9 +1,34 @@
+import axios from 'axios';
+
+import { useNavigate } from 'react-router-dom';
+
 import React from 'react';
 import './index.scss';
 import Cabecalho3 from '../../../Components/Cabeçalho03';
-
+import  { useState } from 'react'
 
 export default function LoginAdmin(){
+
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const[erro, setErro] = useState('');
+
+    const navigate = useNavigate();
+
+    async function entrarClick(){
+        try{
+        const r = await axios.post('http://localhost:5000/admin/loginADM', {
+            user: email,
+            senha: senha
+        })
+            navigate('/configuraçoes');
+
+        } catch(err){
+            if(err.response.status === 401){
+                setErro(err.response.data.erro);
+            }
+        }
+    } 
 
     return(
         <main className="cont-main">
@@ -21,18 +46,19 @@ export default function LoginAdmin(){
                             User
                         </h2>
                     </div>
-                    <input className='input-user' />
+                    <input className='input-user' placeholder='Digite seu e-mail' value={email} onChange={e => setEmail(e.target.value)} />
                     <div className='cont-03'>
                         <img src='/images/Cadeado-senha-adm.png'  width={30} height={30} className='img-login-adm' />
                         <h2 className='text-03'>
                             Senha
                         </h2>
                     </div>
-                    <input className='input-senha' type="password" />
-                    <button className='botao-entrar'>
-                        <h1 className='txt-botao-entrar'>
+                    <input className='input-senha' type="password" placeholder='****' value={senha} onChange={e => setSenha(e.target.value)}/>
+                    <h1 className='erro'>
+                        {erro}
+                    </h1>
+                    <button className='botao-entrar' onClick={entrarClick}>
                             Entrar
-                        </h1>
                     </button>
                 </div>
                 <div className='cont-logo-final'>
