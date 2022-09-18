@@ -7,6 +7,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a, a:visited, a:active{
+  text-decoration: none;
+  color: inherit;
+}
+
+::placeholder{
+  color: rgb(158, 158, 158);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospac;
