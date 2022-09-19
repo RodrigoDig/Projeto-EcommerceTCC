@@ -5,32 +5,102 @@ import { Link } from 'react-router-dom';
 export default function Cadastro(){
     return(
         <main>  
-            <section className='fundo-cadastro'>
+            <section>
                 <div>    
-                    <div className='f2'>
-                        <p className='Nome'>Nome</p>
-                        <input type='text' name='nome' className='input-nome'></input>
-                   
-                        <p className='Nome'>Código do Produto</p>
-                        <input type='text' name='CDP' className='input-nome'></input>
+                    <div className='espaço-cadastro'>
+                        <label>Nome</label>
+                        <input type='text' name='nome'/>
 
-                        <p className='Nome'>Preço</p>
-                        <input type='text' name='preco' className='input-nome'></input>
+                        <label>Preço</label>
+                        <input type='text' name='preco'/>
 
-                        <p className='Nome'>Fabricante</p>
-                        <input type='text' name='pabric' className='input-nome'></input>
+                        <label className='Nome'>Fabricante</label>
+                        <input type='text' name='pabric'/>
 
-                        <p className='Nome'>Quantia em Estoque</p>
-                        <input type='text' name='QEE' className='input-nome'></input>
+                        <label>Quantia em Estoque</label>
+                        <input type='text' name='QEE'/>
 
-                        <p className='Nome'>Características</p>
-                        <input type='text' name='carac' className='input-nome'></input>
+                        <label>Características</label>
+                        <input type='text' name='carac'/>
+
+                        <div className='select'>
+                            <label>Departamento</label>
+                            <select className='input-nome'>
+                                <option selected disabled hidden>Selecione</option>
+                                <option>Hardware</option>
+                                <option>Games</option>
+                                <option>Computadores</option>
+                            </select>
+                        </div>
+
+                        <div className='select'> 
+                            <label>Hardware</label>
+                            <select className='input-nome'>
+                                <option selected disabled hidden>Selecione</option>
+                                <option>Hard disk</option>
+                                <option>Memória Ram</option>
+                                <option>Gabinetes</option>
+                                <option>Processadores</option>
+                                <option>Placa de video</option>
+                                <option>Placa mãe</option>
+                                <option>Coolers</option>
+                                <option>Fontes</option>    
+                            </select>
+                        </div>
+
+                        <div className='select'>
+                            <label>Computadores</label>
+                            <select className='input-nome'>
+                                <option selected disabled hidden>Selecione</option>
+                                <option>Gamers</option>
+                                <option>Casuais</option>
+                                <option>Periféricos</option>
+                            </select>
+                        </div>
+
+                        <div className='select'>
+                            <label>Games</label>
+                            <select className='input-nome'>
+                                <option selected disabled hidden>Selecione</option>
+                                <option>Consoles</option>
+                                <option>Acessórios</option>
+                            </select>
+                        </div>
+
+                        <label>Informações Técnicas</label>
+                        <input type='text' name='carac'/>
+
+                        <label>Descrição</label>
+                        <input type='text' name='carac'/>
+
+                        <label>Avaliação 0-5</label>
+                        <input type='text' name='carac'/>
+
+                        <label>Desconto</label>
+                        <input type='text' name='carac'/>
+
+                        <label>Garantia</label>
+                        <input type='date' name='carac'/>
+
                     </div>
 
-                    <Link to="/">Voltar</Link> 
-
-
                 </div>
+
+                <div className='imagens'>
+                    <label>Imagem 1</label>
+                    <input type='file' />
+
+                    <label>Imagem 2</label>
+                    <input type='file' />
+
+                    <label>Imagem 3</label>
+                    <input type='file' />
+                </div>
+
+                <div className='btn'>
+                    <button>Cadastrar Venda</button>
+                </div>
+                
             </section>  
             
         </main>

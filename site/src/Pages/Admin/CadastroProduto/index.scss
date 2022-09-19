@@ -1,30 +1,56 @@
-.fundo-cadastro{
-    background-color: #e4e4e4;
-    height: 100vh;
+.espaço-cadastro{
     display: flex;
-    justify-content: center;
-    margin: none;
+    flex-direction: column;
+    align-items: center;
+
+    label{
+        margin-top: 20px;
+
+        font-style: italic;
+    }
+    input{
+        width: 40em;
+        height: 40px;
+        margin-top: 10px;
+
+        font-size: 1.5em;
+    }
+}
+
+.select{
+    display: flex;
+    flex-direction: column;
+
+    select{
+        width: 40em;
+        height: 40px;
+        margin-top: 10px;
+
+        font-size: 1.5em;
+    }
+}
+
+.imagens{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 2em;
+
+    input{
+        margin-top: 10px;
+        font-size: 1.5em;
+    }
+}
+
+.btn{
+    margin-top: 2em;
     
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button{
+        padding: 1em 2em;
+        font-size: 1em;
+    }
 }
-
-.f2{
-    background-color: #ffffff;
-    border-radius: 0.5em;
-    height: 100vh;
-    width: 130vh;
-    padding-left: 2em;
-}
-
-.Nome{
-    font-family: 'Goldman';
-    color: #000;
-    padding-top: 2em;
-}
-
-.input-nome{
-    border-radius: 0.5em;
-    background-color:#E4E4E4;
-    padding: 0.5em;
-    font-family: 'Goldman';
-}
-
