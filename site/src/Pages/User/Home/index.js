@@ -2,17 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.scss';
 
+import Cabecalho04 from '../../../Components/Cabeçalho04';
+
 export default function Home(){
     return(
         <main>
             <section className='teste'>
-                <h1>Olá</h1>
-                <Link to="/departamentos">Departamento</Link>
-                <br/>
-                <Link to="/Loginadm">LoginADM</Link>
-                <br/>
-                <Link to="/cadastro">CadastroProduto</Link>
-                
+                <Cabecalho04/>
             </section>
         </main>
     )
