@@ -7,23 +7,13 @@
     width: 50%;
     height: 100%;
 
-    
-
-
     .cont-cabecalho{
-        width: 100%;
-        height: 50%;
-
-
-        background-color: #FFFFFF;
+        width: max-content;
+        height: max-content;
     }
 
     .cont-section{
         display: block;
-        background-color: #ffffff;
-        padding-left: 50%;
-        padding-bottom: 3em;
-        border-radius: 2em;
     }
     .espaço-cadastro{
         display: flex;
@@ -42,12 +32,19 @@
             width: 20em;
             height: 40px;
             margin-top: 10px;
-            background-color: #e4e4e4;
+
             font-size: 1.5em;
-            
-            border: none;
-            border-radius: .5em;
         }
+    .contfilha2-infocad-001{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 32.5em;
+        height: 30em;
+
+        border: 0.1px solid rgb(0, 255, 26);
     }
 
     .select{
@@ -87,73 +84,8 @@
         input{
             margin-top: 10px;
             font-size: 1.5em;
-            padding: 2em;
-
-            border-radius: 1em;
-
-            height: 1.5em;
-            width: 1.5em;
-            background-color: #e4e4e4;
-            
-            position:absolute;
-            top: 3em;
-            right: 3em;
         }
     }
-
-    .direita{
-   
-
-        position:absolute;
-            top: em;
-            right: 15em;
-          
-        input{
-            position:absolute;
-            top: 30em;
-            right: 1em;
-        }  
-         
-        .avaliacao{
-   
-            position:absolute;
-            top: 20em;
-            right: em;
-      
-         input{
-                position:absolute;
-                top: 30em;
-                right: 1em;
-            }   
-        }
-
-    .desconto{
-   
-        position:absolute;
-        top: 30em;
-        right: 15em;
-      
-        input{
-            position:absolute;
-            top: 30em;
-            right: 1em;
-        }   
-    }
-
-    .garantia{
-        position:absolute;
-        top: 50em;
-        right: 15em;
-      
-    input{
-        position:absolute;
-        top: 30em;
-        right: 1em;
-    }  
-    }
-}
-
-    
 
     .btn{
         margin-top: 7em;

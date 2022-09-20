@@ -6,6 +6,9 @@ import React from 'react';
 import './index.scss';
 import Cabecalho3 from '../../../Components/Cabeçalho03';
 import  { useState } from 'react'
+import FogueteLogo from '../../../assets/images/Foguete logo.png';
+import CadeadoLogo from '../../../assets/images/Cadeado-senha-adm.png'
+import LoginIcon from '../../../assets/images/icon-login-adm.png'
 
 export default function LoginAdmin(){
 
@@ -41,14 +44,14 @@ export default function LoginAdmin(){
                         </h1>
                     </div>
                     <div className='cont-02'>
-                        <img src='/images/icon-login-adm.png'  width={38} height={38} className='img-login-adm'/>
+                        <img src={LoginIcon}  width={38} height={38} className='img-login-adm'/>
                         <h2 className='text-02'>
                             User
                         </h2>
                     </div>
                     <input className='input-user' placeholder='Digite seu e-mail' value={email} onChange={e => setEmail(e.target.value)} />
                     <div className='cont-03'>
-                        <img src='/images/Cadeado-senha-adm.png'  width={30} height={30} className='img-login-adm' />
+                        <img src={CadeadoLogo}  width={30} height={30} className='img-login-adm' />
                         <h2 className='text-03'>
                             Senha
                         </h2>
@@ -62,7 +65,7 @@ export default function LoginAdmin(){
                     </button>
                 </div>
                 <div className='cont-logo-final'>
-                    <img src='/images/Foguete logo.png' />
+                    <img src={FogueteLogo} />
                 </div>
             </section>
 
