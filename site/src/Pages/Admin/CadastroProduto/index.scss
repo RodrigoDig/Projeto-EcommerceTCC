@@ -2,72 +2,178 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    background-color: #e4e4e4;
 
-    width: 100%;
+    width: 50%;
     height: 100%;
 
+    
+
+
     .cont-cabecalho{
-        width: max-content;
-        height: max-content;
+        width: 100%;
+        height: 50%;
+
+
+        background-color: #FFFFFF;
     }
 
     .cont-section{
         display: block;
+        background-color: #ffffff;
+        padding-left: 50%;
+        padding-bottom: 3em;
+        border-radius: 2em;
     }
     .espaço-cadastro{
         display: flex;
         flex-direction: column;
-        align-items: center;
-
+        
+        
+        
         label{
             margin-top: 20px;
 
-            font-style: italic;
+            font-family: 'Goldman';
+
+            
         }
         input{
-            width: 40em;
+            width: 20em;
             height: 40px;
             margin-top: 10px;
-
+            background-color: #e4e4e4;
             font-size: 1.5em;
+            
+            border: none;
+            border-radius: .5em;
         }
     }
 
     .select{
         display: flex;
         flex-direction: column;
+        padding-top: 20px;
 
         select{
-            width: 40em;
+            width: 20em;
             height: 40px;
             margin-top: 10px;
+            
+            background-color: #e4e4e4;
+            
+            font-size: 1em;
+            font-family: 'Goldman';
 
-            font-size: 1.5em;
+            border: none;
+            border-radius: .5em;
         }
     }
 
     .imagens{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
 
-        margin-top: 2em;
+        font-family: 'Goldman';
+
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+
+        position:absolute;
+            top: 1em;
+            right: 15em;
+
+       
 
         input{
             margin-top: 10px;
             font-size: 1.5em;
+            padding: 2em;
+
+            border-radius: 1em;
+
+            height: 1.5em;
+            width: 1.5em;
+            background-color: #e4e4e4;
+            
+            position:absolute;
+            top: 3em;
+            right: 3em;
         }
     }
 
+    .direita{
+   
+
+        position:absolute;
+            top: em;
+            right: 15em;
+          
+        input{
+            position:absolute;
+            top: 30em;
+            right: 1em;
+        }  
+         
+        .avaliacao{
+   
+            position:absolute;
+            top: 20em;
+            right: em;
+      
+         input{
+                position:absolute;
+                top: 30em;
+                right: 1em;
+            }   
+        }
+
+    .desconto{
+   
+        position:absolute;
+        top: 30em;
+        right: 15em;
+      
+        input{
+            position:absolute;
+            top: 30em;
+            right: 1em;
+        }   
+    }
+
+    .garantia{
+        position:absolute;
+        top: 50em;
+        right: 15em;
+      
+    input{
+        position:absolute;
+        top: 30em;
+        right: 1em;
+    }  
+    }
+}
+
+    
+
     .btn{
-        margin-top: 2em;
+        margin-top: 7em;
         
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding-left: 30em;
+       
         button{
             padding: 1em 2em;
             font-size: 1em;
+            font-family: 'Goldman';
+
+            border: none;
+            border-radius: 2em;
+
+            background-color:#1E1E1E;
+            color: #FFFFFF;
+
         }
     }
 }

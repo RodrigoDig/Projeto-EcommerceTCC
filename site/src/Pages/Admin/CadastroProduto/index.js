@@ -18,7 +18,7 @@ export default function Cadastro(){
                         <label>Preço</label>
                         <input type='text' name='preco'/>
 
-                        <label className='Nome'>Fabricante</label>
+                        <label>Fabricante</label>
                         <input type='text' name='pabric'/>
 
                         <label>Quantia em Estoque</label>
@@ -28,9 +28,9 @@ export default function Cadastro(){
                         <input type='text' name='carac'/>
 
                         <div className='select'>
-                            <label>Departamento</label>
+                            
                             <select className='input-nome'>
-                                <option selected disabled hidden>Selecione</option>
+                                <option selected disabled hidden>Departamento</option>
                                 <option>Hardware</option>
                                 <option>Games</option>
                                 <option>Computadores</option>
@@ -38,9 +38,9 @@ export default function Cadastro(){
                         </div>
 
                         <div className='select'> 
-                            <label>Hardware</label>
+                            
                             <select className='input-nome'>
-                                <option selected disabled hidden>Selecione</option>
+                                <option selected disabled hidden>CATEGORIA I</option>
                                 <option>Hard disk</option>
                                 <option>Memória Ram</option>
                                 <option>Gabinetes</option>
@@ -53,9 +53,9 @@ export default function Cadastro(){
                         </div>
 
                         <div className='select'>
-                            <label>Computadores</label>
+                            
                             <select className='input-nome'>
-                                <option selected disabled hidden>Selecione</option>
+                                <option selected disabled hidden>CATEGORIA II</option>
                                 <option>Gamers</option>
                                 <option>Casuais</option>
                                 <option>Periféricos</option>
@@ -63,9 +63,9 @@ export default function Cadastro(){
                         </div>
 
                         <div className='select'>
-                            <label>Games</label>
+                           
                             <select className='input-nome'>
-                                <option selected disabled hidden>Selecione</option>
+                                <option selected disabled hidden>CATEGORIA III</option>
                                 <option>Consoles</option>
                                 <option>Acessórios</option>
                             </select>
@@ -77,14 +77,19 @@ export default function Cadastro(){
                         <label>Descrição</label>
                         <input type='text' name='carac'/>
 
-                        <label>Avaliação 0-5</label>
-                        <input type='text' name='carac'/>
+                        <div className= 'direita'>
 
-                        <label>Desconto</label>
-                        <input type='text' name='carac'/>
+                         <label className='avaliacao'>Avaliação 0-5</label>
+                         <input type='number' name='carac'/>
 
-                        <label>Garantia</label>
-                        <input type='date' name='carac'/>
+                         <label className='desconto'>Desconto</label>
+                         <input type='checkbox' name='carac'/>
+
+                         <label className='garantia'>Garantia</label>
+                         <input type='date' name='carac' className='input'/>
+                        
+                        </div>
+
 
                     </div>
 
@@ -92,17 +97,24 @@ export default function Cadastro(){
 
                 <div className='imagens'>
                     <label>Imagem 1</label>
-                    <input type='file' />
+                    <input type='image'/>
 
-                    <label>Imagem 2</label>
-                    <input type='file' />
+                    
+                    <input type='image' />
 
-                    <label>Imagem 3</label>
-                    <input type='file' />
+                    
+                    <input type='image' />
                 </div>
 
+                <div className='imagens'>
+                    <label>Imagem 1</label>
+                    <input type='image'/>
+
+                </div>
+
+
                 <div className='btn'>
-                    <button>Cadastrar Venda</button>
+                    <button>CADASTRAR</button>
                 </div>
                 
             </section>  
