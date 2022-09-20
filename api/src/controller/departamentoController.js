@@ -3,7 +3,7 @@ import { listarDepartamentos } from "../repository/departamentoRepository.js";
 import { Router } from "express";
 const server = Router();
 
-server.get('/api/departamentos', async (req, resp) =>{
+server.get('/api/departamento', async (req, resp) =>{
     try{
         const linhas = await listarDepartamentos();
         resp.send(linhas);
@@ -14,3 +14,5 @@ server.get('/api/departamentos', async (req, resp) =>{
     }
 
 }) 
+
+export default server;
