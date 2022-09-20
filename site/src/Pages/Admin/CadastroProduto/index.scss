@@ -4,7 +4,7 @@
     justify-content: space-between;
     background-color: #e4e4e4;
 
-    width: 50%;
+    width: 100%;
     height: 100%;
 
     .cont-cabecalho{
@@ -13,79 +13,243 @@
     }
 
     .cont-section{
-        display: block;
-    }
-    .espaço-cadastro{
         display: flex;
         flex-direction: column;
-        
-        
-        
-        label{
-            margin-top: 20px;
+        align-items: center;
+        justify-content: flex-start;
 
-            font-family: 'Goldman';
+        width: 100em;
+    }
 
-            
-        }
-        input{
-            width: 20em;
-            height: 40px;
-            margin-top: 10px;
 
-            font-size: 1.5em;
-        }
+    .cont-titulo-cadastro{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+
+        margin-top: 3em;
+        margin-bottom: 2em;
+
+        width: 22em;
+
+        padding-bottom: 0.3em;
+
+        border-bottom: 3px solid #F27400;
+    }
+
+    .img-cad{
+        width: max-content;
+        height: max-content;
+        margin-right: 0.6em;
+
+        margin-bottom: 0.5px;
+    }
+
+    .txt-cad{
+        font-size: 29px;
+        font-family: 'Goldman';
+        font-weight: 100;
+
+        margin: 0px;
+        height: max-content;
+    }
+
+    .cont-infos-cad{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+
+        border-radius: 60px;
+        width: 90em;
+        height: max-content;
+
+        background-color: #FFFFFF;
+    }
+
+    .cont-infocad-001{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 90em;
+        height: 36em;
+
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+    }
+    .contfilha1-infocad-001{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        padding-left: 7em;  
+        width: 45em;
+        height: 36em;
+
+        border-top-left-radius: 60px;
+    }
+    .text1-infocad001{
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+        margin: 0px;
+        margin-bottom: 13px;
+
+        margin-top:2em;
+    }
+
+    .text2-infocad001{
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+        margin: 0px;
+        margin-bottom: 13px;
+        margin-top: 12px;
+    }
+
+    .input1-infocad001{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30em;
+        height: 3.2em;
+    }
+    .input2-infocad001{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30em;
+        height: 3.2em;
+    }
+    .input3-infocad001{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30em;
+        height: 3.2em;
+    }
+    .input4-infocad001{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30em;
+        height: 3.2em;
+    }
+
     .contfilha2-infocad-001{
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
 
-        width: 32.5em;
-        height: 30em;
-
-        border: 0.1px solid rgb(0, 255, 26);
+        width: 45em;
+        height: 36em;
     }
 
-    .select{
+    .selecionar-img1{
         display: flex;
         flex-direction: column;
-        padding-top: 20px;
+        align-items: center;
+        justify-content: center;
+        width: 12em;
+        height: 10em;
 
-        select{
-            width: 20em;
-            height: 40px;
-            margin-top: 10px;
-            
-            background-color: #e4e4e4;
-            
-            font-size: 1em;
-            font-family: 'Goldman';
+        padding-bottom: 20px;
+        border-radius: 20px;
 
-            border: none;
-            border-radius: .5em;
-        }
+        border: 1px solid black;
+
+        cursor: pointer;
+    }
+    .input-img1{
+        display: none;
     }
 
-    .imagens{
-
+    .titulo-contfilha2-infocad001{
+        font-size: 22px;
         font-family: 'Goldman';
+        font-weight: 100;
 
+        margin-top: 2em;
+    }
+
+    .contneta1-infocad001{
         display: flex;
         flex-direction: row;
-        align-items: end;
+        align-items: center;
+        justify-content: space-around;
 
-        position:absolute;
-            top: 1em;
-            right: 15em;
+        width: 37em;
+        height: 14em;
 
-       
-
-        input{
-            margin-top: 10px;
-            font-size: 1.5em;
-        }
+        margin-bottom: 1em;
     }
+
+    .text-contneta1{
+        font-size: 16px;
+        font-family: 'Goldman';
+        font-weight: 100;
+    }
+
+    .selecionar-img2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 12em;
+        height: 10em;
+
+        padding-bottom: 20px;
+
+        border: 1px solid  #1E1E1E;
+        border-radius: 20px;
+
+        cursor: pointer;
+    }
+
+    .selecionar-img3{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 12em;
+        height: 10em;
+
+        padding-bottom: 20px;
+        border-radius: 20px;
+
+        border: 1px solid black;
+
+        cursor: pointer;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     .btn{
         margin-top: 7em;
@@ -107,5 +271,5 @@
             color: #FFFFFF;
 
         }
-    }
+    }   
 }
