@@ -1,14 +1,10 @@
 import React from 'react';
 import './index.scss';
-
-import Cadastro from '../../Admin/CadastroProduto';
+import Cabecalho04 from '../../../Components/Cabeçalho04';
 
 export default function Home(){
     return(
         <main>
-            <section className='teste'>
-                <Cadastro />
-            </section>
         </main>
     )
 }

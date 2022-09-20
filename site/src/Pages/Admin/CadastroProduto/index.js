@@ -1,11 +1,15 @@
 import React from 'react';
 import './index.scss';
 import { Link } from 'react-router-dom';
+import Cabecalho04 from '../../../Components/Cabeçalho04';
 
 export default function Cadastro(){
     return(
-        <main>  
-            <section>
+        <main className='cont-main'>
+            <section className='cont-cabecalho'>
+                <Cabecalho04 />
+            </section>
+            <section className='cont-section'>
                 <div>    
                     <div className='espaço-cadastro'>
                         <label>Nome</label>

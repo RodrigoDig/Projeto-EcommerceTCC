@@ -2,10 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     background-color: #1e1e1e;
     height: 100vh;
     width: 20em;
+    
+    position: fixed;
 
     .cont-logo{
         display: flex;
@@ -16,9 +18,11 @@
         height: 3em;
         width: 14em;
 
+        margin-bottom: 1em;
+
         padding-left: 15px;
     }
-    .cont-01{
+    .cont-001{
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -26,6 +30,8 @@
 
         height: 3em;
         width: 14.9em;
+
+        margin: 0em;
 
         border-bottom   : 1px solid #F27400;
     }
@@ -37,19 +43,16 @@
 
         color: #fff;
     }
-    .cont-02{
+    .cont-002{
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content:flex-start;
+        justify-content: center;
         height: 3em;
-        width: 14.3em;
-
-        padding-left: 10px;
+        width: 14.4em;
     }
     .img-cont-02{
-        width: 25px;
-        height: 25px;
+        height: max-content;
 
         margin-right: 13px;
     }
@@ -60,17 +63,17 @@
 
         color: #fff;
     }
-    .cont-03{
+    .cont-003{
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content:flex-start;
+        justify-content: flex-start;
         height: 3em;
-        width: 14.4em;
+        width: 13.9em;
     }
     .img-cont-03{
-        width: 35px;
-        height: 28px;
+        width: max-content;
+        height: max-content;
 
         margin-right: 13px;
     }
@@ -109,7 +112,6 @@
         width: 14.4em;
     }
     .img-cont-05{
-        width: 34px;
         height: 23px;
     
         margin-right: 13px;
@@ -170,9 +172,50 @@
         width: 14.4em;
     }
     .img-cont-08{
-        width: 31px;
-        height: 29px;
-    
+        width: max-content;
+        height: max-content;
+        margin-top: 0px;
         margin-right: 13px;
+    }
+    .txt-cont-08{
+        font-family: 'Goldman';
+        font-size: 17.5px;
+        font-weight: 100;
+        margin-top: 20px;
+
+        color: #fff;
+    }
+
+    .cont-09{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        height: 3em;
+        width: 13em;
+
+        margin-bottom: 1em;
+    }
+    .img-cont-09{
+        width: max-content;
+        height: max-content;
+        margin-top: 0px;
+        margin-right: 13px;
+    }
+    .cont-sair{
+        margin-top: 8em;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        height: 3em;
+        width: 13em;
+    }
+
+    .img-cont-sair{
+        width: max-content;
+        height: max-content;
+        margin-top: 0px;
+        margin-right: 3px;
     }
 }
