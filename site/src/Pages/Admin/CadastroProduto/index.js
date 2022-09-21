@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.scss';
 import { Link } from 'react-router-dom';
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg'
 import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
+import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
+
 
 export default function Cadastro(){
+    const[idCategoria, setIdCategoria] = useState();
+    const[categorias, setCategorias] = useState([]);
+
+    const [idDepartamento, setIddepartamento] = useState();
+    const [departamentos, setDepartamentos] = useState([]);
+
     return(
         <main className='cont-main'>
             <section className='cont-cabecalho'>
@@ -69,98 +77,111 @@ export default function Cadastro(){
                                     <input name='arquivo3' id='arquivo3' type='file' className='input-img1' />
                                 </label>
                         </div>
-                    </div>    
-
-
-
-
-
-                    <div className='espaço-cadastro'>
-                        <label>Nome</label>
-                        <input type='text' name='nome' className=''/>
-
-                        <label>Preço</label>
-                        <input type='text' name='preco'/>
-
-                        <label>Fabricante</label>
-                        <input type='text' name='pabric'/>
-
-                        <label>Quantia em Estoque</label>
-                        <input type='text' name='QEE'/>
-
-                        <label>Características</label>
-                        <input type='text' name='carac'/>
-
-                        <div className='select'>
-                            
-                            <select className='input-nome'>
-                                <option selected disabled hidden>Selecione</option>
-                                <option>Hardware</option>
-                                <option>Games</option>
-                                <option>Computadores</option>
-                            </select>
-                        </div>
-
-                        <div className='select'> 
-                            
-                            <select className='input-nome'>
-                                <option selected disabled hidden>CATEGORIA I</option>
-                                <option>Hard disk</option>
-                                <option>Memória Ram</option>
-                                <option>Gabinetes</option>
-                                <option>Processadores</option>
-                                <option>Placa de video</option>
-                                <option>Placa mãe</option>
-                                <option>Coolers</option>
-                                <option>Fontes</option>    
-                            </select>
-                        </div>
-
-                        <div className='select'>
-                            
-                            <select className='input-nome'>
-                                <option selected disabled hidden>CATEGORIA II</option>
-                                <option>Gamers</option>
-                                <option>Casuais</option>
-                                <option>Periféricos</option>
-                            </select>
-                        </div>
-
-                        <div className='select'>
-                           
-                            <select className='input-nome'>
-                                <option selected disabled hidden>CATEGORIA III</option>
-                                <option>Consoles</option>
-                                <option>Acessórios</option>
-                            </select>
-                        </div>
-
-                        <label>Informações Técnicas</label>
-                        <input type='text' name='carac'/>
-
-                        <label>Descrição</label>
-                        <input type='text' name='carac'/>
-
-                        <div className= 'direita'>
-
-                         <label className='avaliacao'>Avaliação 0-5</label>
-                         <input type='number' name='carac'/>
-
-                         <label className='desconto'>Desconto</label>
-                         <input type='checkbox' name='carac'/>
-
-                         <label className='garantia'>Garantia</label>
-                         <input type='date' name='carac' className='input'/>
-                        
-                        </div>
-
-
                     </div>
+                    <div className='cont-infocad-002'>
+                        <div className='contfilha1-infocad-002'>
+                            <h2 className='text1-infocad002'>
+                             Caracteristicas
+                            </h2> 
+                            <input className='input1-infocad002' />
+                            <label className='text2-infocad002'>Departamento:</label>
+                                <select className='select-departamentos' value={idDepartamento} onChange={e => setIddepartamento(e.target.value)}>
+                                    <option selected disabled hidden >Selecione um Departamento</option>
 
-                </div>
+                                    {departamentos.map(item =>
+                                    <option value={item.id}> {item.departamento} </option>
+                                    )}
+                                </select>
+                                <label className='text3-infocad002'>Categoria 1:</label>
+                    
+                                <select className='select-categoria1' value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
+                                    <option selected disabled hidden>Selecione uma Categoria</option>
 
-                <div className='btn'>
-                    <button>CADASTRAR</button>
+                                        {categorias.map(item =>
+                                    <option value={item.id}> {item.cate2goria} </option>
+                                    )}
+                                </select>
+                                <label className='text3-infocad002'>Categoria 2:</label>
+                    
+                                <select className='select-categoria2' value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
+                                    <option selected disabled hidden>Selecione uma Categoria</option>
+
+                                        {categorias.map(item =>
+                                    <option value={item.id}> {item.categoria} </option>
+                                    )}
+                                </select>
+                                <label className='text3-infocad002'>Categoria 3:</label>
+                    
+                                <select className='select-categoria3' value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
+                                    <option selected disabled hidden>Selecione uma Categoria</option>
+
+                                        {categorias.map(item =>
+                                    <option value={item.id}> {item.categoria} </option>
+                                    )}
+                                </select>
+                        </div>
+                        <div className='contfilha2-infocad-002'>
+                            <div className='cont1-contfilha2-infocad002'>
+                                <h1 className='text1-filha2-002'>
+                                    Avaliação
+                                </h1>
+                                <p className='number-avaliacao'>
+                                    0
+                                </p>
+                            </div>
+                            <div className='cont2-contfilha2-infocad002'>
+                                <img src={EstrelaIcon} />
+                                <img src={EstrelaIcon} />
+                                <img src={EstrelaIcon} />
+                                <img src={EstrelaIcon} />
+                                <img src={EstrelaIcon} />
+                            </div>
+                            <div className='cont3-contfilha2-infocad002'>
+                                <h1 className='text1-c3-contfilha2-infocad002'>
+                                    Desconto
+                                </h1>
+                            </div>
+                            <div className='cont4-contfilha2-infocad002'>
+                                <div className='cont1-c4-contfilha2-infocad002'>
+                                    <input type='radio' className='input-c2-c4' name='simounao' />
+                                    <h2 className='sim-input'>
+                                        Sim
+                                    </h2>
+                                </div>
+                                <div className='cont2-c4-contfilha2-infocad002'>
+                                    <input type='radio'id='inp' className='input-c2-c4' name='simounao' />
+                                    <h2 for='inp' className='sim-input'>
+                                        Não
+                                    </h2>
+                                </div>
+                            </div>
+                            <div className='cont5-contfilha2-infocad002'>
+                                <h2 className='text1-c5-contfilha2-infocad002'>
+                                    Valor do Desconto
+                                </h2> 
+                                <input className='input1-infocad001' />
+                            </div>
+                            <div className='cont5-contfilha2-infocad002' >
+                                <h2 className='text1-c5-contfilha2-infocad002'>
+                                    Garantia
+                                </h2> 
+                                <input className='input1-infocad001' type='date' />
+                            </div>
+                        </div>
+                    </div>
+                    <div className='cont-infocad-003'>
+                        <h2 className='text1-infocad003'>
+                            Informações Tecnicas
+                        </h2> 
+                        <input className='input1-infocad003' />
+                        <h2 className='text1-infocad003'>
+                            Descrição
+                        </h2> 
+                        <input className='input1-infocad003' />
+                    </div>
+                        <button className='botao-cad'>
+                            CADASTRAR
+                        </button>
                 </div>
                 
             </section>  

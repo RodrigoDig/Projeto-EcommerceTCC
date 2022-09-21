@@ -7,6 +7,12 @@
     width: 100%;
     height: 100%;
 
+    textarea:focus, input:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    } 
+
     .cont-cabecalho{
         width: max-content;
         height: max-content;
@@ -66,6 +72,8 @@
         height: max-content;
 
         background-color: #FFFFFF;
+
+        margin-bottom: 4em;
     }
 
     .cont-infocad-001{
@@ -239,37 +247,314 @@
         cursor: pointer;
     }
 
+    .cont-infocad-002{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
 
+        width: 90em;
+        height: 36em;
+    }
+    .contfilha1-infocad-002{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
 
+        padding-left: 7em;  
+        width: 40em;
+        height: 36em;
 
+    }
 
+    
+    .text1-infocad002{
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+        margin: 0px;
+        margin-bottom: 13px;
+    }
 
+    .text2-infocad002{
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+        margin: 0px;
+        margin-bottom: 13px;
+    }
 
+    .input1-infocad002{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30em;
+        height: 3.2em;
 
+        margin-bottom: 0.8em;
+    }
 
+    .select-departamentos{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30.7em;
+        height: 3.2em;
 
+        margin-bottom: 0.8em;
+    }
 
+    .select-categoria1{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30.7em;
+        height: 3.2em;
 
+        margin-bottom: 0.8em;
+    }
+    
+    .text3-infocad002{
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+        margin: 0px;
+        margin-bottom: 13px;
+    }
 
-    .btn{
-        margin-top: 7em;
-        
+    .select-categoria2{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30.7em;
+        height: 3.2em;
+
+        margin-bottom: 0.8em;
+    }
+    
+    .select-categoria3{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 30.7em;
+        height: 3.2em;
+
+        margin-bottom: 0.8em;
+    }
+    
+    .contfilha2-infocad-002{
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding-left: 30em;
-       
-        button{
-            padding: 1em 2em;
-            font-size: 1em;
-            font-family: 'Goldman';
+        justify-content: center;
 
-            border: none;
-            border-radius: 2em;
+        width: 45em;
+        height: 36em;
+    }
 
-            background-color:#1E1E1E;
-            color: #FFFFFF;
+    .text1-filha2-002{
+        font-size: 22px;
+        font-family: 'Goldman';
+        font-weight: 100;
 
-        }
-    }   
+
+    }
+
+    .cont1-contfilha2-infocad002{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 18em;
+        height: 2em;
+    }
+
+    .number-avaliacao{
+        font-size: 22px;
+        font-family: 'Goldman';
+
+    }
+
+    .cont2-contfilha2-infocad002{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 1.2em;
+
+        width: 19em;
+        height: 4em;
+    }
+
+    .cont3-contfilha2-infocad002{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 24em;    
+        height: 3em;
+
+        margin-bottom: 1.2em;
+
+        border-top: 1px solid black;
+    }
+
+    .text1-c3-contfilha2-infocad002{
+        font-size: 22px;
+        font-family: 'Goldman';
+        font-weight: 100;
+
+        margin: 0px;
+    }
+
+    .cont4-contfilha2-infocad002{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 19em;    
+        height: 2em;
+
+        margin-bottom: 1.5em;
+    }
+    .sim-input{
+        font-size: 20px;
+        font-family: 'Goldman';
+        font-weight: 100;
+
+        margin: 0px;
+    }
+
+    .input-c2-c4{
+        cursor: pointer;
+        width: 16px;
+        height: 16px;
+    }
+    .cont1-c4-contfilha2-infocad002{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 5em;
+        height: 2em;
+    }
+    .cont2-c4-contfilha2-infocad002{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 5em;
+        height: 2em;
+    }
+
+    .cont5-contfilha2-infocad002{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+
+        width: 37em;
+        height: 7em;
+
+        margin-bottom: 0.8em;
+    }
+
+    .text1-c5-contfilha2-infocad002{
+        font-size: 22px;
+        font-family: 'Goldman';
+        font-weight: 100;
+
+        margin: 0px;
+
+        margin-bottom: 0.8em;
+    }
+    .cont-infocad-003{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start ;
+        justify-content: flex-start;
+
+        width: 80em;
+        height: 36em;
+        margin-left: 2em;
+
+    }
+    .text1-infocad003{
+        font-size: 22px;
+        font-family: 'Goldman';
+        font-weight: 100;
+
+        margin-left: 0.8em ;
+    }
+    .input1-infocad003{
+        border: none;
+        font-size: 19px;
+        font-family: 'Goldman';
+        border-radius: 16px;
+        background-color: #e4e4e4;
+        padding-left: 14px;
+        width: 65.8em;
+        height: 10em;
+
+        margin-left: 0.8em;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    .botao-cad{
+        width: 15em;
+        height: 3em;
+
+        background-color: #1E1E1E;
+        color: #FFFFFF;
+
+        font-family: 'Goldman';
+        font-size: 22px;
+
+        border:none;
+
+        border-radius: 37px;
+        margin-bottom: 2em;
+
+        cursor: pointer;
+
+        transition: 0.3s;
+    }
+    .botao-cad:hover{
+        background-color: #FFFFFF;
+        border: 0.5px solid #1E1E1E;
+
+        color: #1E1E1E;
+    }
 }
