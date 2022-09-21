@@ -2,6 +2,8 @@ import './index.scss';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo';
 
+import LoginIcon from '../../assets/images/login.png';
+
 export default function Cabecalho3(){
     return(
         <main>
@@ -14,7 +16,7 @@ export default function Cabecalho3(){
                     BEM VINDO NOVAMENTE!
                 </h1>
 
-                <img src='/images/login.png' className='login-icon'/>
+                <img src={LoginIcon} className='login-icon'/>
             </section>
         </main>
     )

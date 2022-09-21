@@ -6,7 +6,7 @@ import React from 'react';
 import './index.scss';
 import Cabecalho3 from '../../../Components/Cabeçalho03';
 import  { useState } from 'react'
-import FogueteLogo from '../../../assets/images/Foguete logo.png';
+import FogueteLogo from '../../../assets/images/foguetelogo.png';
 import CadeadoLogo from '../../../assets/images/Cadeado-senha-adm.png'
 import LoginIcon from '../../../assets/images/icon-login-adm.png'
 
@@ -34,8 +34,10 @@ export default function LoginAdmin(){
     } 
 
     return(
-        <main className="cont-main">
-            <Cabecalho3 />
+        <main className="cont-main-prod">
+            <section className='cabecalho'>
+                <Cabecalho3 />
+            </section>
             <section className="cont-login">
                 <div className='cont-info-login'>
                     <div className='cont-01'>

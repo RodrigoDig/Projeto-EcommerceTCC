@@ -15,7 +15,7 @@ export default function Cadastro(){
     const [departamentos, setDepartamentos] = useState([]);
 
     return(
-        <main className='cont-main'>
+        <main className='cont-main-cad'>
             <section className='cont-cabecalho'>
                 <Cabecalho04 />
             </section>
