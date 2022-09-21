@@ -10,8 +10,13 @@ import {listarDepartamentos} from '../../../Api/departamentoApi';
 import {useState, useEffect} from 'react';
 
 export default function Cadastro(){
+    const [nome, setNome] = useState('');
+    const [preco, setPreco] = useState(0);
+    const [fabricante, setFabricante] = useState('');
 
-    const [idCategoria, setIdCategoria] = useState();
+    const [idCategoria1, setIdCategoria1] = useState();
+    const [idCategoria2, setIdCategoria2] = useState();
+    const [idCategoria3, setIdCategoria3] = useState();
     const [categorias, setCategorias] = useState([]);
 
     const [idDepartamento, setIdDepartamento] = useState();
@@ -21,7 +26,7 @@ export default function Cadastro(){
 
 
     function salvar() {
-        alert('Categoria: ' + idCategoria + ', Departamento: ' + idDepartamento);
+        alert('Categoria: ' + idCategoria1 + idCategoria2 + idCategoria3 + ', Departamento: ' + idDepartamento);
     }
 
 
@@ -31,7 +36,7 @@ export default function Cadastro(){
     }
 
     function adicionarCategoria() {
-        const categorias = [...catSelecionadas, idCategoria];
+        const categorias = [...catSelecionadas, idCategoria1,idCategoria2,idCategoria3];
         setCatSelecionadas(categorias);
     }
 
@@ -135,7 +140,7 @@ export default function Cadastro(){
                                 </select>
 
                                 <label className='text3-infocad002'>Categoria 1:</label>
-                                <select className='select-categoria1' value={idCategoria} onChange={e => setIdCategoria(e.target.value )}>
+                                <select className='select-categoria1' value={idCategoria1} onChange={e => setIdCategoria1(e.target.value )}>
                                     <option selected disabled hidden>Selecione uma Categoria</option>
                                     {categorias.map(item =>
                                         <option value={item.id}>{item.categoria}</option>
@@ -143,7 +148,7 @@ export default function Cadastro(){
                                 </select>        
 
                                 <label className='text3-infocad002'>Categoria 2:</label>
-                                <select className='select-categoria2'value={idCategoria} onChange={e => setIdCategoria(e.target.value )}>
+                                <select className='select-categoria2'value={idCategoria2} onChange={e => setIdCategoria2(e.target.value )}>
                                     <option selected disabled hidden>Selecione uma Categoria</option>
                                     {categorias.map(item =>
                                         <option value={item.id}>{item.categoria}</option>
@@ -151,7 +156,7 @@ export default function Cadastro(){
                                 </select>
 
                                 <label className='text3-infocad002'>Categoria 3:</label>
-                                <select className='select-categoria3' value={idCategoria} onChange={e => setIdCategoria(e.target.value )}>
+                                <select className='select-categoria3' value={idCategoria3} onChange={e => setIdCategoria3(e.target.value )}>
                                     <option selected disabled hidden>Selecione uma Categoria</option>
                                     {categorias.map(item =>
                                         <option value={item.id}>{item.categoria}</option>
