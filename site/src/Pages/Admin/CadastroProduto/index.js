@@ -1,18 +1,57 @@
-import React, { useState } from 'react';
 import './index.scss';
-import { Link } from 'react-router-dom';
+
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg'
 import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
+import {listarCategorias} from '../../../Api/categoriaApi';
+import {listarDepartamentos} from '../../../Api/departamentoApi';
+import {useState, useEffect} from 'react';
 
 export default function Cadastro(){
-    const[idCategoria, setIdCategoria] = useState();
-    const[categorias, setCategorias] = useState([]);
 
-    const [idDepartamento, setIddepartamento] = useState();
+    const [idCategoria, setIdCategoria] = useState();
+    const [categorias, setCategorias] = useState([]);
+
+    const [idDepartamento, setIdDepartamento] = useState();
     const [departamentos, setDepartamentos] = useState([]);
+
+    const [catSelecionadas, setCatSelecionadas] = useState([]);
+
+
+    function salvar() {
+        alert('Categoria: ' + idCategoria + ', Departamento: ' + idDepartamento);
+    }
+
+
+    function buscarNomeCategoria(id) {
+        const cat = categorias.find(item => item.id == id);
+        return cat.categoria;
+    }
+
+    function adicionarCategoria() {
+        const categorias = [...catSelecionadas, idCategoria];
+        setCatSelecionadas(categorias);
+    }
+
+
+    async function carregarDepartamentos() {
+        const r = await listarDepartamentos();
+        setDepartamentos(r);
+    }
+
+
+    async function carregarCategorias() {
+        const r = await listarCategorias();
+        setCategorias(r);
+    }
+
+
+    useEffect(() => {
+        carregarCategorias();
+        carregarDepartamentos();
+    }, [])
 
     return(
         <main className='cont-main-cad'>
@@ -84,39 +123,38 @@ export default function Cadastro(){
                              Caracteristicas
                             </h2> 
                             <input className='input1-infocad002' />
+
                             <label className='text2-infocad002'>Departamento:</label>
-                                <select className='select-departamentos' value={idDepartamento} onChange={e => setIddepartamento(e.target.value)}>
+                                <select className='select-departamentos' value={idDepartamento} onChange={e => setIdDepartamento(e.target.value)}>
                                     <option selected disabled hidden >Selecione um Departamento</option>
-
-                                    {departamentos.map(item =>
-                                    <option value={item.id}> {item.departamento} </option>
+                                    {departamentos.map(item=>
+                                        <option value={item.id}> {item.departamento}</option>
+                                    
                                     )}
+                                    
                                 </select>
+
                                 <label className='text3-infocad002'>Categoria 1:</label>
-                    
-                                <select className='select-categoria1' value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
+                                <select className='select-categoria1' value={idCategoria} onChange={e => setIdCategoria(e.target.value )}>
                                     <option selected disabled hidden>Selecione uma Categoria</option>
-
-                                        {categorias.map(item =>
-                                    <option value={item.id}> {item.cate2goria} </option>
+                                    {categorias.map(item =>
+                                        <option value={item.id}>{item.categoria}</option>
                                     )}
-                                </select>
+                                </select>        
+
                                 <label className='text3-infocad002'>Categoria 2:</label>
-                    
-                                <select className='select-categoria2' value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
+                                <select className='select-categoria2'value={idCategoria} onChange={e => setIdCategoria(e.target.value )}>
                                     <option selected disabled hidden>Selecione uma Categoria</option>
-
-                                        {categorias.map(item =>
-                                    <option value={item.id}> {item.categoria} </option>
+                                    {categorias.map(item =>
+                                        <option value={item.id}>{item.categoria}</option>
                                     )}
                                 </select>
-                                <label className='text3-infocad002'>Categoria 3:</label>
-                    
-                                <select className='select-categoria3' value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
-                                    <option selected disabled hidden>Selecione uma Categoria</option>
 
-                                        {categorias.map(item =>
-                                    <option value={item.id}> {item.categoria} </option>
+                                <label className='text3-infocad002'>Categoria 3:</label>
+                                <select className='select-categoria3' value={idCategoria} onChange={e => setIdCategoria(e.target.value )}>
+                                    <option selected disabled hidden>Selecione uma Categoria</option>
+                                    {categorias.map(item =>
+                                        <option value={item.id}>{item.categoria}</option>
                                     )}
                                 </select>
                         </div>
@@ -179,7 +217,7 @@ export default function Cadastro(){
                         </h2> 
                         <input className='input1-infocad003' />
                     </div>
-                        <button className='botao-cad'>
+                        <button className='botao-cad' onClick={salvar}>
                             CADASTRAR
                         </button>
                 </div>

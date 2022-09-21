@@ -1,7 +1,5 @@
 import './index.scss';
-import { Link } from 'react-router-dom';
 import Logo from '../Logo';
-
 import LoginIcon from '../../assets/images/login.png';
 
 export default function Cabecalho3(){
