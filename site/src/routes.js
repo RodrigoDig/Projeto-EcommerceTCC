@@ -47,7 +47,7 @@ export default function Index(){
                 <Route path="/pedido" element={<Pedido />} />
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/produto" element={<Produto />} />
-
+                
                 <Route path="/loginadm" element={<LoginAdmin />} />
                 <Route path="/cadastro" element={<Cadastro />} />
             </Routes>

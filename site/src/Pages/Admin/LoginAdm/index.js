@@ -1,11 +1,12 @@
 import axios from 'axios';
 
+import LoadingBar from 'react-top-loading-bar';
 import { useNavigate } from 'react-router-dom';
+import  { useState ,useRef } from 'react';
 
 import React from 'react';
 import './index.scss';
 import Cabecalho3 from '../../../Components/Cabeçalho03';
-import  { useState } from 'react'
 import FogueteLogo from '../../../assets/images/foguetelogo.png';
 import CadeadoLogo from '../../../assets/images/Cadeado-senha-adm.png'
 import LoginIcon from '../../../assets/images/icon-login-adm.png'
@@ -17,14 +18,18 @@ export default function LoginAdmin(){
     const[erro, setErro] = useState('');
 
     const navigate = useNavigate();
+    const ref = useRef();
 
     async function entrarClick(){
+        ref.current.continuousStart()
         try{
         const r = await axios.post('http://localhost:5000/admin/loginADM', {
             user: email,
             senha: senha
         })
+        setTimeout(() => {
             navigate('/configuraçoes');
+        }, 3000)
 
         } catch(err){
             if(err.response.status === 401){
@@ -35,6 +40,7 @@ export default function LoginAdmin(){
 
     return(
         <main className="cont-main-prod">
+            <LoadingBar color='#f11946' ref={ref} />
             <section className='cabecalho'>
                 <Cabecalho3 />
             </section>
@@ -70,7 +76,6 @@ export default function LoginAdmin(){
                     <img src={FogueteLogo} />
                 </div>
             </section>
-
         </main>
     )
 }
