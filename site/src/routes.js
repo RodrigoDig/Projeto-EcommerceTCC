@@ -21,7 +21,7 @@ import Pedido from './Pages/User/Pedido';
 import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
 
-import LoginAdmin from './Pages/Admin/LoginAdm';
+import LoginAdm from './Pages/Admin/LoginAdm';
 import Cadastro from './Pages/Admin/CadastroProduto';
 
 export default function Index(){
@@ -48,7 +48,7 @@ export default function Index(){
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/produto" element={<Produto />} />
                 
-                <Route path="/loginadm" element={<LoginAdmin />} />
+                <Route path="/loginadm" element={<LoginAdm />} />
                 <Route path="/cadastro" element={<Cadastro />} />
             </Routes>
         </BrowserRouter>

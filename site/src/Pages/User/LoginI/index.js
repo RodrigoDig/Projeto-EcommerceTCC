@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.scss';
-import LoginI from '../../../Pages/User/LoginI'
 
 
 export default function Login(){

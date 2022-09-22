@@ -1,17 +1,16 @@
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 import LoadingBar from 'react-top-loading-bar';
-import { useNavigate } from 'react-router-dom';
 import  { useState ,useRef } from 'react';
 
-import React from 'react';
 import './index.scss';
 import Cabecalho3 from '../../../Components/Cabeçalho03';
 import FogueteLogo from '../../../assets/images/foguetelogo.png';
 import CadeadoLogo from '../../../assets/images/Cadeado-senha-adm.png'
 import LoginIcon from '../../../assets/images/icon-login-adm.png'
 
-export default function LoginAdmin(){
+export default function LoginAdm(){
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
