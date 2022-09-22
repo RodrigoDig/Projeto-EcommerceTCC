@@ -11,8 +11,14 @@ import {useState, useEffect} from 'react';
 
 export default function Cadastro(){
     const [nome, setNome] = useState('');
-    const [preco, setPreco] = useState(0);
+    const [preco, setPreco] = useState();
     const [fabricante, setFabricante] = useState('');
+    const [estoque, setQtdEstoque] = useState()
+    const [caracteristicas, setCaracteristicas] = useState('')
+    const [valordesconto, setValorDesconto] = useState();
+    const [infotecnicas, setInfoTecnicas] = useState('');
+    const [descricao, setDescricao] = useState('');
+
 
     const [idCategoria1, setIdCategoria1] = useState();
     const [idCategoria2, setIdCategoria2] = useState();
@@ -77,19 +83,19 @@ export default function Cadastro(){
                             <h2 className='text1-infocad001'>
                                 Nome
                             </h2> 
-                            <input className='input1-infocad001' />
+                            <input className='input1-infocad001' value={nome} onChange={e => setNome(e.target.value) }/>
                             <h2 className='text2-infocad001'>
                                 Preço
                             </h2>
-                            <input className='input2-infocad001'/>
+                            <input className='input2-infocad001' value={preco} onChange={e => setPreco(e.target.value) }/>
                             <h2 className='text2-infocad001'>
                                 Fabricante
                             </h2>
-                            <input className='input3-infocad001'/>
+                            <input className='input3-infocad001' value={fabricante} onChange={e => setFabricante(e.target.value)} />
                             <h2 className='text2-infocad001'>
                                 Quantia em Estoque
                             </h2>
-                            <input className='input4-infocad001'/>
+                            <input className='input4-infocad001' value={estoque} onChange={e => setQtdEstoque(e.target.value)} />
                         </div>
                         <div className='contfilha2-infocad-001'>
                             <h1 className='titulo-contfilha2-infocad001'>
@@ -127,7 +133,7 @@ export default function Cadastro(){
                             <h2 className='text1-infocad002'>
                              Caracteristicas
                             </h2> 
-                            <input className='input1-infocad002' />
+                            <input className='input1-infocad002' value={caracteristicas} onChange={e => setCaracteristicas(e.target.value)} />
 
                             <label className='text2-infocad002'>Departamento:</label>
                                 <select className='select-departamentos' value={idDepartamento} onChange={e => setIdDepartamento(e.target.value)}>
@@ -202,7 +208,7 @@ export default function Cadastro(){
                                 <h2 className='text1-c5-contfilha2-infocad002'>
                                     Valor do Desconto
                                 </h2> 
-                                <input className='input1-infocad001' />
+                                <input className='input1-infocad001' value={valordesconto} onChange={e => setValorDesconto(e.target.value)} />
                             </div>
                             <div className='cont5-contfilha2-infocad002' >
                                 <h2 className='text1-c5-contfilha2-infocad002'>
@@ -216,11 +222,11 @@ export default function Cadastro(){
                         <h2 className='text1-infocad003'>
                             Informações Tecnicas
                         </h2> 
-                        <input className='input1-infocad003' />
+                        <input className='input1-infocad003' value={infotecnicas} onChange={e => setInfoTecnicas(e.target.value)} />
                         <h2 className='text1-infocad003'>
                             Descrição
                         </h2> 
-                        <input className='input1-infocad003' />
+                        <input className='input1-infocad003' value={descricao} onChange={e => setDescricao(e.target.value)} />
                     </div>
                         <button className='botao-cad' onClick={salvar}>
                             CADASTRAR
