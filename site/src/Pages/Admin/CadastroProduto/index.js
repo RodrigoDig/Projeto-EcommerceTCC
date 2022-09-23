@@ -5,6 +5,7 @@ import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg'
 import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
+import { CadastrarProduto } from '../../../Api/cadastrarApi';
 import {listarCategorias} from '../../../Api/categoriaApi';
 import {listarDepartamentos} from '../../../Api/departamentoApi';
 import {useState, useEffect} from 'react';
@@ -33,6 +34,16 @@ export default function Cadastro(){
 
     function salvar() {
         alert('Categoria: ' + idCategoria1 + idCategoria2 + idCategoria3 + ', Departamento: ' + idDepartamento);
+    }
+
+    async function SalvarCLick(){
+        try{
+        const r = await CadastrarProduto(nome, preco, fabricante, estoque, caracteristicas, valordesconto, departamentos, catSelecionadas, infotecnicas, descricao);
+        alert('Filme cadastrado com sucesso');
+        }
+        catch (err){
+            alert(err.message);
+        } 
     }
 
 
@@ -228,7 +239,7 @@ export default function Cadastro(){
                         </h2> 
                         <input className='input1-infocad003' value={descricao} onChange={e => setDescricao(e.target.value)} />
                     </div>
-                        <button className='botao-cad' onClick={salvar}>
+                        <button className='botao-cad' onClick={SalvarCLick}>
                             CADASTRAR
                         </button>
                 </div>
