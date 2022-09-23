@@ -5,9 +5,9 @@ import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg'
 import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
-import { CadastrarProduto, enviarImagemProduto } from '../../../Api/cadastrarApi';
-import {listarCategorias} from '../../../Api/categoriaApi';
-import {listarDepartamentos} from '../../../Api/departamentoApi';
+import { CadastrarProduto} from '../../../Api/cadastrarApi.js';
+import {listarCategorias} from '../../../Api/categoriaApi.js';
+import {listarDepartamentos} from '../../../Api/departamentoApi.js';
 import {useState, useEffect} from 'react';
 
 export default function Cadastro(){
@@ -26,7 +26,7 @@ export default function Cadastro(){
     const [idCategoria1, setIdCategoria1] = useState();
     const [idCategoria2, setIdCategoria2] = useState();
     const [idCategoria3, setIdCategoria3] = useState();
-    const [categorias, setCategorias] = useState([idCategoria1, idCategoria2, idCategoria3]);
+    const [categorias, setCategorias] = useState([]);
 
     const [idDepartamento, setIdDepartamento] = useState();
     const [departamentos, setDepartamentos] = useState([]);
