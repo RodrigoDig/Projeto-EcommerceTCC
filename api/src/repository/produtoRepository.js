@@ -33,14 +33,12 @@ export async function salvarCategoria(idProduto, idCategoria){
     const [resp] = await con.query (comando, [idCategoria, idProduto])
 }
 
-export async function enviarImgs(imagem, id){
+export async function enviarImagem(imagem, id){
     const comando = 
     `
-    UPDATE TB_PRODUTO_IMAGEM
-       SET IMG_PRODUTO = ?
-     WHERE ID_PRODUTO  = ?;
+    INSERT INTO TB_PRODUTO_IMAGEM (IMG_PRODUTO, ID_PRODUTO)
+					   VALUES (? , ?)
     `
-
     const [resposta] = await con.query(comando, [imagem, id]); 
     return resposta.affectedRows;
 }

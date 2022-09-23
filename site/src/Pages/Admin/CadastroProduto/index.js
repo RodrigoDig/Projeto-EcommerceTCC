@@ -5,7 +5,7 @@ import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg'
 import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
-import { CadastrarProduto } from '../../../Api/cadastrarApi';
+import { CadastrarProduto, enviarImagemProduto } from '../../../Api/cadastrarApi';
 import {listarCategorias} from '../../../Api/categoriaApi';
 import {listarDepartamentos} from '../../../Api/departamentoApi';
 import {useState, useEffect} from 'react';
@@ -15,8 +15,10 @@ export default function Cadastro(){
     const [preco, setPreco] = useState();
     const [fabricante, setFabricante] = useState('');
     const [estoque, setQtdEstoque] = useState()
-    const [caracteristicas, setCaracteristicas] = useState('')
+    const [caracteristicas, setCaracteristicas] = useState('');
+    const [avaliacao, setAvaliacao] = useState(0);
     const [valordesconto, setValorDesconto] = useState();
+    const [garantia, setGarantia] = useState('')
     const [infotecnicas, setInfoTecnicas] = useState('');
     const [descricao, setDescricao] = useState('');
 
@@ -24,39 +26,23 @@ export default function Cadastro(){
     const [idCategoria1, setIdCategoria1] = useState();
     const [idCategoria2, setIdCategoria2] = useState();
     const [idCategoria3, setIdCategoria3] = useState();
-    const [categorias, setCategorias] = useState([]);
+    const [categorias, setCategorias] = useState([idCategoria1, idCategoria2, idCategoria3]);
 
     const [idDepartamento, setIdDepartamento] = useState();
     const [departamentos, setDepartamentos] = useState([]);
 
     const [catSelecionadas, setCatSelecionadas] = useState([]);
 
-
-    function salvar() {
-        alert('Categoria: ' + idCategoria1 + idCategoria2 + idCategoria3 + ', Departamento: ' + idDepartamento);
-    }
-
     async function SalvarCLick(){
         try{
-        const r = await CadastrarProduto(nome, preco, fabricante, estoque, caracteristicas, valordesconto, departamentos, catSelecionadas, infotecnicas, descricao);
+        const r = await CadastrarProduto(nome, preco, fabricante, estoque, caracteristicas,avaliacao ,valordesconto, departamentos, catSelecionadas, infotecnicas, descricao);
         alert('Filme cadastrado com sucesso');
+        return r;
         }
         catch (err){
             alert(err.message);
-        } 
+        }
     }
-
-
-    function buscarNomeCategoria(id) {
-        const cat = categorias.find(item => item.id == id);
-        return cat.categoria;
-    }
-
-    function adicionarCategoria() {
-        const categorias = [...catSelecionadas, idCategoria1,idCategoria2,idCategoria3];
-        setCatSelecionadas(categorias);
-    }
-
 
     async function carregarDepartamentos() {
         const r = await listarDepartamentos();
@@ -185,7 +171,7 @@ export default function Cadastro(){
                                 <h1 className='text1-filha2-002'>
                                     Avaliação
                                 </h1>
-                                <p className='number-avaliacao'>
+                                <p className='number-avaliacao' value={avaliacao} onChange={e => setAvaliacao(e.target.value )}>
                                     0
                                 </p>
                             </div>
@@ -225,7 +211,7 @@ export default function Cadastro(){
                                 <h2 className='text1-c5-contfilha2-infocad002'>
                                     Garantia
                                 </h2> 
-                                <input className='input1-infocad001' type='date' />
+                                <input className='input1-infocad001' type='date' value={garantia} onChange={e => setGarantia(e.target.value)}/>
                             </div>
                         </div>
                     </div>

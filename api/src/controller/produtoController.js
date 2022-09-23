@@ -1,8 +1,8 @@
-import { cadastrarProdutos, salvarCategoria } from "../repository/produtoRepository.js";
+import { cadastrarProdutos,enviarImagem , salvarCategoria } from "../repository/produtoRepository.js";
 
 import multer from 'multer';
 import {Router} from "express";
-import enviarImagens from "../../../site/src/Api/cadastrarProduto.js";
+
 const server = Router();
 
 const upload = multer({ dest: 'storage/imagensProduto'})
@@ -24,13 +24,13 @@ server.post('/adm/produto', async (req, resp) =>{
     }
 })
 
-server.put( '/produto/:id/capa', upload.single('capa'), async (req, resp) => {
+server.post( '/prod/:id/capa', upload.single('capa'), async (req, resp) => {
     try{
         const { id } = req.params;
         const imagem = req.file.path;
 
-        const resposta = enviarImagens(imagem, id);
-
+        const resposta = await enviarImagem(imagem, id);
+        
         if(resposta != 1)
             throw new Error('A imagem não foi salva');
 
