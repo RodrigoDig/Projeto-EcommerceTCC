@@ -3,7 +3,7 @@ import { con } from './connection.js';
 export async function loginAdm(user, senha){
     const comando = 
     `SELECT ID_ADMIN_LOGIN    id,
-            DS_EMAIL     email
+            DS_EMAIL          email
     FROM   tb_admin_login
     WHERE  ds_email      like  ?
     AND    ds_senha      like  ?`

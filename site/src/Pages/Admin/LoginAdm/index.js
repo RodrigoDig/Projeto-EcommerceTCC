@@ -48,7 +48,7 @@ export default function LoginAdm(){
             setTimeout(() => {
                 navigate('/cadastro');
             }, 2500)
-            } 
+        } 
         catch(err){
             ref.current.complete();
             setCarregando(false)

@@ -1,4 +1,4 @@
-import { cadastrarProdutos,enviarImagem , salvarCategoria } from "../repository/produtoRepository.js";
+import { cadastrarProdutos, enviarImagem, salvarCategoria} from "../repository/produtoRepository.js";
 
 import multer from 'multer';
 import {Router} from "express";

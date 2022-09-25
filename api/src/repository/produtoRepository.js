@@ -3,8 +3,8 @@ import { con } from "./connection.js";
 
 export async function cadastrarProdutos(produto){
     const comando = `
-        insert into tb_produto(id_departamento, nm_produto, vl_preco, vl_desconto, vl_avaliacao, ds_fabricante, qtd_estoque, ds_informacoes, ds_descricao, dt_garantia, id_admin_login)
-            values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        insert into tb_produto(id_departamento, id_categoria, nm_produto, vl_preco, vl_desconto, vl_avaliacao, ds_fabricante, qtd_estoque, ds_informacoes, ds_descricao, dt_garantia)
+            values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `
 
     const data = new Date(); 
@@ -13,15 +13,14 @@ export async function cadastrarProdutos(produto){
         produto.preco,
         produto.fabricante,
         produto.estoque,
-        produto.caracteristicas,
         produto.avaliacao,
         produto.desconto,
         produto.idDepartamento,
+        produto.id_categoria,
         produto.informacoes,
         produto.descricao,
         produto.garantia,
-        produto.admin,
-            data
+        data
         ])
     return resp.insertId; 
 }
@@ -39,7 +38,7 @@ export async function enviarImagem(imagem, id){
     const comando = 
     `
     INSERT INTO TB_PRODUTO_IMAGEM (IMG_PRODUTO, ID_PRODUTO)
-					   VALUES (? , ?)
+			VALUES (? , ?)
     `
     const [resposta] = await con.query(comando, [imagem, id]); 
     return resposta.affectedRows;
