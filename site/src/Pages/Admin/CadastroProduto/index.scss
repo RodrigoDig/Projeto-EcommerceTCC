@@ -265,9 +265,7 @@
         padding-left: 7em;  
         width: 40em;
         height: 36em;
-
     }
-
     
     .text1-infocad002{
         font-family: 'Goldman';
@@ -311,51 +309,47 @@
         margin-bottom: 0.8em;
     }
 
-    .select-categoria1{
+    .cont-categorias-grupo{
+        display: flex;
+        width: 36.7em;
+    }
+
+    .selecionar-cat{
         border: none;
         font-size: 19px;
         font-family: 'Goldman';
         border-radius: 16px;
         background-color: #e4e4e4;
         padding-left: 14px;
-        width: 30.7em;
+        width: 27em;
         height: 3.2em;
 
         margin-bottom: 0.8em;
-    }
-    
-    .text3-infocad002{
-        font-family: 'Goldman';
-        font-size: 22px;
-        font-weight: 100;
-        margin: 0px;
-        margin-bottom: 13px;
+        margin-right: 0.5em;
     }
 
-    .select-categoria2{
-        border: none;
-        font-size: 19px;
-        font-family: 'Goldman';
-        border-radius: 16px;
-        background-color: #e4e4e4;
-        padding-left: 14px;
-        width: 30.7em;
-        height: 3.2em;
+    .btn-mais-categorias{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-        margin-bottom: 0.8em;
+        width: 4.7em;
+        height: 4.7em;
+
+        border-radius: 20px;
+
+        border: 0.1px solid #000000;
+
+        background-color: #ffffff;
+
+        cursor: pointer;
     }
-    
-    .select-categoria3{
-        border: none;
-        font-size: 19px;
-        font-family: 'Goldman';
-        border-radius: 16px;
-        background-color: #e4e4e4;
-        padding-left: 14px;
-        width: 30.7em;
-        height: 3.2em;
 
-        margin-bottom: 0.8em;
+    .mais-btn{
+        font-size: 30px;
+
+        color: #000000;
     }
     
     .contfilha2-infocad-002{
@@ -376,6 +370,32 @@
 
     }
 
+    .cont-categorias-sel{
+
+        width: 36.2em;
+        height: 14em;
+
+    }
+
+    .cat-selecionada{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+
+        font-size: 20px;
+        width: 29em;
+        height: 3.2em;
+        font-family: 'Goldman';
+
+        color: #000000;
+
+        border: 0.1px solid black;
+
+        background-color: #ffffff;
+        margin-bottom: 0.5em;
+    }
     .cont1-contfilha2-infocad002{
         display: flex;
         flex-direction: row;
@@ -389,7 +409,9 @@
     .number-avaliacao{
         font-size: 22px;
         font-family: 'Goldman';
+        border: none;
 
+        width: 0.8em;
     }
 
     .cont2-contfilha2-infocad002{

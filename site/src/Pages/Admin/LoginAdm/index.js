@@ -36,7 +36,7 @@ export default function LoginAdm(){
             navigate('/')
         }
     }, [])
-
+    
     async function entrarClick(){
         ref.current.continuousStart();
         setCarregando(true);
@@ -46,7 +46,7 @@ export default function LoginAdm(){
             storage('admin-logado', r);
 
             setTimeout(() => {
-                navigate('/estoque');
+                navigate('/cadastro');
             }, 2500)
             } 
         catch(err){

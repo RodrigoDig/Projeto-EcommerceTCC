@@ -3,8 +3,8 @@ import { con } from "./connection.js";
 
 export async function cadastrarProdutos(produto){
     const comando = `
-        insert into tb_produto(id_departamento, nm_produto, vl_preco, vl_desconto, vl_avaliacao, ds_fabricante, qtd_estoque, ds_informacoes, ds_descricao, dt_garantia)
-            values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        insert into tb_produto(id_departamento, nm_produto, vl_preco, vl_desconto, vl_avaliacao, ds_fabricante, qtd_estoque, ds_informacoes, ds_descricao, dt_garantia, id_admin_login)
+            values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `
 
     const data = new Date(); 
@@ -19,6 +19,8 @@ export async function cadastrarProdutos(produto){
         produto.idDepartamento,
         produto.informacoes,
         produto.descricao,
+        produto.garantia,
+        produto.admin,
             data
         ])
     return resp.insertId; 

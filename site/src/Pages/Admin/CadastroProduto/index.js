@@ -5,10 +5,12 @@ import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg'
 import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
-import { CadastrarProduto} from '../../../Api/cadastrarApi.js';
+import storage from 'local-storage';
+import { enviarImagemProduto, CadastrarProduto } from '../../../Api/cadProdutoApi';
 import {listarCategorias} from '../../../Api/categoriaApi.js';
 import {listarDepartamentos} from '../../../Api/departamentoApi.js';
 import {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cadastro(){
     const [nome, setNome] = useState('');
@@ -23,32 +25,53 @@ export default function Cadastro(){
     const [descricao, setDescricao] = useState('');
 
 
-    const [idCategoria1, setIdCategoria1] = useState();
-    const [idCategoria2, setIdCategoria2] = useState();
-    const [idCategoria3, setIdCategoria3] = useState();
+    const [idCategoria, setIdCategoria] = useState();
     const [categorias, setCategorias] = useState([]);
 
     const [idDepartamento, setIdDepartamento] = useState();
     const [departamentos, setDepartamentos] = useState([]);
 
     const [catSelecionadas, setCatSelecionadas] = useState([]);
+    
+    const navigate = useNavigate();
+
+    
+    useEffect(() => {
+        if(!storage('admin-logado')){
+            navigate('/loginadm')
+        }
+    }, [])
 
     async function SalvarCLick(){
         try{
-        const r = await CadastrarProduto(nome, preco, fabricante, estoque, caracteristicas,avaliacao ,valordesconto, departamentos, catSelecionadas, infotecnicas, descricao);
-        alert('Filme cadastrado com sucesso');
-        return r;
+            const precoProduto = Number(preco.replace(',', '.'));
+            const admin = storage('admin-logado').id;
+            console.log(admin);
+            const r = await CadastrarProduto(nome, precoProduto, fabricante, estoque, caracteristicas,avaliacao ,valordesconto, idDepartamento, catSelecionadas, garantia, infotecnicas, descricao, admin);
+            alert('Filme cadastrado com sucesso');
         }
         catch (err){
             alert(err.message);
         }
     }
-
+    
     async function carregarDepartamentos() {
         const r = await listarDepartamentos();
         setDepartamentos(r);
     }
+    
+    function buscarNomeCategoria(id) {
+        const cat = categorias.find(item => item.id == id);
+        return cat.categoria;
+    }
 
+    
+    function adicionarCategoria() {
+        if (!catSelecionadas.find(item => item == idCategoria)) {
+            const categorias = [...catSelecionadas, idCategoria];
+            setCatSelecionadas(categorias);
+        }
+    }
 
     async function carregarCategorias() {
         const r = await listarCategorias();
@@ -141,30 +164,32 @@ export default function Cadastro(){
                                     )}
                                     
                                 </select>
+                                    <label className='text2-infocad002'>Categorias:</label>
+                                    <div className='cont-categorias-grupo'>
+                                        <select className='selecionar-cat' value={idCategoria} onChange={e => setIdCategoria(e.target.value)} >
+                                            <option selected disabled hidden>Selecione</option>
 
-                                <label className='text3-infocad002'>Categoria 1:</label>
-                                <select className='select-categoria1' value={idCategoria1} onChange={e => setIdCategoria1(e.target.value )}>
-                                    <option selected disabled hidden>Selecione uma Categoria</option>
-                                    {categorias.map(item =>
-                                        <option value={item.id}>{item.categoria}</option>
-                                    )}
-                                </select>        
-
-                                <label className='text3-infocad002'>Categoria 2:</label>
-                                <select className='select-categoria2'value={idCategoria2} onChange={e => setIdCategoria2(e.target.value )}>
-                                    <option selected disabled hidden>Selecione uma Categoria</option>
-                                    {categorias.map(item =>
-                                        <option value={item.id}>{item.categoria}</option>
-                                    )}
-                                </select>
-
-                                <label className='text3-infocad002'>Categoria 3:</label>
-                                <select className='select-categoria3' value={idCategoria3} onChange={e => setIdCategoria3(e.target.value )}>
-                                    <option selected disabled hidden>Selecione uma Categoria</option>
-                                    {categorias.map(item =>
-                                        <option value={item.id}>{item.categoria}</option>
-                                    )}
-                                </select>
+                                            {categorias.map(item =>
+                                                <option value={item.id}> {item.categoria} </option>
+                                            )}
+                                        </select>
+                                        <button onClick={adicionarCategoria} className='btn-mais-categorias'>
+                                            <h1 className='mais-btn'>
+                                                +
+                                            </h1>
+                                        </button>                        
+                                    </div>
+                                    <div>
+                                        <div className='cont-categorias-sel'>
+                                            {catSelecionadas.map(id =>
+                                                <div className='cat-selecionada'>
+                                                    {buscarNomeCategoria(id)}
+                                                </div>
+                                            )}
+                                        </div>
+                                        
+                                    </div>
+                                    
                         </div>
                         <div className='contfilha2-infocad-002'>
                             <div className='cont1-contfilha2-infocad002'>
@@ -172,7 +197,7 @@ export default function Cadastro(){
                                     Avaliação
                                 </h1>
                                 <p className='number-avaliacao' value={avaliacao} onChange={e => setAvaliacao(e.target.value )}>
-                                    0
+                                    <input className='number-avaliacao' type='text' value={avaliacao} onChange={e => setAvaliacao(e.target.value )} />
                                 </p>
                             </div>
                             <div className='cont2-contfilha2-infocad002'>
@@ -211,7 +236,7 @@ export default function Cadastro(){
                                 <h2 className='text1-c5-contfilha2-infocad002'>
                                     Garantia
                                 </h2> 
-                                <input className='input1-infocad001' type='date' value={garantia} onChange={e => setGarantia(e.target.value)}/>
+                                <input className='input1-infocad001' type='date' velue={garantia} onChange={e => setGarantia(e.target.value)}/>
                             </div>
                         </div>
                     </div>
@@ -225,6 +250,7 @@ export default function Cadastro(){
                         </h2> 
                         <input className='input1-infocad003' value={descricao} onChange={e => setDescricao(e.target.value)} />
                     </div>
+                        
                         <button className='botao-cad' onClick={SalvarCLick}>
                             CADASTRAR
                         </button>

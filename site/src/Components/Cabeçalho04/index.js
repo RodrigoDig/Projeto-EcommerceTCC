@@ -1,5 +1,7 @@
 import './index.scss';
 
+import { useNavigate } from 'react-router-dom';
+import storage from 'local-storage';
 
 import LogoMenor from '../LogoMenor';
 import CupomLogo from '../../assets/images/Cupom-fase01.svg';
@@ -11,6 +13,15 @@ import CadProdLogo from '../../assets/images/Cad-Prodfase01.svg';
 import AltProdLogo from '../../assets/images/Alterar-produtofase01.svg';
 
 export default function Cabecalho04(){
+
+    const navigate = useNavigate();
+
+    function sairClick(){
+        storage.remove('admin-logado');
+        navigate('/loginadm')
+    }
+
+
     return(
         <main className='cont-main-c4'>
             <div className='cont-logo'>
@@ -67,7 +78,7 @@ export default function Cabecalho04(){
                     Alterar Cupom
                 </h2>
             </div>
-            <div className='cont-sair'>
+            <div className='cont-sair' onClick={sairClick}>
             <img src={SairLogo} className='img-cont-sair'/>
                 <h2 className='txt-cont-08'>
                     Sair
