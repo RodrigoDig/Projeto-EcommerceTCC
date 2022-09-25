@@ -21,6 +21,7 @@ import Pedido from './Pages/User/Pedido';
 import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
 
+import CstEstoque from './Pages/Admin/ConsultarEstoque';
 import LoginAdm from './Pages/Admin/LoginAdm';
 import Cadastro from './Pages/Admin/CadastroProduto';
 
@@ -48,6 +49,7 @@ export default function Index(){
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/produto" element={<Produto />} />
                 
+                <Route path="/estoque" element={<CstEstoque />} />
                 <Route path="/loginadm" element={<LoginAdm />} />
                 <Route path="/cadastro" element={<Cadastro />} />
             </Routes>

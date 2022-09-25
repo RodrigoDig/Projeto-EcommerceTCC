@@ -1,36 +1,57 @@
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 import LoadingBar from 'react-top-loading-bar';
-import  { useState ,useRef } from 'react';
+import  { useState ,useRef, useEffect } from 'react';
 
+import storage from 'local-storage';
 import './index.scss';
 import Cabecalho3 from '../../../Components/Cabeçalho03';
 import FogueteLogo from '../../../assets/images/foguetelogo.png';
 import CadeadoLogo from '../../../assets/images/Cadeado-senha-adm.png'
 import LoginIcon from '../../../assets/images/icon-login-adm.png'
+import loginadm from '../../../Api/loginAdm.js';
 
 export default function LoginAdm(){
 
-    const [email, setEmail] = useState('');
+    document.addEventListener("keypress", function(e) {
+        if(e.key === 'Enter') {
+        
+            var btn = document.querySelector("#botaologar");
+          
+          btn.click();
+        
+        }
+      });
+    
+    const [email, setEmail] = useState(''); 
     const [senha, setSenha] = useState('');
-    const[erro, setErro] = useState('');
+    const [erro, setErro] = useState('');
+    const [carregando, setCarregando] = useState(false);
 
     const navigate = useNavigate();
     const ref = useRef();
 
-    async function entrarClick(){
-        ref.current.continuousStart()
-        try{
-        const r = await axios.post('http://localhost:5000/admin/loginADM', {
-            user: email,
-            senha: senha
-        })
-        setTimeout(() => {
-            navigate('/configuraçoes');
-        }, 3000)
+    useEffect(() => {
+        if(storage('admin-logado')){
+            navigate('/')
+        }
+    }, [])
 
-        } catch(err){
+    async function entrarClick(){
+        ref.current.continuousStart();
+        setCarregando(true);
+
+        try{
+            const r = await loginadm(email, senha);
+            storage('admin-logado', r);
+
+            setTimeout(() => {
+                navigate('/estoque');
+            }, 2500)
+            } 
+        catch(err){
+            ref.current.complete();
+            setCarregando(false)
             if(err.response.status === 401){
                 setErro(err.response.data.erro);
             }
@@ -67,7 +88,7 @@ export default function LoginAdm(){
                     <h1 className='erro'>
                         {erro}
                     </h1>
-                    <button className='botao-entrar' onClick={entrarClick}>
+                    <button className='botao-entrar' onClick={entrarClick} disabled={carregando} id='botaologar'>
                             Entrar
                     </button>
                 </div>

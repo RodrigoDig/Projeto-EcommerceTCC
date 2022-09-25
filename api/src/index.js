@@ -13,6 +13,8 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
+server.use('/storage/imagensProduto', express.static('storage/imagensProduto'));
+
 server.use(admLoginController);
 server.use(usuarioController);
 server.use(categoriaController);
