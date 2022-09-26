@@ -3,19 +3,18 @@ import { con } from "./connection.js";
 
 export async function cadastrarProdutos(produto){
     const comando = `
-        insert into tb_produto(id_departamento, id_categoria, nm_produto, vl_preco, vl_desconto, vl_avaliacao, ds_fabricante, qtd_estoque, ds_informacoes, ds_descricao, dt_garantia)
-            values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            INSERT INTO TB_PRODUTO(ID_DEPARTAMENTO, NM_PRODUTO, VL_PRECO, VL_DESCONTO, VL_AVALIACAO, DS_FABRICANTE, QTD_ESTOQUE, DS_INFORMACOES, DS_DESCRICAO, DT_GARANTIA)
+            VALUES( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
     `
-    
+
     const [resp] = await con.query(comando, [
+        produto.idDepartamento,
         produto.nome,
         produto.preco,
+        produto.desconto,
+        produto.avaliacao,
         produto.fabricante,
         produto.estoque,
-        produto.avaliacao,
-        produto.desconto,
-        produto.idDepartamento,
-        produto.id_categoria,
         produto.informacoes,
         produto.descricao,
         produto.garantia,

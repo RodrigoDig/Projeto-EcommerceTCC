@@ -1,20 +1,19 @@
---Carga Inicial
+
 INSERT INTO TB_CATEGORIA(NM_CATEGORIA)
-		VALUE('Hard Disk');
+		VALUE('Gabinete');
 
 INSERT INTO TB_DEPARTAMENTO(NM_DEPARTAMENTO)
-		VALUE('games');
+		VALUE('Hardware');
 
---Inserir Usuario
 INSERT INTO TB_USUARIO(NM_USUARIO, NM_SOBRENOME, DS_CPF, DT_NASCIMENTO, DS_GENERO, DS_EMAIL, DS_CELULAR, DS_SENHA)
 				VALUES("Cauã","Mendes","50710090704","2004-08-05","Masculino", "cauamgomes010@gmail.com", "11959111413", "cauamgomes1234" );	
 
+INSERT INTO TB_PRODUTO(ID_DEPARTAMENTO, NM_PRODUTO, VL_PRECO, VL_DESCONTO, VL_AVALIACAO, DS_FABRICANTE, QTD_ESTOQUE, DS_INFORMACOES, DS_DESCRICAO, DT_GARANTIA)
+				VALUES(1,"Produto1",120 ,2 ,9.5 ,"Nasa", 1, "LEGAL", "simples", "2024-01-01" );
 
---Inserir ADM
 INSERT INTO TB_ADMIN_LOGIN (DS_EMAIL, DS_SENHA)
-				    VALUES ("cauaADMlogin@adm01.com", "conectaadm2022");
+				    VALUES ("adm", "1234");
 
---Login Usuario
 SELECT 	ID_USUARIO     id,
 	   NM_USUARIO   nome,
 	   ds_email     email
@@ -22,7 +21,7 @@ SELECT 	ID_USUARIO     id,
     WHERE  ds_email      like  "cauamgomes010@gmail.com"
     AND    ds_senha      like  "cauamgomes1234";
     
---Login ADM    
+
 SELECT ID_ADMIN_LOGIN   idADM,
 	   DS_EMAIL         email
 FROM TB_ADMIN_LOGIN

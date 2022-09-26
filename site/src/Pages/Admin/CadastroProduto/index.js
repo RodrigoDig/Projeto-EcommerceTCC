@@ -49,11 +49,11 @@ export default function Cadastro() {
     async function SalvarCLick(){
         try{
             const precoProduto = Number(preco.replace(',', '.'));
-            const r = await CadastrarProduto(nome, precoProduto, fabricante, estoque,avaliacao ,valordesconto, idDepartamento, catSelecionadas, garantia, infotecnicas, descricao);
+            const r = await CadastrarProduto(idDepartamento, nome, precoProduto, valordesconto, avaliacao, fabricante, estoque, garantia, infotecnicas, catSelecionadas);
             alert('Filme cadastrado com sucesso');
         }
         catch (err){
-            alert(err.message);
+            alert(err.response.data.erro);
         }
     }
 

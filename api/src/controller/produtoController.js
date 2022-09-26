@@ -11,15 +11,19 @@ server.post('/adm/produto', async (req, resp) =>{
     try{
         const produto = req.body;
         const idProduto = await cadastrarProdutos(produto);
+        console.log(idProduto);
 
-        for(const idCatego of produto.categorias){
-            await salvarCategoria(idProduto, idCatego);
+        for (const idCateg of produto.categorias) {
+            const cat = await buscarCategoriaPorId(idCateg);
+            
+            if (cat != undefined)
+                await salvarProdutoCategoria(idProduto, idCateg);
         }
 
         resp.status(204).send();
     }catch(err){
         return resp.status(400).send({
-            erro: err.message
+            erro: ('oiiii')
         })
     }
 })
