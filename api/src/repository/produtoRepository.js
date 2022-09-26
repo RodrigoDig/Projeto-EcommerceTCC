@@ -6,8 +6,7 @@ export async function cadastrarProdutos(produto){
         insert into tb_produto(id_departamento, id_categoria, nm_produto, vl_preco, vl_desconto, vl_avaliacao, ds_fabricante, qtd_estoque, ds_informacoes, ds_descricao, dt_garantia)
             values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `
-
-    const data = new Date(); 
+    
     const [resp] = await con.query(comando, [
         produto.nome,
         produto.preco,
@@ -20,7 +19,6 @@ export async function cadastrarProdutos(produto){
         produto.informacoes,
         produto.descricao,
         produto.garantia,
-        data
         ])
     return resp.insertId; 
 }

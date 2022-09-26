@@ -46,6 +46,17 @@ export default function Cadastro() {
         setDepartamentos(r);
     }
 
+    async function SalvarCLick(){
+        try{
+            const precoProduto = Number(preco.replace(',', '.'));
+            const r = await CadastrarProduto(nome, precoProduto, fabricante, estoque,avaliacao ,valordesconto, idDepartamento, catSelecionadas, garantia, infotecnicas, descricao);
+            alert('Filme cadastrado com sucesso');
+        }
+        catch (err){
+            alert(err.message);
+        }
+    }
+
     function buscarNomeCategoria(id) {
         const cat = categorias.find(item => item.id == id);
         return cat.categoria;
@@ -223,7 +234,7 @@ export default function Cadastro() {
                         <textarea className="input1-infocad003" value={descricao} onChange={e => setDescricao(e.target.value)} />
                     </div>
 
-                    <button className='botao-cad'>
+                    <button className='botao-cad' onClick={SalvarCLick} >
                         CADASTRAR
                     </button>
                 </div>
