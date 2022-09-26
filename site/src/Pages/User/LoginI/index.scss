@@ -1,43 +1,78 @@
 .fundo{
-    background-color: rgb(0, 0, 0);
+    background: url(../../../assets/images/login-I.png);
+    height: 99vh;
+
+    font-family:'Goldman';
+    
+
+    color: #fff;
+    
+    display: flex;
+    align-items: center;
+    
+}
+
+.CARD{
+    background-color: #ffffff;
     padding: 2em;
 
+    
+    
     border-radius: 1em;
     height: 20em;
-    width: 15em;
+    width: 20em;
 
     position: absolute;
-    top: 7em;
+    top: 18em;
     right: 3em;
 
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 
     font-family: 'Goldman';
     color: #fff;
-
+    
 }
 
 .UL{
-    padding-top: 4em;
-    padding-left: em;
-    padding: .5em;
+    position: absolute;
+    top: 1em;
+    
     color: #852E8A;
-    padding-left: 4em;
+    
 
 }
 
+.LABEL{
+    color: #FF6F86;
+    font-size: .5em;
+
+    margin: .5em ;
+    
+    
+    position: relative;
+    right: 6em;
+}
 
 .infos{
-    padding-top: 3em;
-    padding-left: 4em;
-    padding: 3em;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+
 
     input{
         border-radius: 1em;
         border-color: #FF6F86;
-        right: 3em;
+        margin: 1em;
+        
         width: 15em;
-        right: 3em;
+        height: 3em;
+        
 
     }
 }
@@ -45,16 +80,28 @@
 
 
 .btn{
-
+    align-items: center;
+    
+    border: none;
+    border-radius: 1em;
+    
     font-family: 'Goldman';
     font-size: .8em;
     background-color: #FF6F86;
     color: #852E8A; 
-    border-radius: 1em;
+    
+    width: 16em;
+    height: 4em;
 
 
-    top: 20em;
-    height: 3em;
-    width: 15em;
+   position: absolute;
+   bottom: 1em; 
+}
 
+.LABEL2{
+    color: #FF6F86;
+    font-size: .5em;
+
+    margin: .5em ;
+    
 }
