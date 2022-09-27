@@ -2,37 +2,44 @@ import React from 'react';
 import './index.scss';
 import '../../../assets/images/login-I.png'
 import Cabecalho03 from '../../../Components/Cabeçalho03';
+import LogoSite from '../../../assets/images/LOGOBS.svg';
 
 
-export default function Login(){
-    return(
+
+export default function Login(APILOGIN) {
+    return (
         <main>
             <Cabecalho03 />
-            <div className='fundo'>Construa seu futuro! 
-                                Atravéz da Tecnologia, Junte-se a ByteSpeed</div>
+            <div className='fundo'>
+                <label>Construa seu futuro!
+                    Atravéz da Tecnologia, Junte-se a ByteSpeed</label>
+            </div>
 
-                <section className='CARD'>
+            <section className='CARD'>
 
-                    <label className='UL'>USER LOGIN</label>
+                <label className='UL'>USER LOGIN</label>
 
-                    <div className='infos'>
+                <div className='infos'>
 
-                             <input type='text' name='Login'/>
-                        <label></label>
-                            <input type='text' name='Login'/>
-                            <label className='LABEL'>ESQUECEU SUA SENHA?</label>
-                             <input type='text' name='Login'/>
+                    <input type='text' name='Login'/>
 
-                    </div>
+                    <input type='text' name='Login' />
+                    <label className='LABEL'>ESQUECEU SUA SENHA?</label>
+                    <input type='text' name='Login' />
 
+                </div>
 
-                    <button className='btn' >Login</button>
-                    
-                    <label className='LABEL2'> Não possui uma conta? Acesse aqui e cadastre-se</label>
-                   
+                <div className='btn'>
+                    <button>Login</button>
+                </div>
 
+                <label className='LABEL2'> Não possui uma conta? Acesse aqui e cadastre-se</label>
 
-                </section>
+                <div className='logo'>
+                <img src={LogoSite} />
+                </div>
+
+            </section>
         </main>
     )
 }

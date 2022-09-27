@@ -1,14 +1,27 @@
 .fundo{
     background: url(../../../assets/images/login-I.png);
-    height: 99vh;
-
-    font-family:'Goldman';
     
-
-    color: #fff;
+    height: 99vh;
     
     display: flex;
     align-items: center;
+    
+    
+
+    
+    label{
+        font-family:'Goldman';
+        font-size: 1em;
+        color: #fff;
+        
+        position: relative;
+        top: 25em;
+        left: 6em;   
+    
+    }
+    
+
+    
     
 }
 
@@ -19,8 +32,8 @@
     
     
     border-radius: 1em;
-    height: 20em;
-    width: 20em;
+    height: 30em;
+    width: 25em;
 
     position: absolute;
     top: 18em;
@@ -38,10 +51,11 @@
 
 .UL{
     position: absolute;
-    top: 1em;
+    top: 4em;
+    
     
     color: #852E8A;
-    
+    font-size: 1em;
 
 }
 
@@ -80,28 +94,44 @@
 
 
 .btn{
-    align-items: center;
-    
-    border: none;
-    border-radius: 1em;
-    
-    font-family: 'Goldman';
-    font-size: .8em;
-    background-color: #FF6F86;
-    color: #852E8A; 
-    
-    width: 16em;
-    height: 4em;
-
-
+   align-items: center;
    position: absolute;
-   bottom: 1em; 
+   bottom: 6em;
+
+    button{
+        font-family: 'Goldman';
+        font-size: 1em;
+       
+        background-color: #FF6F86;
+        color: #852E8A; 
+       
+        border: none;
+        border-radius: 1em;
+       
+        width: 13em;
+        height: 3em;
+    }
+  
 }
 
 .LABEL2{
     color: #FF6F86;
-    font-size: .5em;
+    font-size: .6em;
 
-    margin: .5em ;
+    margin: 1em ;
     
+    position: relative;
+    top: 11em;
+}
+
+
+
+.logo{
+
+  position: relative;
+  right: 58em; 
+  top: 16.2em;
+
+    
+
 }
