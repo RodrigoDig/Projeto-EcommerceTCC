@@ -1,4 +1,6 @@
 import { cadastrarProdutos, enviarImagem, salvarCategoria} from "../repository/produtoRepository.js";
+import { validarProduto } from "../services/produtoValidacao.js";
+import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 
 import multer from 'multer';
 import {Router} from "express";
@@ -10,11 +12,14 @@ const upload = multer({ dest: 'storage/imagensProduto'})
 server.post('/adm/produto', async (req, resp) =>{
     try{
         const produto = req.body;
+        await validarProduto(produto);
         const idProduto = await cadastrarProdutos(produto);
-        console.log(idProduto);
             
-        if (cat != undefined){
-            await salvarCategoria(idProduto, idCateg);
+        for (const idCateg of produto.categorias) {
+            const cat = await buscarCategoriaPorId(idCateg);
+            
+            if (cat != undefined)
+                await salvarCategoria(idProduto, idCateg);
         }
         
         resp.status(204).send();
@@ -22,7 +27,7 @@ server.post('/adm/produto', async (req, resp) =>{
     }catch(err){
 
         return resp.status(400).send({
-            erro: ('Ops, seus dados não estão corretos!!')
+            erro: (err.message)
         })
     }
 })

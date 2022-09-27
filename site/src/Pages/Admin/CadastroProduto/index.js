@@ -6,7 +6,7 @@ import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
 import storage from 'local-storage';
-import { enviarImagemProduto, CadastrarProduto } from '../../../Api/cadProdutoApi';
+import { enviarImagemProduto, CadastrarProduto, cadastrarProduto } from '../../../Api/cadProdutoApi';
 import { listarCategorias } from '../../../Api/categoriaApi.js';
 import { listarDepartamentos } from '../../../Api/departamentoApi.js';
 import { useState, useEffect } from 'react';
@@ -49,7 +49,7 @@ export default function Cadastro() {
     async function SalvarCLick() {
         try {
             const precoProduto = Number(preco.replace(',', '.'));
-            const r = await CadastrarProduto(idDepartamento, nome, precoProduto, valordesconto, avaliacao, fabricante, estoque, garantia, infotecnicas, catSelecionadas);
+            const r = await cadastrarProduto(idDepartamento, nome, precoProduto, valordesconto, avaliacao, fabricante, estoque, infotecnicas, descricao, garantia, catSelecionadas);
             alert('Produto cadastrado com sucesso');
         }
         catch (err) {
@@ -202,7 +202,7 @@ export default function Cadastro() {
                                 <h1 className='text1-filha2-002'>
                                     Avaliação
                                 </h1>
-                                <p className='number-avaliacao' value={avaliacao} onChange={e => setAvaliacao(e.target.value)}>
+                                <p className='number-avaliacao'>
                                     <input className='number-avaliacao' type='text' value={avaliacao} onChange={e => setAvaliacao(e.target.value)} />
                                 </p>
                             </div>
@@ -230,7 +230,7 @@ export default function Cadastro() {
                                 <h2 className='text1-c5-contfilha2-infocad002'>
                                     Garantia
                                 </h2>
-                                <input className='input1-infocad001' type='date' velue={garantia} onChange={e => setGarantia(e.target.value)} />
+                                <input className='input1-infocad001' type='date' value={garantia} onChange={e => setGarantia(e.target.value)} />
                             </div>
                         </div>
                     </div>
