@@ -12,23 +12,22 @@ server.post('/adm/produto', async (req, resp) =>{
         const produto = req.body;
         const idProduto = await cadastrarProdutos(produto);
         console.log(idProduto);
-
-        for (const idCateg of produto.categorias) {
-            const cat = await buscarCategoriaPorId(idCateg);
             
-            if (cat != undefined)
-                await salvarProdutoCategoria(idProduto, idCateg);
+        if (cat != undefined){
+            await salvarCategoria(idProduto, idCateg);
         }
-
+        
         resp.status(204).send();
+        
     }catch(err){
+
         return resp.status(400).send({
-            erro: ('oiiii')
+            erro: ('Ops, seus dados não estão corretos!!')
         })
     }
 })
 
-server.post( '/prod/:id/capa', upload.single('capa'), async (req, resp) => {
+server.put('/produto/:id/imagem', upload.single('capa'), async (req, resp) => {
     try{
         const { id } = req.params;
         const imagem = req.file.path;

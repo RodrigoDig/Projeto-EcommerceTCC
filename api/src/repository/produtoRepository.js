@@ -32,11 +32,11 @@ export async function salvarCategoria(idProduto, idCategoria){
 }
 
 export async function enviarImagem(imagem, id){
-    const comando = 
-    `
-    INSERT INTO TB_PRODUTO_IMAGEM (IMG_PRODUTO, ID_PRODUTO)
-			VALUES (? , ?)
-    `
+    const comando = `   
+        UPDATE tb_produto_imagem
+            SET img_produto        = ?
+        WHERE id_produto           = ? `;
+
     const [resposta] = await con.query(comando, [imagem, id]); 
     return resposta.affectedRows;
 }

@@ -22,7 +22,7 @@ export default function Cadastro() {
     const [garantia, setGarantia] = useState('')
     const [infotecnicas, setInfoTecnicas] = useState('');
     const [descricao, setDescricao] = useState('');
-
+    const [imagem, setImagem] = useState('');
 
     const [idCategoria, setIdCategoria] = useState();
     const [categorias, setCategorias] = useState([]);
@@ -46,13 +46,13 @@ export default function Cadastro() {
         setDepartamentos(r);
     }
 
-    async function SalvarCLick(){
-        try{
+    async function SalvarCLick() {
+        try {
             const precoProduto = Number(preco.replace(',', '.'));
             const r = await CadastrarProduto(idDepartamento, nome, precoProduto, valordesconto, avaliacao, fabricante, estoque, garantia, infotecnicas, catSelecionadas);
-            alert('Filme cadastrado com sucesso');
+            alert('Produto cadastrado com sucesso');
         }
-        catch (err){
+        catch (err) {
             alert(err.response.data.erro);
         }
     }
@@ -75,6 +75,13 @@ export default function Cadastro() {
         setCategorias(r);
     }
 
+    function escolherImagem() {
+        document.getElementById('imagemCapa').click();
+    }
+
+    function mostrarImagem() {
+        return URL.createObjectURL(imagem);
+    }
 
     useEffect(() => {
         carregarCategorias();
@@ -98,7 +105,7 @@ export default function Cadastro() {
                     <div className='cont-infocad-001'>
                         <div className='contfilha1-infocad-001'>
                             <h2 className='titulo-contfilha2-infocad001'>Informações</h2>
-                            
+
                             <h2 className='text1-infocad001'>
                                 Nome
                             </h2>
@@ -121,13 +128,17 @@ export default function Cadastro() {
                                 Imagens
                             </h1>
                             <div className='contneta1-infocad001'>
-                                <label for='arquivo1' className='selecionar-img1'>
-                                    <h1 className='text-contneta1'>
-                                        Selecionar Imagem 1
-                                    </h1>
-                                    <img src={SalvarImgIcon} />
-                                    <input name='arquivo1' id='arquivo1' type='file' className='input-img1' />
-                                </label>
+                                
+                                <div onClick={escolherImagem}>
+
+                                    <label for='arquivo1' className='selecionar-img1'>
+                                        <h1 className='text-contneta1'>Selecionar Imagem 1</h1>
+                                        <img src={mostrarImagem} />
+                                        <img src={SalvarImgIcon} />
+                                        <input name='arquivo1' id='arquivo1' type='file' className='input-img1' onChange={e => setImagem(e.target.value)} />
+                                    </label>
+                                </div>
+
                                 <label for='arquivo2' className='selecionar-img2'>
                                     <h1 className='text-contneta1'>
                                         Selecionar Imagem 2
