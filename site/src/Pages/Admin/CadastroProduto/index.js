@@ -34,6 +34,18 @@ export default function Cadastro() {
 
     const navigate = useNavigate();
 
+    const [stars] = document.querySelectorAll('star-icon');
+
+    document.addEventListener('click', function(item){
+        const classStar = item.target.classList;
+        if(!classStar.contains('ativo')){
+            stars.forEach(function (star){
+                star.classList.remove('ativo');
+            });
+            classStar.add('ativo');
+        }
+    })
+
 
     useEffect(() => {
         if (!storage('admin-logado')) {
@@ -207,11 +219,14 @@ export default function Cadastro() {
                                 </p>
                             </div>
                             <div className='cont2-contfilha2-infocad002'>
-                                <img src={EstrelaIcon} />
-                                <img src={EstrelaIcon} />
-                                <img src={EstrelaIcon} />
-                                <img src={EstrelaIcon} />
-                                <img src={EstrelaIcon} />
+                                <ul className='cont-avaliacao-star'>
+                                    <li className='star-icon ativo' data-avaliacao='1'></li>
+                                    <li className='star-icon' data-avaliacao='2'></li>
+                                    <li className='star-icon' data-avaliacao='3'></li>
+                                    <li className='star-icon' data-avaliacao='4'></li>
+                                    <li className='star-icon' data-avaliacao='5'></li>
+                                </ul>
+
                             </div>
                             <div className='cont3-contfilha2-infocad002'>
                                 <h1 className='text1-c3-contfilha2-infocad002'>
