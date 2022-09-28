@@ -24,6 +24,8 @@ export default function Cadastro() {
     const [descricao, setDescricao] = useState('');
     const [imagem, setImagem] = useState('');
 
+    const [estrelas, setEstrelas] = useState(0);
+
     const [idCategoria, setIdCategoria] = useState();
     const [categorias, setCategorias] = useState([]);
 
@@ -34,24 +36,18 @@ export default function Cadastro() {
 
     const navigate = useNavigate();
 
-    const [stars] = document.querySelectorAll('star-icon');
-
-    document.addEventListener('click', function(item){
-        const classStar = item.target.classList;
-        if(!classStar.contains('ativo')){
-            stars.forEach(function (star){
-                star.classList.remove('ativo');
-            });
-            classStar.add('ativo');
-        }
-    })
-
-
     useEffect(() => {
         if (!storage('admin-logado')) {
             navigate('/loginadm')
         }
     }, [])
+
+    function lerEstrelas(estrela) {
+        if (estrelas <= estrela)
+            return 'star-icon ativo'
+        else
+            return 'star-icon'
+    }
 
     async function carregarDepartamentos() {
         const r = await listarDepartamentos();
@@ -189,7 +185,7 @@ export default function Cadastro() {
 
                                     {categorias.map(item =>
                                         <option value={item.id}> {item.categoria} </option>
-                                    )}
+                                    )}  
                                 </select>
                                 <button onClick={adicionarCategoria} className='btn-mais-categorias'>
                                     <h1 className='mais-btn'>
@@ -215,16 +211,16 @@ export default function Cadastro() {
                                     Avaliação
                                 </h1>
                                 <p className='number-avaliacao'>
-                                    <input className='number-avaliacao' type='text' value={avaliacao} onChange={e => setAvaliacao(e.target.value)} />
+                                    <input className='number-avaliacao' type='text' value={estrelas} onChange={e => setEstrelas(e.target.value)} />
                                 </p>
                             </div>
                             <div className='cont2-contfilha2-infocad002'>
                                 <ul className='cont-avaliacao-star'>
-                                    <li className='star-icon ativo' data-avaliacao='1'></li>
-                                    <li className='star-icon' data-avaliacao='2'></li>
-                                    <li className='star-icon' data-avaliacao='3'></li>
-                                    <li className='star-icon' data-avaliacao='4'></li>
-                                    <li className='star-icon' data-avaliacao='5'></li>
+                                    <li className={lerEstrelas(1)} onClick={e => setEstrelas(1)}></li>
+                                    <li className={lerEstrelas(2)} onClick={e => setEstrelas(2)}></li>
+                                    <li className={lerEstrelas(3)} onClick={e => setEstrelas(3)}></li>
+                                    <li className={lerEstrelas(4)} onClick={e => setEstrelas(4)}></li>
+                                    <li className={lerEstrelas(5)} onClick={e => setEstrelas(5)}></li>
                                 </ul>
 
                             </div>
