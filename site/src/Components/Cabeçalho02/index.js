@@ -1,6 +1,7 @@
 import './index.scss';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo';
+import Logouser from '../../../src/assets/images/login.png';
 
 export default function Cabecalho2(){
     return(
@@ -10,10 +11,7 @@ export default function Cabecalho2(){
                     <Logo className='logo-bt'/>
                 </div>
                 <div className='cont-login'>
-                    <img src='/images/login.png' />
-                    <p className='text-user'>
-                        Bem vindo user001
-                    </p>
+                    <img src={Logouser} />
                 </div>
             </section>
         </main>

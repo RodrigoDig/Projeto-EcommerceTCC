@@ -1,0 +1,61 @@
+.container-principal-caduser{
+    background-color: #d9d9d9;
+    height: 100vh;
+
+    hr{
+       width: 93%;
+       margin-bottom: 3em;
+
+    }
+
+    .container-dois-cadtextos{
+        background-color: #fff;
+        border-radius: 10px;
+        
+        height: 50vh;
+        width: 95%;
+        margin-top: 5em;
+        margin-left: 3em;
+    }
+    
+    .titulo-caduser{
+        font-family: 'Goldman';
+        font-size: 25px;
+        font-weight: normal;
+    
+        text-align: center;
+        
+        h1{
+            padding-top: 1.5em;
+        }
+    }
+    
+    .textos-caduser{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    
+        margin: 0px 3.8em;
+        
+        label{
+            font-family: 'Goldman';
+            font-size: 1.5em;
+        }
+    
+        input{
+            border: none;
+            outline: none;
+            
+            font-size: 1em;
+            font-family: 'Goldman';
+        }
+    }
+
+    .divisão-final{
+        display: flex;
+        flex-direction: row;
+
+    }
+}
+

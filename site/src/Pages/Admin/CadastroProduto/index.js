@@ -6,7 +6,7 @@ import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
 import storage from 'local-storage';
-import { enviarImagemProduto, CadastrarProduto, cadastrarProduto } from '../../../Api/cadProdutoApi';
+import { enviarImagemProduto, cadastrarProduto } from '../../../Api/cadProdutoApi';
 import { listarCategorias } from '../../../Api/categoriaApi.js';
 import { listarDepartamentos } from '../../../Api/departamentoApi.js';
 import { useState, useEffect } from 'react';
