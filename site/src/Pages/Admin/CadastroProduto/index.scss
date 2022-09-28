@@ -14,8 +14,8 @@
     } 
 
     .cont-cabecalho{
-        width: max-content;
-        height: max-content;
+        width: 27em;
+        height: 100vh;
     }
 
     .cont-section{
@@ -410,6 +410,8 @@
 
         width: 18em;
         height: 2em;
+
+        margin-bottom: 0.5em;
     }
 
     .number-avaliacao{
@@ -444,14 +446,13 @@
     
     .star-icon{
         list-style-type: none;
-        border: 1px solid #FFFFFF;
         cursor: pointer;
         color: #ffe500;
 
-        font-size: 30px;
+        font-size: 50px;
     }
     .star-icon::before{
-        content:"\2605" ;
+        content:"\2605";
     }
     .star-icon.ativo ~ .star-icon::before{
         content: "\2606";
@@ -617,5 +618,17 @@
         border: 0.5px solid #1E1E1E;
 
         color: #1E1E1E;
+    }
+
+    @media screen and (max-width:1700px) and (min-width:1360px) {
+        .cont-infos-cad{
+            width: 70em;
+        }
+        .contfilha2-infocad-001{
+            width: 30em;
+        }
+        .contneta1-infocad001{
+            width: 30em;
+        }
     }
 }
