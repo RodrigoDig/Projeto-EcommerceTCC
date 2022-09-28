@@ -57,7 +57,7 @@ export default function Cadastro() {
     async function SalvarCLick() {
         try {
             const precoProduto = Number(preco.replace(',', '.'));
-            const r = await cadastrarProduto(idDepartamento, nome, precoProduto, valordesconto, avaliacao, fabricante, estoque, infotecnicas, descricao, garantia, catSelecionadas);
+            const r = await cadastrarProduto(idDepartamento, nome, precoProduto, valordesconto, estrelas, fabricante, estoque, infotecnicas, descricao, garantia, catSelecionadas);
             alert('Produto cadastrado com sucesso');
         }
         catch (err) {
