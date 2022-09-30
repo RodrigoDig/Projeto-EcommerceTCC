@@ -22,6 +22,7 @@ import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
 
 import CstEstoque from './Pages/Admin/ConsultarEstoque';
+import CstPedidos from './Pages/Admin/ConsultarPedidos';
 import LoginAdm from './Pages/Admin/LoginAdm';
 import Cadastro from './Pages/Admin/CadastroProduto';
 
@@ -50,6 +51,7 @@ export default function Index(){
                 <Route path="/produto" element={<Produto />} />
                 
                 <Route path="/estoque" element={<CstEstoque />} />
+                <Route path="/CstPedidos" element={<CstPedidos/>}/>
                 <Route path="/loginadm" element={<LoginAdm />} />
                 <Route path="/cadastro" element={<Cadastro />} />
             </Routes>
