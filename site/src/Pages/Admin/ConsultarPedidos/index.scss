@@ -1,0 +1,101 @@
+.cab{
+    background-color: #F27400;
+}
+
+.style {
+    font-family: 'Goldman';
+
+    background-color: #E9E9E9;
+}
+
+.Pesquisa {
+    position: relative;
+    left: 50em;
+    top: 2.3em;
+}
+
+.input-pesquisa-estoque {
+    padding-left: 10px;
+    width: 22em;
+    height: 3em;
+    margin-left: 1em;
+    margin-right: -10px;
+
+    border-radius: 8px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border: 1px solid #000;
+
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+input::placeholder {
+    color: black;
+    font-family: 'Goldman';
+    font-size: 15px;
+}
+
+.botao-pesquisa-estoque {
+    height: 3.4em;
+    width: 4em;
+
+    position: relative;
+    top: .3em;
+
+    border-radius: .2em;
+    border: none;
+
+    background-color: #F27400;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.botao-pesquisa-estoque:hover {
+    background-color: #ffffff;
+    border: 0.1px solid black;
+}
+
+
+.CSTP {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    ;
+
+
+    label{
+        font-size: 1.5em;
+        padding-left: .2em;
+        color: #000000;
+    }
+
+}
+
+
+.caracteris {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 5em;
+
+    position: relative;
+    left: 10em;
+
+
+
+    label {
+        padding-right: 2em;
+        border: 1px solid #000;
+        align-items: center;
+    }
+}
