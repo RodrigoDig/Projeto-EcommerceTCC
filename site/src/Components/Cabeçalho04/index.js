@@ -6,7 +6,7 @@ import storage from 'local-storage';
 import LogoMenor from '../LogoMenor';
 import CupomLogo from '../../assets/images/Cupom-fase01.svg';
 import Caminhaologo from '../../assets/images/Caminhão-fase01.svg';
-import CaixaLogo from '../../assets/images/Caixa-abertafase01.svg';
+import CaixaLogo from '../../assets/images/Caixa-estoquefase02.svg';
 import AlterarCPLogo from '../../assets/images/Alterar-Cupom-fase01.svg';
 import SairLogo from '../../assets/images/Sair-fase01.svg';
 import CadProdLogo from '../../assets/images/Cad-Prodfase01.svg';
