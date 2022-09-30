@@ -1,13 +1,12 @@
 import React from 'react';
 import './index.scss';
-import { Link } from 'react-router-dom';
+
+import Cabecalho01 from '../../../Components/Cabeçalho01';
 
 export default function Home(){
     return(
-        <main>        
-            <Link to='/loginadm'>
-                loginadm
-            </Link>
+        <main className='cont-main-ladingpage'>
+            <Cabecalho01 />        
         </main>
     )
 }

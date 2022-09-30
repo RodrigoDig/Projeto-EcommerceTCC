@@ -1,7 +1,8 @@
-.teste{
+.cont-main-ladingpage{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
 
-    font-family: 'Goldman';
-    h1{
-        font-family: 'Goldman';
-    }
+    width: 100%;
+    height: 100vh;
 }

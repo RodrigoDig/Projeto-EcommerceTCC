@@ -2,6 +2,11 @@ import './index.scss';
 import { Link } from 'react-router-dom';
 import Logo from '../Logo';
 
+import LupaIcon from '../../assets/images/Lupa-busca.svg';
+import Carrinho from '../../assets/images/Carrinho-fase01.svg';
+import NumeroIcon from '../../assets/images/Numero Produtos.svg';
+import LoginIcon from '../../assets/images/Login-icon-fase01.svg';
+
 export default function Cabecalho1(){
     return(
         <main>
@@ -9,7 +14,7 @@ export default function Cabecalho1(){
                 <div className='cont-pesquisa'>
                     <input className='input-pesquisa' placeholder='O que você procura?'/>
                     <button className='botao-pesquisa'>
-                        <img src='/images/Lupa-pesquisa.png' height={21} width={21} />
+                        <img src={LupaIcon} height={21} width={21} />
                     </button>
                 </div>
                 <div className='cont-logo'>
@@ -20,12 +25,12 @@ export default function Cabecalho1(){
                 <div className='cont-login'>
                     <Link to='/carrrinho'>
                         <div className='cont-carrinho'>
-                            <img src='/images/Carrinho.png' className='carrinho' />
-                            <img src='/images/NumberCar.png' className='numbercar' />
+                            <img src={Carrinho} className='carrinho' />
+                            <img src={NumeroIcon} className='numbercar' />
                         </div>
                     </Link>
                     <div className='cont-icon-login'>
-                        <img src='/images/login.png' className='icon-login'/>
+                        <img src={LoginIcon} className='icon-login'/>
                         <Link to='/login' className='link'>
                             <h2 className='text-login'>
                                 Login
