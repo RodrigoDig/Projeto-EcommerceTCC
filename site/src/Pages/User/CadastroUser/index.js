@@ -44,18 +44,10 @@ export default function CadastroUser(){
 
                 <div className='textos-caduser'>
                     <label>
-                        Cpf:
+                        Email:
                         <input type='text' />
                     </label>
-                </div>
-                <hr/>
-
-                <div className='textos-caduser'>
-                    <label>
-                        Email:
-                        <input type='text'/>
-                    </label>
-
+                    
                     <label>
                         Celular:
                         <input type='text' />
@@ -65,12 +57,12 @@ export default function CadastroUser(){
 
                 <div className='textos-caduser'>
                     <label>
-                        Senha:
-                        <input type='text' />
+                        CPF:
+                        <input type='text'/>
                     </label>
 
                     <label>
-                        Confirmar senha:
+                        Senha:
                         <input type='text' />
                     </label>
                 </div>
@@ -91,13 +83,24 @@ export default function CadastroUser(){
                     </div>
 
                     <div className='inputs-finais'>
-                        <div>
-                            <input type='text' placeholder='Titular do cartão'/>
-                            <input type='text' placeholder='Número do cartão' />
+                        <div className='cartao-user'>
+                            <div>
+                                <input type='text' placeholder='Titular do cartão'/>
+                            </div>
+
+                            <div>
+                                <input type='text' placeholder='Número do cartão' />
+                            </div>
                         </div>
-                        <div>
-                            <input type='text' placeholder='Validade'/>
-                            <input type='text' placeholder='Verificação CVV'/>
+
+                        <div className='cartao-user'>
+                            <div>
+                                <input type='text' placeholder='Validade'/>
+                            </div>
+
+                            <div>
+                                <input type='text' placeholder='Verificação CVV'/>
+                            </div>
                         </div>
                     </div>
                 </div>

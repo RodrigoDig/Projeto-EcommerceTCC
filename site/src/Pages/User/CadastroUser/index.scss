@@ -12,7 +12,7 @@
         background-color: #fff;
         border-radius: 10px;
         
-        height: 50vh;
+        height: 77vh;
         width: 95%;
         margin-top: 5em;
         margin-left: 3em;
@@ -33,14 +33,12 @@
     .textos-caduser{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
+        justify-content: space-around;
     
-        margin: 0px 3.8em;
-        
         label{
             font-family: 'Goldman';
-            font-size: 1.5em;
+            font-size: 1.7em;
+            line-height: normal;
         }
     
         input{
@@ -49,13 +47,56 @@
             
             font-size: 1em;
             font-family: 'Goldman';
+            color: #1f1f1f;
+            margin-left: 8px ;
         }
     }
 
-    .divisão-final{
+    .divisão-cartão{
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        
+        .final-cads{
+            
+            h2{
+                font-family: 'Goldman';
+                font-size: 30px;
+                font-weight: normal;
+            }
 
+            label{
+                font-family: 'Goldman';
+                font-size: 25px;
+                line-height: normal;
+                margin-right: 15px;
+            }
+
+            input{
+                height: 1em;
+                width: 1em;
+            }
+        }
+
+        .inputs-finais{
+
+            .cartao-user{
+                display: flex;
+                flex-direction: row ;
+
+                margin: 1em;
+
+                input{
+                    border: none;
+                    outline: none;
+
+                    background-color: #d9d9d9;
+                    color: #1f1f1f;
+                    
+                }
+            }
+        }
     }
 }
 
