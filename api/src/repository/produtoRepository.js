@@ -24,11 +24,12 @@ export async function cadastrarProdutos(produto){
 
 export async function salvarCategoria(idProduto, idCategoria){
     const comando =`
-        insert into tb_produto_categoria(id_categoria, id_produto)
+        insert into tb_produto_categoria(id_categoria, id_produto
                 values(?,?)
     `
 
-    const [resp] = await con.query (comando, [idCategoria, idProduto])
+    const [resp] = await con.query (comando, [idCategoria, idProduto]);
+    return resp.affectedRows;
 }
 
 export async function enviarImagem(imagem, id){
@@ -39,4 +40,23 @@ export async function enviarImagem(imagem, id){
 
     const [resposta] = await con.query(comando, [imagem, id]); 
     return resposta.affectedRows;
+}
+
+export async function listarProdutos(produto, id) {
+    const comando = ` 
+    SELECT ID_PRODUTO              idProduto,
+           ID_DEPARTAMENTO         idDepartamento,
+           NM_PRODUTO              nomeProduto,
+           VL_PRECO                valorProduto,
+           VL_DESCONTO             valorDesconto, 
+           VL_AVALIACAO            avaliacao,
+           DS_FABRICANTE           fabricante,
+           QTD_ESTOQUE             estoque,
+           DS_INFORMACOES          informações,
+           DS_DESCRICAO            descricao,
+           DT_GARANTIA             garantia
+    FROM   TB_PRODUTO;	
+    `
+    const [respos] = await con.query(comando, [produto, id]);
+    return respos;
 }

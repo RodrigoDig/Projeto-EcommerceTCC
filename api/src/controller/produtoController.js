@@ -1,4 +1,4 @@
-import { cadastrarProdutos, enviarImagem, salvarCategoria} from "../repository/produtoRepository.js";
+import { cadastrarProdutos, enviarImagem, salvarCategoria, listarProdutos} from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 
@@ -28,7 +28,7 @@ server.post('/adm/produto', async (req, resp) =>{
 
         return resp.status(400).send({
             erro: (err.message)
-        })
+        });
     }
 })
 
@@ -48,8 +48,24 @@ server.put('/produto/:id/imagem', upload.single('capa'), async (req, resp) => {
     catch (err){
         resp.status(400).send({
             erro: err.message
-        })
+        });
     }
+})
+
+server.get('/listarProduto/:id/produto', async (req, resp) => {
+    try{
+        const { id } = req.params;
+        const  produto = await listarProdutos(produto);
+
+        resp.status(204).send();
+
+
+    } catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        });
+    }
+
 })
 
 export default server;
