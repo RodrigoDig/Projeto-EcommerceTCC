@@ -82,3 +82,45 @@ export async function buscarPorId(id){
     const [linhas] = await con.query(comando [id]);
     return linhas[0];
 }
+
+export async function buscarPorNome(nome){
+    const comando = 
+    `
+    SELECT ID_PRODUTO              idProduto,
+           ID_DEPARTAMENTO         idDepartamento,
+           NM_PRODUTO              nomeProduto,
+           VL_PRECO                valorProduto,
+           VL_DESCONTO             valorDesconto, 
+           VL_AVALIACAO            avaliacao,
+           DS_FABRICANTE           fabricante,
+           QTD_ESTOQUE             estoque,
+           DS_INFORMACOES          informações,
+           DS_DESCRICAO            descricao,
+           DT_GARANTIA             garantia
+    FROM   TB_PRODUTO
+    WHERE NM_PRODUTO LIKE ?
+    `;
+    const [linhas] = await con.query(comando, [ `%${nome}%` ]);
+    return linhas;
+}
+
+export async function buscarTodosProdutos(){
+    const comando = 
+    `
+    SELECT ID_PRODUTO              idProduto,
+           ID_DEPARTAMENTO         idDepartamento,
+           NM_PRODUTO              nomeProduto,
+           VL_PRECO                valorProduto,
+           VL_DESCONTO             valorDesconto, 
+           VL_AVALIACAO            avaliacao,
+           DS_FABRICANTE           fabricante,
+           QTD_ESTOQUE             estoque,
+           DS_INFORMACOES          informações,
+           DS_DESCRICAO            descricao,
+           DT_GARANTIA             garantia
+    FROM   TB_PRODUTO
+    `;
+    const [linhas] = await con.query(comando);
+    return linhas;
+
+}
