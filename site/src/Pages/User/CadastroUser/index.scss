@@ -80,22 +80,50 @@
         }
 
         .inputs-finais{
-
+            display: flex;
+            flex-direction: column;
+            
             .cartao-user{
                 display: flex;
                 flex-direction: row ;
 
-                margin: 1em;
+                margin-top: 1.5em;
+                .div-cartao-1{
+                    margin-left: 1.5em;
 
-                input{
-                    border: none;
-                    outline: none;
+                    input{
+                        font-family: 'Goldman';
+                        font-size: 1.5em;
 
-                    background-color: #d9d9d9;
-                    color: #1f1f1f;
-                    
+                        border: none;
+                        outline: none;
+
+                        background-color: #d9d9d9;
+
+                        padding: 1em;
+                    }
                 }
             }
+        }
+    }
+
+    .botao-cad-user{
+        text-align: center;
+        margin-top: 5em;
+
+        button{
+            padding: 1em 3em;
+
+            font-family: 'Goldman';
+            font-size: 2em;
+
+            border-radius: 15px;
+            background-color: #1f1f1f;
+            color: #fff;
+        }
+
+        button:hover{
+            transform: scale(1.1);
         }
     }
 }

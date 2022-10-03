@@ -3,7 +3,7 @@ import { Router } from 'express';
 
 const server = Router();
 
-server.post('/cadastro/User', async (req, resp)=> {
+server.post('/cadastro/user', async (req, resp)=> {
     try{
 
         const usuario = req.body;

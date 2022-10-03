@@ -6,7 +6,7 @@ import LogoSite from '../../../assets/images/LOGOBS.svg';
 
 
 
-export default function Login(APILOGIN) {
+export default function Login() {
     return (
         <main>
             <Cabecalho03 />
