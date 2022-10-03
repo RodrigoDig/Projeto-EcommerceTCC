@@ -1,137 +1,148 @@
-.fundo{
-    background: url(../../../assets/images/login-I.png);
-    
-    height: 99vh;
-    
-    display: flex;
-    align-items: center;
-    
-    
+.fundo-tela-login{
 
-    
-    label{
-        font-family:'Goldman';
-        font-size: 1em;
-        color: #fff;
+    background-image: url(../../../assets/images/login-I.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position-y: -70px;
+
+    height: 100vh;
+    .bloco-informações{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: #fff;
+        border-radius: 50px;
+
+        width: 60em;
+        margin-top: 5em;
+        margin-left: 80em;
         
-        position: relative;
-        top: 25em;
-        left: 6em;   
-    
+        h1{
+            font-family: 'Goldman';
+            font-weight: normal;
+            font-size: 4em;
+
+            color: #852E8A;
+        }
+
+        .input-login{
+
+            input{
+
+                background-image: url('../../../assets/images/user 15.svg');
+                background-repeat: no-repeat;
+                background-position: 20px;
+
+                outline: none;
+
+                border: 3px solid #FF6F86;
+                border-radius: 30px;
+
+                font-family: 'Goldman';
+                font-size: 2em;
+
+                padding: 1em 2.2em;
+
+            }
+
+            ::-webkit-input-placeholder { 
+                font-size:1.5em;
+                text-align: center;
+
+                color: #852E8A;
+            }
+        }
+
+        .input-login-2{
+
+            margin-top: 4em;
+            input{
+
+                background-image: url('../../../assets/images/cadeado 10.png');
+                background-repeat: no-repeat;
+                background-position: 20px;
+
+                outline: none;
+
+                border: 3px solid #FF6F86;
+                border-radius: 30px;
+
+                font-family: 'Goldman';
+                font-size: 2em;
+
+                padding: 1em 2.2em;
+
+            }
+
+            ::-webkit-input-placeholder { 
+                font-size:1.5em;
+                text-align: center;
+
+                color: #852E8A;
+            }
+        }
+
+        .input-login-3{
+            margin-top: 4em;
+            input{
+
+                background-image: url('../../../assets/images/email 10.png');
+                background-repeat: no-repeat;
+                background-position: 10px;
+
+                outline: none;
+
+                border: 3px solid #FF6F86;
+                border-radius: 30px;
+
+                font-family: 'Goldman';
+                font-size: 2em;
+
+                padding: 1em 2.2em;
+
+            }
+
+            ::-webkit-input-placeholder { 
+                font-size:1.5em;
+                text-align: center;
+
+                color: #852E8A;
+            }
+        }
+
+        .botao-login{
+            margin-top: 4em;
+
+            button{
+                padding: 0.5em 6.7em;
+
+                border-radius: 20px;
+                border: #FF6F86;
+
+                font-family: 'Goldman';
+                font-size: 2.5em;
+
+                background-color: #FF6F86;
+                color: #852E8A;
+            }
+
+            button:hover{
+                transform: scale(1.1);
+            }
+        }
+
+        .texto-final-login{
+            margin-top: 1em;
+            p{
+                font-family: 'Goldman';
+                font-size: 2em;
+
+                color: #852E8A;
+                width: 15em;
+
+                text-align: center;
+            }
+        }
     }
-    
-
-    
-    
-}
-
-.CARD{
-    background-color: #ffffff;
-    padding: 2em;
-
-    
-    
-    border-radius: 1em;
-    height: 30em;
-    width: 25em;
-
-    position: absolute;
-    top: 18em;
-    right: 3em;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    font-family: 'Goldman';
-    color: #fff;
-    
-}
-
-.UL{
-    position: absolute;
-    top: 4em;
-    
-    
-    color: #852E8A;
-    font-size: 1em;
-
-}
-
-.LABEL{
-    color: #FF6F86;
-    font-size: .5em;
-
-    margin: .5em ;
-    
-    
-    position: relative;
-    right: 6em;
-}
-
-.infos{
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    
-
-
-    input{
-        border-radius: 1em;
-        border-color: #FF6F86;
-        margin: 1em;
-        
-        width: 15em;
-        height: 3em;
-        
-
-    }
-}
-
-
-
-.btn{
-   align-items: center;
-   position: absolute;
-   bottom: 6em;
-
-    button{
-        font-family: 'Goldman';
-        font-size: 1em;
-       
-        background-color: #FF6F86;
-        color: #852E8A; 
-       
-        border: none;
-        border-radius: 1em;
-       
-        width: 13em;
-        height: 3em;
-    }
-  
-}
-
-.LABEL2{
-    color: #FF6F86;
-    font-size: .6em;
-
-    margin: 1em ;
-    
-    position: relative;
-    top: 11em;
-}
-
-
-
-.logo{
-
-  position: relative;
-  right: 58em; 
-  top: 16.2em;
-
-    
-
 }
