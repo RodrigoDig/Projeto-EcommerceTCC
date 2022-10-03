@@ -2,6 +2,7 @@ import React from 'react';
 import './index.scss';
 
 import Cabecalho01 from '../../../Components/Cabeçalho01';
+import CardHome from '../../../Components/CardLading';
 
 import Controle from '../../../assets/images/Controle-icon.svg';
 import TrofeuIcon from '../../../assets/images/Trofeu-icon.svg';
@@ -38,11 +39,13 @@ export default function Home(){
                 </div>
             </section>
             <section className='cont-002-home'>
-                <div className='cont-filha1-002'>   
+                <div className='cont-filha1-002home'>   
                     <img src={RelogioIcon} className='relogio-icon-home'/>
                     <h1 className='titulo-promocoes-home'>
                         PROMOÇÕES IMPERDIVEIS
                     </h1>
+                </div>
+                <div className='cont-filha2-002home'>
                 </div>
             </section>
         </main>
