@@ -1,4 +1,4 @@
-import { cadastrarProdutos, enviarImagem, salvarCategoria, listarProdutos} from "../repository/produtoRepository.js";
+import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId} from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 
@@ -52,20 +52,20 @@ server.put('/produto/:id/imagem', upload.single('capa'), async (req, resp) => {
     }
 })
 
-server.get('/listarProduto/:id/produto', async (req, resp) => {
+
+server.get('/produto/:id', async (req, resp) => {
     try{
-        const { id } = req.params;
-        const  produto = await listarProdutos(produto);
+        const id = req.params.id;
 
-        resp.status(204).send();
+        const resposta = buscarPorId(id);
 
-
-    } catch (err) {
+        resp.send(resposta);
+    }
+    catch(err){
         resp.status(400).send({
             erro: err.message
-        });
+        })
     }
-
 })
 
 export default server;

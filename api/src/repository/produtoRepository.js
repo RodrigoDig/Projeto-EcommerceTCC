@@ -24,7 +24,7 @@ export async function cadastrarProdutos(produto){
 
 export async function salvarCategoria(idProduto, idCategoria){
     const comando =`
-        insert into tb_produto_categoria(id_categoria, id_produto
+        insert into tb_produto_categoria(id_categoria, id_produto)
                 values(?,?)
     `
 
@@ -42,7 +42,7 @@ export async function enviarImagem(imagem, id){
     return resposta.affectedRows;
 }
 
-export async function listarProdutos(produto, id) {
+export async function listarProdutos() {
     const comando = ` 
     SELECT ID_PRODUTO              idProduto,
            ID_DEPARTAMENTO         idDepartamento,
@@ -55,8 +55,30 @@ export async function listarProdutos(produto, id) {
            DS_INFORMACOES          informações,
            DS_DESCRICAO            descricao,
            DT_GARANTIA             garantia
-    FROM   TB_PRODUTO;	
+    FROM   TB_PRODUTO	
     `
-    const [respos] = await con.query(comando, [produto, id]);
+    const [respos] = await con.query(comando);
     return respos;
+}
+
+export async function buscarPorId(id){
+    const comando = 
+    `
+    SELECT ID_PRODUTO              idProduto,
+           ID_DEPARTAMENTO         idDepartamento,
+           NM_PRODUTO              nomeProduto,
+           VL_PRECO                valorProduto,
+           VL_DESCONTO             valorDesconto, 
+           VL_AVALIACAO            avaliacao,
+           DS_FABRICANTE           fabricante,
+           QTD_ESTOQUE             estoque,
+           DS_INFORMACOES          informações,
+           DS_DESCRICAO            descricao,
+           DT_GARANTIA             garantia
+    FROM   TB_PRODUTO
+    WHERE ID_PRODUTO = ?
+    `
+
+    const [linhas] = await con.query(comando [id]);
+    return linhas[0];
 }
