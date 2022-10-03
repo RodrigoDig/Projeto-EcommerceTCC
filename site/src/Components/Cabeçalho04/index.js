@@ -21,6 +21,21 @@ export default function Cabecalho04(){
         navigate('/loginadm')
     }
 
+    function altProd(){
+        navigate('/alterar')
+    }
+
+    function cadProd(){
+        navigate('/cadastro')
+    }
+
+    function consultProd(){
+        navigate('/produtos')
+    }
+
+    function consultEsto(){
+        navigate('/estoque')
+    }
 
     return(
         <main className='cont-main-c4'>
@@ -34,13 +49,13 @@ export default function Cabecalho04(){
             </div>
             <div className='cont-002'>
                 <img src={CadProdLogo} className='img-cont-02' />
-                <h2 className='txt-cont-02'>
+                <h2 className='txt-cont-02' onClick={cadProd}>
                     Cadastrar Produto
                 </h2>
             </div>
             <div className='cont-003'>
             <img src={AltProdLogo} className='img-cont-03' />
-                <h2 className='txt-cont-03'>
+                <h2 className='txt-cont-03' onClick={altProd}>
                     Alterar Produto
                 </h2>
             </div>
