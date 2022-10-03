@@ -35,3 +35,13 @@ export async function enviarImagemProduto(id, imagem){
     
     return resposta.status;
 }
+
+export async function listarTodosProdutos() {
+    const resposta = await api.get('/produtos');
+    return resposta.data;
+}
+
+export async function buscarProdutoNome(nome) {
+    const resposta = await api.get(`/produto/nome?nome=${nome}`);
+    return resposta.data;
+}

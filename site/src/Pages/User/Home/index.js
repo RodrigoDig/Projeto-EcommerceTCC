@@ -1,15 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './index.scss';
 
 import Cabecalho01 from '../../../Components/Cabeçalho01';
-import CardHome from '../../../Components/CardLading';
+import Carrinho from '../../../assets/images/Carrinho-Preto.svg';  
 
+
+import { listarTodosProdutos, buscarProdutoNome } from '../../../Api/cadProdutoApi';
+
+import SetaCardDesc from '../../../assets/images/Seta-Desconto-Card.svg';
 import Controle from '../../../assets/images/Controle-icon.svg';
 import TrofeuIcon from '../../../assets/images/Trofeu-icon.svg';
 import SeloIcon from '../../../assets/images/Selo-icon.svg';
 import RelogioIcon from '../../../assets/images/Relogio-icon.svg';
 
 export default function Home(){
+    const [produtos, setProdutos] = useState([]);
+
+    function valorDesconto(valor, desconto){
+        const valordesc = desconto / 100;
+        const vl = valor * valordesc;
+        const valorfinal = valor - vl; 
+
+        return valorfinal;
+    }
+    async function carregarTodosProdutos(){
+        const resp = await listarTodosProdutos();
+        console.log(resp);
+        setProdutos(resp);
+    }
+
+    function lerEstrelas(valor, estrela) {
+        if(valor > 5){
+            valor = Math.floor(valor / 2);
+        }
+        if (valor <= estrela)
+            return 'star-icon ativo'
+        else
+            return 'star-icon'
+    }
+
+    useEffect(() => {
+        carregarTodosProdutos();
+    }, [])
+
+
+
     return(
         <main className='cont-main-home'>
             <section className='cont-cabecalho-home'>
@@ -46,6 +81,64 @@ export default function Home(){
                     </h1>
                 </div>
                 <div className='cont-filha2-002home'>
+                    {produtos.map(item => 
+                        <section className='cont-card-main'>
+                            <div className='cont-01-card'>
+                                <div className='cont-desconto-card'>
+                                    <p className='valor-desconto-card'>
+                                        {Math.floor(item.valorDesconto)}%
+                                    </p>
+                                    <img src={SetaCardDesc}  className='seta-card-desc'/>
+                                </div>
+                                <h1 className='titulo-desc-card'>
+                                    DESCONTO!
+                                </h1>
+                                <ul className='cont-avaliacao-star'>
+                                    <li className={lerEstrelas(item.avaliacao, 1)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 2)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 3)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 4)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 5)} ></li>
+                                </ul>
+                            </div>
+                            <div className='img-card'>
+
+                            </div>
+                            <div className='cont-nmproduto-card'>
+                                <p className='nm-produto-card'>
+                                    {item.nomeProduto} 
+                                </p>
+                            </div>
+                            <div className='cont-valorqtd-card'>
+                                <div className='cont-valores-card'>
+                                    <p className='antigo-valor'>
+                                        DE R$ {item.valorProduto} POR
+                                    </p>
+                                    <h3 className='valor-atual'>
+                                        R$ {valorDesconto(item.valorProduto, item.valorDesconto)}
+                                    </h3>
+                                </div>
+                                <div className='qtd-estoque-card'>
+                                    <p className='text-restam-card'>
+                                        RESTAM
+                                    </p>
+                                    <p className='qtd-restam-card'>
+                                        {item.estoque}
+                                    </p>
+                                    <p className='unidades-text-card'>
+                                        UNIDADES
+                                    </p>
+                                </div>
+                            </div>
+                                <button className='botao-comprar-card'>
+                                    <img src={Carrinho} className='carrinho-icon-card'/>
+                                    <h3 className='titulo-comprar-card'>
+                                        COMPRAR 
+                                    </h3>
+
+                                </button>
+                        </section>    
+                    )}
                 </div>
             </section>
         </main>
