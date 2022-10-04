@@ -5,7 +5,7 @@ import Cabecalho01 from '../../../Components/Cabeçalho01';
 import Carrinho from '../../../assets/images/Carrinho-Preto.svg';  
 
 
-import { listarTodosProdutos, buscarProdutoNome } from '../../../Api/cadProdutoApi';
+import { listarTodosProdutos, prodPromoImperdivel } from '../../../Api/cadProdutoApi';
 
 import SetaCardDesc from '../../../assets/images/Seta-Desconto-Card.svg';
 import Controle from '../../../assets/images/Controle-icon.svg';
@@ -24,7 +24,7 @@ export default function Home(){
         return valorfinal;
     }
     async function carregarTodosProdutos(){
-        const resp = await listarTodosProdutos();
+        const resp = await prodPromoImperdivel();
         console.log(resp);
         setProdutos(resp);
     }
