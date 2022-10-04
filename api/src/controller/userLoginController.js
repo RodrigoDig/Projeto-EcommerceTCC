@@ -17,7 +17,7 @@ server.post('/user/userLogin', async (req, resp) => {
         } catch(err){
 
          resp.status(401).send({
-            err: err.message
+            erro: err.message
          });   
         }
 
