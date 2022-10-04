@@ -14,19 +14,29 @@ INSERT INTO TB_PRODUTO(ID_DEPARTAMENTO, NM_PRODUTO, VL_PRECO, VL_DESCONTO, VL_AV
 INSERT INTO TB_ADMIN_LOGIN (DS_EMAIL, DS_SENHA)
 		VALUES ("adm", "1234");
 
-SELECT 	ID_USUARIO     id,
+
+	---- User Login
+
+    SELECT 	ID_USUARIO     id,
 	   NM_USUARIO   nome,
 	   ds_email     email
     FROM   tb_usuario
-    WHERE  ds_email      like  "cauamgomes010@gmail.com"
+    WHERE  NM_USUARIO	 like  'Cauã'
+		   ds_email      like  "cauamgomes010@gmail.com"
     AND    ds_senha      like  "cauamgomes1234";
     
+	
+
+  ---- Adm Login	
 
 SELECT ID_ADMIN_LOGIN   idADM,
 	   DS_EMAIL         email
 FROM TB_ADMIN_LOGIN
 WHERE DS_EMAIL   like "cauaADMlogin@adm01.com"
   AND DS_SENHA   like "conectaadm2022";
+
+
+
 
   ---- Listar Produtos
 
