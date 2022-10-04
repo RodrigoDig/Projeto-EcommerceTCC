@@ -1,9 +1,12 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import LoadingBar from 'react-top-loading-bar';
+
+import storage from 'local-storage';
 import './index.scss';
 import '../../../assets/images/login-I.png'
 import Cabecalho03 from '../../../Components/Cabeçalho03';
 import { useNavigate } from 'react-router-dom';
-import { userlogin } from '../../../Api/userLogin';
+import  userlogin  from '../../../Api/userLogin';
 
 
 export default function UserLogin(){
@@ -11,20 +14,49 @@ export default function UserLogin(){
        const[email, setEmail] = useState('');
        const[senha, setSenha] = useState('');
        const[erro,setErro] = useState('');
+       const[carregando, setCarregando] = useState(false);
 
        const navigate = useNavigate();
        const ref = useRef();
+
+
+       useEffect(() => {
+        if(storage('user-logado')){
+            navigate('/')
+        }
+    }, [])
 
        function cadUser(){
         navigate('/cadastrouser');
        }
 
-       function entrarClick() {
+       async function entrarClick() {
+        ref.current.continuousStart();
+        setCarregando(true);
 
+            try{
+                    const r = await userlogin(nome, email, senha);
+                    storage('user-logado', r);
+
+                  setTimeout(() => {
+                        navigate('/');
+                  }, 5000);
+        
+
+                } catch(err) {
+                    ref.current.complete();
+                    setCarregando(false);
+
+                    if(err.response.status === 401) {
+                        setErro(err.response.data.erro);
+                    }
+                }
        }
 
     return (
         <main>
+            <LoadingBar color='#af1414' ref={ref} />
+
             <section className='fundo-tela-login'>
                 <div>
                     <Cabecalho03/>
@@ -46,18 +78,20 @@ export default function UserLogin(){
                     </div>
 
                     <div className='botao-login'>
-                        <button onClick={entrarClick}>Login</button>
+                        <button onClick={entrarClick} disabled={carregando}>Login</button>
                     </div>
 
                     <div className='texto-final-login'>
-                        <p>Não possui uma conta? Acesse aqui e <p onClick={cadUser} className='btt-1'> cadastre-se</p></p>    
+                        <p>Não possui uma conta? Acesse aqui e</p> <p onClick={cadUser}> cadastre-se</p>   
                     </div>
 
                     <div>
-                       {erro}
+                       <p className='user-invalido'>
+                        {erro}
+                        </p>
                     </div>                    
                 </div>
-
+ 
             </section>
         </main>
     )

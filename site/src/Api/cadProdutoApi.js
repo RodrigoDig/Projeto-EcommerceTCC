@@ -50,3 +50,8 @@ export async function buscarProdutoNome(nome) {
     const resposta = await api.get(`/produto/nome?nome=${nome}`);
     return resposta.data;
 }
+
+export async function removerProduto(id) {
+    const resposta = await api.delete('/admin/produtos' + id);
+    return resposta.data;
+}
