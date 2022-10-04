@@ -16,6 +16,7 @@ import FogoIcon from '../../../assets/images/Fogo-icon.svg';
 import Fogo2Icon from '../../../assets/images/Fogo-icon02.svg';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import Coracao2Icon from '../../../assets/images/Coracao-icon02.svg';
+import DepartamentoIcon from '../../../assets/images/Departamento-icon.svg';
 
 export default function Home(){
     const [produtos, setProdutosPromo] = useState([]);
@@ -51,7 +52,13 @@ export default function Home(){
     }
 
     function favoritado(){
-        const resp = setFavorito(Coracao2Icon);
+        const resp = '';
+        if(favorito == Coracao2Icon){
+            resp = setFavorito(CoracaoIcon)
+        }
+        else if(favorito == CoracaoIcon){
+            resp = setFavorito(Coracao2Icon);
+        }
         return resp;
     }
 
@@ -214,6 +221,12 @@ export default function Home(){
                                 </button>
                         </section>    
                     )}
+                </div>
+                <div className='cont-filha4-002home'>
+                    <img src={DepartamentoIcon} className='dep-icon-home'/>
+                    <h1 className='titulo-departamento-home'>
+                        DEPARTAMENTOS
+                    </h1>
                 </div>
             </section>
         </main>
