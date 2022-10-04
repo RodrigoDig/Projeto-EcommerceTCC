@@ -4,7 +4,7 @@
     background-color: #d9d9d9;
 
     width: 100%;
-    height: max-content;
+    height: min-content;
 
     .cont-cabecalho-home{
         width: 100%;
@@ -128,10 +128,16 @@
     .cont-filha2-002home{
         display: flex;
         flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
         margin-top: 2em;
         
         width: 90%;
-        height: 50em;
+        height: 100em;
+
+        border: 0.1px solid rebeccapurple;
     }
 
     .cont-card-main{
@@ -147,6 +153,7 @@
         background-color: #fff;
 
         margin-right: 1em;
+        margin-bottom: 1.5em;
     }
     .cont-01-card{
         display: flex;

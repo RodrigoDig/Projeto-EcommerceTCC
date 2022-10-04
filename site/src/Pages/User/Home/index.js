@@ -5,7 +5,7 @@ import Cabecalho01 from '../../../Components/Cabeçalho01';
 import Carrinho from '../../../assets/images/Carrinho-Preto.svg';  
 
 
-import { listarTodosProdutos, prodPromoImperdivel } from '../../../Api/cadProdutoApi';
+import { prodPromoImperdivel } from '../../../Api/cadProdutoApi';
 
 import SetaCardDesc from '../../../assets/images/Seta-Desconto-Card.svg';
 import Controle from '../../../assets/images/Controle-icon.svg';
