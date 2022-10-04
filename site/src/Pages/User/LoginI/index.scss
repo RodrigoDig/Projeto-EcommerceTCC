@@ -102,6 +102,7 @@
                 font-size: 1.8em;
 
                 padding: 1em 2.2em;
+                color: #550255;
 
             }
 
@@ -137,19 +138,20 @@
 
         .texto-final-login{
             
-                font-family: 'Goldman';
-                font-size: 1.8em;
+                p{ font-family: 'Goldman';
+                font-size: 1em;
 
-                color: #852E8A;
-                width: 15em;
+                    color: #852E8A;
+                    width: 15em;
 
-                text-align: center;
-
-             .btt-1{
-
-                color:#0000ff;
+                    text-align: center;
+                }
+        
                 
-             }
+            }
         }
-    }
+        .user-invalido{
+            font-size: 1em;
+            color:#ff0000;
+        }
 }
