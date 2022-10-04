@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './index.scss';
 import '../../../assets/images/login-I.png'
 import Cabecalho03 from '../../../Components/Cabeçalho03';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { userlogin } from '../../../Api/userLogin';
 
 
@@ -13,6 +13,11 @@ export default function UserLogin(){
        const[erro,setErro] = useState('');
 
        const navigate = useNavigate();
+       const ref = useRef();
+
+       function cadUser(){
+        navigate('/cadastrouser');
+       }
 
        function entrarClick() {
 
@@ -45,7 +50,7 @@ export default function UserLogin(){
                     </div>
 
                     <div className='texto-final-login'>
-                        <p>Não possui uma conta? Acesse aqui e <Link to='/cadastrouser' style={{color: 'blue'}}>cadastre-se</Link></p>    
+                        <p>Não possui uma conta? Acesse aqui e <p onClick={cadUser} className='btt-1'> cadastre-se</p></p>    
                     </div>
 
                     <div>
