@@ -5,19 +5,21 @@ import Cabecalho01 from '../../../Components/Cabeçalho01';
 import Carrinho from '../../../assets/images/Carrinho-Preto.svg';  
 
 
-import { prodPromoImperdivel } from '../../../Api/cadProdutoApi';
+import { prodPromoImperdivel, prodMaisVendidos } from '../../../Api/cadProdutoApi';
 
 import SetaCardDesc from '../../../assets/images/Seta-Desconto-Card.svg';
 import Controle from '../../../assets/images/Controle-icon.svg';
 import TrofeuIcon from '../../../assets/images/Trofeu-icon.svg';
 import SeloIcon from '../../../assets/images/Selo-icon.svg';
 import RelogioIcon from '../../../assets/images/Relogio-icon.svg';
-import CoracaoIcon from '../../../assets/images/Coracao-logo.svg';
-import Coracao2Icon from '../../../assets/images/Coracao-logofase02.svg';
+import FogoIcon from '../../../assets/images/Fogo-icon.svg';
+import Fogo2Icon from '../../../assets/images/Fogo-icon02.svg';
+import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
+import Coracao2Icon from '../../../assets/images/Coracao-icon02.svg';
 
 export default function Home(){
-    const [produtos, setProdutos] = useState([]);
-    const [prodMaisVendidos, setMaisVendidos] = useState([]);
+    const [produtos, setProdutosPromo] = useState([]);
+    const [prodmaisVendidos, setMaisVendidos] = useState([]);
     const [favorito, setFavorito] = useState(CoracaoIcon)
 
     function valorDesconto(valor, desconto){
@@ -29,7 +31,7 @@ export default function Home(){
     }
 
     async function maisVendidos(){
-        const resp = await prodMaisVendido();
+        const resp = await prodMaisVendidos();
         setMaisVendidos(resp);
     }
 
@@ -54,7 +56,8 @@ export default function Home(){
     }
 
     useEffect(() => {
-        carregarTodosProdutos();
+        produtoPromo();
+        maisVendidos();
     }, [])
 
 
@@ -161,7 +164,7 @@ export default function Home(){
                     </h1>
                 </div>
                 <div className='cont-filha2-002home'>
-                    {prodMaisVendidos.map(item => 
+                    {prodmaisVendidos.map(item => 
                         <section className='cont-card-main'>
                             <div className='cont-01-card'>
                                 <div className='cont-desconto-card'>

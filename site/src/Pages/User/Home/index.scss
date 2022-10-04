@@ -4,7 +4,7 @@
     background-color: #d9d9d9;
 
     width: 100%;
-    height: min-content;
+    height: max-content;
 
     .cont-cabecalho-home{
         width: 100%;
@@ -98,7 +98,7 @@
         flex-direction: column;
         align-items: center;
 
-        height: 70em;
+        height: max-content;
 
         border: 0.1px solid rebeccapurple;
     }
@@ -135,7 +135,7 @@
         margin-top: 2em;
         
         width: 90%;
-        height: 100em;
+        height: max-content;
 
         border: 0.1px solid rebeccapurple;
     }
@@ -351,5 +351,53 @@
         font-family: 'Goldman';
 
         margin: 0px;
+    }
+    .cont-filha3-002home{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        margin-top: 3em;
+
+        width: 19em;
+        height: 3em;
+
+        border-bottom: 2px solid #F27400;
+    }
+    .titulo-maisvendido-home{
+        font-family: 'Goldman';
+        font-size: 26px;
+
+        margin: 0px;
+    }
+    .fogo-card-mvendido{
+        width: 38px;
+        height: 38px;
+    }
+    .cont-top1-card{
+        display: flex;
+        flex-direction: column;
+        width: 8em;
+        height: 4em;
+    }
+    .coracao-icon-card{
+        width: 30px;
+        height: 30px;
+    }
+    .cont-favorito-card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 5.3em;
+        height: 5em;
+
+
+        border-radius: 10px;
+    }
+    .coracao-icon-card{
+        fill: #C90000;
     }
 }

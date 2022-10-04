@@ -141,6 +141,7 @@ export async function prodPromoImperdivel(){
            DT_GARANTIA             garantia
     FROM   TB_PRODUTO
     WHERE  VL_DESCONTO > 20
+    LIMIT  8
     `
     const [linhas] = await con.query(comando)
     return linhas;
@@ -178,4 +179,28 @@ export async function remomoverProduto(idProduto){
     `
     const [resp] = await con.query(comando, [idProduto])
     return resp.affectedRows;
+}
+
+
+export async function prodMaisVendidos(){
+    const comando = 
+    `
+    SELECT ID_PRODUTO              idProduto,
+           NM_DEPARTAMENTO         nomeDepartamento,
+           NM_PRODUTO              nomeProduto,
+           VL_PRECO                valorProduto,
+           VL_DESCONTO             valorDesconto, 
+           VL_AVALIACAO            avaliacao,
+           DS_FABRICANTE           fabricante,
+           QTD_ESTOQUE             estoque,
+           DS_INFORMACOES          informações,
+           DS_DESCRICAO            descricao,
+           DT_GARANTIA             garantia
+    FROM   TB_PRODUTO
+    INNER JOIN TB_DEPARTAMENTO ON TB_PRODUTO.ID_DEPARTAMENTO  = TB_DEPARTAMENTO.ID_DEPARTAMENTO
+    WHERE  QTD_ESTOQUE < 7
+    LIMIT  4
+    `
+    const [linhas] = await con.query(comando)
+    return linhas;
 }

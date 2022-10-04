@@ -1,4 +1,4 @@
-import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto} from "../repository/produtoRepository.js";
+import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos} from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 
@@ -129,6 +129,18 @@ server.delete('/admin/produto/:id', async(req , resp) => {
 
     }
     catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/maisvendidos', async (req, resp) =>{
+    try{
+        const resposta = await prodMaisVendidos();
+        resp.send(resposta)
+    }
+    catch(err){
         resp.status(400).send({
             erro: err.message
         })

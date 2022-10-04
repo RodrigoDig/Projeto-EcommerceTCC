@@ -46,6 +46,12 @@ export async function prodPromoImperdivel(){
     return resposta.data
 }
 
+export async function prodMaisVendidos(){
+    const resposta = await api.get('/maisvendidos');
+    return resposta.data
+}
+
+
 export async function buscarProdutoNome(nome) {
     const resposta = await api.get(`/produto/nome?nome=${nome}`);
     return resposta.data;
