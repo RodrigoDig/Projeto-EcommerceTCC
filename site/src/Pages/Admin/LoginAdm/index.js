@@ -46,7 +46,7 @@ export default function LoginAdm(){
             storage('admin-logado', r);
 
             setTimeout(() => {
-                navigate('/cadastro');
+                navigate('/CadastroProduto');
             }, 2500)
         } 
         catch(err){

@@ -21,16 +21,8 @@ export default function Cabecalho04(){
         navigate('/loginadm')
     }
 
-    function altProd(){
-        navigate('/alterar')
-    }
-
     function cadProd(){
-        navigate('/cadastro')
-    }
-
-    function consultProd(){
-        navigate('/produtos')
+        navigate('/CadastroProduto')
     }
 
     function consultEsto(){
@@ -49,13 +41,13 @@ export default function Cabecalho04(){
             </div>
             <div className='cont-002'>
                 <img src={CadProdLogo} className='img-cont-02' />
-                <h2 className='txt-cont-02' onClick={cadProd}>
+                <h2 className='txt-cont-02' onClick={cadProd} style={{cursor: 'pointer'}}>
                     Cadastrar Produto
                 </h2>
             </div>
             <div className='cont-003'>
             <img src={AltProdLogo} className='img-cont-03' />
-                <h2 className='txt-cont-03' onClick={altProd}>
+                <h2 className='txt-cont-03'>
                     Alterar Produto
                 </h2>
             </div>
@@ -72,7 +64,7 @@ export default function Cabecalho04(){
             </div>
             <div className='cont-06'>
                 <img src={CaixaLogo} className='img-cont-06' />
-                <h2 className='txt-cont-06'>
+                <h2 className='txt-cont-06' onClick={consultEsto} style={{cursor: 'pointer'}}>
                     Consultar Estoque
                 </h2>
             </div>
@@ -93,9 +85,9 @@ export default function Cabecalho04(){
                     Alterar Cupom
                 </h2>
             </div>
-            <div className='cont-sair' onClick={sairClick}>
+            <div className='cont-sair'>
             <img src={SairLogo} className='img-cont-sair'/>
-                <h2 className='txt-cont-08'>
+                <h2 className='txt-cont-08' onClick={sairClick} style={{cursor: 'pointer'}}>
                     Sair
                 </h2>
             </div>

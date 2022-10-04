@@ -1,14 +1,27 @@
 import './index.scss';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import EstoqueLogo from '../../../assets/images/Caixa-estoquefase01.svg';
 import LupaIcon from '../../../assets/images/Lupa-busca.svg';
+import Alterar from '../../../assets/images/Group.png';
+import Deletar from '../../../assets/images/lixeira-de-reciclagem.png';
+
+import { listarTodosProdutos, buscarProdutoNome } from '../../../Api/cadProdutoApi';
 
 export default function ConsEstoque(){
 
-    const [produtos, setProdutos] = useState([]);
+    const [produto, setProduto] = useState([]);
+
+    async function carregarTodosProdutos(){
+        const r = await listarTodosProdutos();
+        setProduto(r);
+    }
+
+    useEffect(() => {
+        carregarTodosProdutos();
+    }, [])
 
     return (
         <main className='cont-main-estoque'>
@@ -30,32 +43,40 @@ export default function ConsEstoque(){
                         </button>
                     </div>
                 </div>
-                <div className='cont-info-produtos'>
-                    <h2 className='info-id-produto'>
-                        Id
-                    </h2>
-                    <h2 className='info-foto-produto'>
-                        Foto
-                    </h2>
-                    <h2 className='info-produto-estoque'>
-                        Produto
-                    </h2>
-                    <h2 className='info-qtd-produto'>
-                        Quantidade
-                    </h2>
-                    <h2 className='info-avaliacao-produto'>
-                        Avaliação
-                    </h2>
-                    <h2 className='info-preco-produto'>
-                        Preço
-                    </h2>
-                    <h2 className='info-categorias-produto'>
-                        Categorias
-                    </h2>
-                </div>
-                <div className='cont-produtos-estoque'>
-                    {}
-                </div>
+                <table>
+                    <thead>
+                       <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Preço</th>
+                            <th>Desconto</th>
+                            <th>Avaliação</th>
+                            <th>Fabricante</th>
+                            <th>Quantidade</th>
+                            <th>Informações</th>
+                            <th>Descrição</th>
+                            <th>Garantia</th>
+                        </tr> 
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Cooler brabo</td>
+                            <td>520</td>
+                            <td>10</td>
+                            <td>5</td>
+                            <td>ryzen</td>
+                            <td>60</td>
+                            <td>coler brabo dms, muito tops</td>
+                            <td>coler movido a vapor do pc com bateria recarregavel</td>
+                            <td>01/01/2024</td>
+                            <td>
+                                <img src={Alterar}/>
+                                <img src={Deletar}/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         </main>
     )
