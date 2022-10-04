@@ -145,3 +145,37 @@ export async function prodPromoImperdivel(){
     const [linhas] = await con.query(comando)
     return linhas;
 }
+
+
+//API REMOVER PRODUTO E IMAGENS
+
+export async function remomoverProdutoImagens(idProduto){
+    const comando = ` 
+            delete tb_produto_imagem
+            where id_produto = ?
+                             
+    `
+    const [resp] = await con.query(comando, [idProduto])
+    return resp.affectedRows;
+}
+
+
+export async function remomoverProdutoCategoria(idProduto){
+    const comando = ` 
+            delete tb_produto_categoria 
+            where id_produto = ?
+                             
+    `
+    const [resp] = await con.query(comando, [idProduto])
+    return resp.affectedRows;
+}
+
+export async function remomoverProduto(idProduto){
+    const comando = ` 
+            delete tb_produto
+            where id_produto = ?
+                             
+    `
+    const [resp] = await con.query(comando, [idProduto])
+    return resp.affectedRows;
+}

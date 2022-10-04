@@ -1,9 +1,10 @@
-import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel} from "../repository/produtoRepository.js";
+import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens} from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 
 import multer from 'multer';
 import {Router} from "express";
+import { con } from "../repository/connection.js";
 
 const server = Router();
 
@@ -110,5 +111,27 @@ server.get('/promocao', async (req, resp) =>{
         })
     }
 })
+
+
+server.delete('admin/produto/:id', async(req , resp) => {
+
+    try{
+        const id = req.params.id;
+
+        await remomoverProdutoCategoria(id);
+        await remomoverProdutoImagens(id);
+        await remomoverProduto(id);
+        
+        resp.status(204).send();
+
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+
 
 export default server;
