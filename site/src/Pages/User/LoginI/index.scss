@@ -14,14 +14,14 @@
         background-color: #fff;
         border-radius: 50px;
 
-        width: 60em;
-        margin-top: 5em;
-        margin-left: 80em;
+        width: 55em;
+        margin-top: 1.5em;
+        margin-left: 58em;
         
         h1{
             font-family: 'Goldman';
             font-weight: normal;
-            font-size: 4em;
+            font-size: 3.5em;
 
             color: #852E8A;
         }
@@ -32,22 +32,22 @@
 
                 background-image: url('../../../assets/images/user 15.svg');
                 background-repeat: no-repeat;
-                background-position: 20px;
+                background-position: 12px;
 
                 outline: none;
 
                 border: 3px solid #FF6F86;
-                border-radius: 30px;
+                border-radius: 25px;
 
                 font-family: 'Goldman';
-                font-size: 2em;
+                font-size: 1.8em;
 
                 padding: 1em 2.2em;
 
             }
 
             ::-webkit-input-placeholder { 
-                font-size:1.5em;
+                font-size:1.3em;
                 text-align: center;
 
                 color: #852E8A;
@@ -56,66 +56,69 @@
 
         .input-login-2{
 
-            margin-top: 4em;
+            margin-top: 3em;
             input{
 
                 background-image: url('../../../assets/images/cadeado 10.png');
                 background-repeat: no-repeat;
-                background-position: 20px;
+                background-position: 12px;
 
                 outline: none;
 
                 border: 3px solid #FF6F86;
-                border-radius: 30px;
+                border-radius: 25px;
 
                 font-family: 'Goldman';
-                font-size: 2em;
+                font-size: 1.8em;
 
                 padding: 1em 2.2em;
 
             }
 
             ::-webkit-input-placeholder { 
-                font-size:1.5em;
+                font-size:1.3em;
                 text-align: center;
 
                 color: #852E8A;
             }
         }
 
+
         .input-login-3{
-            margin-top: 4em;
+            margin-top: 3em;
             input{
 
                 background-image: url('../../../assets/images/email 10.png');
                 background-repeat: no-repeat;
-                background-position: 10px;
+                background-size: 1.8em;
+                background-position: 12px;
 
                 outline: none;
 
                 border: 3px solid #FF6F86;
-                border-radius: 30px;
+                border-radius: 25px;
 
                 font-family: 'Goldman';
-                font-size: 2em;
+                font-size: 1.8em;
 
                 padding: 1em 2.2em;
 
             }
 
             ::-webkit-input-placeholder { 
-                font-size:1.5em;
+                font-size:1.3em;
                 text-align: center;
 
                 color: #852E8A;
             }
         }
 
+
         .botao-login{
-            margin-top: 4em;
+            margin-top: 3em;
 
             button{
-                padding: 0.5em 6.7em;
+                padding: 0.5em 6.1em;
 
                 border-radius: 20px;
                 border: #FF6F86;
@@ -133,10 +136,9 @@
         }
 
         .texto-final-login{
-            margin-top: 1em;
             p{
                 font-family: 'Goldman';
-                font-size: 2em;
+                font-size: 1.8em;
 
                 color: #852E8A;
                 width: 15em;
