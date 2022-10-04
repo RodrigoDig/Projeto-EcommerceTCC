@@ -12,9 +12,13 @@ import Controle from '../../../assets/images/Controle-icon.svg';
 import TrofeuIcon from '../../../assets/images/Trofeu-icon.svg';
 import SeloIcon from '../../../assets/images/Selo-icon.svg';
 import RelogioIcon from '../../../assets/images/Relogio-icon.svg';
+import CoracaoIcon from '../../../assets/images/Coracao-logo.svg';
+import Coracao2Icon from '../../../assets/images/Coracao-logofase02.svg';
 
 export default function Home(){
     const [produtos, setProdutos] = useState([]);
+    const [prodMaisVendidos, setMaisVendidos] = useState([]);
+    const [favorito, setFavorito] = useState(CoracaoIcon)
 
     function valorDesconto(valor, desconto){
         const valordesc = desconto / 100;
@@ -23,10 +27,15 @@ export default function Home(){
 
         return valorfinal;
     }
-    async function carregarTodosProdutos(){
+
+    async function maisVendidos(){
+        const resp = await prodMaisVendido();
+        setMaisVendidos(resp);
+    }
+
+    async function produtoPromo(){
         const resp = await prodPromoImperdivel();
-        console.log(resp);
-        setProdutos(resp);
+        setProdutosPromo(resp);
     }
 
     function lerEstrelas(valor, estrela) {
@@ -37,6 +46,11 @@ export default function Home(){
             return 'star-icon ativo'
         else
             return 'star-icon'
+    }
+
+    function favoritado(){
+        const resp = setFavorito(Coracao2Icon);
+        return resp;
     }
 
     useEffect(() => {
@@ -128,6 +142,64 @@ export default function Home(){
                                     <p className='unidades-text-card'>
                                         UNIDADES
                                     </p>
+                                </div>
+                            </div>
+                                <button className='botao-comprar-card'>
+                                    <img src={Carrinho} className='carrinho-icon-card'/>
+                                    <h3 className='titulo-comprar-card'>
+                                        COMPRAR 
+                                    </h3>
+
+                                </button>
+                        </section>    
+                    )}
+                </div>
+                <div className='cont-filha3-002home'>
+                    <img src={FogoIcon} className='relogio-icon-home'/>
+                    <h1 className='titulo-maisvendido-home'>
+                        MAIS VENDIDOS
+                    </h1>
+                </div>
+                <div className='cont-filha2-002home'>
+                    {prodMaisVendidos.map(item => 
+                        <section className='cont-card-main'>
+                            <div className='cont-01-card'>
+                                <div className='cont-desconto-card'>
+                                    <img src={Fogo2Icon}  className='fogo-card-mvendido'/>
+                                </div>
+                                <div className='cont-top1-card'>
+                                    <h1 className='titulo-desc-card'>
+                                        TOP 1 &nbsp;
+                                        {item.nomeDepartamento}
+                                    </h1>
+                                </div>
+                                <ul className='cont-avaliacao-star'>
+                                    <li className={lerEstrelas(item.avaliacao, 1)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 2)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 3)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 4)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 5)} ></li>
+                                </ul>
+                            </div>
+                            <div className='img-card'>
+
+                            </div>
+                            <div className='cont-nmproduto-card'>
+                                <p className='nm-produto-card'>
+                                    {item.nomeProduto} 
+                                </p>
+                            </div>
+                            <div className='cont-valorqtd-card'>
+                                <div className='cont-valores-card'>
+                                    <p className='antigo-valor'>
+                                        DE R$ {item.valorProduto} POR
+                                    </p>
+                                    <h3 className='valor-atual'>
+                                        R$ {valorDesconto(item.valorProduto, item.valorDesconto)}
+                                    </h3>
+                                </div>
+                                <div className='cont-favorito-card'>
+                                    <img src={favorito} className='coracao-icon-card' onClick={favoritado}/>
                                 </div>
                             </div>
                                 <button className='botao-comprar-card'>
