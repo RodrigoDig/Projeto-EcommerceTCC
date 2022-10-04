@@ -1,4 +1,4 @@
-import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens} from "../repository/produtoRepository.js";
+import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto} from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 
@@ -113,14 +113,17 @@ server.get('/promocao', async (req, resp) =>{
 })
 
 
-server.delete('admin/produto/:id', async(req , resp) => {
+server.delete('/admin/produto/:id', async(req , resp) => {
 
     try{
         const id = req.params.id;
 
         await remomoverProdutoCategoria(id);
+     
         await remomoverProdutoImagens(id);
+        
         await remomoverProduto(id);
+       
         
         resp.status(204).send();
 

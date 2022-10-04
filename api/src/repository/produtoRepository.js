@@ -151,7 +151,7 @@ export async function prodPromoImperdivel(){
 
 export async function remomoverProdutoImagens(idProduto){
     const comando = ` 
-            delete tb_produto_imagem
+            delete from tb_produto_imagem
             where id_produto = ?
                              
     `
@@ -162,7 +162,7 @@ export async function remomoverProdutoImagens(idProduto){
 
 export async function remomoverProdutoCategoria(idProduto){
     const comando = ` 
-            delete tb_produto_categoria 
+            delete from tb_produto_categoria 
             where id_produto = ?
                              
     `
@@ -172,7 +172,7 @@ export async function remomoverProdutoCategoria(idProduto){
 
 export async function remomoverProduto(idProduto){
     const comando = ` 
-            delete tb_produto
+            delete from tb_produto
             where id_produto = ?
                              
     `
