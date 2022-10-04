@@ -41,6 +41,11 @@ export async function listarTodosProdutos() {
     return resposta.data;
 }
 
+export async function prodPromoImperdivel(){
+    const resposta = await api.get('/promocao');
+    return resposta.data
+}
+
 export async function buscarProdutoNome(nome) {
     const resposta = await api.get(`/produto/nome?nome=${nome}`);
     return resposta.data;

@@ -1,4 +1,4 @@
-import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos} from "../repository/produtoRepository.js";
+import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel} from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 
@@ -91,6 +91,18 @@ server.get('/produtos', async (req, resp) => {
     try{
         const resposta = await buscarTodosProdutos();
         resp.send(resposta);
+    }
+    catch(err){
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/promocao', async (req, resp) =>{
+    try{
+        const resposta = await prodPromoImperdivel();
+        resp.send(resposta)
     }
     catch(err){
         resp.status(400).send({

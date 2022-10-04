@@ -124,3 +124,24 @@ export async function buscarTodosProdutos(){
     return linhas;
 
 }
+
+export async function prodPromoImperdivel(){
+    const comando = 
+    `
+    SELECT ID_PRODUTO              idProduto,
+           ID_DEPARTAMENTO         idDepartamento,
+           NM_PRODUTO              nomeProduto,
+           VL_PRECO                valorProduto,
+           VL_DESCONTO             valorDesconto, 
+           VL_AVALIACAO            avaliacao,
+           DS_FABRICANTE           fabricante,
+           QTD_ESTOQUE             estoque,
+           DS_INFORMACOES          informações,
+           DS_DESCRICAO            descricao,
+           DT_GARANTIA             garantia
+    FROM   TB_PRODUTO
+    WHERE  VL_DESCONTO > 20
+    `
+    const [linhas] = await con.query(comando)
+    return linhas;
+}
