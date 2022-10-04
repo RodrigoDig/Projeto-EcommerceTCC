@@ -7,6 +7,7 @@ import departamentoController from './controller/departamentoController.js';
 import produtoController from './controller/produtoController.js';
 import cadastroUsuarioController from './controller/cadastroUsuarioController.js';
 import cartaoUsuarioController from './controller/usuarioCartaoController.js';
+import userLoginController from './controller/userLoginController.js';
 
 import express from 'express';
 import cors from 'cors';
@@ -24,6 +25,7 @@ server.use(departamentoController);
 server.use(produtoController);
 server.use(cadastroUsuarioController);
 server.use(cartaoUsuarioController);
+server.use(userLoginController);
 
 server.listen(process.env.PORT,
                () => console.log(`API conectada na porta ${process.env.PORT}`))

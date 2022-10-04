@@ -8,14 +8,14 @@ server.post('/admin/loginADM', async (req, resp) => {
         const {user, senha} = req.body;
         const resposta = await loginAdm(user, senha);
         if(!resposta){
-            throw new Error("NENHUM ADM USA ESSAS INFORMAÇÕES")
+            throw new Error('Credenciais inválidas!');
         }
 
-        resp.send(resposta)
+        resp.send(resposta);
     } catch (err){
         resp.status(401).send({
-            erro: 'Credenciais invalidas'
-        })
+            erro: err.message
+        });
     }
 })
 
