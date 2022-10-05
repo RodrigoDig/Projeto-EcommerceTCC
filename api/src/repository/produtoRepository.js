@@ -204,3 +204,15 @@ export async function prodMaisVendidos(){
     const [linhas] = await con.query(comando)
     return linhas;
 }
+
+export async function depSelecionar(){
+    const comando = 
+    `
+    SELECT ID_DEPARTAMENTO         idDepartamento,
+           NM_DEPARTAMENTO         nomeDepartamento,
+           IMG_CAPA                imgDep
+    FROM   TB_DEPARTAMENTO
+    `
+    const [linhas] = await con.query(comando)
+    return linhas;
+}

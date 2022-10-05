@@ -424,4 +424,42 @@
         
         margin: 0px;
     }
+
+    .cont-map-dep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 2em;
+
+        width: 90%;
+        height: max-content;
+    }
+    .cont-dep-card{
+        width: 26em;
+        height: 20.2em;
+
+        background-image: url('../../../assets/images/fundo depp.PNG');
+        background-position: 100% 100%;
+        background-repeat: no-repeat;
+    }
+    .dep-card{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: 26em;
+        height: 2.8em;
+    }
+    .titulo-dep-card{
+        font-size: 26px;
+        font-family: 'Goldman';
+        font-weight: 100;
+        margin: 0px;
+
+        margin-right: 1em;
+
+        color: #fff;
+    }
 }
