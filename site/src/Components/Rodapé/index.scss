@@ -1,23 +1,28 @@
 .fundo-rodape{
+    display: flex;
+    flex-direction: column;
     background-color: #1e1e1e;
-    height: 52vh;
+    height: 30em;
 }
 
 .componentes-1{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }
 
 
 .titulo-principal{
-    margin-left:7em;
-    margin-right: 3em;
+
+    border: 0.1px solid deepskyblue;
 
     h1{
-        font-size: 75px;
+        font-size: 50px;
         font-family: 'Goldman';
 
         width: 6em;
+        margin: 0px;
 
         color: #f27400;
     }

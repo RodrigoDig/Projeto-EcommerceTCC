@@ -2,6 +2,8 @@ import './index.scss';
 import React from 'react';
 import Logo from '../Logo';
 
+import FaceIcon from '../../assets/images/face-icon.svg';
+
 
 export default function Rodape(){
     return(
@@ -56,7 +58,7 @@ export default function Rodape(){
 
                 <div className='componentes-2'>
                     <div className='espacamento-imgs'>
-                        <img alt='facebook' src='/images/logotipo-facebook.png' />
+                        <img alt='facebook' src={FaceIcon} />
                         <img alt='twitter' src='/images/twitter.png' />
                         <img alt='instagram' src='/images/instagram.png' />
                     </div>
