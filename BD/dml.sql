@@ -22,7 +22,7 @@ INSERT INTO TB_ADMIN_LOGIN (DS_EMAIL, DS_SENHA)
 	   ds_email     email
     FROM   tb_usuario
     WHERE  NM_USUARIO	 like  'Cauã'
-		   ds_email      like  "cauamgomes010@gmail.com"
+	AND	   ds_email      like  "cauamgomes010@gmail.com"
     AND    ds_senha      like  "cauamgomes1234";
     
 	
@@ -52,3 +52,18 @@ WHERE DS_EMAIL   like "cauaADMlogin@adm01.com"
 		 DS_DESCRICAO            descricao,
 		 DT_GARANTIA             garantia
 	FROM TB_PRODUTO;	
+
+	---- Alterar Produto	
+
+ UPDATE TB_PRODUTO
+	   SET ID_DEPARTAMENTO    =     1,
+		   NM_PRODUTO         =    'Produto1',
+		   VL_PRECO           =     120,
+		   VL_DESCONTO        =     2, 
+		   VL_AVALIACAO       =     9.5,
+		   DS_FABRICANTE      =     'Nasa',
+		   QTD_ESTOQUE        =     1,
+		   DS_INFORMACOES     =     'LEGAL',
+		   DS_DESCRICAO       =     'simples',
+		   DT_GARANTIA        =     "2024-01-01"
+	WHERE  ID_PRODUTO = 1;

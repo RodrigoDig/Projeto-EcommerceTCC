@@ -76,10 +76,10 @@ export async function buscarPorId(id){
            DS_DESCRICAO            descricao,
            DT_GARANTIA             garantia
     FROM   TB_PRODUTO
-    WHERE ID_PRODUTO = ?
-    `
+    WHERE  ID_PRODUTO = ?
+    `;
 
-    const [linhas] = await con.query(comando [id]);
+    const [linhas] = await con.query(comando, [id]);
     return linhas[0];
 }
 
@@ -215,4 +215,35 @@ export async function depSelecionar(){
     `
     const [linhas] = await con.query(comando)
     return linhas;
+}
+
+
+export async function alterarProduto(id, produto) {
+    const comando = 
+    ` UPDATE TB_PRODUTO
+    SET ID_DEPARTAMENTO    =     ?,
+        NM_PRODUTO         =     ?,
+        VL_PRECO           =     ?,
+        VL_DESCONTO        =     ?, 
+        VL_AVALIACAO       =     ?,
+        DS_FABRICANTE      =     ?,
+        QTD_ESTOQUE        =     ?,
+        DS_INFORMACOES     =     ?,
+        DS_DESCRICAO       =     ?,
+        DT_GARANTIA        =     ?"
+ WHERE  ID_PRODUTO = ?`
+
+ const [alt] = await con.query(comando, 
+    [produto.idDepartamento,
+     produto.nome, 
+     produto.preço,
+     produto.desconto, 
+     produto.avaliacao, 
+     produto.fabricante, 
+     produto.estoque, 
+     produto.informacoes, 
+     produto.descrição,
+     produto.categoria,
+     id]);
+ return alt.affectedRows;
 }

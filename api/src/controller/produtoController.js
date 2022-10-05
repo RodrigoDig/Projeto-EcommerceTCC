@@ -75,9 +75,11 @@ server.get('/produto/nome', async (req, resp) => {
 
 server.get('/produto/:id', async (req, resp) => {
     try{
-        const id = req.params.id;
+        const id = Number(req.params.id);
 
-        const resposta = buscarPorId(id);
+        const resposta = await buscarPorId(id);
+        if(!resposta)
+        resp.status(400).send([])
 
         resp.send(resposta);
     }
