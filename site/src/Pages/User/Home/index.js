@@ -5,7 +5,7 @@ import Cabecalho01 from '../../../Components/Cabeçalho01';
 import Carrinho from '../../../assets/images/Carrinho-Preto.svg';  
 
 
-import { prodPromoImperdivel, prodMaisVendidos } from '../../../Api/cadProdutoApi';
+import { prodPromoImperdivel, prodMaisVendidos, depSelecionar } from '../../../Api/cadProdutoApi';
 
 import SetaCardDesc from '../../../assets/images/Seta-Desconto-Card.svg';
 import Controle from '../../../assets/images/Controle-icon.svg';
@@ -21,7 +21,8 @@ import DepartamentoIcon from '../../../assets/images/Departamento-icon.svg';
 export default function Home(){
     const [produtos, setProdutosPromo] = useState([]);
     const [prodmaisVendidos, setMaisVendidos] = useState([]);
-    const [favorito, setFavorito] = useState(CoracaoIcon)
+    const [favorito, setFavorito] = useState(CoracaoIcon);
+    const [departamentos, setDepartamentos] = useState([]);
 
     function valorDesconto(valor, desconto){
         const valordesc = desconto / 100;
@@ -34,6 +35,11 @@ export default function Home(){
     async function maisVendidos(){
         const resp = await prodMaisVendidos();
         setMaisVendidos(resp);
+    }
+
+    async function depSelecionado(){
+        const resposta = await depSelecionar();
+        setDepartamentos(resposta);
     }
 
     async function produtoPromo(){
@@ -65,6 +71,7 @@ export default function Home(){
     useEffect(() => {
         produtoPromo();
         maisVendidos();
+        depSelecionado();
     }, [])
 
 
@@ -227,6 +234,17 @@ export default function Home(){
                     <h1 className='titulo-departamento-home'>
                         DEPARTAMENTOS
                     </h1>
+                </div>
+                <div className='cont-map-dep'>
+                    {departamentos.map (item=> 
+                        <section className='cont-dep-card'>
+                            <div className='dep-card'>
+                                <h3 className='titulo-dep-card'>
+                                    {item.nomeDepartamento}
+                                </h3>
+                            </div>
+                        </section>    
+                    )}
                 </div>
             </section>
         </main>
