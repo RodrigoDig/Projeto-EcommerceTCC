@@ -21,7 +21,7 @@ import Pedido from './Pages/User/Pedido';
 import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
 
-import CstEstoque from './Pages/Admin/ConsultarEstoque';
+import CstEstoque from './Pages/Admin/ConsultarProdutos';
 import CstPedidos from './Pages/Admin/ConsultarPedidos';
 import LoginAdm from './Pages/Admin/LoginAdm';
 import Cadastro from './Pages/Admin/CadastroProduto';

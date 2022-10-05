@@ -65,7 +65,7 @@ export default function Cabecalho04(){
             <div className='cont-06'>
                 <img src={CaixaLogo} className='img-cont-06' />
                 <h2 className='txt-cont-06' onClick={consultEsto} style={{cursor: 'pointer'}}>
-                    Consultar Estoque
+                    Consultar Produtos
                 </h2>
             </div>
             <div className='cont-07'>

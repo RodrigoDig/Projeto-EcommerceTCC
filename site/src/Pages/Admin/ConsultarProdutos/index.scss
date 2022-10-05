@@ -78,11 +78,11 @@
     input::placeholder{
         color: black;
         font-family:'Goldman';
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .botao-pesquisa-estoque{
-        height: 2.7em;
+        height: 2.5em;
         width: 4em;
 
         border-radius: 8px;
@@ -221,5 +221,45 @@
 
         width: 70em;
         height: 40em;
+    }
+
+    table{
+
+        margin-left: 24em;
+
+        thead{
+            th{
+                
+                font-family: 'Goldman';
+                font-size: 1em;
+                font-weight: normal;
+
+                align-items: center;
+                height: 2em;
+
+                background-color: #ffffff;
+
+                padding: 0 1em;
+            }
+        }
+
+        tbody{
+
+            td{
+                font-family: 'Goldman';
+                font-weight: normal;
+
+                align-items: center;
+                text-align: center;
+                height: 2em;
+
+                background-color: #ffffff;
+                
+                img{
+                    height: 1.5em;
+                    padding: 0px 5px;
+                }
+            }
+        }
     }
 }

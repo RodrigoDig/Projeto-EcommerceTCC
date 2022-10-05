@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import EstoqueLogo from '../../../assets/images/Caixa-estoquefase01.svg';
 import LupaIcon from '../../../assets/images/Lupa-busca.svg';
-import Alterar from '../../../assets/images/Group.png';
+import Alterar from '../../../assets/images/lapis-de-cor.png';
 import Deletar from '../../../assets/images/lixeira-de-reciclagem.png';
 
 import { listarTodosProdutos, buscarProdutoNome } from '../../../Api/cadProdutoApi';
@@ -39,7 +39,7 @@ export default function ConsEstoque() {
                     <div className='cont-titulo-estoque'>
                         <img src={EstoqueLogo} className='icon-estoque' />
                         <h1 className='titulo-estoque'>
-                            Consultar Estoque
+                            Consultar Produtos
                         </h1>
                     </div>
                     <div className='cont-busca-estoque'>
@@ -62,6 +62,7 @@ export default function ConsEstoque() {
                             <th>Informações</th>
                             <th>Descrição</th>
                             <th>Garantia</th>
+                            <th>Opção</th>
                         </tr>
                     </thead>
                     <tbody>
