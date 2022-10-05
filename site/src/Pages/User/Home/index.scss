@@ -197,6 +197,7 @@
     .titulo-desc-card{
         font-family: 'Goldman';
         font-size: 18px;
+        font-weight: 100;
 
         color: #C90000;
 
@@ -429,14 +430,18 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
 
         margin-top: 2em;
 
         width: 90%;
-        height: max-content;
+        height: 30em;
     }
     .cont-dep-card{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
         width: 26em;
         height: 20.2em;
 
@@ -447,10 +452,11 @@
     .dep-card{
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: center;
         align-items: center;
-        width: 26em;
+        width: 15em;
         height: 2.8em;
+        margin-right: 0.5em;
     }
     .titulo-dep-card{
         font-size: 26px;
@@ -458,8 +464,68 @@
         font-weight: 100;
         margin: 0px;
 
-        margin-right: 1em;
-
         color: #fff;
+    }
+    
+
+
+
+
+    .cont-filha5-002home{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        margin-top: 3em;
+
+        width: 19em;
+        height: 3em;
+
+        border-bottom: 2px solid #F27400;
+    }
+    .titulo-recomendados-home{
+        font-family: 'Goldman';
+        font-size: 25px;
+        
+        margin: 0px;
+    }
+    .req-icon-home{
+        width: 25px;
+        height: 25px;
+    }
+
+    .cont-filha6-002home{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        margin-top: 2em;
+        
+        width: 90%;
+        height: max-content;
+
+        border: 0.1px solid rebeccapurple;
+    }
+    .titulo-rec-card{
+        font-family: 'Goldman';
+        font-size: 14px;
+        font-weight: 100;
+
+        color: #C90000;
+
+        text-shadow: 0px 0px 4px rgba(242, 116, 0, 0.69);
+
+        margin: 0px;
+        margin-top: 0.6em;
+        margin-right: 0.8em;
+    }
+    .cont-rec-card{
+        display: flex;
+        flex-direction: column;
+        width: 9em;
+        height: 4em;
     }
 }

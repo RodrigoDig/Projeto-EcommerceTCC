@@ -209,9 +209,9 @@ export async function depSelecionar(){
     const comando = 
     `
     SELECT ID_DEPARTAMENTO         idDepartamento,
-           NM_DEPARTAMENTO         nomeDepartamento,
-           IMG_CAPA                imgDep
+           NM_DEPARTAMENTO         nomeDepartamento
     FROM   TB_DEPARTAMENTO
+    LIMIT  3
     `
     const [linhas] = await con.query(comando)
     return linhas;

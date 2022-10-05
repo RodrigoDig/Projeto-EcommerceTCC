@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+    import React, { useEffect, useState } from 'react';
 import './index.scss';
 
 import Cabecalho01 from '../../../Components/Cabeçalho01';
-import Carrinho from '../../../assets/images/Carrinho-Preto.svg';  
+import Carrinho from '../../../assets/images/Carrinho-Preto.svg';
+import Rodape from '../../../Components/Rodapé';  
 
 
 import { prodPromoImperdivel, prodMaisVendidos, depSelecionar } from '../../../Api/cadProdutoApi';
@@ -17,12 +18,13 @@ import Fogo2Icon from '../../../assets/images/Fogo-icon02.svg';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import Coracao2Icon from '../../../assets/images/Coracao-icon02.svg';
 import DepartamentoIcon from '../../../assets/images/Departamento-icon.svg';
+import FogueteRec from '../../../assets/images/foguete-recomandados.svg';
 
 export default function Home(){
     const [produtos, setProdutosPromo] = useState([]);
     const [prodmaisVendidos, setMaisVendidos] = useState([]);
     const [favorito, setFavorito] = useState(CoracaoIcon);
-    const [departamentos, setDepartamentos] = useState([]);
+    const [departamento, setDepartamentos] = useState([]);
 
     function valorDesconto(valor, desconto){
         const valordesc = desconto / 100;
@@ -236,7 +238,7 @@ export default function Home(){
                     </h1>
                 </div>
                 <div className='cont-map-dep'>
-                    {departamentos.map (item=> 
+                    {departamento.map (item=> 
                         <section className='cont-dep-card'>
                             <div className='dep-card'>
                                 <h3 className='titulo-dep-card'>
@@ -246,7 +248,66 @@ export default function Home(){
                         </section>    
                     )}
                 </div>
+                <div className='cont-filha5-002home'>
+                    <img src={FogueteRec} className='rec-icon-home'/>
+                    <h1 className='titulo-recomendados-home'>
+                        RECOMENDADOS
+                    </h1>
+                </div>
+                <div className='cont-filha6-002home'>
+                    {prodmaisVendidos.map(item => 
+                        <section className='cont-card-main'>
+                            <div className='cont-01-card'>
+                                <div className='cont-desconto-card'>
+                                    <img src={Fogo2Icon}  className='fogo-card-mvendido'/>
+                                </div>
+                                <div className='cont-rec-card'>
+                                    <h1 className='titulo-rec-card'>
+                                        MAIS PROCURADOS &nbsp;
+                                        RECENTEMENTE
+                                    </h1>
+                                </div>
+                                <ul className='cont-avaliacao-star'>
+                                    <li className={lerEstrelas(item.avaliacao, 1)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 2)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 3)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 4)} ></li>
+                                    <li className={lerEstrelas(item.avaliacao, 5)} ></li>
+                                </ul>
+                            </div>
+                            <div className='img-card'>
+
+                            </div>
+                            <div className='cont-nmproduto-card'>
+                                <p className='nm-produto-card'>
+                                    {item.nomeProduto} 
+                                </p>
+                            </div>
+                            <div className='cont-valorqtd-card'>
+                                <div className='cont-valores-card'>
+                                    <p className='antigo-valor'>
+                                        DE R$ {item.valorProduto} POR
+                                    </p>
+                                    <h3 className='valor-atual'>
+                                        R$ {valorDesconto(item.valorProduto, item.valorDesconto)}
+                                    </h3>
+                                </div>
+                                <div className='cont-favorito-card'>
+                                    <img src={favorito} className='coracao-icon-card' onClick={favoritado}/>
+                                </div>
+                            </div>
+                                <button className='botao-comprar-card'>
+                                    <img src={Carrinho} className='carrinho-icon-card'/>
+                                    <h3 className='titulo-comprar-card'>
+                                        COMPRAR 
+                                    </h3>
+
+                                </button>
+                        </section>    
+                    )}
+                </div>
             </section>
+            <Rodape/>
         </main>
     )
 }
