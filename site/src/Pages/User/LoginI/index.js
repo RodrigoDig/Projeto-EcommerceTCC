@@ -82,7 +82,7 @@ export default function UserLogin(){
                     </div>
 
                     <div className='texto-final-login'>
-                        <p>Não possui uma conta? Acesse aqui e</p> <p onClick={cadUser}> cadastre-se</p>   
+                        <p>Não possui uma conta? Acesse aqui e <p onClick={cadUser}> cadastre-se</p> </p>   
                     </div>
 
                     <div>

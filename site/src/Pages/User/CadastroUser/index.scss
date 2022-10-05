@@ -1,6 +1,6 @@
 .container-principal-caduser{
     background-color: #d9d9d9;
-    height: 105vh;
+    height: 100vh;
 
     hr{
        width: 93%;
@@ -12,9 +12,9 @@
         background-color: #fff;
         border-radius: 10px;
         
-        height: 85vh;
+        height: 80vh;
         width: 95%;
-        margin-top: 5em;
+        margin-top: 3em;
         margin-left: 3em;
     }
     
@@ -52,6 +52,12 @@
         }
     }
 
+    input::placeholder {
+        font-family: 'Goldman';
+        font-size: 1em;
+        font-weight: normal;
+        color: #1f1f1f;
+    }
     .divisão-cartão{
         display: flex;
         flex-direction: row;
@@ -108,11 +114,14 @@
     }
 
     .botao-cad-user{
-        text-align: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        
         margin-top: 5em;
-
         button{
             padding: 1em 3em;
+            
 
             font-family: 'Goldman';
             font-size: 2em;
@@ -120,6 +129,8 @@
             border-radius: 15px;
             background-color: #1f1f1f;
             color: #fff;
+
+            box-shadow: 5px 5px #1e1e1e;
         }
 
         button:hover{
