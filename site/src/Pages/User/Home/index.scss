@@ -400,4 +400,28 @@
     .coracao-icon-card{
         fill: #C90000;
     }
+
+    .cont-filha4-002home{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        margin-top: 3em;
+
+        width: 19em;
+        height: 3em;
+
+        border-bottom: 2px solid #F27400;
+    }
+    .dep-icon-home{
+        width: 33px;
+        height: 33px;
+    }
+    .titulo-departamento-home{
+        font-family: 'Goldman';
+        font-size: 25px;
+        
+        margin: 0px;
+    }
 }
