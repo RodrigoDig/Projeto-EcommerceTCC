@@ -3,6 +3,8 @@ import React from 'react';
 import Logo from '../Logo';
 
 import FaceIcon from '../../assets/images/face-icon.svg';
+import TwiterIcon from '../../assets/images/twiterr-logo.svg';
+import InstagramIcon from '../../assets/images/instagram-logo.svg';
 
 
 export default function Rodape(){
@@ -58,9 +60,9 @@ export default function Rodape(){
 
                 <div className='componentes-2'>
                     <div className='espacamento-imgs'>
-                        <img alt='facebook' src={FaceIcon} />
-                        <img alt='twitter' src='/images/twitter.png' />
-                        <img alt='instagram' src='/images/instagram.png' />
+                        <img alt='facebook' className='icons-rodape' src={FaceIcon} />
+                        <img alt='twitter' className='icons-rodape' src={TwiterIcon} />
+                        <img alt='instagram' className='icons-rodape' src={InstagramIcon} />
                     </div>
 
                     <hr/>
