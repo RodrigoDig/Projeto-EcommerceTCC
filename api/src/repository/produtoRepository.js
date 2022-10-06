@@ -66,13 +66,13 @@ export async function buscarPorId(id){
     `
     SELECT ID_PRODUTO              idProduto,
            ID_DEPARTAMENTO         idDepartamento,
-           NM_PRODUTO              nomeProduto,
-           VL_PRECO                valorProduto,
-           VL_DESCONTO             valorDesconto, 
+           NM_PRODUTO              nome,
+           VL_PRECO                preco,
+           VL_DESCONTO             desconto, 
            VL_AVALIACAO            avaliacao,
            DS_FABRICANTE           fabricante,
            QTD_ESTOQUE             estoque,
-           DS_INFORMACOES          informações,
+           DS_INFORMACOES          informacoes,
            DS_DESCRICAO            descricao,
            DT_GARANTIA             garantia
     FROM   TB_PRODUTO
@@ -242,8 +242,7 @@ export async function alterarProduto(id, produto) {
      produto.fabricante, 
      produto.estoque, 
      produto.informacoes, 
-     produto.descrição,
-     produto.categoria,
+     produto.descricao,
      id]);
  return alt.affectedRows;
 }
