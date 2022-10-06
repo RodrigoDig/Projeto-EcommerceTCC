@@ -21,6 +21,6 @@ export async function buscarCategoriaPorId(id) {
     `
 
     const [linhas] = await con.query(comando, [id]);
-    console.log(linhas[0]);
+    
     return linhas[0];
 }

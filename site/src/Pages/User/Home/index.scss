@@ -99,8 +99,6 @@
         align-items: center;
 
         height: max-content;
-
-        border: 0.1px solid rebeccapurple;
     }
     .cont-filha1-002home{
         display: flex;
@@ -136,8 +134,6 @@
         
         width: 90%;
         height: max-content;
-
-        border: 0.1px solid rebeccapurple;
     }
 
     .cont-card-main{
@@ -400,6 +396,7 @@
     }
     .coracao-icon-card{
         fill: #C90000;
+        cursor: pointer;
     }
 
     .cont-filha4-002home{
@@ -503,11 +500,10 @@
         flex-wrap: wrap;
 
         margin-top: 2em;
+        padding-top: 2em;
         
         width: 90%;
         height: max-content;
-
-        border: 0.1px solid rebeccapurple;
     }
     .titulo-rec-card{
         font-family: 'Goldman';

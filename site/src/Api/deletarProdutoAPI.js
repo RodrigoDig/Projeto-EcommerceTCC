@@ -7,6 +7,7 @@ const api = axios.create({
 })
 
 export async function removerProduto(id) {
-    const resposta = await api.delete('/admin/produtos' + id);
+    
+    const resposta = await api.delete('/admin/produto/' + id);
     return resposta.data;
 }
