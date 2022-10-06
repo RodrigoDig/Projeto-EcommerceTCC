@@ -1,5 +1,6 @@
 import './index.scss';
 
+import {toast} from 'react-toastify';
 import { useEffect, useState } from 'react';
 
 import Cabecalho04 from '../../../Components/Cabeçalho04';
@@ -8,7 +9,8 @@ import LupaIcon from '../../../assets/images/Lupa-busca.svg';
 import Alterar from '../../../assets/images/lapis-de-cor.png';
 import Deletar from '../../../assets/images/lixeira-de-reciclagem.png';
 
-import { listarTodosProdutos, buscarProdutoNome } from '../../../Api/cadProdutoApi';
+import {removerProduto} from '../../../Api/deletarProdutoAPI.js';
+import { listarTodosProdutos, buscarProdutoNome, } from '../../../Api/cadProdutoApi';
 
 export default function ConsEstoque() {
 
@@ -28,6 +30,20 @@ export default function ConsEstoque() {
     useEffect(() => {
         carregarTodosProdutos();
     }, [])
+
+    async function deletarProduto(id) {
+       
+        try{ 
+            await removerProduto(id);
+            await carregarTodosProdutos();
+
+            toast.dark("Produto Removido com Sucesso");
+        }
+        catch(err) {
+         toast.error(err.response.data.erro);
+        }
+
+}
 
     return (
         <main className='cont-main-estoque'>
@@ -80,8 +96,9 @@ export default function ConsEstoque() {
                                 <td>{item.descricao}</td>
                                 <td>{item.garantia}</td>
                                 <td>
+
                                     <img src={Alterar} />
-                                    <img src={Deletar} />
+                                    <img src={Deletar} onClick ={() => deletarProduto(item.idProduto)} />
                                 </td>
                             </tr>
 

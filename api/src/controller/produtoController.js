@@ -117,7 +117,7 @@ server.get('/promocao', async (req, resp) =>{
 server.delete('/admin/produto/:id', async(req , resp) => {
 
     try{
-        const id = req.params.id;
+        const id = Number(req.params.id);
 
         await remomoverProdutoCategoria(id);
      
