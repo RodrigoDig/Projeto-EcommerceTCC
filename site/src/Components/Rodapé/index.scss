@@ -12,10 +12,11 @@
     justify-content: space-around;
 }
 
+.icons-rodape{
+    cursor: pointer;
+}
 
 .titulo-principal{
-
-    border: 0.1px solid deepskyblue;
 
     h1{
         font-size: 50px;
@@ -122,13 +123,16 @@
         color: #fff;
 
         border: none;
-        border-radius: 5px;
+        border-radius: 10px;
 
         padding: 15px 20px;
-
+        cursor: pointer;
+        transition: 0.2s;
     }
 
     button:hover{
-        transform: scale(1.1);
+        background-color: #1e1e1e;
+        border: 0.2px solid #f27400;
+        color: #f27400;
     }
 }
