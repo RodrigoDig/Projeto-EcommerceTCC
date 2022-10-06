@@ -220,29 +220,30 @@ export async function depSelecionar(){
 
 export async function alterarProduto(id, produto) {
     const comando = 
-    ` UPDATE TB_PRODUTO
-    SET ID_DEPARTAMENTO    =     ?,
-        NM_PRODUTO         =     ?,
-        VL_PRECO           =     ?,
-        VL_DESCONTO        =     ?, 
-        VL_AVALIACAO       =     ?,
-        DS_FABRICANTE      =     ?,
-        QTD_ESTOQUE        =     ?,
-        DS_INFORMACOES     =     ?,
-        DS_DESCRICAO       =     ?,
-        DT_GARANTIA        =     ?"
- WHERE  ID_PRODUTO = ?`
+    `UPDATE TB_PRODUTO
+     SET  ID_DEPARTAMENTO    =     ?,
+          NM_PRODUTO         =     ?,
+          VL_PRECO           =     ?,
+          VL_DESCONTO        =     ?,
+          VL_AVALIACAO       =     ?,
+          DS_FABRICANTE      =     ?,
+          QTD_ESTOQUE        =     ?,
+          DS_INFORMACOES     =     ?,
+          DS_DESCRICAO       =     ?,
+          DT_GARANTIA        =     ?
+    WHERE ID_PRODUTO = ?`
 
  const [alt] = await con.query(comando, 
     [produto.idDepartamento,
      produto.nome, 
-     produto.preço,
+     produto.preco,
      produto.desconto, 
      produto.avaliacao, 
      produto.fabricante, 
      produto.estoque, 
      produto.informacoes, 
      produto.descricao,
+     produto.garantia,
      id]);
- return alt.affectedRows;
+     return alt.affectedRows;
 }
