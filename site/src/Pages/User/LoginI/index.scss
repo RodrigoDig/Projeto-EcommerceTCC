@@ -1,4 +1,6 @@
 .fundo-tela-login{
+    display: flex;
+    flex-direction: column;
 
     background-image: url(../../../assets/images/login-I.png);
     background-repeat: no-repeat;
@@ -6,17 +8,29 @@
     background-position-y: -70px;
 
     height: 100vh;
+    .cont-caecalho-login1{
+        width: 100%;
+        height: 6em;
+    }
+    .cont-02-login1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        height: 100%;
+    }
     .bloco-informações{
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        background-color: #fff;
+        margin-right: 3em;
+
+        background: rgba(255, 255, 255, 0.85);
         border-radius: 50px;
 
-        width: 55em;
-        margin-top: 1.5em;
-        margin-left: 58em;
+        width: 42em;
         
         h1{
             font-family: 'Goldman';
@@ -27,22 +41,22 @@
         }
 
         .input-login{
+            display: flex;
+            flex-direction: row;
+            border: 3px solid #FF6F86;
+            border-radius: 20px;
+            background-color: #fff;
 
+            width: 34em;
+            height: 4.5em;
             input{
-
-                background-image: url('../../../assets/images/user 15.svg');
-                background-repeat: no-repeat;
-                background-position: 12px;
 
                 outline: none;
 
-                border: 3px solid #FF6F86;
-                border-radius: 25px;
+                border: none;
 
                 font-family: 'Goldman';
                 font-size: 1.8em;
-
-                padding: 1em 2.2em;
 
             }
 
@@ -53,25 +67,32 @@
                 color: #852E8A;
             }
         }
+        .logo-login-user{
+            margin-left: 0.9em;
+        }
 
+        .logo-cad-user{
+            width: 40px;
+            height: 40px;
+            margin-left: 0.9em;
+        }
         .input-login-2{
+            margin-top: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border: 3px solid #FF6F86;
+            border-radius: 20px;
+            background-color: #fff;
 
-            margin-top: 3em;
+            width: 34em;
+            height: 4.5em;
             input{
-
-                background-image: url('../../../assets/images/cadeado 10.png');
-                background-repeat: no-repeat;
-                background-position: 12px;
-
+                border: 0px;
                 outline: none;
-
-                border: 3px solid #FF6F86;
-                border-radius: 25px;
 
                 font-family: 'Goldman';
                 font-size: 1.8em;
-
-                padding: 1em 2.2em;
 
             }
 
@@ -100,8 +121,8 @@
 
                 font-family: 'Goldman';
                 font-size: 1.8em;
-
-                padding: 1em 2.2em;
+                width: 19em;
+                height: 2.6em;
                 color: #550255;
 
             }
@@ -116,10 +137,11 @@
 
 
         .botao-login{
-            margin-top: 3em;
+            margin-top: 1em;
 
             button{
-                padding: 0.5em 6.1em;
+                width: 14em;
+                height: 2.1em;
 
                 border-radius: 20px;
                 border: #FF6F86;
@@ -128,11 +150,16 @@
                 font-size: 2.5em;
 
                 background-color: #FF6F86;
-                color: #852E8A;
+                color: #fff;
+
+                transition: 0.3s;
+                cursor: pointer;
             }
 
             button:hover{
-                transform: scale(1.1);
+                background: rgba(255, 255, 255, 0.30);
+                border: 0.5px solid #FF6F86;
+                color: #FF6F86;
             }
         }
 
@@ -153,5 +180,7 @@
         .user-invalido{
             font-size: 1em;
             color:#ff0000;
+
+            margin: 0px;
         }
 }
