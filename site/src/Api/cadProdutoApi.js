@@ -24,17 +24,21 @@ export async function cadastrarProduto(idDepartamento, nome, preco, desconto, av
     return r.data;
 }
 
-export async function enviarImagemProduto(id, imagem){
-    const formData = new FormData();
-    formData.append('capa', imagem)
-    const resposta = await api.post(`/produto/${id}/capa`, formData, {
-        headers: {
-            "Content-Type" : "multipart/form-data"
-        },
-    })
-    
-    return resposta.status;
+export async function salvarImagens(id, imagem, imagem2, imagem3){
+    let form = new FormData();
+    form.append('imagens', imagem);
+    form.append('imagens', imagem2);
+    form.append('imagens', imagem3);
+
+    const resposta = await api.put('/adm/produto/' + id, form, {
+        headers:{       
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+
+    return resposta.data
 }
+
 
 export async function listarTodosProdutos() {
     const resposta = await api.get('/produtos');

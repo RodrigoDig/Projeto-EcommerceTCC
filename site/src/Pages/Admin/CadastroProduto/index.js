@@ -6,7 +6,7 @@ import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
 import storage from 'local-storage';
-import { enviarImagemProduto, cadastrarProduto } from '../../../Api/cadProdutoApi';
+import { cadastrarProduto, salvarImagens } from '../../../Api/cadProdutoApi';
 import { listarCategorias } from '../../../Api/categoriaApi.js';
 import { listarDepartamentos } from '../../../Api/departamentoApi.js';
 import { useState, useEffect } from 'react';
@@ -22,7 +22,9 @@ export default function Cadastro() {
     const [garantia, setGarantia] = useState('')
     const [infotecnicas, setInfoTecnicas] = useState('');
     const [descricao, setDescricao] = useState('');
-    const [imagem, setImagem] = useState('');
+    const [imagem, setImagem] = useState();
+    const [imagem2, setImagem2] = useState();
+    const [imagem3, setImagem3] = useState();
 
     const [estrelas, setEstrelas] = useState(0);
 
@@ -58,6 +60,7 @@ export default function Cadastro() {
         try {
             const precoProduto = Number(preco.replace(',', '.'));
             const r = await cadastrarProduto(idDepartamento, nome, precoProduto, valordesconto, estrelas, fabricante, estoque, infotecnicas, descricao, garantia, catSelecionadas);
+            await salvarImagens(r.id, imagem, imagem2, imagem3);
             alert('Produto cadastrado com sucesso');
         }
         catch (err) {
@@ -83,12 +86,17 @@ export default function Cadastro() {
         setCategorias(r);
     }
 
-    function escolherImagem() {
-        document.getElementById('imagemCapa').click();
+    function escolherImagem(inputId) {
+        document.getElementById(inputId).click();
     }
 
-    function mostrarImagem() {
-        return URL.createObjectURL(imagem);
+    function exibirImagem(imagem){
+        if(imagem == undefined){
+            return SalvarImgIcon
+        }
+        else{
+            return URL.createObjectURL(imagem)
+        }
     }
 
     useEffect(() => {
@@ -141,9 +149,8 @@ export default function Cadastro() {
 
                                     <label for='arquivo1' className='selecionar-img1'>
                                         <h1 className='text-contneta1'>Selecionar Imagem 1</h1>
-                                        <img src={mostrarImagem} />
-                                        <img src={SalvarImgIcon} />
-                                        <input name='arquivo1' id='arquivo1' type='file' className='input-img1' onChange={e => setImagem(e.target.value)} />
+                                        <img src={exibirImagem(imagem)} className='imgs-selec' onClick={() => escolherImagem('imagem')}/>
+                                        <input name='arquivo1' id='arquivo1' type='file' className='input-img1' onChange={e => setImagem(e.target.files[0])} />
                                     </label>
                                 </div>
 
@@ -152,8 +159,8 @@ export default function Cadastro() {
                                         Selecionar Imagem 2
                                     </h1>
 
-                                    <img src={SalvarImgIcon} />
-                                    <input name='arquivo2' id='arquivo2' type='file' className='input-img1' />
+                                    <img src={exibirImagem(imagem2)}  className='imgs-selec' onClick={() => escolherImagem('imagem2')}/>
+                                    <input name='arquivo2' id='arquivo2' type='file' className='input-img1' onChange={e => setImagem2(e.target.files[0])}/>
                                 </label>
                             </div>
                             <label for='arquivo3' className='selecionar-img3'>
@@ -161,8 +168,8 @@ export default function Cadastro() {
                                     Selecionar Imagem 3
                                 </h1>
 
-                                <img src={SalvarImgIcon} />
-                                <input name='arquivo3' id='arquivo3' type='file' className='input-img1' />
+                                <img src={exibirImagem(imagem3)} className='imgs-selec' onClick={() => escolherImagem('imagem3')}/>
+                                <input name='arquivo3' id='arquivo3' type='file' className='input-img1'  onChange={e => setImagem3(e.target.files[0])}/>
                             </label>
                         </div>
                     </div>

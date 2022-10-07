@@ -1,4 +1,4 @@
-import { cadastrarProdutos, enviarImagem, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto} from "../repository/produtoRepository.js";
+import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd} from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
 
@@ -9,7 +9,7 @@ const server = Router();
 
 const upload = multer({ dest: 'storage/imagensProduto'})
     
-server.post('/produto', async (req, resp) =>{
+server.post('/adm/produto', async (req, resp) =>{
     try{
         const produto = req.body;
         await validarProduto(produto);
@@ -22,32 +22,14 @@ server.post('/produto', async (req, resp) =>{
                 await salvarCategoria(idProduto, idCateg);
         }
         
-        resp.status(204).send();
+        resp.send({
+            id:idProduto
+        });
         
     }catch(err){
 
         return resp.status(400).send({
             erro: (err.message)
-        });
-    }
-})
-
-server.put('/produto/:id/imagem', upload.single('capa'), async (req, resp) => {
-    try{
-        const { id } = req.params;
-        const imagem = req.file.path;
-
-        const resposta = await enviarImagem(imagem, id);
-        
-        if(resposta != 1)
-            throw new Error('A imagem não foi salva');
-
-        resp.status(204).send();
-
-    }
-    catch (err){
-        resp.status(400).send({
-            erro: err.message
         });
     }
 })
@@ -216,6 +198,23 @@ PO
     }
 }) 
 
+server.put('/adm/produto/:id', upload.array('imagens'), async (req, resp) =>{
+    try{
+        const imagens = req.files;
+        const id = req.params.id;
+        console.log(imagens);
+        for(const imagem of imagens){
+            await salvarImagemProd(id, imagem.path);
+        }
+
+        resp.status(204).send();
+    }
+    catch(err){
+        resp.status(400).send({
+            erro:err.message
+        })
+    }
+})
 
 
 export default server;

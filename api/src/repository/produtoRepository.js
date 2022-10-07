@@ -32,14 +32,13 @@ export async function salvarCategoria(idProduto, idCategoria){
     return resp.affectedRows;
 }
 
-export async function enviarImagem(imagem, id){
+export async function salvarImagemProd(idProduto, imagemPath){
     const comando = `   
-        UPDATE tb_produto_imagem
-            SET img_produto        = ?
-        WHERE id_produto           = ? `;
+        insert into tb_produto_imagem(id_produto, img_produto)
+                            values(? , ?);
+    `
 
-    const [resposta] = await con.query(comando, [imagem, id]); 
-    return resposta.affectedRows;
+    const [resposta] = await con.query(comando, [idProduto, imagemPath]);
 }
 
 export async function listarProdutos() {

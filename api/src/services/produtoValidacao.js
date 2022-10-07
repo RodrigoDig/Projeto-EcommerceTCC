@@ -2,7 +2,7 @@ import { buscarDepartamentoPorId } from "../repository/departamentoRepository.js
 
 
 export async function validarProduto(produto) {
-    if (produto.nome == undefined || produto.nome == '') {
+    if (produto.nome == undefined ) {
         throw new Error('Nome do produto é obrigatório!');
     }
     else if (isNaN(produto.preco) || produto.preco <= 0) {
