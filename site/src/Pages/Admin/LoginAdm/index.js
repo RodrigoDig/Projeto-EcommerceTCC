@@ -6,7 +6,7 @@ import  { useState ,useRef, useEffect } from 'react';
 import storage from 'local-storage';
 import './index.scss';
 import Cabecalho3 from '../../../Components/Cabeçalho03';
-import FogueteLogo from '../../../assets/images/foguetelogo.png';
+import FogueteLogo from '../../../assets/images/Foguete-logo-branco.svg';
 import CadeadoLogo from '../../../assets/images/Cadeado-senha-adm.png'
 import LoginIcon from '../../../assets/images/icon-login-adm.png'
 import loginadm from '../../../Api/loginAdm.js';

@@ -60,6 +60,8 @@
         text-decoration: none;
         line-height: 1.6em;
 
+        transition: 0.2s;
+        cursor: pointer;
     }
 
     p{
@@ -74,7 +76,8 @@
     }
 
     a:hover{
-        transform: scale(1.1);
+        font-size: 25px;
+        color: rgb(187, 187, 187);
     }
 }
 

@@ -1,6 +1,6 @@
 import './index.scss';
 
-import FogueteIcon from '../../assets/images/foguetelogo.png';
+import FogueteIcon from '../../assets/images/Foguete-logo-branco.svg';
 
 export default function Logo(){
     return(
@@ -8,7 +8,7 @@ export default function Logo(){
             <section>
                 <div className="espacamento-logo">
                     <h1>Byte</h1>
-                    <img src={FogueteIcon}/>
+                    <img src={FogueteIcon} className='foguete-icon-logo'/>
                     <h1>Speed</h1>
                 </div>
             </section>
