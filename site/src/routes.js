@@ -3,6 +3,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Home from './Pages/User/Home';
 import Departamentos from './Pages/User/Departamentos';
+import AlterarDados from './Pages/User/AlterarDados';
 import Atendimento from './Pages/User/Atendimentos';
 import CadastroEnd from './Pages/User/CadastroEndereco';
 import CadastroUser from './Pages/User/CadastroUser';
@@ -30,6 +31,7 @@ export default function Index(){
             <Routes>
                 <Route path="/" exact element={<Home />} />
                 <Route path="/departamentos" element={<Departamentos/>} />
+                <Route path="/AlterarDados" element={<AlterarDados/>} />
                 <Route path="/atendimento" element={<Atendimento />} />
                 <Route path="/cadastroendereço" element={<CadastroEnd />} />
                 <Route path="/cadastrouser" element={<CadastroUser />} />
