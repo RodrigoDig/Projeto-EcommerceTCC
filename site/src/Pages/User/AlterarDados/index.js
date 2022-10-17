@@ -2,7 +2,6 @@ import React from 'react';
 import './index.scss';
 import Cabecalho03 from '../../../Components/Cabeçalho01';
 import User from '../../../assets/images/User.svg';
-import Cadeado from '../../../assets/images/cadeadoAD.svg';
 
 
 
@@ -17,7 +16,7 @@ export default function AlterarDados(){
                 <p>Dados Básicos</p> <button>Alterar Senha</button>
                 <div className='infos'> 
                     <input type="text" placeholder='Nome Completo  |'/>
-                    <input type="text" placeholder='Email  |'/> <img src={Cadeado} className='logo-cad-user'/> 
+                    <input type="text" placeholder='Email  |'/>  
                     <input type="text" placeholder='CPF |' />
                     <input type="text" placeholder='RG  |'/>
                     <input type="text" placeholder='Telefone  |'/>
