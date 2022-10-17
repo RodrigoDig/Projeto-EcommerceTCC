@@ -246,3 +246,24 @@ export async function alterarProduto(id, produto) {
      id]);
      return alt.affectedRows;
 }
+
+export async function produtoSelCompra(produto){
+    const comando =
+    `
+    SELECT ID_PRODUTO              idProduto,
+           NM_DEPARTAMENTO         nomeDepartamento,
+           NM_PRODUTO              nomeProduto,
+           VL_PRECO                valorProduto,
+           VL_DESCONTO             valorDesconto, 
+           VL_AVALIACAO            avaliacao,
+           DS_FABRICANTE           fabricante,
+           QTD_ESTOQUE             estoque,
+           DS_INFORMACOES          informações,
+           DS_DESCRICAO            descricao,
+           DT_GARANTIA             garantia
+    FROM   TB_PRODUTO
+    WHERE ID_PRODUTO = ?
+    `
+    const [linhas] = await con.query(comando, [produto.id])
+    return linhas[0];    
+}

@@ -6,10 +6,10 @@ import Carrinho from '../../../assets/images/Carrinho-Preto.svg';
 import Rodape from '../../../Components/Rodapé';
 
 
-import { prodPromoImperdivel, prodMaisVendidos, depSelecionar } from '../../../Api/cadProdutoApi';
+import { prodPromoImperdivel, prodMaisVendidos, depSelecionar, prodSelCompra } from '../../../Api/cadProdutoApi';
 
 import SetaCardDesc from '../../../assets/images/Seta-Desconto-Card.svg';
-import Controle from '../../../assets/images/Controle-icon.svg';
+import Controle from '../../../assets/images/Controle-icon.svg'; 
 import TrofeuIcon from '../../../assets/images/Trofeu-icon.svg';
 import SeloIcon from '../../../assets/images/Selo-icon.svg';
 import RelogioIcon from '../../../assets/images/Relogio-icon.svg';
@@ -25,6 +25,7 @@ export default function Home() {
     const [prodmaisVendidos, setMaisVendidos] = useState([]);
     const [favorito, setFavorito] = useState(CoracaoIcon);
     const [departamento, setDepartamentos] = useState([]);
+    const [selec, setSelecionado] = useState([]);
 
     function valorDesconto(valor, desconto) {
         const valordesc = desconto / 100;
@@ -32,6 +33,11 @@ export default function Home() {
         const valorfinal = valor - vl;
 
         return valorfinal;
+    }
+
+    async function selecionado(id) {
+        const resp = await prodSelCompra(id);
+        setSelecionado(resp);
     }
 
     async function maisVendidos() {
@@ -74,6 +80,7 @@ export default function Home() {
         produtoPromo();
         maisVendidos();
         depSelecionado();
+        selecionado();
     }, [])
 
 
@@ -163,7 +170,7 @@ export default function Home() {
                                     </p>
                                 </div>
                             </div>
-                            <button className='botao-comprar-card'>
+                            <button className='botao-comprar-card' onClick={prodSelCompra(item.id)}>
                                 <img src={Carrinho} className='carrinho-icon-card' />
                                 <h3 className='titulo-comprar-card'>
                                     COMPRAR

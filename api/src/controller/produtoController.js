@@ -1,4 +1,4 @@
-import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd } from "../repository/produtoRepository.js";
+import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra } from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { alterarValid } from '../services/alterarValidacao.js';
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
@@ -185,5 +185,17 @@ server.put('/adm/produto/:id', upload.array('imagens'), async (req, resp) => {
     }
 })
 
+server.get('/produto/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+        const resposta = await produtoSelCompra(id);
+        resp.send(resposta);
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
 
 export default server;

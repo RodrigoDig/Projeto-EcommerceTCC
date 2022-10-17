@@ -55,6 +55,11 @@ export async function prodMaisVendidos(){
     return resposta.data
 }
 
+export async function prodSelCompra(id){
+    const resposta = await api.get('/produto/:id');
+    return resposta.data
+}
+
 export async function depSelecionar(){
     const resposta = await api.get('/departamentos');
     return resposta.data
