@@ -1,7 +1,7 @@
 import './index.scss';
 
 import {toast} from 'react-toastify';
-import { useEffect, useState } from 'react';
+import {useEffect, useState} from 'react';
 
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import EstoqueLogo from '../../../assets/images/Caixa-estoquefase01.svg';
@@ -32,18 +32,16 @@ export default function ConsEstoque() {
     }, [])
 
     async function deletarProduto(id) {
-       
         try{ 
             await removerProduto(id);
-            await carregarTodosProdutos();
-
-            toast.dark("Produto Removido com Sucesso");
+            await carregarTodosProdutos(id);
+            toast.error("Produto Removido com Sucesso");
         }
         catch(err) {
-         toast.error(err.response.data.erro);
+            toast.error(err.response.data.erro);
         }
 
-}
+    }
 
     return (
         <main className='cont-main-estoque'>
@@ -68,6 +66,7 @@ export default function ConsEstoque() {
                 <table>
                     <thead>
                         <tr>
+                            <th>ID Produto</th>
                             <th>ID Departamento</th>
                             <th>Nome</th>
                             <th>Preço</th>
@@ -85,6 +84,7 @@ export default function ConsEstoque() {
 
                         {produto.map(item =>
                             <tr>
+                                <td>{item.idProduto}</td>
                                 <td>{item.idDepartamento}</td>
                                 <td>{item.nomeProduto}</td>
                                 <td>{item.valorProduto}</td>
@@ -96,9 +96,8 @@ export default function ConsEstoque() {
                                 <td>{item.descricao}</td>
                                 <td>{item.garantia}</td>
                                 <td>
-
                                     <img src={Alterar} />
-                                    <img src={Deletar} onClick ={() => deletarProduto(item.idProduto)} />
+                                    <img src={Deletar} onClick ={() => deletarProduto(item.idProduto)}/>
                                 </td>
                             </tr>
 

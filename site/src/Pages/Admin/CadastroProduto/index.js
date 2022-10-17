@@ -11,6 +11,7 @@ import { listarCategorias } from '../../../Api/categoriaApi.js';
 import { listarDepartamentos } from '../../../Api/departamentoApi.js';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Cadastro() {
     const [nome, setNome] = useState('');
@@ -61,10 +62,10 @@ export default function Cadastro() {
             const precoProduto = Number(preco.replace(',', '.'));
             const r = await cadastrarProduto(idDepartamento, nome, precoProduto, valordesconto, estrelas, fabricante, estoque, infotecnicas, descricao, garantia, catSelecionadas);
             await salvarImagens(r.id, imagem, imagem2, imagem3);
-            alert('Produto cadastrado com sucesso');
+            toast.success('Produto cadastrado com sucesso');
         }
         catch (err) {
-            alert(err.response.data.erro);
+            toast.error(err.response.data.erro);
         }
     }
 

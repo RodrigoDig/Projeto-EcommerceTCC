@@ -8,6 +8,6 @@ const api = axios.create({
 
 export async function removerProduto(id) {
     
-    const resposta = await api.delete('/admin/produto/' + id);
+    const resposta = await api.delete('/produto/' + id);
     return resposta.data;
 }

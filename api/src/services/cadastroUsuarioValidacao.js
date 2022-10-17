@@ -25,6 +25,9 @@ export async function validacaoUser(usuario){
     else if(isNaN(usuario.senha) == undefined){
         throw new error('Digite sua senha apenas com números')
     }
+    else{
+        return "Não deixe campos nulos!"
+    }
 
     const cadastro = await cadUser(usuario);
 }

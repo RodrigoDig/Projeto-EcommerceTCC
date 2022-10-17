@@ -14,7 +14,7 @@ export default function CadastroUser() {
     function voltar() {
         navigate('/')
     }
-
+    
     async function SalvarCLick() {
         try {
             const r = await cadUser(nome, sobrenome, cpf, nascimento, genero, email, celular, senha);
