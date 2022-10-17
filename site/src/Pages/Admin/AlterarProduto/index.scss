@@ -170,14 +170,12 @@
         height: 36em;
     }
 
-    .dv-1-1{
-        width: 3em;
-        height: 3em;
+   
         
         .selecionar-img1{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         width: 20%;
         height: 10%;
@@ -188,12 +186,13 @@
         border: 1px solid black;
         
         cursor: pointer;
-    }
-    .input-img1{
-        display: none;    
+        
+        .input-img1{
+            display: none;    
+        }
     }
 
-}
+
     .titulo-contfilha2-infocad001{
         font-size: 22px;
         font-family: 'Goldman';
@@ -247,7 +246,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 12em;
+        width: 10em;
         height: 10em;
 
         padding-bottom: 20px;

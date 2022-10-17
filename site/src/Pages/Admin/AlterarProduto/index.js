@@ -137,7 +137,7 @@ export default function Cadastro() {
                             </h1>
                             <div className='contneta1-infocad001'>
                                 
-                                <div className='dv-1-1' onClick={escolherImagem}>
+                                <div onClick={escolherImagem}>
 
                                     <label for='arquivo1' className='selecionar-img1'>
                                         <h1 className='text-contneta1'>Selecionar Imagem 1</h1>
