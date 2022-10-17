@@ -16,6 +16,14 @@ export default function Cabecalho04(){
 
     const navigate = useNavigate();
 
+    function altProd(){
+        navigate('/alterarproduto')
+    }
+
+    function voltarHome(){
+        navigate('/');
+    }
+
     function sairClick(){
         storage.remove('admin-logado');
         navigate('/loginadm')
@@ -31,7 +39,7 @@ export default function Cabecalho04(){
 
     return(
         <main className='cont-main-c4'>
-            <div className='cont-logo'>
+            <div onClick={voltarHome} className='cont-logo'>
                 <LogoMenor />
             </div>
             <div className='cont-001'>
@@ -45,7 +53,7 @@ export default function Cabecalho04(){
                     Cadastrar Produto
                 </h2>
             </div>
-            <div className='cont-003'>
+            <div onClick={altProd} className='cont-003'>
             <img src={AltProdLogo} className='img-cont-03' />
                 <h2 className='txt-cont-03'>
                     Alterar Produto

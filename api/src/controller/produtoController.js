@@ -1,6 +1,8 @@
 import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd} from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
+import { alterarValid } from '../services/alterarValidacao.js';
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
+
 
 import multer from 'multer';
 import {Router} from "express";
@@ -147,43 +149,9 @@ server.put('/produto/:id', async (req, resp) => {
         const id = Number(req.params.id);
         const produto = req.body;
 
-        if (produto.nome == undefined || !produto.nome.trim()) {
-            throw new Error('Nome do produto é obrigatório!');
-        }
-        else if (isNaN(produto.preco) || produto.preco <= 0) {
-            throw new Error('Preço do produto é obrigatório!');
-        }
-        else if (produto.desconto == undefined) {
-            throw new Error('Desconto é obrigatório, se nao houver mantenha em 0!');
-        }
-        else if (produto.desconto == NaN) {
-            throw new Error('Desconto Invalido :(');
-        }
-        else if (produto.avaliacao == NaN || produto.avaliacao === undefined){
-            throw new Error('Avaliação invalida :(');
-        }
-        else if (produto.fabricante == Number){
-            throw new Error('Fabricante invalido');
-        }
-        else if (produto.avaliacao == undefined){
-            throw new Error('O Fabricante é Obrigatório');
-        }
-        else if (produto.estoque == undefined){
-            throw new Error('Informe a Quantia em estoque');
-        } 
-        else if (produto.informacoes == undefined){
-            throw new Error('O produto precisa ter suas Informações !!');
-        }
-        else if (produto.descricao == undefined){
-            throw new Error('Informe a Descrição do produto !!');
-        }
-        else if (produto.garantia == undefined){
-            throw new Error('Informe o tempo de Garantia do Produto');
-        }
+        await alterarValid(id, produto);        
 
-        
-
-        const resp = await alterarProduto(produto, id);
+        const resp = await alterarProduto(id,produto);
         if(resp != 1)
             throw new Error('O produto não pode ser alterado');
         else

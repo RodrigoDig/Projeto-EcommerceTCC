@@ -25,7 +25,7 @@ export default function UserLogin(){
 
        useEffect(() => {
         if(storage('user-logado')){
-            navigate('/')
+            navigate('/login')
         }
     }, [])
 

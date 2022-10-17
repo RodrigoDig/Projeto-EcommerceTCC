@@ -20,6 +20,7 @@ import LoginIV from './Pages/User/LoginIV';
 import Pedido from './Pages/User/Pedido';
 import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
+import Alterar from './Pages/Admin/AlterarProduto';
 
 import CstEstoque from './Pages/Admin/ConsultarProdutos';
 import CstPedidos from './Pages/Admin/ConsultarPedidos';
@@ -50,6 +51,7 @@ export default function Index(){
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/produto" element={<Produto />} />
                 
+                <Route path="/alterarproduto" element={<Alterar />} />
                 <Route path="/estoque" element={<CstEstoque />} />
                 <Route path="/pedidos" element={<CstPedidos/>}/>
                 <Route path="/loginadm" element={<LoginAdm />} />

@@ -10,7 +10,7 @@ export async function validacaoUser(usuario){
     else if(isNaN(usuario.cpf) == undefined){
         throw new error('O cadastro do cpf é obrigatório ser apenas números!')
     }
-    else if(usuario.nascimento == undefined){
+    else if(usuario.nascimento == undefined || usuario.nascimento == NaN){
         throw new error('Data de nascimento é obrigatória!')
     }
     else if(!['Masculino', 'Feminino', 'Outro'].includes(usuario.genero)){
