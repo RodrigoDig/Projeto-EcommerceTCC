@@ -1,38 +1,42 @@
+import { alterarProduto } from "../repository/produtoRepository.js";
 
-export default async function alterarValidacao() {
+export async function alterarValid(produto) {
 
-if (altProduto.nome == undefined || !altProduto.nome.trim()) {
+if (produto.nome == undefined || !produto.nome.trim()) {
     throw new Error('Nome do produto é obrigatório!');
 }
-else if (isNaN(altProduto.preco) || altProduto.preco <= 0) {
+else if (isNaN(produto.preco) || produto.preco <= 0) {
     throw new Error('Preço do produto é obrigatório!');
 }
-else if (altProduto.desconto == undefined) {
-    throw new Error('Desconto é obrigatório, se nao houver mantenha em 0!');
+else if (produto.desconto == undefined || produto.desconto == NaN) {
+    throw new Error('Desconto invalido, se nao houver mantenha em 0!');
 }
-else if (altProduto.desconto == NaN) {
+else if (produto.desconto == NaN) {
     throw new Error('Desconto Invalido :(');
 }
-else if (altProduto.avaliacao == NaN || altProduto.avaliacao === undefined){
+else if (produto.avaliacao == NaN || produto.avaliacao === undefined){
     throw new Error('Avaliação invalida :(');
 }
-else if (altProduto.fabricante == Number){
+else if (produto.fabricante == Number){
     throw new Error('Fabricante invalido');
 }
-else if (altProduto.avaliacao == undefined){
+else if (produto.avaliacao == undefined){
     throw new Error('O Fabricante é Obrigatório');
 }
-else if (altProduto.estoque == undefined){
+else if (produto.estoque == undefined){
     throw new Error('Informe a Quantia em estoque');
 } 
-else if (altProduto.informacoes == undefined){
+else if (produto.informacoes == undefined){
     throw new Error('O produto precisa ter suas Informações !!');
 }
-else if (altProduto.descricao == undefined){
+else if (produto.descricao == undefined){
     throw new Error('Informe a Descrição do produto !!');
 }
-else if (altProduto.garantia == undefined){
+else if (produto.garantia == undefined){
     throw new Error('Informe o tempo de Garantia do Produto');
 } 
 
+    const alt = await alterarProduto(produto);
+
 }
+

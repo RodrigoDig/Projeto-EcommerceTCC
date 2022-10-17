@@ -170,25 +170,30 @@
         height: 36em;
     }
 
-    .selecionar-img1{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .dv-1-1{
+        width: 3em;
+        height: 3em;
+        
+        .selecionar-img1{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         justify-content: center;
-        width: 12em;
-        height: 10em;
+        width: 20%;
+        height: 10%;
 
         padding-bottom: 20px;
         border-radius: 20px;
 
         border: 1px solid black;
-
+        
         cursor: pointer;
     }
     .input-img1{
-        display: none;
+        display: none;    
     }
 
+}
     .titulo-contfilha2-infocad001{
         font-size: 22px;
         font-family: 'Goldman';

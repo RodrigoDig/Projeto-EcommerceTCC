@@ -33,7 +33,7 @@ export default function LoginAdm(){
 
     useEffect(() => {
         if(storage('admin-logado')){
-            navigate('/')
+            navigate('')
         }
     }, [])
     

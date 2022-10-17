@@ -66,13 +66,13 @@ export default function Cadastro() {
     }
 
     function buscarNomeCategoria(id) {
-        const cat = categorias.find(item => item.id == id);
+        const cat = categorias.find(item => item.id === id);
         return cat.categoria;
     }
 
 
     function adicionarCategoria() {
-        if (!catSelecionadas.find(item => item == idCategoria)) {
+        if (!catSelecionadas.find(item => item === idCategoria)) {
             const categorias = [...catSelecionadas, idCategoria];
             setCatSelecionadas(categorias);
         }
@@ -137,7 +137,7 @@ export default function Cadastro() {
                             </h1>
                             <div className='contneta1-infocad001'>
                                 
-                                <div onClick={escolherImagem}>
+                                <div className='dv-1-1' onClick={escolherImagem}>
 
                                     <label for='arquivo1' className='selecionar-img1'>
                                         <h1 className='text-contneta1'>Selecionar Imagem 1</h1>
@@ -257,7 +257,7 @@ export default function Cadastro() {
                     </div>
 
                     <button className='botao-cad' onClick={SalvarCLick} >
-                        CADASTRAR
+                        ALTERAR
                     </button>
                 </div>
 

@@ -18,8 +18,8 @@ export default function Rodape(){
                     <div className='espacamento-coluna'>
                         <div className='coluna'>
                             <h2>Desenvolvedores</h2>
+                            <a href='https://github.com/ArthuMSS'>Arthur</a>
                             <a href='https://github.com/MenorCp'>Cauã</a>
-                            <a href='https://github.com/EricTavares16'>Erick</a>
                             <a href='https://github.com/Jgomesc'>João Pedro</a>
                             <a href='https://github.com/RodrigoDig'>Rodrigo</a>
                         </div>
