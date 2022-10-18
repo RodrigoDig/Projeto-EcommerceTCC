@@ -60,6 +60,12 @@ export default function Produto(){
                                 </ul>
                             )}
                         </div>
+                        <div className='cont-imagem-maior-infoprod'>
+
+                        </div>
+                        <div className='cont-imgs-infoprod'>
+
+                        </div>
                     </div>
                     <div className='cont-vlcompra-infoprod'>
 

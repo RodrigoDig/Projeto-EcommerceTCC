@@ -100,4 +100,19 @@
 
         border: 0.1px solid rebeccapurple;
     }
+    .cont-imagem-maior-infoprod{
+        width: 50%;
+        height: 59%;
+
+        border: 2px solid teal;
+    }
+    .cont-imgs-infoprod{
+        display: flex;
+        flex-direction: row;
+        
+        width: 59%;
+        height: 14%;
+
+        border: 2px solid rebeccapurple;
+    }
 }
