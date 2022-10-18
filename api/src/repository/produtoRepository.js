@@ -127,7 +127,7 @@ export async function buscarTodosProdutos(){
 export async function prodPromoImperdivel(){
     const comando = 
     `
-    SELECT ID_PRODUTO              idProduto,
+    SELECT ID_PRODUTO              id,
            ID_DEPARTAMENTO         idDepartamento,
            NM_PRODUTO              nomeProduto,
            VL_PRECO                valorProduto,
@@ -184,7 +184,7 @@ export async function remomoverProduto(idProduto){
 export async function prodMaisVendidos(){
     const comando = 
     `
-    SELECT ID_PRODUTO              idProduto,
+    SELECT ID_PRODUTO              id,
            NM_DEPARTAMENTO         nomeDepartamento,
            NM_PRODUTO              nomeProduto,
            VL_PRECO                valorProduto,

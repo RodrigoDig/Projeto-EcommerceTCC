@@ -1,0 +1,213 @@
+.cont-card-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 22.5em;
+    height: 550px;
+
+    border-radius: 13px;
+
+    background-color: #fff;
+
+    margin-right: 1em;
+    margin-bottom: 1.5em;
+    .cont-01-card{
+        display: flex;
+        flex-direction: row;
+    
+        margin-top: 0.3em;
+        
+        width: 20.5em;
+        height: 4.5em;
+    }
+    
+    .cont-desconto-card{
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+    
+        width: 3.8em;
+        height: 3.8em;
+    
+        border-radius: 10px;
+    
+        margin-top: 0.5em;
+        margin-right: 0.5em;
+        margin-left: 0.4em;
+    
+        background-color: #FF9736;
+    }
+    .valor-desconto-card{
+        font-family: 'Goldman';
+        font-size: 20px;
+        font-weight: 600;
+    
+        margin: 0px;
+        margin-bottom: 0.2em;
+    }
+    .seta-card-desc{
+        width: 18px;
+        height: 18px;
+    }
+    .titulo-desc-card{
+        font-family: 'Goldman';
+        font-size: 18px;
+        font-weight: 100;
+    
+        color: #C90000;
+    
+        text-shadow: 0px 0px 4px rgba(242, 116, 0, 0.69);
+    
+        margin: 0px;
+        margin-top: 0.6em;
+        margin-right: 0.8em;
+    }
+    
+    .cont-avaliacao-star{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    
+        margin: 0px;
+        padding: 0px;
+    
+        width: 7em;
+        height:2.4em;
+    }
+    
+    .star-icon{
+        list-style-type: none;
+        cursor: pointer;
+        color: #FF9736;
+    
+        font-size: 27px;
+        margin: 0px;
+    }
+    .star-icon::before{
+        content:"\2605";
+    }
+    .star-icon.ativo ~ .star-icon::before{
+        content: "\2606";
+    }
+    
+    .cont-avaliacao-star:hover .star-icon::before{
+        content: "\2605";
+    }
+    .star-icon:hover ~ .star-icon::before{
+        content: "\2606";
+    }
+    .img-card{
+        margin-top: 1em;
+        width: 12em;
+        height: 12em;
+    }
+    .cont-nmproduto-card{
+        width: 17em;
+        height: 6em;
+    
+        margin-top: 0.4em;
+    }
+    .nm-produto-card{
+        font-size: 16px;
+        font-family: 'Goldman';
+        text-align: center;
+    
+        margin: 0px;
+    }
+    .cont-valorqtd-card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 19.6em;
+        height: 5.5em;
+    
+        margin-bottom: 0.6em;
+    }
+    .cont-valores-card{
+        width: 12em;
+        height: 3em;
+    }
+    .antigo-valor{
+        font-size: 15px;
+        font-family: 'Goldman';
+        font-weight: 400;
+    
+        color: #C96000;
+        margin: 0px;
+    
+        text-shadow: 0px 0px 4px rgba(242, 116, 0, 0.69);
+    }
+    .valor-atual{
+        font-size: 24px;
+        font-family: 'Goldman';
+        font-weight: 200;
+    
+        color: #F27400;
+        margin: 0px;
+    
+        text-shadow: 0px 0px 4px rgba(242, 116, 0, 0.69);
+    }
+    .qtd-estoque-card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+        width: 5.3em;
+        height: 5em;
+        
+    
+        border-radius: 10px;
+        background-color: #e1e1e1;
+        border: 1px solid #F27400;
+    }
+    .text-restam-card{
+        font-size: 15px;
+        font-family: 'Goldman';
+        text-align: center;
+        margin: 0px;
+    }
+    .qtd-restam-card{
+        font-size: 23px;
+        font-family: 'Goldman';
+        text-align: center;
+        margin: 0px;
+    
+        color: #E61717;
+    }
+    .unidades-text-card{
+        font-size: 14px;
+        font-family: 'Goldman';
+        text-align: center;
+        margin: 0px;
+    }
+    .botao-comprar-card{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+        align-items: center;
+        width: 13em;
+        height: 3.4em;
+    
+        border-radius: 8px;
+        border: none;
+    
+        background-color: #F27400;
+    }
+    .carrinho-icon-card{
+        width: 38px;
+        height: 39px;
+        margin-right: 0.3em;
+    }
+    .titulo-comprar-card{
+        font-size: 16px;
+        font-family: 'Goldman';
+    
+        margin: 0px;
+    }
+}
