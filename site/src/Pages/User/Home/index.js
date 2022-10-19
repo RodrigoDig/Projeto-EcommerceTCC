@@ -22,14 +22,6 @@ export default function Home() {
     const [prodmaisVendidos, setMaisVendidos] = useState([]);
     const [departamento, setDepartamentos] = useState([]);
 
-    function valorDesconto(valor, desconto) {
-        const valordesc = desconto / 100;
-        const vl = valor * valordesc;
-        const valorfinal = valor - vl;
-
-        return valorfinal;
-    }
-
     
     async function maisVendidos() {
         const resp = await prodMaisVendidos();

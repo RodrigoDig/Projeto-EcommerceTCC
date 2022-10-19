@@ -56,8 +56,8 @@ export async function prodMaisVendidos(){
 }
 
 export async function prodSelCompra(id){
-    const resposta = await api.get('/produto/:id');
-    return resposta.data
+    const resposta = await api.get('/compra/produto/' + id);
+    return resposta.data;
 }
 
 export async function depSelecionar(){

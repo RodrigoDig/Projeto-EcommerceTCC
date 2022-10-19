@@ -4,27 +4,31 @@ import './index.scss';
 import Cabecalho1 from '../../../Components/Cabeçalho01';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
+import { useParams } from 'react-router-dom';
 
 export default function Produto(){
-
-    const [produtos, setProdutos] = useState([])
+    
+    const [produtos, setProdutos] = useState([]);
+    const { id } = useParams();    
+    
+    async function carregarPag(){
+        const r = await prodSelCompra(id);
+        console.log(r);
+        setProdutos(r);
+    }
 
     function lerEstrelas(valor, estrela) {
         if (valor > 5) {
             valor = Math.floor(valor / 2);
         }
         if (valor <= estrela)
-            return 'star-icon ativo'
+            return 'star-icon ativo'    
         else
             return 'star-icon'
     }
-    async function tdprodutos() {
-        const resposta = await prodSelCompra();
-        setProdutos(resposta);
-    }
 
     useEffect(() => {
-        tdprodutos();
+        carregarPag();
     }, [])
 
     return(

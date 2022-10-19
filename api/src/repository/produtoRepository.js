@@ -247,7 +247,7 @@ export async function alterarProduto(id, produto) {
      return alt.affectedRows;
 }
 
-export async function produtoSelCompra(produto){
+export async function produtoSelCompra(id){
     const comando =
     `
     SELECT ID_PRODUTO              idProduto,
@@ -262,8 +262,26 @@ export async function produtoSelCompra(produto){
            DS_DESCRICAO            descricao,
            DT_GARANTIA             garantia
     FROM   TB_PRODUTO
+    INNER JOIN TB_DEPARTAMENTO
+    ON TB_DEPARTAMENTO.ID_DEPARTAMENTO = TB_DEPARTAMENTO.ID_DEPARTAMENTO
     WHERE ID_PRODUTO = ?
     `
-    const [linhas] = await con.query(comando, [produto.id])
-    return linhas[0];    
+    const [linhas] = await con.query(comando, [id])
+    return linhas;    
 }
+
+export async function categoriaSel(id){
+    const comando = 
+    `
+    SELECT  ID_PRODUTO  idProd,
+    ID_CATEGORIA idCat,
+    NM_CATEGORIA nmCat
+    FROM 	TB_CATEGORIA
+    INNER JOIN TB_PRODUTO
+    ON TB_PRODUTO.ID_PRODUTO = TB_PRODUTO.ID_PRODUTO
+    WHERE  ID_PRODUTO = ?;
+    `
+    const [linhas] = await con.query(comando, [id])
+    return linhas;   
+}
+

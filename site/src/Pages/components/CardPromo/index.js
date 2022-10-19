@@ -14,10 +14,10 @@ export default function CardProduto(props){
         const valorfinal = valor - vl;
 
         return valorfinal;
-    }
+    }   
 
     function selProd(id) {
-        navigate('/produto' + id + '/info');
+        navigate('/compra/produto/' + id);
     }
 
     function lerEstrelas(valor, estrela) {
