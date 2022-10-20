@@ -263,11 +263,11 @@ export async function produtoSelCompra(id){
            DT_GARANTIA             garantia
     FROM   TB_PRODUTO
     INNER JOIN TB_DEPARTAMENTO
-    ON TB_DEPARTAMENTO.ID_DEPARTAMENTO = TB_DEPARTAMENTO.ID_DEPARTAMENTO
+    ON TB_DEPARTAMENTO.ID_DEPARTAMENTO = TB_PRODUTO.ID_DEPARTAMENTO
     WHERE ID_PRODUTO = ?
     `
     const [linhas] = await con.query(comando, [id])
-    return linhas;    
+    return linhas[0];    
 }
 
 export async function categoriaSel(id){

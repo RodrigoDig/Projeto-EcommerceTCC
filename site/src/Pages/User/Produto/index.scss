@@ -88,7 +88,8 @@
     .cont-vlcompra-infoprod{
         display: flex;
         flex-direction: column;
-        width: 50%;
+        align-items: center;
+        width: 48%;
         height: 94%;
     }
     .cont-ava-infoprod{
@@ -109,10 +110,84 @@
     .cont-imgs-infoprod{
         display: flex;
         flex-direction: row;
-        
         width: 59%;
         height: 14%;
 
         border: 2px solid rebeccapurple;
+    }
+    .cont-divulgacao-infoprod{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1em;
+        width: 80%;
+        height: 8em;
+        border-radius: 15px;
+        background-image: url('../../../assets/images/fundo-adquira.png');
+        background-size: 100%;
+    }
+    .text-adquira{
+        font-family: 'Goldman';
+        color: white;
+        font-weight: 100;
+        font-size: 25px;
+        text-align: center;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+
+        margin: 0px;
+    }
+    .cont-nmprod-infoprod{
+        flex-wrap: wrap;
+        margin-top: 0.9em;
+        width: 80%;
+        height: 8em;
+    }
+    .text-nmprod{
+        width: 80%;
+        font-family: 'Goldman';
+        font-size: 23px;
+        margin: 0px;
+    }
+    .cont-fabricante-infoprod{
+        width: 80%;
+        height: 2.5em;
+        margin-top: 0.9em;
+    }
+    .text-fabricante{
+        margin: 0px;        
+        font-family: 'Goldman';
+        font-weight: 100;
+        font-size: 21px;
+    }
+    .cont-valor-infoprod{
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.9em;
+        width: 80%;
+        height: 6em;
+    }
+    .valor-antigo-infoprod{
+        font-family: 'Goldman';
+        font-size: 21px;
+        color: #F27400;
+        margin: 0px;
+    }
+    .text-valor-infoprod{
+        font-family: 'Goldman';
+        font-size:34px;
+        color: #F27400; 
+        font-weight: 500;
+        margin: 0px;
+    }
+    .text-mostrando-desconto{
+        font-family: 'Goldman';
+        font-weight: 100;
+        font-size: 18px;
+        margin: 0px;
+    }
+    .cont-mdesc-infoprod{
+        width: 80%;
+        height: 2em;
     }
 }
