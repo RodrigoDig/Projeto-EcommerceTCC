@@ -3,9 +3,11 @@ import './index.scss';
 
 import Cabecalho1 from '../../../Components/Cabeçalho01';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
+import Storag from 'local-storage';
 
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 export default function Produto(){
     
@@ -35,6 +37,23 @@ export default function Produto(){
         else
             return 'star-icon'
     }
+
+    function adicionarCarrinho(){
+        let carrinho = [];
+        if(Storag ('carrinho')){
+            carrinho = Storag('carinho');
+        }
+
+        if(!carrinho.find(item => item.id === id)){
+            carrinho.push({
+                id: id,
+                qtd: 1
+            })
+            Storag('carrinho', carrinho);
+        }
+        toast.success('Produto adicionado ao carrinho');
+    }
+
 
     useEffect(() => {
         carregarPag();
@@ -72,7 +91,7 @@ export default function Produto(){
                         </div>
                         <div className='cont-imgs-infoprod'>
                             <h1>
-                                img 2,3,4
+                                img 2,3
                             </h1>
                         </div>
                     </div>
@@ -105,8 +124,13 @@ export default function Produto(){
                             <p className='text-mostrando-desconto'>
                                 COM DESCONTO DE {Math.trunc(produtos.info.valorDesconto)}% Á VISTA NO PIX 
                             </p>
+
+                            <div>
+                                <button onClick={adicionarCarrinho}>Adicionar ao Carrinho</button>
+                            </div>
                         </div>
                     </div>
+
                 </div>
             </section>
         </main>

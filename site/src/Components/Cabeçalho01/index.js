@@ -1,13 +1,18 @@
 import './index.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../Logo';
 
 import LupaIcon from '../../assets/images/Lupa-busca.svg';
 import Carrinho from '../../assets/images/Carrinho-fase01.svg';
 import NumeroIcon from '../../assets/images/Numero Produtos.svg';
 import LoginIcon from '../../assets/images/Login-icon-fase01.svg';
+import { Navigate } from 'react-router-dom';
 
 export default function Cabecalho1(){
+    const navigate = useNavigate();
+    function carrinho(){
+        navigate('/carrinho')
+    }
     return(
         <main>
             <section className='cabecalho1'>
@@ -23,12 +28,12 @@ export default function Cabecalho1(){
                     <hr className='linha-cabeçalho'/>
                 </div>
                 <div className='cont-login'>
-                    <Link to='/carrrinho'>
-                        <div className='cont-carrinho'>
-                            <img src={Carrinho} className='carrinho' />
-                            <img src={NumeroIcon} className='numbercar' />
-                        </div>
-                    </Link>
+
+                    <div className='cont-carrinho'>
+                        <img src={Carrinho} className='carrinho' onClick={carrinho} />
+                        <img src={NumeroIcon} className='numbercar' />
+                    </div>
+
                     <div className='cont-icon-login'>
                         <img src={LoginIcon} className='icon-login'/>
                         <Link to='/login' className='link'>

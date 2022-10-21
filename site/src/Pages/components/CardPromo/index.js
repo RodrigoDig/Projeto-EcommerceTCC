@@ -50,7 +50,7 @@ export default function CardProduto(props){
                         </ul>
                     </div>
                     <div className='img-card'>
-    
+                        
                     </div>
                     <div className='cont-nmproduto-card'>
                         <p className='nm-produto-card'>

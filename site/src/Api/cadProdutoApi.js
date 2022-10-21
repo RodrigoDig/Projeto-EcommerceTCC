@@ -70,3 +70,7 @@ export async function buscarProdutoNome(nome) {
     return resposta.data;
 }
 
+export async function buscarPorId(id){
+    const resposta = await api.get('/produto/' + id);
+    return resposta.data;
+}

@@ -33,10 +33,10 @@ export default function Index(){
                 <Route path="/departamentos" element={<Departamentos/>} />
                 <Route path="/AlterarDados" element={<AlterarDados/>} />
                 <Route path="/atendimento" element={<Atendimento />} />
-                <Route path="/cadastroendereço" element={<CadastroEnd />} />
+                <Route path="/cadastroendereco" element={<CadastroEnd />} />
                 <Route path="/cadastrouser" element={<CadastroUser />} />
                 <Route path="/carrinho" element={<Carrinho />} />
-                <Route path="/configuraçoes" element={<Configurações />} />
+                <Route path="/configuracoes" element={<Configurações />} />
                 <Route path="/etapaI" element={<EtapaCompraI />} />
                 <Route path="/etapaII" element={<EtapaCompraII />} />
                 <Route path="/etapaIII" element={<EtapaCompraIII />} />
