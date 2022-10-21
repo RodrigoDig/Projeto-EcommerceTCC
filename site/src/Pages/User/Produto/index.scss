@@ -5,7 +5,7 @@
     justify-content: flex-start;
 
     width: 100%;
-    height: 100vh;
+    height: max-content;
 
     background-color: #d9d9d9;
 
@@ -95,8 +95,11 @@
     .cont-ava-infoprod{
         display: flex;
         flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
 
-        width: 40%;
+
+        width: 30%;
         height: 2em;
 
         border: 0.1px solid rebeccapurple;
@@ -245,5 +248,20 @@
             height: 44px;
             margin-right: 0.9em;
         }
+    }
+    .text-cont-ava{
+        text-align: end;
+        margin: 0px;
+        font-family: 'Goldman';
+        font-weight: 100;
+        font-size: 20px;
+        margin-bottom: 0.2em;
+    }
+    .cont-catgerais{
+        display: flex;
+        flex-direction: column;
+
+        width: 95%;
+        height: 50em;
     }
 }
