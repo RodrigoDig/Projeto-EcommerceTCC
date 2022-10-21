@@ -22,8 +22,12 @@ export default function EtapaCompraII(){
                             <Cabeçalho05/>
                     </div> 
 
+                    <div className='cbx-x'>
+                        <Etapa/>
+                    </div>
+
                         <div className='cxdo'>
-                                        
+
                                         <div className='mlnu'>
                                             <div className='cont-nml'>
                                                 <h1 className='nmrx1'> Compra finalizada com sucesso!</h1>
