@@ -66,9 +66,8 @@ export default function Produto(){
     }
 
     function valorProd(valor){
-        let vl = valor;
-        const vlRouded = +(vl.toFixed(2));
-        return vlRouded;
+        const vl = valor.toFixed(2);
+        return vl;
     }
 
 
@@ -100,6 +99,9 @@ export default function Produto(){
                     <div className='cont-avaimgs-infoprod'>
                         <div className='cont-ava-infoprod'>
                             {estrelasAvaliacao(produtos.info.avaliacao)}
+                            <h1 className='text-cont-ava'>
+                                20 avaliações
+                            </h1>
                         </div>
                         <div className='cont-imagem-maior-infoprod'>
                             <h1>
@@ -130,11 +132,11 @@ export default function Produto(){
                         </div>
                         <div className='cont-valor-infoprod'>
                             <p className='valor-antigo-infoprod'>
-                                DE R$ {valorProd(produtos.info.valorProduto)} POR
+                                DE R$ {produtos.info.valorProduto} POR
                             </p>
 
                             <p className='text-valor-infoprod'>
-                                R$ {valorDesconto(produtos.info.valorProduto, produtos.info.valorDesconto)}
+                                R$ {valorProd(valorDesconto(produtos.info.valorProduto, produtos.info.valorDesconto))}
                             </p>
                         </div>
                         <div className='cont-mdesc-infoprod'>
@@ -157,6 +159,9 @@ export default function Produto(){
                     </div>
 
                 </div>
+            </section>
+            <section className='cont-catgerais'>
+
             </section>
         </main>
     )
