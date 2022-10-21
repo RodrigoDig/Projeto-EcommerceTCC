@@ -56,11 +56,6 @@
                             padding-bottom: 0.1em;
                             width: auto;
                             height: auto;
-                            transition:  transform 2.5s;   
-                        }
-
-                        .carrin:hover{
-                            transform: rotate(360deg);
                         }
                         
                         
@@ -72,7 +67,7 @@
                             height: 2.5em;
                             font-size: 50px;
                             border-radius: 0.2em;
-                            transition: width 2s, height 4s;
+                            transition: width 1s;
                             transition-delay: 0.2s;
                             
                         }
