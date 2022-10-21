@@ -4,10 +4,12 @@ import './index.scss';
 import Cabecalho1 from '../../../Components/Cabeçalho01';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import Storag from 'local-storage';
+import Carrinho from '../../../assets/images/Carrinho-branco.svg'
 
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { estrelasAvaliacao } from '../../components/estrelaAva';
 
 export default function Produto(){
     
@@ -38,6 +40,15 @@ export default function Produto(){
             return 'star-icon'
     }
 
+    function verificarDesconto(valor){
+        if(valor <= 0){
+            return ''
+        }
+        else{
+            return 'COM DESCONTO DE' + valor + '% Á VISTA NO PIX';
+        }
+    }
+
     function adicionarCarrinho(){
         let carrinho = [];
         if(Storag ('carrinho')){
@@ -52,6 +63,12 @@ export default function Produto(){
             Storag('carrinho', carrinho);
         }
         toast.success('Produto adicionado ao carrinho');
+    }
+
+    function valorProd(valor){
+        let vl = valor;
+        const vlRouded = +(vl.toFixed(2));
+        return vlRouded;
     }
 
 
@@ -82,7 +99,7 @@ export default function Produto(){
                 <div className='cont-prodvl-infoprod'>
                     <div className='cont-avaimgs-infoprod'>
                         <div className='cont-ava-infoprod'>
-                            
+                            {estrelasAvaliacao(produtos.info.avaliacao)}
                         </div>
                         <div className='cont-imagem-maior-infoprod'>
                             <h1>
@@ -113,7 +130,7 @@ export default function Produto(){
                         </div>
                         <div className='cont-valor-infoprod'>
                             <p className='valor-antigo-infoprod'>
-                                DE R$ {produtos.info.valorProduto} POR
+                                DE R$ {valorProd(produtos.info.valorProduto)} POR
                             </p>
 
                             <p className='text-valor-infoprod'>
@@ -122,11 +139,19 @@ export default function Produto(){
                         </div>
                         <div className='cont-mdesc-infoprod'>
                             <p className='text-mostrando-desconto'>
-                                COM DESCONTO DE {Math.trunc(produtos.info.valorDesconto)}% Á VISTA NO PIX 
+                                {verificarDesconto(Math.trunc(produtos.info.valorDesconto))} 
                             </p>
-
-                            <div>
-                                <button onClick={adicionarCarrinho}>Adicionar ao Carrinho</button>
+                            <div className='cont-botao-comp'>
+                                <button className='botao-carrinho' onClick={adicionarCarrinho}>
+                                    <img src={Carrinho} className='carrinho-add'/>
+                                    <h1 className='text-addcarrinho'>    Adicionar ao Carrinho   </h1>
+                                </button>
+                                <button className='botao-comprar'>  
+                                    <img src={Carrinho} className='carrinho-add'/>
+                                    <h1 className='text-comprar'>
+                                        Comprar
+                                    </h1> 
+                                </button>
                             </div>
                         </div>
                     </div>

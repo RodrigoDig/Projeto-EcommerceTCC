@@ -1,0 +1,33 @@
+.cont-avaliacao-star{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 0px;
+    padding: 0px;
+
+    width: 7em;
+    height:2.4em;
+    .star-icon{
+        list-style-type: none;
+        cursor: pointer;
+        color: #FF9736;
+    
+        font-size: 27px;
+        margin: 0px;
+    }
+    .star-icon::before{
+        content:"\2605";
+    }
+    .star-icon.ativo ~ .star-icon::before{
+        content: "\2606";
+    }
+    
+    .cont-avaliacao-star:hover .star-icon::before{
+        content: "\2605";
+    }
+    .star-icon:hover ~ .star-icon::before{
+        content: "\2606";
+    }
+}

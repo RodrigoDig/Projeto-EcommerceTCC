@@ -22,7 +22,7 @@ export default function CardProduto(props){
     }
 
     function selProd(id) {
-        navigate('/produto' + id + '/info');
+        navigate('/compra/produto/' + id);
     }
 
     function lerEstrelas(valor, estrela) {
