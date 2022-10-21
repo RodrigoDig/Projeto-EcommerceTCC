@@ -44,7 +44,7 @@
 
         position: relative;
         top: 5em;
-        left: 40em;    
+        left: 45em;    
 }
 
 .btn2{
@@ -56,7 +56,7 @@
 
     position: relative;
     top: 5em;
-    left: 40em;    
+    left: 45em;    
 }
 .produto{
     background-color: #ffffff;
@@ -85,5 +85,23 @@
         position: relative;
         top: 15em;
         right: 2em;
+    }
+}
+
+.resumo{
+    height: 30em;
+    width: 30em;
+    background-color: #ffffff;
+   
+
+    position: relative;
+    bottom: 41.2em;
+    left: 84em;
+
+    h2{
+        font-size: 3em;
+        display: flex;
+        
+        align-items: center;
     }
 }
