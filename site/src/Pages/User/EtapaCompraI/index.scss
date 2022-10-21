@@ -1,0 +1,89 @@
+.fundo1{
+    background-color: #d4d4d4;
+    height: 100vh;
+
+    
+}
+
+.f2{
+    background-color: #ffffff;
+    height: 17em;
+    width: 70em;
+
+    position: relative;
+    top: 10em;
+    left: 5em;
+    
+   
+    h1{
+        font-size: 1.7em;
+        position: relative;
+        top: 1em;
+        left: 3em;
+    }
+
+    label{
+        display: flex;
+        flex-direction: column;
+        
+        font-size: 1.2em;
+        
+        position: relative;
+        top: 4em;
+        left: 5em;
+
+    
+    }
+}
+.btn1{
+        border: none;
+        background-color: transparent;
+        color: #000;
+
+        font-size: 1.2em;
+
+        position: relative;
+        top: 5em;
+        left: 40em;    
+}
+
+.btn2{
+    border: none;
+    background-color: transparent;
+    color: #f27400;
+
+    font-size: 1.2em;
+
+    position: relative;
+    top: 5em;
+    left: 40em;    
+}
+.produto{
+    background-color: #ffffff;
+    height: 30em;
+    width: 70em;
+
+    position: relative;
+    top: 13em;
+    left: 5em;
+    
+   
+    h1{
+        font-size: 1.7em;
+        position: relative;
+        top: .1em;
+        left: 3em;
+    }
+
+    button{
+        height: 2.5em;
+        
+        border-radius: .5em;
+        background-color: transparent;
+        font-size: 1.5em;
+        
+        position: relative;
+        top: 15em;
+        right: 2em;
+    }
+}
