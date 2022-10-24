@@ -1,6 +1,6 @@
 .dtt-2{
     background-color: #d9d9d9;
-    height: 130vh;
+    height: 200vh;
 
     
    
@@ -8,10 +8,10 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            height: 80vh;
+            height: 130vh;
             width: 70%;
             padding-left: 5.5em;
-            padding-top: 3em;
+            padding-top: 2em;
             
             
             .mlnu{
@@ -20,36 +20,120 @@
                 align-items: center;
                 background-color: #ffffff;
                 width: 130%;
-                height: 100%;
+                height: 120vh;
+                position: relative;
                 
                 
                 
                 
                 .cont-nml{
                     display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
-                    margin-bottom: 2em;
-                
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    position:absolute;
+                    left: 7.5em;
+                    top: 10%;
+
                 
                     .nmrx1{
-                        font-size: 60px;
-                        color: #f27400;
-                        border-bottom: 1px solid chocolate;
-                        
-                        
+                        font-size: 40px;
+                        padding-left: 0.5em;                        
                     }
+
+                }
+
+                .cont-zbx{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
                     
-                    .dzxr1{
-                        width: 60%;
+                    position: absolute;
+                    left: 7.5em;
+                    top: 25%;
+
+                    .cdp{
+                        background-color: #f27400;
+                        color: #ffffff;
+                        border-style: none;
+                        border-color: #ffffff;
+                        width: 12.5em;
+                        height: 2em;
                         font-size: 30px;
-                        color: #f27400;
-                        margin-left: 1em;
-                        
-                        padding-bottom: 2em;                    
-                        padding-top: 0.5em;
+                        border-radius: 0.2em;
+                        margin-bottom: 1em;
+
                     }
+
+                    .cdc{
+                        display: flex;
+                        flex-direction: row;
+                        background-color: #bf691ae6;
+                        color: #ffffff;
+                        border-style: none;
+                        border-color: #ffffff;
+                        padding-left:0.5em;
+                        padding-top: 0.3em;
+                        width: 12.5em;
+                        height: 2em;
+                        font-size: 30px;
+                        border-radius: 0.2em;
+
+                        .idz{
+                        padding-right: 0.5em;
+                        height: 1.5em;
+                        }
+                    }
+
+
+                    .ncx{
+                        display: flex;
+                        padding-left: 1em;
+                         border: 1px solid rgb(66, 66, 66);
+                         width: 55%;
+                         word-spacing: 6px;
+                         height: 40vh;
+                         margin-top: 3em;
+                         font-size: 40px;
+                         
+                    }
+                }
+
+
+                .const-adl{
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    
+                    position: absolute;
+                    right: 5em;
+                    top: 25%;
+                    
+                    width: 60%;
+                    height: 65vh;
+
+
+
+                    .ndx{
+                        padding-top: 1em;
+                    }
+
+                    .mvb{
+
+                    }
+
+                    .pdt{
+
+                    }
+
+                    .dbz{
+
+                    }
+                }
+
+                .cont-zxd{
+
+             
                     
                     
                     
@@ -57,12 +141,15 @@
                         background-color: #f27400;
                         color: #ffffff;
                         border-style: none;
-                        width: 40%;
-                        height: 2.5em;
+                        border-color: #ffffff;
+                        width: 10em;
+                        height: 2em;
                         font-size: 50px;
                         border-radius: 0.2em;
                     }
+                
                 }
+                
             }         
         }      
 }

@@ -10,11 +10,11 @@ export default function AcessoriosEtapas(){
         <main>
             <section>
                 <div className='contt'>
-                    <img src={Cart} />
-                    <img src={Cartao} />
-                    <img src={Contato} />
-                    <img src={Pes}  />
-                    <img src={Checked} />
+                    <img className='ax1x' src={Cart} />
+                    <img className='ax2x' src={Cartao} />
+                    <img className='ax3x' src={Contato} />
+                    <img className='ax4x' src={Pes}  />
+                    <img className='ax5x' src={Checked} />
 
                 </div>
             </section>
