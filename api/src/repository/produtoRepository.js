@@ -285,3 +285,17 @@ export async function categoriaSel(id){
     return linhas;   
 }
 
+export async function avaCliente(id){
+    const comando = 
+    `
+    SELECT  ID_PRODUTO  idProd,
+            ID_CATEGORIA idCat,
+            NM_CATEGORIA nmCat
+            FROM 	TB_CATEGORIA
+    INNER JOIN TB_PRODUTO_AVALIACAO
+    ON TB_PRODUTO_AVALIACAO.ID_PRODUTO_AVALIACAO = TB_CATEGORIA.ID_PRODUTO_AVALIACAO
+    WHERE  ID_PRODUTO = ?;
+    `
+    const [linhas] = await con.query(comando, [id])
+    return linhas;   
+}

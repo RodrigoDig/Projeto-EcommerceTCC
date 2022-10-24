@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: flex-start;
 
+
     width: 100%;
     height: max-content;
 
@@ -22,6 +23,7 @@
         border-radius: 20px;
         width: 95%;
         height: 58em;
+        margin-bottom: 0.8em;
 
         background-color: white;
     }
@@ -260,8 +262,209 @@
     .cont-catgerais{
         display: flex;
         flex-direction: column;
+        align-items:center;
+
+        background-color: white;
+        border-radius: 20px;
+        width: 95%;
+        height: 34em;
+        margin-top: 0.8em;
+        margin-bottom: 0.9em;
+    }
+    .cont-titulo-catgerais{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
 
         width: 95%;
-        height: 50em;
+        height: 5.3em;
+
+        border-bottom: 2px solid #d9d9d9;
+    }
+    .titulo-catgerais{
+        font-size: 27px;
+        margin: 0px;
+        font-weight: 100;
+        color: black;
+        font-family: 'Goldman';
+        margin-left: 0.8em;
+    }
+    .cont-text-catgerais{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 0.8em;
+        width: 95%;
+        height: 5em;
+    }
+    .text-catgerais{
+        font-size: 20px;
+        font-family: 'Goldman';
+        font-weight: 100;
+    }
+    .cont-caracteristicas{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-evenly;
+        width: 90%;
+        height: 19em;
+    }
+    .cont-car01{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        width: 17em;
+        height: 17em;
+        box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
+    }
+    .caracteristica-01{
+        font-size: 23px;
+        font-family: 'Goldman';
+        color: black;
+        font-weight: 100;
+        margin: 0px;
+        text-align: center;
+
+        width: 5.8em;
+    }
+    .img-cat-01{
+        width: 7em;
+        height: 6em;
+    }
+    .text-cat-01{
+        font-size: 17px;
+        font-family: 'Goldman';
+        color: black;
+        width: 13em;
+        height: 3em;
+        text-align: center;
+        margin: 0px;
+    }
+    .caracteristica-03{
+        font-size: 23px;
+        font-family: 'Goldman';
+        color: black;
+        font-weight: 100;
+        margin: 0px;
+        text-align: center;
+        margin-top: 5px;
+
+        width: 7em;
+    }
+    .img-cat-03{
+        margin-top: -10px;
+        width: 8em;
+        height: 7em;
+    }
+    .cont-descricao{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+
+        background-color: white;
+        border-radius: 20px;
+        width: 95%;
+        height: max-content;
+        margin-top: 0.8em;
+    }
+    .cont-titulo-desc{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        width: 95%;
+        height: 5.3em;
+
+        border-bottom: 2px solid #d9d9d9;
+    }
+    .img-desc{
+        margin-left: 0.8em;
+        width: 2.5em;
+        height: 2.5em;
+    }
+    .titulo-desc{
+        font-size: 27px;
+        margin: 0px;
+        font-weight: 100;
+        color: black;
+        font-family: 'Goldman';
+        margin-left: 0.3em;
+    }
+    .cont-text-desc{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        height: 28em;
+        margin-top: 0.8em;
+        margin-bottom: 1.2em;
+    }
+    .text-desc{
+        font-size: 25px;
+        font-family: 'Goldman';
+        color: black;
+        text-align: start;
+        line-height: 39px;
+        margin: 0px;
+    }
+    .cont-infotec{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: white;
+        border-radius: 20px;
+        width: 95%;
+        height: 49em;
+        margin-top: 0.8em;
+    }
+    .img-desc{
+        margin-left: 0.8em;
+        width: 2.3em;
+        height: 2.3em;
+    }
+    .cont-informacoes{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        height: 40em;
+        margin-top: 10px;
+    }
+    .paragrafo-informacoes{
+        width: 100%;
+        font-size: 26px;
+        font-family: 'Goldman';
+        color: black;
+        text-align: center;
+        font-weight: 100;
+        line-height: 35px;
+    }
+    .cont-avaliacoes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        background-color: white;
+        border-radius: 20px;
+        width: 95%;
+        height: 39em;
+        margin-top: 0.8em;
+    }
+    .titulo-av{
+        font-size: 27px;
+        margin: 0px;
+        font-weight: 100;
+        color: black;
+        font-family: 'Goldman';
+        margin-left: 0.5em;
     }
 }
