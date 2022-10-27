@@ -12,6 +12,7 @@ import ImgCat4 from '../../../assets/images/img-cat-04.png';
 import DescIcon from '../../../assets/images/img-desc.png';
 import InfoIcon from '../../../assets/images/img-info.png';
 import AvIcon from '../../../assets/images/img-avaliacao.png';
+import StarAva from '../../../assets/images/star-icon.svg';
 
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
@@ -233,11 +234,36 @@ export default function Produto(){
                 </div>
             </section>
             <section className='cont-avaliacoes'>
-                <div className='cont-titulo-desc'>
-                        <img src={AvIcon} className='img-info'/>
-                        <h1 className='titulo-av'>
-                            Avaliação dos clientes
-                        </h1>
+                <div className='cont-titulo-ava'>
+                        <div className='cont-01-ava'>
+                            <img src={AvIcon} className='img-info'/>
+                            <h1 className='titulo-av'>
+                                Avaliação dos clientes
+                            </h1>
+                        </div>
+                        <button className='botao-cliente-avaliar'>
+                            <img src={StarAva} className='img-star-ava' />
+                            <p className='text-cliente-avaliar'>
+                                Faça sua avaliação!
+                            </p>
+                        </button>
+                </div>
+                <div className='cont-maior-ava'>
+                    <div className='cont-text-maiorav'>
+                        <p className='text-maior-ava'>
+                            Maior Avaliação:
+                        </p>
+                    </div>
+                    <div className='cont-melhor-ava'>
+                        <div className='cont-filha1-melhorava'>
+                            <h1 className='titulo-ava-cliente'>
+                                Cliente:
+                            </h1>
+                            <h1 className='titulo-ava-geral'>
+                                Geral:
+                            </h1>
+                        </div>
+                    </div>
                 </div>
                         {estrelasAvaliacao(produtos.avaliacoes.avGeral)}
             </section>

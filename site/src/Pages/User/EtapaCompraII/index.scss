@@ -88,10 +88,10 @@
                     .ncx{
                         display: flex;
                         padding-left: 1em;
-                         border: 1px solid rgb(66, 66, 66);
+                         border: 1px solid rgba(66, 66, 66, 0.315);
                          width: 55%;
                          word-spacing: 6px;
-                         height: 40vh;
+                         height: 51vh;
                          margin-top: 3em;
                          font-size: 40px;
                          
@@ -107,27 +107,78 @@
                     
                     position: absolute;
                     right: 5em;
-                    top: 25%;
+                    top: 23%;
                     
                     width: 60%;
-                    height: 65vh;
+                    height: 37vh;
 
 
 
                     .ndx{
-                        padding-top: 1em;
+                        
+
+                        .afs{
+                            font-size: 1em;
+                        }
                     }
 
                     .mvb{
-
+                        
                     }
 
                     .pdt{
-
-                    }
+                        width: 95%;
+                    }   
 
                     .dbz{
+                        
+                    }
+                }
 
+                .dga{
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    border: 1px solid #00000038;
+                    
+                    position: absolute;
+                    right: 5em;
+                    top: 55%;
+                    
+                    width: 60%;
+                    height: 40vh;
+
+
+                    .akd{
+                            padding-left: 5em; 
+                            padding-top: 1em;                       
+
+                        .gsd{
+                            font-size: 2em;
+                        }
+                    }
+
+                    .info-1{
+                        position: absolute;
+                        top: 30%;
+                        border-radius: 0%;
+                        
+
+                        .asp{
+                            margin-right: 2em;
+                            background-color: gray;
+                        }
+                    }
+
+                    .info-2{
+                        position: absolute;
+                        top: 45%;
+                    }
+
+                    .info-3{
+                        position: absolute;
+                        top: 60%;
                     }
                 }
 
