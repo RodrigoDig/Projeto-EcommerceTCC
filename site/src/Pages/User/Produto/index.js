@@ -5,6 +5,14 @@ import Cabecalho1 from '../../../Components/Cabeçalho01';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import Storag from 'local-storage';
 import Carrinho from '../../../assets/images/Carrinho-branco.svg'
+import ImgCat1 from '../../../assets/images/img-cat-01.png';
+import ImgCat2 from '../../../assets/images/img-cat-02.png';
+import ImgCat3 from '../../../assets/images/img-cat-03.png';
+import ImgCat4 from '../../../assets/images/img-cat-04.png';
+import DescIcon from '../../../assets/images/img-desc.png';
+import InfoIcon from '../../../assets/images/img-info.png';
+import AvIcon from '../../../assets/images/img-avaliacao.png';
+import StarAva from '../../../assets/images/star-icon.svg';
 
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
@@ -12,8 +20,7 @@ import { toast } from 'react-toastify';
 import { estrelasAvaliacao } from '../../components/estrelaAva';
 
 export default function Produto(){
-    
-    const [produtos, setProdutos] = useState({ info: {}, cat: []});
+    const [produtos, setProdutos] = useState({ info: {}, cat: [], avaliacoes: []});
     const { id } = useParams();    
     
     async function carregarPag(){
@@ -29,23 +36,12 @@ export default function Produto(){
 
         return valorfinal;
     }
-
-    function lerEstrelas(valor, estrela) {
-        if (valor > 5) {
-            valor = Math.floor(valor / 2);
-        }
-        if (valor <= estrela)
-            return 'star-icon ativo'    
-        else
-            return 'star-icon'
-    }
-
     function verificarDesconto(valor){
         if(valor <= 0){
             return ''
         }
         else{
-            return 'COM DESCONTO DE' + valor + '% Á VISTA NO PIX';
+            return 'COM DESCONTO DE ' + valor + '% Á VISTA NO PIX';
         }
     }
 
@@ -55,7 +51,7 @@ export default function Produto(){
             carrinho = Storag('carinho');
         }
 
-        if(!carrinho.find(item => item.id === id)){
+        if(!carrinho.find(item => item.id == id)){
             carrinho.push({
                 id: id,
                 qtd: 1
@@ -161,7 +157,115 @@ export default function Produto(){
                 </div>
             </section>
             <section className='cont-catgerais'>
-
+                <div className='cont-titulo-catgerais'>
+                    <h1 className='titulo-catgerais'>
+                        Características Gerais
+                    </h1>
+                </div>
+                <div className='cont-text-catgerais'>
+                    <h1 className='text-catgerais'>
+                        Qual é o diferencial que a ByteSpeed oferece?
+                    </h1>
+                </div>
+                <div className='cont-caracteristicas'>
+                    <div className='cont-car01'>
+                        <h1 className='caracteristica-01'>
+                            Qualidade      
+                            das peças
+                        </h1>
+                        <img src={ImgCat1} className='img-cat-01'/>
+                        <p className='text-cat-01'>
+                            Hardware de primeira e de marcas renomadas
+                        </p>
+                    </div>
+                    <div className='cont-car01'>
+                        <h1 className='caracteristica-01'>
+                            Testes e certificação
+                        </h1>
+                        <img src={ImgCat2} className='img-cat-01'/>
+                        <p className='text-cat-01'>
+                            Máquinas com certificado de qualidade
+                        </p>
+                    </div>
+                    <div className='cont-car01'>
+                        <h1 className='caracteristica-03'>
+                            Garantia de segurança
+                        </h1>
+                        <img src={ImgCat3} className='img-cat-03'/>
+                        <p className='text-cat-01'>
+                            Garantia fornecida por componente
+                        </p>
+                    </div>
+                    <div className='cont-car01'>
+                        <h1 className='caracteristica-03'>
+                            Atendimento exclusivo
+                        </h1>
+                        <img src={ImgCat4} className='img-cat-03'/>
+                        <p className='text-cat-01'>
+                            Você será atendido pelo melhor time do Brasil
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section className='cont-descricao'>
+                <div className='cont-titulo-desc'>
+                        <img src={DescIcon} className='img-desc'/>
+                        <h1 className='titulo-desc'>
+                            Descrição do produto
+                        </h1>
+                </div>
+                <div className='cont-text-desc'>
+                    <p className='text-desc'>
+                        {produtos.info.descricao}
+                    </p>
+                </div>
+            </section>
+            <section className='cont-infotec'>
+                <div className='cont-titulo-desc'>
+                        <img src={InfoIcon} className='img-info'/>
+                        <h1 className='titulo-desc'>
+                            Informações técnicas
+                        </h1>
+                </div>
+                <div className='cont-informacoes'>
+                    <p className='paragrafo-informacoes'>
+                        {produtos.info.informações}
+                    </p>
+                </div>
+            </section>
+            <section className='cont-avaliacoes'>
+                <div className='cont-titulo-ava'>
+                        <div className='cont-01-ava'>
+                            <img src={AvIcon} className='img-info'/>
+                            <h1 className='titulo-av'>
+                                Avaliação dos clientes
+                            </h1>
+                        </div>
+                        <button className='botao-cliente-avaliar'>
+                            <img src={StarAva} className='img-star-ava' />
+                            <p className='text-cliente-avaliar'>
+                                Faça sua avaliação!
+                            </p>
+                        </button>
+                </div>
+                <div className='cont-maior-ava'>
+                    <div className='cont-text-maiorav'>
+                        <p className='text-maior-ava'>
+                            Maior Avaliação:
+                        </p>
+                    </div>
+                    <div className='cont-melhor-ava'>
+                        <div className='cont-filha1-melhorava'>
+                            <h1 className='titulo-ava-cliente'>
+                                Cliente:
+                            </h1>
+                            <h1 className='titulo-ava-geral'>
+                                Geral:
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+                        {estrelasAvaliacao(produtos.avaliacoes.avGeral)}
             </section>
         </main>
     )
