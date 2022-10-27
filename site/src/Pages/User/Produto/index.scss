@@ -506,10 +506,17 @@
         height: 23px;
         margin-right: 0.5em;
     }
+    .cont-maior-menor-ava{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 20em;
+    }
     .cont-maior-ava{
+        display: flex;
+        flex-direction: column;
         width: 95%;
         height: 20em;
-
     }
     .cont-text-maiorav{
         display: flex;
@@ -528,30 +535,89 @@
         margin-left: 0.8em;
     }
     .cont-melhor-ava{
+        display: flex;
+        flex-direction: row;
         width: 25%;
         height: 16.6em;
         margin: 0px;
-        border:0.1px solid #F27400;
     }
     .cont-filha1-melhorava{
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         width: 50%;
         height: 16.6em;
-
-        border: 0.1px solid  rebeccapurple;
     }
     .titulo-ava-cliente{
+        text-align: left;
         font-family: 'Goldman';
         font-size: 22px;
         font-weight: 100;
         color: #676767;
+        margin: 0px;
+        margin-bottom: 17px;
+        width: 70%;
+        height: 2em;
     }
     .titulo-ava-geral{
+        text-align: left;
+        width: 70%;
         font-family: 'Goldman';
         font-size: 22px;
         font-weight: 100;
         color: #676767;
+        margin: 0px;
+        margin-bottom: 10px;
+    }
+    .titulo-ava-desemp{
+        text-align: left;
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+        color: #676767;
+        margin: 0px;
+        width: 70%;
+        margin-bottom: 10px;
+    }
+    .titulo-ava-atendi{
+        text-align: left;
+        margin: 0px;
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+        color: #676767;
+        margin-bottom: 10px;
+    }
+    .titulo-ava-sats{
+        text-align: left;
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+        color: #676767;
+        margin: 0px;
+        width: 70%;
+    }
+    .cont-filha2-melhorava{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        height: 16.6em;
+    }
+    .nome-usuario-text{
+        font-size: 22px;
+        font-family: 'Goldman';
+        color: #676767;
+        margin: 0px;
+        margin-bottom: 23px;
+   }
+   .cont-op-geral{
+    display: flex;
+    flex-direction: row;
+    width: 25%;
+    height: 16.6em;
+    margin: 0px;
     }
 }

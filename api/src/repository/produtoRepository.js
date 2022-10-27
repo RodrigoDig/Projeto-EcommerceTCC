@@ -289,13 +289,16 @@ export async function avaCliente(id){
     const comando = 
     `
     SELECT  ID_PRODUTO  idProd,
-            VL_GERAL     avGeral,
-            VL_DESEMPENHO avDesempenho,
-            VL_ATENDIMENTO avAtendimento,
-            VL_SATISFACAO  avSatsfacao
-    FROM 	TB_PRODUTO_AVALIACAO
-    WHERE   ID_PRODUTO  = ?;
+                        NM_USUARIO  nmUsuario,
+                        VL_GERAL     avGeral,
+                        VL_DESEMPENHO avDesempenho,
+                        VL_ATENDIMENTO avAtendimento,
+                        VL_SATISFACAO  avSatsfacao
+                FROM 	TB_PRODUTO_AVALIACAO
+           INNER JOIN   TB_USUARIO
+                    ON  TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
+                WHERE   ID_PRODUTO = ?;
     `
     const [linhas] = await con.query(comando, [id])
-    return linhas;   
+    return linhas[0];   
 }

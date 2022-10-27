@@ -75,11 +75,14 @@ WHERE DS_EMAIL   like "cauaADMlogin@adm01.com"
 
 	-- VERIFICAR AVALIAÇOES DO PRODUTO
 
-	SELECT  ID_PRODUTO  idProd,
+	    SELECT  ID_PRODUTO  idProd,
+			NM_USUARIO  usuario,
             VL_GERAL     avGeral,
             VL_DESEMPENHO avDesempenho,
             VL_ATENDIMENTO avAtendimento,
             VL_SATISFACAO  avSatsfacao
     FROM 	TB_PRODUTO_AVALIACAO
-    WHERE  ID_PRODUTO = 1;
+ INNER JOIN TB_USUARIO
+		 ON TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
+    WHERE   ID_PRODUTO = 1;
                               

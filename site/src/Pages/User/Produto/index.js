@@ -21,7 +21,7 @@ import { estrelasAvaliacao } from '../../components/estrelaAva';
 
 export default function Produto(){
     const [produtos, setProdutos] = useState({ info: {}, cat: [], avaliacoes: []});
-    const { id } = useParams();    
+    const { id } = useParams();
     
     async function carregarPag(){
         const r = await prodSelCompra(id);
@@ -254,6 +254,7 @@ export default function Produto(){
                             Maior Avaliação:
                         </p>
                     </div>
+                <div className='cont-maior-menor-ava'>
                     <div className='cont-melhor-ava'>
                         <div className='cont-filha1-melhorava'>
                             <h1 className='titulo-ava-cliente'>
@@ -262,10 +263,56 @@ export default function Produto(){
                             <h1 className='titulo-ava-geral'>
                                 Geral:
                             </h1>
+                            <h1 className='titulo-ava-desemp'>
+                                Desempenho:
+                            </h1>
+                            <h1 className='titulo-ava-atendi'>
+                                Atendimento:
+                            </h1>
+                            <h1 className='titulo-ava-sats'>
+                                Satisfação:
+                            </h1>
+                        </div>
+                        <div className='cont-filha2-melhorava'>
+                            <p className='nome-usuario-text'>
+                                {produtos.avaliacoes.nmUsuario}
+                            </p>
+                            {estrelasAvaliacao(produtos.avaliacoes.avGeral)}
+                            {estrelasAvaliacao(produtos.avaliacoes.avDesempenho)}
+                            {estrelasAvaliacao(produtos.avaliacoes.avAtendimento)}
+                            {estrelasAvaliacao(produtos.avaliacoes.avSatsfacao)}
+                        </div>
+                    </div>
+                    <div className='cont-op-geral'>
+                        <div className='cont-filha1-melhorava'>
+                            <h1 className='titulo-ava-cliente'>
+                                Cliente:
+                            </h1>
+                            <h1 className='titulo-ava-geral'>
+                                Geral:
+                            </h1>
+                            <h1 className='titulo-ava-desemp'>
+                                Desempenho:
+                            </h1>
+                            <h1 className='titulo-ava-atendi'>
+                                Atendimento:
+                            </h1>
+                            <h1 className='titulo-ava-sats'>
+                                Satisfação:
+                            </h1>
+                        </div>
+                        <div className='cont-filha2-melhorava'>
+                            <p className='nome-usuario-text'>
+                                {produtos.avaliacoes.nmUsuario}
+                            </p>
+                            {estrelasAvaliacao(produtos.avaliacoes.avGeral)}
+                            {estrelasAvaliacao(produtos.avaliacoes.avDesempenho)}
+                            {estrelasAvaliacao(produtos.avaliacoes.avAtendimento)}
+                            {estrelasAvaliacao(produtos.avaliacoes.avSatsfacao)}
                         </div>
                     </div>
                 </div>
-                        {estrelasAvaliacao(produtos.avaliacoes.avGeral)}
+                </div>
             </section>
         </main>
     )
