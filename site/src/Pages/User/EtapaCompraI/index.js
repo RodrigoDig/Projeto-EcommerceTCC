@@ -26,6 +26,13 @@ export default function EtapaCompra(){
                         
                        <button>insira o cupom de desconto</button>
                     </div>
+
+                    <div className='resumo'>
+                       <h1>Resumo</h1> 
+                        
+                       <button className='button1'>Continuar Comprando</button>
+                       <button className='button2'>Comprar</button>
+                    </div>
                 </div>
             </section>
         </main>

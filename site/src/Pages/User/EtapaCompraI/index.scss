@@ -98,10 +98,44 @@
     bottom: 41.2em;
     left: 84em;
 
-    h2{
+    h1{
         font-size: 3em;
         display: flex;
         
         align-items: center;
     }
+    
+.button1{
+        background-color: #F27400;
+        color: #ffffff;
+        border-radius: .4em;
+        border: none;
+
+        font-size: 2em;
+
+        height: 2em;
+
+        margin: 1em;
+
+        display: flex;
+        justify-content: center;
+       
 }
+
+.button2{
+    background-color: #F27400;
+    color: #ffffff;
+    border-radius: .4em;
+    border: none;
+
+    font-size: 2em;
+
+    height: 2em;
+    width: 11.8em;
+
+    margin: 1em;
+   
+}
+   
+} 
+
