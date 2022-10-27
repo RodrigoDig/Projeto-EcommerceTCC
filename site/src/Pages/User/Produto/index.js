@@ -19,7 +19,7 @@ import { toast } from 'react-toastify';
 import { estrelasAvaliacao } from '../../components/estrelaAva';
 
 export default function Produto(){
-    const [produtos, setProdutos] = useState({ info: {}, cat: []});
+    const [produtos, setProdutos] = useState({ info: {}, cat: [], avaliacoes: []});
     const { id } = useParams();    
     
     async function carregarPag(){
@@ -35,17 +35,6 @@ export default function Produto(){
 
         return valorfinal;
     }
-
-    function lerEstrelas(valor, estrela) {
-        if (valor > 5) {
-            valor = Math.floor(valor / 2);
-        }
-        if (valor <= estrela)
-            return 'star-icon ativo'    
-        else
-            return 'star-icon'
-    }
-
     function verificarDesconto(valor){
         if(valor <= 0){
             return ''
@@ -250,6 +239,7 @@ export default function Produto(){
                             Avaliação dos clientes
                         </h1>
                 </div>
+                        {estrelasAvaliacao(produtos.avaliacoes.avGeral)}
             </section>
         </main>
     )

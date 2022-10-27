@@ -67,3 +67,19 @@ WHERE DS_EMAIL   like "cauaADMlogin@adm01.com"
 		   DS_DESCRICAO       =     'simples',
 		   DT_GARANTIA        =     "2024-01-01"
 	WHERE  ID_PRODUTO = 1;
+
+	-- INSERIR AVALIACAO CLIENTE 
+    
+	INSERT INTO TB_PRODUTO_AVALIACAO(ID_USUARIO, ID_PRODUTO, VL_GERAL, VL_DESEMPENHO, VL_ATENDIMENTO, VL_SATISFACAO)
+							  VALUES(1, 6, 5, 5, 5, 5);
+
+	-- VERIFICAR AVALIAÇOES DO PRODUTO
+
+	SELECT  ID_PRODUTO  idProd,
+            VL_GERAL     avGeral,
+            VL_DESEMPENHO avDesempenho,
+            VL_ATENDIMENTO avAtendimento,
+            VL_SATISFACAO  avSatsfacao
+    FROM 	TB_PRODUTO_AVALIACAO
+    WHERE  ID_PRODUTO = 1;
+                              
