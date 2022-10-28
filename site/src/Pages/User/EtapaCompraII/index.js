@@ -61,20 +61,21 @@ export default function EtapaCompraII(){
 
                                                     <div className='info-1'>
                                                         <input className='asp' type="text" placeholder="Titular do Cartão" />
-                                                        <input type="text" placeholder="Numéro do Cartão" />
+                                                        <input className='ahs' type="text" placeholder="Numéro do Cartão" />
                                                     </div>
 
                                                     <div className='info-2'>
-                                                        <input type="text" placeholder="Validade" />
-                                                        <input type="text" placeholder="Verificação CVV" />
-                                                        <input type="text" placeholder="Cpf do Titular"  />
+                                                        <input className='fja' type="text" placeholder="Validade" />
+                                                        <input className='' type="text" placeholder="Verificação CVV" />
+                                                        <input className='gha' type="text" placeholder="Cpf do Titular"  />
                                                     </div>
 
                                                     <div className='info-3'>
-                                                        <input type="text" placeholder="Nascimento" />
-                                                        <input type="text" placeholder="Forma de pagamento" />
+                                                        <input className='hga' type="text" placeholder="Nascimento" />
+                                                        <select className='lkf' placeholder='Forma de pagamento'></select>
                                                     </div>
                                                 </ul>
+                                                
                                             </div>
 
 
