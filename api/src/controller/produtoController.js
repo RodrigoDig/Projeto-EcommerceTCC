@@ -1,4 +1,4 @@
-import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, avaCliente } from "../repository/produtoRepository.js";
+import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva } from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { alterarValid } from '../services/alterarValidacao.js';
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
@@ -191,11 +191,11 @@ server.get('/compra/produto/:id', async (req, resp) => {
 
         const produto = await produtoSelCompra(id);
         const categoria = await categoriaSel(id);
-        const avaliacao = await avaCliente(id);
+        const maioravaliacao = await maiorAva(id);
         resp.send({
             info: produto,
             cat: categoria,
-            avaliacoes: avaliacao
+            maiorAvaliacao: maioravaliacao
         });
     }
     catch (err) {

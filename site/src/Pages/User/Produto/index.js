@@ -20,7 +20,7 @@ import { toast } from 'react-toastify';
 import { estrelasAvaliacao } from '../../components/estrelaAva';
 
 export default function Produto(){
-    const [produtos, setProdutos] = useState({ info: {}, cat: [], avaliacoes: []});
+    const [produtos, setProdutos] = useState({ info: {}, cat: [], maiorAvaliacao: []});
     const { id } = useParams();
     
     async function carregarPag(){
@@ -275,40 +275,42 @@ export default function Produto(){
                         </div>
                         <div className='cont-filha2-melhorava'>
                             <p className='nome-usuario-text'>
-                                {produtos.avaliacoes.nmUsuario}
+                                {produtos.maiorAvaliacao.nmUsuario}
                             </p>
-                            {estrelasAvaliacao(produtos.avaliacoes.avGeral)}
-                            {estrelasAvaliacao(produtos.avaliacoes.avDesempenho)}
-                            {estrelasAvaliacao(produtos.avaliacoes.avAtendimento)}
-                            {estrelasAvaliacao(produtos.avaliacoes.avSatsfacao)}
+                            {estrelasAvaliacao(produtos.maiorAvaliacao.avGeral)}
+                            {estrelasAvaliacao(produtos.maiorAvaliacao.avDesempenho)}
+                            {estrelasAvaliacao(produtos.maiorAvaliacao.avAtendimento)}
+                            {estrelasAvaliacao(produtos.maiorAvaliacao.avSatsfacao)}
                         </div>
                     </div>
                     <div className='cont-op-geral'>
-                        <div className='cont-filha1-melhorava'>
-                            <h1 className='titulo-ava-cliente'>
-                                Cliente:
-                            </h1>
-                            <h1 className='titulo-ava-geral'>
-                                Geral:
-                            </h1>
-                            <h1 className='titulo-ava-desemp'>
-                                Desempenho:
-                            </h1>
-                            <h1 className='titulo-ava-atendi'>
-                                Atendimento:
-                            </h1>
-                            <h1 className='titulo-ava-sats'>
-                                Satisfação:
-                            </h1>
+                        <div className='cont-filha3-melhorava'>
+                            <div className='cont-titulo-op-geral'>
+
+                            </div>
+                            <div className='cont-avalialiacoes'>
+                                <h1 className='titulo-ava-geral'>
+                                    Geral:
+                                </h1>
+                                <h1 className='titulo-ava-desemp'>
+                                    Desempenho:
+                                </h1>
+                                <h1 className='titulo-ava-atendi'>
+                                    Atendimento:
+                                </h1>
+                                <h1 className='titulo-ava-sats'>
+                                    Satisfação:
+                                </h1>
+                            </div>
                         </div>
                         <div className='cont-filha2-melhorava'>
                             <p className='nome-usuario-text'>
-                                {produtos.avaliacoes.nmUsuario}
+                                {produtos.maiorAvaliacao.nmUsuario}
                             </p>
-                            {estrelasAvaliacao(produtos.avaliacoes.avGeral)}
-                            {estrelasAvaliacao(produtos.avaliacoes.avDesempenho)}
-                            {estrelasAvaliacao(produtos.avaliacoes.avAtendimento)}
-                            {estrelasAvaliacao(produtos.avaliacoes.avSatsfacao)}
+                            {estrelasAvaliacao(produtos.maiorAvaliacao.avGeral)}
+                            {estrelasAvaliacao(produtos.maiorAvaliacao.avDesempenho)}
+                            {estrelasAvaliacao(produtos.maiorAvaliacao.avAtendimento)}
+                            {estrelasAvaliacao(produtos.maiorAvaliacao.avSatsfacao)}
                         </div>
                     </div>
                 </div>

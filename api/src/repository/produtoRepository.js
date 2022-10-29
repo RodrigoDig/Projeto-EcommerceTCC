@@ -274,18 +274,17 @@ export async function categoriaSel(id){
     const comando = 
     `
     SELECT  ID_PRODUTO  idProd,
-    ID_CATEGORIA idCat,
-    NM_CATEGORIA nmCat
+            NM_CATEGORIA nmCat
     FROM 	TB_CATEGORIA
-    INNER JOIN TB_PRODUTO
-    ON TB_PRODUTO.ID_PRODUTO = TB_PRODUTO.ID_PRODUTO
-    WHERE  ID_PRODUTO = ?;
+ INNER JOIN TB_PRODUTO
+         ON TB_PRODUTO.ID_PRODUTO = TB_PRODUTO.ID_PRODUTO
+     WHERE  ID_PRODUTO = ?;
     `
     const [linhas] = await con.query(comando, [id])
     return linhas;   
 }
 
-export async function avaCliente(id){
+export async function maiorAva(id){
     const comando = 
     `
     SELECT  ID_PRODUTO  idProd,
@@ -297,7 +296,9 @@ export async function avaCliente(id){
                 FROM 	TB_PRODUTO_AVALIACAO
            INNER JOIN   TB_USUARIO
                     ON  TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
-                WHERE   ID_PRODUTO = ?;
+                WHERE   ID_PRODUTO = ?
+             ORDER BY   avGeral
+                LIMIT   1;
     `
     const [linhas] = await con.query(comando, [id])
     return linhas[0];   

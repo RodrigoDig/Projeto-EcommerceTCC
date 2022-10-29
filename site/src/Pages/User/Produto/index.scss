@@ -511,6 +511,8 @@
         flex-direction: row;
         width: 100%;
         height: 20em;
+        
+        border: 0.1px solid orange;
     }
     .cont-maior-ava{
         display: flex;
@@ -537,7 +539,7 @@
     .cont-melhor-ava{
         display: flex;
         flex-direction: row;
-        width: 25%;
+        width: 100%;
         height: 16.6em;
         margin: 0px;
     }
@@ -546,8 +548,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 50%;
+        width: 700%;
         height: 16.6em;
+
+        border: 0.1px solid red;
     }
     .titulo-ava-cliente{
         text-align: left;
@@ -603,8 +607,10 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 50%;
+        width: 20em;
         height: 16.6em;
+
+        border: greenyellow;
     }
     .nome-usuario-text{
         font-size: 22px;
@@ -619,5 +625,30 @@
     width: 25%;
     height: 16.6em;
     margin: 0px;
+    }
+    .cont-titulo-op-geral{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height:10em;
+        width: 20em;
+    }
+    .titulo-op-geral{
+
+    }
+    .cont-avalialiacoes{
+        display: flex;
+        flex-direction: column;
+    }
+    .cont-filha3-melhorava{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 70%;
+        height: 16.6em;
+
+        border: 0.1px solid rebeccapurple;
     }
 }
