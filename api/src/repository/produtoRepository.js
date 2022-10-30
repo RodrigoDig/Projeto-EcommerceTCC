@@ -288,18 +288,54 @@ export async function maiorAva(id){
     const comando = 
     `
     SELECT  ID_PRODUTO  idProd,
-                        NM_USUARIO  nmUsuario,
-                        VL_GERAL     avGeral,
-                        VL_DESEMPENHO avDesempenho,
-                        VL_ATENDIMENTO avAtendimento,
-                        VL_SATISFACAO  avSatsfacao
-                FROM 	TB_PRODUTO_AVALIACAO
-           INNER JOIN   TB_USUARIO
-                    ON  TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
-                WHERE   ID_PRODUTO = ?
-             ORDER BY   avGeral
-                LIMIT   1;
+    NM_USUARIO  nmUsuario,
+    VL_GERAL     avGeral,
+    VL_DESEMPENHO avDesempenho,
+    VL_ATENDIMENTO avAtendimento,
+    VL_SATISFACAO  avSatsfacao
+    FROM 	TB_PRODUTO_AVALIACAO
+    INNER JOIN   TB_USUARIO
+    ON  TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
+    WHERE   ID_PRODUTO = 1
+    ORDER BY avGeral
+    DESC
+    LIMIT 1;	
     `
     const [linhas] = await con.query(comando, [id])
+    return linhas[0];   
+}
+
+export async function menorAva(id){
+    const comando = 
+    `
+    SELECT  ID_PRODUTO  idProd,
+    NM_USUARIO  nmUsuario,
+    VL_GERAL     avGeral,
+    VL_DESEMPENHO avDesempenho,
+    VL_ATENDIMENTO avAtendimento,
+    VL_SATISFACAO  avSatsfacao
+    FROM 	TB_PRODUTO_AVALIACAO
+    INNER JOIN   TB_USUARIO
+    ON  TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
+    WHERE   ID_PRODUTO = 1
+    ORDER BY avGeral
+    LIMIT   1;
+    `
+    const [linhas] = await con.query(comando, [id])
+    return linhas[0];   
+}
+
+export async function opiniaoGeral(id){
+    const comando = 
+    `
+    SELECT  sum(VL_GERAL) as totalGer,
+            sum(VL_DESEMPENHO) as totalDes,
+            sum(VL_ATENDIMENTO) as totalAte,
+            sum(VL_SATISFACAO) as totalSatis,
+            count(ID_USUARIO) as qtdUsers
+      FROM  tb_produto_avaliacao
+     WHERE  ID_PRODUTO = ?;
+    `
+    const [linhas] = await con.query(comando,  [id])
     return linhas[0];   
 }
