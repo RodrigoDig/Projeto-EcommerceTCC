@@ -706,4 +706,45 @@
 
         border-bottom: 2px solid #d9d9d9;
     }
+    .cont-vertodos{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 13em;
+        height: 5.3em;
+    }
+    .text-vertodos{
+        font-size: 25px;
+        font-family: 'Goldman';
+        color: #F27400;
+    }
+    .img-seta{
+        width: 26px;
+        height: 26px;
+        margin-left: 0.5em;
+    }
+    .cont-cards-outrasop{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 95%;
+        height: 33em;
+
+        border: 0.1px solid rebeccapurple;
+    }
+    .cont-filha1-cards{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 90%;
+        height: 29em;
+
+        border: 0.1px solid #F27400;
+    }
+
 }

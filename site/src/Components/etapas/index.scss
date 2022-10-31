@@ -1,3 +1,9 @@
+.dtnr{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+
 .contt{
     display:flex;
     flex-direction:row;
@@ -7,5 +13,21 @@
     
     height: 10vh;
     width: 90%;
+
+    .ax1x{
+        
+    }
+
+    .tc1{
+        border-bottom: 3px solid #f27400;
+        width: 15%;
+        margin-bottom: 1.2em;
+    }
+
+    .ax2x{
+        margin-top: 3em;
+    }
+
+}
 
 }

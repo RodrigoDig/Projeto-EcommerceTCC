@@ -1,8 +1,14 @@
 .fundo1{
     background-color: #d4d4d4;
-    height: 100vh;
+    height: 95vh;
+}
 
-    
+.local{
+    height: 2em;
+
+    position: relative;
+    top: 2em;
+    left: 2em;
 }
 
 .f2{
@@ -18,7 +24,7 @@
     h1{
         font-size: 1.7em;
         position: relative;
-        top: 1em;
+        bottom: 1em;
         left: 3em;
     }
 
@@ -58,34 +64,110 @@
     top: 5em;
     left: 45em;    
 }
+
+.cesta{
+    height: 2em;
+
+    position: relative;
+    top: 2em;
+    left: 2em;
+}
+
 .produto{
     background-color: #ffffff;
     height: 30em;
     width: 70em;
 
     position: relative;
-    top: 13em;
+    top: 11em;
     left: 5em;
     
    
     h1{
         font-size: 1.7em;
         position: relative;
-        top: .1em;
+        bottom:1em;
         left: 3em;
     }
-
-    button{
-        height: 2.5em;
-        
-        border-radius: .5em;
-        background-color: transparent;
-        font-size: 1.5em;
-        
-        position: relative;
-        top: 15em;
-        right: 2em;
+    
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
+
+    input{
+   position: relative;
+   top:2em;
+   left: 7em;
+   
+    height: 10em;
+   
+   }
+
+   hr{
+    position: relative;
+    bottom: 4em;
+   }
+} 
+
+.buttonL1{
+    position: relative;
+    bottom:  5em;
+    left: 55em;
+
+    height: 3em;
+    width: 13em;
+    
+    display: flex ;
+    justify-content: start;
+    align-items: center;
+
+    border-radius: .5em;
+    border-color: #F27400;
+    
+    color: #F27400;
+    background-color:transparent;
+   
+    font-size: 1em;
+    
+}
+ 
+.lixeira{
+    position: relative;
+    position: relative;
+    top: 2.2em;
+    left: 64em;
+    }
+
+
+.buttonP{
+    height: 2.5em;
+        
+    border-radius: .3em;
+    background-color: transparent;
+    font-size: 1.5em;
+        
+    position: relative;
+    top: 9em;
+    left: 3em;
+}
+
+.buttonL2{
+    height: 2.5em;
+        
+    border-radius: .3em;
+
+    border-color:#F27400;
+    color: #F27400;
+    background-color: transparent;
+    font-size: 1.5em;
+
+
+        
+    position: relative;
+    top: 9em;
+    left: 5em;
 }
 
 .resumo{
@@ -104,7 +186,7 @@
         
         align-items: center;
     }
-    
+
 .button1{
         background-color: #F27400;
         color: #ffffff;
@@ -138,4 +220,69 @@
 }
    
 } 
+
+.caminhao{
+    height: 3em;
+
+    position: relative;
+    top: 2em;
+    left: 2em
+}
+
+.frete{
+    background-color: #ffffff;
+    height: 17em;
+    width: 70em;
+
+    position: relative;
+    bottom: 20em;
+    left: 5em;
+
+    h1{
+        font-size: 1.7em;
+        position: relative;
+        bottom: 1.3em;
+        left: 4em;
+    }
+
+    h2{
+        font-size: 1.7em;
+        position: relative;
+        bottom: 3.4em;
+        left: 30em;
+    }
+
+    hr{
+        position: relative;
+        bottom: 6em;
+    }
+
+    input{
+        height: 3em;
+
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+        bottom: 4em;
+        left: 2em;
+    }
+
+    p{
+        margin-top: em;
+        position: relative;
+        bottom: 7.6em;
+        left: 3em;
+
+        font-size: 1.2em;
+    }
+
+    label{
+         position: relative;
+        bottom: 12em;
+        left: 55em;
+    }
+}
+
+
 

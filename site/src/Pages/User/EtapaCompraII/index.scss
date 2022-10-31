@@ -2,7 +2,7 @@
 
 .dtt-2{
     background-color: #d9d9d9;
-    height: 200vh;
+    height: 170vh;
 
     
    
@@ -169,6 +169,7 @@
                                 top: 20%;
                                 border-radius: 0%;
                                 
+                                margin-left: 2em;
 
                                 .asp{
                                     width: 30em;
@@ -192,15 +193,35 @@
                                 position: absolute;
                                 top: 45%;
 
+                                margin-left: 2em;
+
                                 .fja{
+                                    width: 15em;
+                                    height: 5em;
+                                    background-color: #D9D9D9;
+                                    border-color: #D9D9D9;
+                                    border-style: none;
+                                    margin-right: 3em;
 
                                 }
 
                                 .gad{
+                                    width: 25em;
+                                    height: 5em;
+                                    background-color: #D9D9D9;
+                                    border-color: #D9D9D9;
+                                    border-style: none;
+                                    margin-right: 3em;
 
                                 }
 
                             .gha{
+                                width: 16.7em;
+                                height: 5em;
+                                background-color: #D9D9D9;
+                                border-color: #D9D9D9;
+                                border-style: none;
+                                margin-right: 3em;
 
                             } 
 
@@ -209,15 +230,28 @@
 
                             .info-3{
                                 position: absolute;
-                                top: 60%;
+                                top: 70%;
+
+                                display: flex;
+                                flex-direction: row;
+                                
+                                margin-left: 2em;
 
                                 .hga{
-
+                                    width: 15em;
+                                    height: 5em;
+                                    background-color: #D9D9D9;
+                                    border-color: #D9D9D9;
+                                    border-style: none;
+                                    margin-right: 2.7em;
                                 }
 
                                 .lkf{
-                                    width: 50%;
-                                    height: 2em;
+                                    width: 45.7em;
+                                    height: 5em;
+                                    background-color: #D9D9D9;
+                                    border-color: #D9D9D9;
+                                    border-style:none;
                                 }
 
                             }
@@ -245,4 +279,47 @@
                 
             }         
         }      
+        .cnt-03{
+            display: flex;
+            padding-left: 5.5em;
+        
+            .cbx-02{
+                display:flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                align-items: center;
+                margin-right: 5em;
+                background-color: #ffffff;
+                width: 95.5%;
+                height: 15vh;
+
+                position: relative;
+
+                .cont-zxd{     
+                    padding-left: 1em;
+                    padding-right: 5%;
+
+                    .fjh1{
+                        background-color: #ffffff;
+                        color:  #f27400;
+                        border-color: #f27400;
+                        border-style: solid;
+                        width: 12em;
+                        height: 2.5em;
+                        font-size: 30px;
+                        border-radius: 0.2em;
+                    }
+
+                    .fjh2{
+                        background-color: #f27400;
+                        color: #ffffff;
+                        border-style: none;
+                        width: 12em;
+                        height: 2.5em;
+                        font-size: 30px;
+                        border-radius: 0.2em;
+                    }
+                }
+            }
+    }
 }

@@ -1,0 +1,68 @@
+.cont-main-outrasOp{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 25em;
+    height: 26.2em;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    .cont-img-fav{
+        margin-top: 0.8em;
+        display: flex;
+        flex-direction: row;
+        width: 20em;
+        height: 17em;
+    }
+    .img-produto{
+        width: 200px;
+        height: 260px;
+    }
+    .cont-icon-favorito{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: end;
+        width: 4em;
+        height: 4em;
+    }
+    .coracao-icon-card{
+        width: 29px;
+        height: 28px;
+    }
+    .cont-nmprod{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 4em;
+    }
+    .cont-titulo-nmprod{
+        width: 90%;
+        height: 4em;
+    }
+    .paragrafo-nmprod{
+        font-size: 18px;
+        font-family: 'Goldman';
+        margin: 0px;
+        text-align: center;
+        color: black;
+    }
+    .cont-valorprod{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 2.8em;
+        .valorprod{
+            font-size: 20px;
+            font-family: 'Goldman';
+            font-weight: 100;
+            color: #F27400;
+        }
+    }
+}
