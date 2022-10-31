@@ -85,4 +85,14 @@ WHERE DS_EMAIL   like "cauaADMlogin@adm01.com"
  INNER JOIN TB_USUARIO
 		 ON TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
     WHERE   ID_PRODUTO = 1;
+
+
+    --- Informações usuario cartão 
+
+     INSERT INTO TB_USUARIO_CARTAO(ID_USUARIO, NM_CARTAO, NR_CARTAO, DT_VALIDADE, NR_CVV, DS_CPF, DT_NASCIMENTO, DS_FORMA_PAGAMENTO)
+                VALUES(2, "Brunex de Ninja" ,"1122334455667788", "2027-01-01", "254", "46433620817", "1900-01-01", "Débito");
+                
+    --- Mostrar informações usuario cartão 
+    
+    SELECT * FROM TB_USUARIO_CARTAO;
                               

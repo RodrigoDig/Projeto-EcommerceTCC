@@ -13,7 +13,15 @@ export default function EtapaCompraII(){
 
     function voltar(){
         navigate('/etapaI')
+}
+
+
+    function mostrarConteudo(){
+        const temp = document.getElementsByTagName("template")[1];
+        const clon = temp.content.cloneNode(true);
+        document.body.appendChild(clon);
     }
+
 
     return(
         <main>
@@ -40,7 +48,7 @@ export default function EtapaCompraII(){
 
                                             <div className='cont-zbx'>
                                                 <button className='cdp'>chave pix</button>
-                                                <button className='cdc'>
+                                                <button className='cdc' onClick={mostrarConteudo} >
                                                     <img className='idz' src={Cart} />
                                                     cartão de crédito
                                                 </button>
@@ -72,23 +80,27 @@ export default function EtapaCompraII(){
 
                                                     <div className='info-3'>
                                                         <input className='hga' type="text" placeholder="Nascimento" />
-                                                        <select className='lkf' placeholder='Forma de pagamento'>
+                                                        <select className='lkf'>
                                                         <option selected disabled hidden >Forma de pagamento</option>
                                                         </select>
                                                     </div>
                                                 </ul>
                                                 
                                             </div>
-
+                                            
                                         </div>
                                 </div>
 
+                                    <div className='cnt-03'>
                                         <div className='cbx-02'>
                                             <div className='cont-zxd'>
-                                                <button onClick={voltar} className='fjh1'> Voltar</button>
-                                            </div>
+                                                    <button onClick={voltar} className='fjh1'> Voltar</button>
+                                                </div>
+                                                <div className='cont-zxd'>
+                                                    <button onClick={voltar} className='fjh2'> Pagar com cartão</button>
+                                                </div>
                                         </div>
-
+                                    </div>
                 </div>                     
 
             </section>
