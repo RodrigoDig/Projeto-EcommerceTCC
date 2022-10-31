@@ -94,7 +94,7 @@ export default function ConsEstoque() {
                                 <td>{item.estoque}</td>
                                 <td>{item.informações}</td>
                                 <td>{item.descricao}</td>
-                                <td>{item.garantia}</td>
+                                <td>{item.garantia.substr(0, 10)}</td>
                                 <td>
                                     <img src={Alterar} />
                                     <img src={Deletar} onClick ={() => deletarProduto(item.idProduto)}/>

@@ -29,6 +29,7 @@ import LoginAdm from './Pages/Admin/LoginAdm';
 import Cadastro from './Pages/Admin/CadastroProduto';
 import Alterar from './Pages/Admin/AlterarProduto';
 import Cupom from './Pages/Admin/cadastroCupom';
+import ConsultarCupom from './Pages/Admin/ConsultarCupom';
 
 export default function Index(){
     return(
@@ -58,6 +59,7 @@ export default function Index(){
                 <Route path="/loginadm" element={<LoginAdm />} />
                 <Route path="/cadastroproduto" element={<Cadastro />} />
                 <Route path="/cupom" element={<Cupom/>} />
+                <Route path="/consulta/cupom" element={<ConsultarCupom/>} />
             </Routes>
         </BrowserRouter>
     )

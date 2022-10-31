@@ -17,3 +17,20 @@ export async function cadCupom(nome, codigo, valor, cadastro, vencimento){
 
     return r.data;
 }
+
+export async function listarCupons(){
+    const resposta = await api.get('/cupom');
+    return resposta.data;
+}
+
+export async function buscarNome(nome){
+    const resposta = await api.get(`/busca/cupom?nome=${nome}`);
+    return resposta.data;
+}
+
+
+export async function deletarCupom(id) {
+    
+    const resposta = await api.delete('/cupom/' + id);
+    return resposta.data;
+}

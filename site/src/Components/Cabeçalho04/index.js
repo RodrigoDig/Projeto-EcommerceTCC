@@ -40,6 +40,9 @@ export default function Cabecalho04(){
     function cupom(){
         navigate('/cupom')
     }
+    function consultaCupom(){
+        navigate('/consulta/cupom')
+    }
 
     return(
         <main className='cont-main-c4'>
@@ -93,8 +96,8 @@ export default function Cabecalho04(){
             </div>
             <div className='cont-09'>
             <img src={AlterarCPLogo} className='img-cont-09'/>
-                <h2 className='txt-cont-08'>
-                    Alterar Cupom
+                <h2 className='txt-cont-08' onClick={consultaCupom} style={{cursor: 'pointer'}}>
+                    Consultar Cupons
                 </h2>
             </div>
             <div className='cont-sair'>
