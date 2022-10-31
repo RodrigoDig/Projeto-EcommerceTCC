@@ -1,0 +1,86 @@
+.componente-inicial{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #d9d9d9;
+    height: 100vh;
+
+    hr{
+        position: absolute;
+        width: 23em;
+        margin-top: 6.5em;
+
+        border:1px solid #f27400;
+    }
+    .componente-titulo{
+        display: flex;
+        flex-direction: row;
+
+        margin-top: 2em;
+        img{
+            height: 4.5em;
+        }
+        h1{
+            font-size: 2em;
+            font-family: 'Goldman';
+            font-weight: normal;
+        }
+    }
+
+    .componente-bloco-informações{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        height: 80vh;
+        width: 50em;
+
+        background-color: #fff;
+        border-radius:10px ;
+
+        .informações-cupom{
+            display: flex;
+            flex-direction: column;
+
+            margin-top: 3em;
+            margin-left: 3em;
+            label{
+                font-size: 1.3em;
+                font-family: 'Goldman';
+
+                margin-bottom: 1em;
+            }
+            input{
+                outline: none;
+                border: none;
+
+                font-size: 1.3em;
+                font-family: 'Goldman';
+
+                box-shadow: 0px 1px black;
+
+                width: 34em;
+            }
+        }
+
+        .botao-cupom{
+            text-align: center;
+            button{
+                font-size: 1.5em;
+
+                border:none;
+                border-radius: 10px;
+
+                margin-top: 5em;
+                padding: 1em 1em;
+
+                background-color: #1e1e1e;
+                color: #fff;
+            }
+            button:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+}

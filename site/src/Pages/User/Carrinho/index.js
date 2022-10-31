@@ -6,16 +6,17 @@ import './index.scss';
 
 import Storag from 'local-storage';
 import CarrinhoItem from '../../../Components/carrinho';
+import CabaçalhoUsuario from '../../../Components/CabeçalhoUser';
 
-export default function Carrinho(){
+export default function Carrinho() {
     const [itens, setItens] = useState([]);
     const navigate = useNavigate();
 
-    function voltar(){
+    function voltar() {
         navigate('/')
     }
 
-    function removerItem(id){
+    function removerItem(id) {
         let carrinho = Storag('carrinho');
         carrinho = carrinho.filter(item => item.id != id);
 
@@ -23,14 +24,14 @@ export default function Carrinho(){
         carregarCarrinho();
     }
 
-    async function carregarCarrinho(){
+    async function carregarCarrinho() {
         let carrinho = Storag('carrinho');
-        if(carrinho){
+        if (carrinho) {
 
             let temp = [];
 
-            for( let produto of carrinho){
-                let p =await buscarPorId(produto.id);
+            for (let produto of carrinho) {
+                let p = await buscarPorId(produto.id);
 
                 temp.push({
                     produto: p,
@@ -46,28 +47,32 @@ export default function Carrinho(){
         carregarCarrinho();
     }, [])
 
-    return(
+    return (
         <main>
             <section>
+
                 <div>
-                    <h1>Carrinho</h1>
-                </div>
-            </section>
-            <section>
-                <div className='produto'>
-                    <div className='card-informacao-carrinho'>
-                        {itens.map( item => 
-                            <CarrinhoItem item={item} removerItem={removerItem}/>    
-                        )}
+                    <div>
+                        <h1>Carrinho</h1>
                     </div>
 
-                    <div className='card-resumo'>
-                        <h1>Resumo</h1>
-                        <button>Comprar</button>
-                        <button onClick={voltar}>Continuar Comprando</button>
+                    <div className='produto'>
+                        <div className='card-informacao-carrinho'>
+                            {itens.map(item =>
+                                <CarrinhoItem item={item} removerItem={removerItem} />
+                            )}
+                        </div>
+
+                        <div className='card-resumo'>
+                            <h1>Resumo</h1>
+                            <button>Comprar</button>
+                            <button onClick={voltar}>Continuar Comprando</button>
+                        </div>
                     </div>
                 </div>
             </section>
+
+
         </main>
     )
 }

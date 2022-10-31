@@ -37,6 +37,10 @@ export default function Cabecalho04(){
         navigate('/estoque')
     }
 
+    function cupom(){
+        navigate('/cupom')
+    }
+
     return(
         <main className='cont-main-c4'>
             <div onClick={voltarHome} className='cont-logo'>
@@ -83,7 +87,7 @@ export default function Cabecalho04(){
             </div>
             <div className='cont-08'>
                 <img src={CupomLogo} className='img-cont-08'/>
-                <h2 className='txt-cont-08'>
+                <h2 className='txt-cont-08' onClick={cupom} style={{cursor: 'pointer'}}>
                     Adicionar Cupom
                 </h2>
             </div>

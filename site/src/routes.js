@@ -1,6 +1,8 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
+/*User*/
+
 import Home from './Pages/User/Home';
 import Departamentos from './Pages/User/Departamentos';
 import AlterarDados from './Pages/User/AlterarDados';
@@ -18,12 +20,15 @@ import Login from './Pages/User/LoginI';
 import Pedido from './Pages/User/Pedido';
 import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
-import Alterar from './Pages/Admin/AlterarProduto';
+
+/*ADM*/
 
 import CstEstoque from './Pages/Admin/ConsultarProdutos';
 import CstPedidos from './Pages/Admin/ConsultarPedidos';
 import LoginAdm from './Pages/Admin/LoginAdm';
 import Cadastro from './Pages/Admin/CadastroProduto';
+import Alterar from './Pages/Admin/AlterarProduto';
+import Cupom from './Pages/Admin/cadastroCupom';
 
 export default function Index(){
     return(
@@ -52,6 +57,7 @@ export default function Index(){
                 <Route path="/pedidos" element={<CstPedidos/>}/>
                 <Route path="/loginadm" element={<LoginAdm />} />
                 <Route path="/cadastroproduto" element={<Cadastro />} />
+                <Route path="/cupom" element={<Cupom/>} />
             </Routes>
         </BrowserRouter>
     )

@@ -49,6 +49,7 @@ export default function Produto(){
         let carrinho = [];
         if(Storag ('carrinho')){
             carrinho = Storag('carinho');
+            
         }
 
         if(!carrinho.find(item => item.id == id)){
