@@ -3,6 +3,8 @@ import './index.scss';
 
 import Cabecalho1 from '../../../Components/Cabeçalho01';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
+import { CardOutrasOp } from '../../components/CardOutrasOp';
+
 import Storag from 'local-storage';
 import Carrinho from '../../../assets/images/Carrinho-branco.svg'
 import ImgCat1 from '../../../assets/images/img-cat-01.png';
@@ -13,6 +15,8 @@ import DescIcon from '../../../assets/images/img-desc.png';
 import InfoIcon from '../../../assets/images/img-info.png';
 import AvIcon from '../../../assets/images/img-avaliacao.png';
 import StarAva from '../../../assets/images/star-icon.svg';
+import OutrasOp from '../../../assets/images/img-outrasop.png';
+import Seta from '../../../assets/images/seta-vertodos.svg';
 
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
@@ -390,11 +394,22 @@ export default function Produto(){
             <section className='cont-outras-op'>
             <div className='cont-titulo-outrasop'>
                         <div className='cont-01-ava'>
-                            <img src={AvIcon} className='img-info'/>
+                            <img src={OutrasOp} className='img-info'/>
                             <h1 className='titulo-av'>
-                                Avaliação dos clientes
+                                Outras Opções
                             </h1>
                         </div>
+                        <div className='cont-vertodos'>
+                            <p className='text-vertodos'>
+                                Ver todos
+                            </p>
+                            <img src={Seta} className='img-seta'/>
+                        </div>
+                </div>
+                <div className='cont-cards-outrasop'>
+                    <div className='cont-filha1-cards'>
+                        <CardOutrasOp />
+                    </div>
                 </div>
             </section>
         </main>

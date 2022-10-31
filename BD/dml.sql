@@ -96,3 +96,15 @@ WHERE DS_EMAIL   like "cauaADMlogin@adm01.com"
     
     SELECT * FROM TB_USUARIO_CARTAO;
                               
+
+	-- uma imagem 
+
+	SELECT	NM_PRODUTO  	nomeProd,
+			IMG_PRODUTO 	imgProd,
+            VL_PRECO       	valorProd
+		from TB_PRODUTO
+        inner join TB_PRODUTO_IMAGEM
+        on tb_produto_imagem.id_produto = tb_produto.id_produto
+        where tb_produto.id_produto = 2
+        group by tb_produto.id_produto
+        ;
