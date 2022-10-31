@@ -66,27 +66,30 @@ export default function EtapaCompraII(){
 
                                                     <div className='info-2'>
                                                         <input className='fja' type="text" placeholder="Validade" />
-                                                        <input className='' type="text" placeholder="Verificação CVV" />
+                                                        <input className='gad' type="text" placeholder="Verificação CVV" />
                                                         <input className='gha' type="text" placeholder="Cpf do Titular"  />
                                                     </div>
 
                                                     <div className='info-3'>
                                                         <input className='hga' type="text" placeholder="Nascimento" />
-                                                        <select className='lkf' placeholder='Forma de pagamento'></select>
+                                                        <select className='lkf' placeholder='Forma de pagamento'>
+                                                        <option selected disabled hidden >Forma de pagamento</option>
+                                                        </select>
                                                     </div>
                                                 </ul>
                                                 
                                             </div>
 
-
                                         </div>
+                                </div>
 
-                        </div>
-
+                                        <div className='cbx-02'>
                                             <div className='cont-zxd'>
                                                 <button onClick={voltar} className='fjh1'> Voltar</button>
                                             </div>
-                </div>
+                                        </div>
+
+                </div>                     
 
             </section>
         </main>

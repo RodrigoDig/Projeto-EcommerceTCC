@@ -169,6 +169,7 @@
                                 top: 20%;
                                 border-radius: 0%;
                                 
+                                margin-left: 2em;
 
                                 .asp{
                                     width: 30em;
@@ -192,15 +193,35 @@
                                 position: absolute;
                                 top: 45%;
 
+                                margin-left: 2em;
+
                                 .fja{
+                                    width: 15em;
+                                    height: 5em;
+                                    background-color: #D9D9D9;
+                                    border-color: #D9D9D9;
+                                    border-style: none;
+                                    margin-right: 3em;
 
                                 }
 
                                 .gad{
+                                    width: 25em;
+                                    height: 5em;
+                                    background-color: #D9D9D9;
+                                    border-color: #D9D9D9;
+                                    border-style: none;
+                                    margin-right: 3em;
 
                                 }
 
                             .gha{
+                                width: 16.7em;
+                                height: 5em;
+                                background-color: #D9D9D9;
+                                border-color: #D9D9D9;
+                                border-style: none;
+                                margin-right: 3em;
 
                             } 
 
@@ -209,15 +230,28 @@
 
                             .info-3{
                                 position: absolute;
-                                top: 60%;
+                                top: 70%;
+
+                                display: flex;
+                                flex-direction: row;
+                                
+                                margin-left: 2em;
 
                                 .hga{
-
+                                    width: 15em;
+                                    height: 5em;
+                                    background-color: #D9D9D9;
+                                    border-color: #D9D9D9;
+                                    border-style: none;
+                                    margin-right: 2.7em;
                                 }
 
                                 .lkf{
-                                    width: 50%;
-                                    height: 2em;
+                                    width: 45.7em;
+                                    height: 5em;
+                                    background-color: #D9D9D9;
+                                    border-color: #D9D9D9;
+                                    border-style:none;
                                 }
 
                             }
