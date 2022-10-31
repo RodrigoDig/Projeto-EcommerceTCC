@@ -2,8 +2,6 @@ import './index.scss';
 import React from 'react';
 
 import { useState } from 'react';
-
-import PC from '../../../assets/images/img.png';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import Coracao2Icon from '../../../assets/images/Coracao-icon02.svg';
 
@@ -24,9 +22,9 @@ export function CardOutrasOp(props){
     return(
         <div className='cont-main-outrasOp'>
             <div className='cont-img-fav'>
-                <img src={PC} className='img-produto'/>
+                <img  className='img-produto'/>
                 <div className='cont-icon-favorito'>
-                    <img src={favorito} className='coracao-icon-card' onClick={favoritado} />
+                    <img className='coracao-icon-card' onClick={favoritado} />
                 </div>
             </div>
             <div className='cont-nmprod'>

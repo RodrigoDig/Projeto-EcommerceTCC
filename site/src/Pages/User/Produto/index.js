@@ -15,7 +15,7 @@ import DescIcon from '../../../assets/images/img-desc.png';
 import InfoIcon from '../../../assets/images/img-info.png';
 import AvIcon from '../../../assets/images/img-avaliacao.png';
 import StarAva from '../../../assets/images/star-icon.svg';
-import OutrasOp from '../../../assets/images/img-outrasop.png';
+import OutrasOp from '../../../assets/images/icon-outrasop.png';
 import Seta from '../../../assets/images/seta-vertodos.svg';
 
 import { prodSelCompra }from '../../../Api/cadProdutoApi';

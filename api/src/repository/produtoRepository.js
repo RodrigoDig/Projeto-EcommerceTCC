@@ -339,3 +339,19 @@ export async function opiniaoGeral(id){
     const [linhas] = await con.query(comando,  [id])
     return linhas[0];   
 }
+
+export async function produtosOutrasOp(categoria){
+    const comando = 
+    `
+    select nm_produto,
+    vl_preco,
+    nm_categoria
+    from tb_produto
+    inner join TB_categoria
+    on tb_categoria.id_categoria = tb_categoria.id_categoria
+    where nm_categoria like ?
+    limit 4;
+    `
+    const [linhas] = await con.query(comando,  [categoria])
+    return linhas[0];   
+}
