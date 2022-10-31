@@ -97,7 +97,7 @@ export default function EtapaCompraII(){
                                                     <button onClick={voltar} className='fjh1'> Voltar</button>
                                                 </div>
                                                 <div className='cont-zxd'>
-                                                    <button onClick={voltar} className='fjh2'> Pagar com cartão</button>
+                                                    <button className='fjh2'> Pagar com cartão</button>
                                                 </div>
                                         </div>
                                     </div>
