@@ -71,21 +71,89 @@
     h1{
         font-size: 1.7em;
         position: relative;
-        top: .1em;
+        top: 1.3em;
         left: 3em;
     }
-
-    button{
-        height: 2.5em;
-        
-        border-radius: .5em;
-        background-color: transparent;
-        font-size: 1.5em;
-        
-        position: relative;
-        top: 15em;
-        right: 2em;
+    
+    div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
+
+    input{
+   position: relative;
+   top:2em;
+   left: 7em;
+   
+    height: 10em;
+   
+   }
+
+   hr{
+    position: relative;
+    bottom: 2em;
+   }
+} 
+
+.buttonL1{
+    position: relative;
+    bottom:  2em;
+    left: 55em;
+
+    height: 3em;
+    width: 13em;
+    
+    display: flex ;
+    justify-content: start;
+    align-items: center;
+
+    border-radius: .5em;
+    border-color: #F27400;
+    
+    color: #F27400;
+    background-color:transparent;
+   
+    font-size: 1em;
+    
+
+    
+}
+
+.lixeira{
+    position: relative;
+    position: relative;
+    bottom:  4.2em;
+    left: 66em;
+}
+
+.buttonP{
+    height: 2.5em;
+        
+    border-radius: .3em;
+    background-color: transparent;
+    font-size: 1.5em;
+        
+    position: relative;
+    top: 10em;
+    left: 3em;
+}
+
+.buttonL2{
+    height: 2.5em;
+        
+    border-radius: .3em;
+
+    border-color:#F27400;
+    color: #F27400;
+    background-color: transparent;
+    font-size: 1.5em;
+
+
+        
+    position: relative;
+    top: 10em;
+    left: 5em;
 }
 
 .resumo{
@@ -104,7 +172,7 @@
         
         align-items: center;
     }
-    
+
 .button1{
         background-color: #F27400;
         color: #ffffff;

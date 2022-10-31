@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.scss';
 import Cabecalho03 from '../../../Components/Cabeçalho03'
+import lixeira from '../../../assets/images/lixeira.svg';
 
 export default function EtapaCompra(){
     return(
@@ -24,7 +25,15 @@ export default function EtapaCompra(){
                     <div className='produto'>
                        <h1>Produto</h1> 
                         
-                       <button>insira o cupom de desconto</button>
+                       <button className='buttonL1'>Remover Produtos</button>
+                       <img src={lixeira} className='lixeira'/> 
+                       <hr />
+                       
+                       <input type='image'></input>
+                       
+
+                       <button className='buttonP'>insira o cupom de desconto</button>
+                       <button className='buttonL2'>Aplicar cupom</button>
                     </div>
 
                     <div className='resumo'>
