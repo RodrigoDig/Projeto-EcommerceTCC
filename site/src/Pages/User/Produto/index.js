@@ -20,9 +20,14 @@ import { toast } from 'react-toastify';
 import { estrelasAvaliacao } from '../../components/estrelaAva';
 
 export default function Produto(){
-    const [produtos, setProdutos] = useState({ info: {}, cat: [], maiorAvaliacao: []});
+    const [produtos, setProdutos] = useState({ info: {}, cat: [], maiorAvaliacao: [], menorAvaliacao: [], opGeral: []});
     const { id } = useParams();
     
+    function opiniaoGeral(item, qtd){
+        let condicao = item / qtd;
+        return Math.floor(condicao);
+    }
+
     async function carregarPag(){
         const r = await prodSelCompra(id);
         console.log(r);
@@ -287,7 +292,9 @@ export default function Produto(){
                     <div className='cont-op-geral'>
                         <div className='cont-filha3-melhorava'>
                             <div className='cont-titulo-op-geral'>
-
+                                <h1 className='titulo-op-geral'>
+                                    Opinião geral:
+                                </h1>
                             </div>
                             <div className='cont-avalialiacoes'>
                                 <h1 className='titulo-ava-geral'>
@@ -304,17 +311,90 @@ export default function Produto(){
                                 </h1>
                             </div>
                         </div>
-                        <div className='cont-filha2-melhorava'>
-                            <p className='nome-usuario-text'>
-                                {produtos.maiorAvaliacao.nmUsuario}
-                            </p>
-                            {estrelasAvaliacao(produtos.maiorAvaliacao.avGeral)}
-                            {estrelasAvaliacao(produtos.maiorAvaliacao.avDesempenho)}
-                            {estrelasAvaliacao(produtos.maiorAvaliacao.avAtendimento)}
-                            {estrelasAvaliacao(produtos.maiorAvaliacao.avSatsfacao)}
+                        <div className='cont-filha4-melhorava'>
+                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalGer, produtos.opGeral.qtdUsers))}
+                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalDes, produtos.opGeral.qtdUsers))}
+                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalAte, produtos.opGeral.qtdUsers))}
+                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalSatis, produtos.opGeral.qtdUsers))}
                         </div>
                     </div>
                 </div>
+                </div>
+                <div className='cont-maior-ava'>
+                    <div className='cont-text-maiorav'>
+                        <p className='text-maior-ava'>
+                            Menor Avaliação:
+                        </p>
+                    </div>
+                <div className='cont-maior-menor-ava'>
+                    <div className='cont-melhor-ava'>
+                        <div className='cont-filha1-melhorava'>
+                            <h1 className='titulo-ava-cliente'>
+                                Cliente:
+                            </h1>
+                            <h1 className='titulo-ava-geral'>
+                                Geral:
+                            </h1>
+                            <h1 className='titulo-ava-desemp'>
+                                Desempenho:
+                            </h1>
+                            <h1 className='titulo-ava-atendi'>
+                                Atendimento:
+                            </h1>
+                            <h1 className='titulo-ava-sats'>
+                                Satisfação:
+                            </h1>
+                        </div>
+                        <div className='cont-filha2-melhorava'>
+                            <p className='nome-usuario-text'>
+                                {produtos.menorAvaliacao.nmUsuario}
+                            </p>
+                            {estrelasAvaliacao(produtos.menorAvaliacao.avGeral)}
+                            {estrelasAvaliacao(produtos.menorAvaliacao.avDesempenho)}
+                            {estrelasAvaliacao(produtos.menorAvaliacao.avAtendimento)}
+                            {estrelasAvaliacao(produtos.menorAvaliacao.avSatsfacao)}
+                        </div>
+                    </div>
+                    <div className='cont-op-geral'>
+                        <div className='cont-filha3-melhorava'>
+                            <div className='cont-titulo-op-geral'>
+                                <h1 className='titulo-op-geral'>
+                                    Opinião geral:
+                                </h1>
+                            </div>
+                            <div className='cont-avalialiacoes'>
+                                <h1 className='titulo-ava-geral'>
+                                    Geral:
+                                </h1>
+                                <h1 className='titulo-ava-desemp'>
+                                    Desempenho:
+                                </h1>
+                                <h1 className='titulo-ava-atendi'>
+                                    Atendimento:
+                                </h1>
+                                <h1 className='titulo-ava-sats'>
+                                    Satisfação:
+                                </h1>
+                            </div>
+                        </div>
+                        <div className='cont-filha4-melhorava'>
+                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalGer, produtos.opGeral.qtdUsers))}
+                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalDes, produtos.opGeral.qtdUsers))}
+                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalAte, produtos.opGeral.qtdUsers))}
+                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalSatis, produtos.opGeral.qtdUsers))}
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+            <section className='cont-outras-op'>
+            <div className='cont-titulo-outrasop'>
+                        <div className='cont-01-ava'>
+                            <img src={AvIcon} className='img-info'/>
+                            <h1 className='titulo-av'>
+                                Avaliação dos clientes
+                            </h1>
+                        </div>
                 </div>
             </section>
         </main>
