@@ -1,0 +1,20 @@
+.cont-main-etapa3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
+    background-color: #d9d9d9;
+    .cont-rodape-etp3{
+        width: 100%;
+        height: 4em;
+    }
+    .cont-01-etp3{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 8em;
+    }
+}

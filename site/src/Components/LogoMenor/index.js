@@ -8,7 +8,7 @@ export default function LogoMenor(){
                     <h1 className='txt-logom'>Byte</h1>
                     <img alt='' src={FogueteIcon} className='foguete-icon-logoM'/>
                     <h1 className='txt-logom'>Speed</h1>
-                </div>
+            </div>
         </main>
     )
 }

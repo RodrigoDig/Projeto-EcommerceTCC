@@ -45,7 +45,7 @@ export default function Index(){
                 <Route path="/configuracoes" element={<Configurações />} />
                 <Route path="/etapaI" element={<EtapaCompraI />} />
                 <Route path="/etapaII" element={<EtapaCompraII />} />
-                <Route path="/etapaIII" element={<EtapaCompraIII />} />
+                <Route path="/etapa3" element={<EtapaCompraIII />} />
                 <Route path="/etapaIV" element={<EtapaCompraIV />} />
                 <Route path="/favoritos" element={<Favoritos />} />
                 <Route path="/login" element={<Login />} />

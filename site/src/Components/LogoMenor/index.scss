@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 13em;
+    width: 14em;
     height: 2.7em;
 
     .espacamento-logo{
@@ -13,7 +13,9 @@
         justify-content: center;
 
         width: 16em;
-        height: 0em;
+        height: 3em;
+
+        border-bottom: 2px solid #F27400;
     }
     .txt-logom{
         text-transform: uppercase;
@@ -21,6 +23,7 @@
         font-size: 1.5em;
         font-weight: 100;
 
+        margin: 0px;
         height: 0.9em;
 
         color: #fff;
@@ -34,8 +37,9 @@
         color: #fff;
     }
     .foguete-icon-logoM{
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
+        margin: 0px;
     }
 
 }
