@@ -191,9 +191,38 @@ server.get('/compra/produto/:id', async (req, resp) => {
 
         const produto = await produtoSelCompra(id);
         const categoria = await categoriaSel(id);
-        const maioravaliacao = await maiorAva(id);
-        const menoravaliacao = await menorAva(id);
-        const opgeral = await opiniaoGeral(id);
+        let maioravaliacao = await maiorAva(id);
+        let menoravaliacao = await menorAva(id);
+        let opgeral = await opiniaoGeral(id);
+
+        if (maioravaliacao == null) {
+            maioravaliacao = {
+                avGeral: 0,
+                avDesempenho: 0,
+                avAtendimento: 0,
+                avSatsfacao: 0
+            };
+        }
+
+        if (menoravaliacao == null) {
+            menoravaliacao = {
+                avGeral: 0,
+                avDesempenho: 0,
+                avAtendimento: 0,
+                avSatsfacao: 0
+            };
+        }
+
+        
+        if (opgeral == null) {
+            opgeral = {
+                totalGer: 0,
+                totalDes: 0,
+                totalAte: 0,
+                totalSatis: 0
+            };
+        }
+
         resp.send({
             info: produto,
             cat: categoria,     

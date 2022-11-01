@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: max-content;
 
     background-color: #d9d9d9;
     .cont-cabecalho-etp3{
@@ -30,13 +30,39 @@
         display: flex;
         flex-direction: row;
         width: 90%;
-        height: 29em;
+        height: 40em;
     }
     .cont-filha1-02{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
         width: 70%;
         height: 100%;
 
         border: 0.1px solid pink;
+    }
+    .cont-infoped-filha1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 53%;
+        
+        background-color: #fff;
+    }
+    .cont-titulo-infoped{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 95%;
+        height: 3.4em;
+    }
+    .cont-listaprod-filha1{
+        width: 100%;
+        height: 38%;
+
+        background-color: #fff;
     }
     .cont-filha2-02{
         width: 30%;
@@ -44,10 +70,67 @@
 
         border: 0.1px solid red;
     }
-    .cont-infoped-filha1{
+    .icon-infoped{
+        width: 38px;
+        height: 38px;
+        margin-right: 0.8em;
+    }
+    .titulo-infoped{
+        font-family: 'Goldman';
+        font-size: 22px;
+        font-weight: 100;
+    }
+    .cont-dados-endereco{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         width: 100%;
-        height: 50%;
+        height: 14em;
+    }
+    .cont-filha1-dados{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        width: 50%;
+        height:  max-content;
+    }
+    .cont-filha2-endereco{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        height: 14em;
 
-        background-color: #fff;
+        background-color: #d9d9d9;
+    }
+    .cont-titulo-dados{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 90%;
+        height: 30%;
+        border-bottom: 1.5px solid #d9d9d9;
+    }
+    .titulo-dados{
+        font-size: 18px;
+        font-family: 'Goldman';
+        color: black;
+        font-weight: 100;
+        margin: 0px;
+    }
+    .text-dados{
+        text-align: left;
+        font-size: 13px;
+        margin: 0px;
+    }
+    .cont-dados-user{
+        width: 90%;
+        height: 9.7em;
+
+        margin-top: 0.8em;
+
+        border-radius: 14px;
+
+        background-color: #d9d9d9;
     }
 }
