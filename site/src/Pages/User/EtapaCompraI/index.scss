@@ -1,9 +1,14 @@
-.fundo1{
-    background-color: #d4d4d4;
-    height: 95vh;
+* {
+    font-size: 'Goldman';
 }
 
-.local{
+.fundo1 {
+    background-color: #d4d4d4;
+    height: 99vh;
+}
+
+//Selecionar Endereço
+.local {
     height: 2em;
 
     position: relative;
@@ -11,7 +16,7 @@
     left: 2em;
 }
 
-.f2{
+.f2 {
     background-color: #ffffff;
     height: 17em;
     width: 70em;
@@ -19,41 +24,42 @@
     position: relative;
     top: 10em;
     left: 5em;
-    
-   
-    h1{
+
+
+    h1 {
         font-size: 1.7em;
         position: relative;
         bottom: 1em;
         left: 3em;
     }
 
-    label{
+    label {
         display: flex;
         flex-direction: column;
-        
+
         font-size: 1.2em;
-        
+
         position: relative;
         top: 4em;
         left: 5em;
 
-    
+
     }
 }
-.btn1{
-        border: none;
-        background-color: transparent;
-        color: #000;
 
-        font-size: 1.2em;
+.btn1 {
+    border: none;
+    background-color: transparent;
+    color: #000;
 
-        position: relative;
-        top: 5em;
-        left: 45em;    
+    font-size: 1.2em;
+
+    position: relative;
+    top: 5em;
+    left: 45em;
 }
 
-.btn2{
+.btn2 {
     border: none;
     background-color: transparent;
     color: #f27400;
@@ -62,10 +68,11 @@
 
     position: relative;
     top: 5em;
-    left: 45em;    
+    left: 45em;
 }
 
-.cesta{
+//Produto
+.cesta {
     height: 2em;
 
     position: relative;
@@ -73,7 +80,7 @@
     left: 2em;
 }
 
-.produto{
+.produto {
     background-color: #ffffff;
     height: 30em;
     width: 70em;
@@ -81,113 +88,225 @@
     position: relative;
     top: 11em;
     left: 5em;
-    
-   
-    h1{
+
+
+    h1 {
         font-size: 1.7em;
         position: relative;
-        bottom:1em;
+        bottom: 1em;
         left: 3em;
     }
-    
-    div{
+
+    div {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
-    input{
-   position: relative;
-   top:2em;
-   left: 7em;
-   
-    height: 10em;
-   
-   }
+    input {
+        position: relative;
+        top: 2em;
+        left: 7em;
 
-   hr{
-    position: relative;
-    bottom: 4em;
-   }
-} 
+        height: 10em;
 
-.buttonL1{
+    }
+
+    hr {
+        position: relative;
+        bottom: 4em;
+    }
+}
+
+.buttonL1 {
     position: relative;
-    bottom:  5em;
+    bottom: 5em;
     left: 55em;
 
     height: 3em;
     width: 13em;
-    
-    display: flex ;
+
+    display: flex;
     justify-content: start;
     align-items: center;
 
     border-radius: .5em;
     border-color: #F27400;
-    
+
     color: #F27400;
-    background-color:transparent;
-   
+    background-color: transparent;
+
     font-size: 1em;
-    
+
 }
- 
-.lixeira{
+
+.lixeira {
     position: relative;
     position: relative;
     top: 2.2em;
     left: 64em;
-    }
+}
 
 
-.buttonP{
+.buttonP {
     height: 2.5em;
-        
+
     border-radius: .3em;
     background-color: transparent;
     font-size: 1.5em;
-        
+
     position: relative;
     top: 9em;
     left: 3em;
 }
 
-.buttonL2{
+.buttonL2 {
     height: 2.5em;
-        
+
     border-radius: .3em;
 
-    border-color:#F27400;
+    border-color: #F27400;
     color: #F27400;
     background-color: transparent;
     font-size: 1.5em;
 
 
-        
+
     position: relative;
     top: 9em;
     left: 5em;
 }
 
-.resumo{
+//Frete
+.caminhao {
+    height: 3em;
+
+    position: relative;
+    top: 2em;
+    left: 2em
+}
+
+.frete {
+    background-color: #ffffff;
+    height: 17em;
+    width: 70em;
+
+    position: relative;
+    bottom: 20em;
+    left: 5em;
+
+    h1 {
+        font-size: 1.7em;
+        position: relative;
+        bottom: 1.3em;
+        left: 4em;
+    }
+
+    h2 {
+        font-size: 1.7em;
+        position: relative;
+        bottom: 3.4em;
+        left: 30em;
+    }
+
+    hr {
+        position: relative;
+        bottom: 6em;
+    }
+
+    input {
+        height: 3em;
+
+        display: flex;
+        flex-direction: column;
+
+        position: relative;
+        bottom: 4em;
+        left: 2em;
+    }
+
+    .pC {
+
+        position: relative;
+        bottom: 7.6em;
+        left: 3em;
+
+        font-size: 1.2em;
+    }
+
+    .pS {
+
+        position: relative;
+        bottom: 9.6em;
+        left: 3em;
+
+        font-size: 1.2em;
+    }
+
+    .labelC {
+        position: relative;
+        bottom: 11em;
+        left: 55em;
+
+        color: #F27400;
+    }
+
+    .labelS {
+        position: relative;
+        bottom: 13em;
+        left: 55em;
+
+        color: #F27400;
+    }
+}
+
+//Resumo
+.resumo {
     height: 30em;
     width: 30em;
     background-color: #ffffff;
-   
+
 
     position: relative;
     bottom: 41.2em;
     left: 84em;
 
-    h1{
+    h1 {
         font-size: 3em;
         display: flex;
-        
+        justify-content: center;
         align-items: center;
     }
 
-.button1{
+    label {
+        position: relative;
+        left: 5.2em;
+    }
+
+    p {
+        position: relative;
+        top: 3em;
+        left: 2.9em;
+    }
+
+    input {
+        position: relative;
+        top: 4em;
+        left: 2.9em;
+
+        border: none;
+        border-radius: .2em;
+        background-color: #D9D9D9;
+        font-size: 1em;
+
+        height: 2.5em;
+        width: 23em;
+    }
+
+    .button1 {
+        position: relative;
+        top: 1.8em;
+        left: .5em;
         background-color: #F27400;
         color: #ffffff;
         border-radius: .4em;
@@ -201,88 +320,92 @@
 
         display: flex;
         justify-content: center;
-       
+        align-items: center;
+
+    }
+
+    .button2 {
+        position: relative;
+        top: .5em;
+        left: .5em;
+
+        background-color: #F27400;
+        color: #ffffff;
+
+        border-radius: .4em;
+        border: none;
+
+        font-size: 2em;
+
+        height: 2em;
+        width: 11.8em;
+
+        margin: 1em;
+        align-items: center;
+    }
+
 }
 
-.button2{
-    background-color: #F27400;
-    color: #ffffff;
-    border-radius: .4em;
-    border: none;
-
-    font-size: 2em;
-
-    height: 2em;
-    width: 11.8em;
-
-    margin: 1em;
-   
-}
-   
-} 
-
-.caminhao{
-    height: 3em;
-
-    position: relative;
-    top: 2em;
-    left: 2em
-}
-
-.frete{
+.FRETE {
+    height: 30em;
+    width: 30em;
     background-color: #ffffff;
-    height: 17em;
-    width: 70em;
+
 
     position: relative;
-    bottom: 20em;
-    left: 5em;
+    bottom: 60em;
+    left: 84em;
 
-    h1{
-        font-size: 1.7em;
-        position: relative;
-        bottom: 1.3em;
-        left: 4em;
+    h1 {
+        font-size: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
-    h2{
-        font-size: 1.7em;
+    .div {
         position: relative;
-        bottom: 3.4em;
-        left: 30em;
-    }
+        left: 5em;
 
-    hr{
-        position: relative;
-        bottom: 6em;
-    }
-
-    input{
-        height: 3em;
+        background-color: #D9D9D9;
 
         display: flex;
         flex-direction: column;
+        justify-content: center;
 
-        position: relative;
-        bottom: 4em;
-        left: 2em;
+        height: 20em;
+        width: 20em;
+
     }
 
-    p{
-        margin-top: em;
-        position: relative;
-        bottom: 7.6em;
-        left: 3em;
-
-        font-size: 1.2em;
-    }
-
-    label{
-         position: relative;
-        bottom: 12em;
-        left: 55em;
-    }
 }
 
+.divbtn {
+    position: relative;
+    bottom: 58.3em;
+    left: 84em;
+
+    background-color: #ffffff;
 
 
+    height: 6em;
+    width: 30em;
+
+    display: flex;
+    justify-content: center;
+
+    button {
+
+        position: relative;
+        top: .7em;
+        border: none;
+        border-radius: .5em;
+        height: 2.7em;
+        width: 19em;
+        background-color: #F20000;
+        color: #FFFFFF;
+
+        font-size: 1.5em;
+    }
+
+}
