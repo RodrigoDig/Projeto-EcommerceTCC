@@ -296,7 +296,7 @@ export async function maiorAva(id){
     FROM 	TB_PRODUTO_AVALIACAO
     INNER JOIN   TB_USUARIO
     ON  TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
-    WHERE   ID_PRODUTO = 1
+    WHERE   ID_PRODUTO = ?
     ORDER BY avGeral
     DESC
     LIMIT 1;	
@@ -317,7 +317,7 @@ export async function menorAva(id){
     FROM 	TB_PRODUTO_AVALIACAO
     INNER JOIN   TB_USUARIO
     ON  TB_USUARIO.ID_USUARIO = TB_PRODUTO_AVALIACAO.ID_USUARIO
-    WHERE   ID_PRODUTO = 1
+    WHERE   ID_PRODUTO = ?
     ORDER BY avGeral
     LIMIT   1;
     `
