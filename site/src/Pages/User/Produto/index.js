@@ -17,7 +17,7 @@ import AvIcon from '../../../assets/images/img-avaliacao.png';
 import StarAva from '../../../assets/images/star-icon.svg';
 import OutrasOp from '../../../assets/images/icon-outrasop.png';
 import Seta from '../../../assets/images/seta-vertodos.svg';
-
+import Rodape from '../../../Components/Rodapé';
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -58,7 +58,7 @@ export default function Produto(){
         let carrinho = [];
         if(Storag ('carrinho')){
             carrinho = Storag('carinho');
-            
+            console.log('Carrinho capotou aki...')
         }
 
         if(!carrinho.find(item => item.id == id)){
@@ -411,6 +411,9 @@ export default function Produto(){
                         <CardOutrasOp />
                     </div>
                 </div>
+            </section>
+            <section className='cont-rodape-produto'>
+                <Rodape />
             </section>
         </main>
     )
