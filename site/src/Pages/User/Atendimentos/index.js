@@ -1,13 +1,14 @@
 import React from 'react';
-import { Link, Navigate } from 'react-router-dom';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
+import Cabecalho from '../../../Components/Cabeçalho06';
 
 export default function Atendimento(){
 
     return(
         <main>
             <section>
+                <Cabecalho/>
             </section>
         </main>
     )
