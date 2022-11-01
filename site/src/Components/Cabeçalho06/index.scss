@@ -1,0 +1,121 @@
+.cb-02{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+
+    width: 100%;
+    height: 10vh;
+
+    .cont-lg{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+    
+        padding: 0px;
+        margin-left: 2em;
+    
+        width: 19em;
+        height: 70%;
+        border-bottom: 2px solid #F27400;
+
+        .alin{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+
+            .cb-r{
+                display: flex;
+                justify-content: flex-start;
+                border-right: 2px solid #f27500a1;
+                width: 30%;
+                height: 3.2em;
+                padding-left: 2em;
+                margin-bottom: 0.2em;
+
+            }
+                .p1{
+                    padding-left: 1em;
+                    height: 3em;
+                    color: #D9D9D9; 
+                }
+        }
+    }      
+
+
+    .cont-pqs{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        
+        margin-right: 30px;
+        margin-left: 50px;
+
+        width: 70em;
+        height: 4em;
+
+        padding-left: 5.5em;
+    
+    
+    .input-pqs{
+        padding-left: 10px;
+        width: 100em;
+        height: 3em;
+        margin-left: 1em;
+        margin-right: -10px;
+
+        border-radius: 8px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        border: none;
+        background-color: #D9D9D9;
+    }
+
+    textarea:focus, input:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    } 
+
+    input::placeholder{
+        color: black;
+        font-family:'Goldman';
+        font-size: 1.5em;
+    }
+
+    .botao-pqs{
+        height: 3.2em;
+        width: 4.2em;
+
+        border-radius: 8px;
+        border: none;
+
+        background-color: #F27400;
+
+        cursor: pointer;
+    }
+}  
+
+
+    .cont-lgn{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 10em;
+        height: 4em;
+
+        margin-right: 2em;
+
+        .ibc{
+            width: 3em;
+            padding-right: 3.8em;
+        }
+    }
+
+}
