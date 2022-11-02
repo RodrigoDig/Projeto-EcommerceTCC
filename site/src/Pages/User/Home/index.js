@@ -4,7 +4,7 @@ import './index.scss';
 import Cabecalho01 from '../../../Components/Cabeçalho01';
 import Rodape from '../../../Components/Rodapé';
 
-import { prodPromoImperdivel, prodMaisVendidos, depSelecionar} from '../../../Api/cadProdutoApi';
+import { prodPromoImperdivel, prodMaisVendidos, depSelecionar, imgProd} from '../../../Api/cadProdutoApi';
 
 import Controle from '../../../assets/images/Controle-icon.svg'; 
 import TrofeuIcon from '../../../assets/images/Trofeu-icon.svg';

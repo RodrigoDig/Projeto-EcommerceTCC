@@ -74,3 +74,9 @@ export async function buscarPorId(id){
     const resposta = await api.get('/produto/' + id);
     return resposta.data;
 }
+
+
+export async function imgProd(id){
+    const resposta = await api.get('/img/' + id);
+    return resposta.data;
+}

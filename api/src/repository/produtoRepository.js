@@ -355,3 +355,17 @@ export async function produtosOutrasOp(categoria){
     const [linhas] = await con.query(comando,  [categoria])
     return linhas[0];   
 }
+
+export async function imgProd(id){
+    const comando = 
+    `
+    select IMG_PRODUTO     img
+		FROM TB_PRODUTO_IMAGEM
+		INNER JOIN TB_PRODUTO
+        ON TB_PRODUTO.ID_PRODUTO = TB_PRODUTO_IMAGEM.ID_PRODUTO
+        WHERE TB_PRODUTO.ID_PRODUTO = ?
+        GROUP BY TB_PRODUTO.ID_PRODUTO;
+    `
+    const [linhas] = await con.query(comando,  [id])
+    return linhas[0];   
+}

@@ -1,4 +1,4 @@
-import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral } from "../repository/produtoRepository.js";
+import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd } from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { alterarValid } from '../services/alterarValidacao.js';
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
@@ -123,6 +123,19 @@ server.delete('/produto/:id', async (req, resp) => {
 server.get('/maisvendidos', async (req, resp) => {
     try {
         const resposta = await prodMaisVendidos();
+        resp.send(resposta)
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/img/:id', async (req, resp) => {
+    try {
+        const id = Number(req.params.id)
+        const resposta = await imgProd(id);
         resp.send(resposta)
     }
     catch (err) {
