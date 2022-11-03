@@ -127,20 +127,25 @@ export async function buscarTodosProdutos(){
 export async function prodPromoImperdivel(){
     const comando = 
     `
-    SELECT ID_PRODUTO              id,
-           ID_DEPARTAMENTO         idDepartamento,
-           NM_PRODUTO              nomeProduto,
-           VL_PRECO                valorProduto,
-           VL_DESCONTO             valorDesconto, 
-           VL_AVALIACAO            avaliacao,
-           DS_FABRICANTE           fabricante,
-           QTD_ESTOQUE             estoque,
-           DS_INFORMACOES          informações,
-           DS_DESCRICAO            descricao,
-           DT_GARANTIA             garantia
-    FROM   TB_PRODUTO
-    WHERE  VL_DESCONTO > 20
-    LIMIT  8
+    SELECT 
+        TB_PRODUTO.ID_PRODUTO 		id,
+        ID_DEPARTAMENTO         idDepartamento,
+        NM_PRODUTO              nomeProduto,
+        VL_PRECO                valorProduto,
+        VL_DESCONTO             valorDesconto, 
+        VL_AVALIACAO            avaliacao,
+        DS_FABRICANTE           fabricante,
+        QTD_ESTOQUE             estoque,
+        DS_INFORMACOES          informações,
+        DS_DESCRICAO            descricao,
+        DT_GARANTIA             garantia,
+        IMG_PRODUTO             imagem
+        FROM   TB_PRODUTO
+        INNER JOIN TB_PRODUTO_IMAGEM
+        ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
+        WHERE  VL_DESCONTO > 20
+        GROUP BY TB_PRODUTO.ID_PRODUTO
+        LIMIT  8;
     `
     const [linhas] = await con.query(comando)
     return linhas;

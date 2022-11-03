@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-import { imgProd } from '../../../Api/cadProdutoApi';
+import { buscarImgProd } from '../../../Api/cadProdutoApi';
 import Fogo2Icon from '../../../assets/images/Fogo-icon02.svg';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import Coracao2Icon from '../../../assets/images/Coracao-icon02.svg';
@@ -11,8 +11,7 @@ import Carrinho from '../../../assets/images/Carrinho-Preto.svg';
 
 export default function CardProduto(props){
     const [favorito, setFavorito] = useState(CoracaoIcon);
-    const navigate = useNavigate();
-    const [img, setImg] = useState('');
+    const navigate = useNavigate(); 
     function valorDesconto(valor, desconto) {
         const valordesc = desconto / 100;
         const vl = valor * valordesc;
@@ -21,10 +20,6 @@ export default function CardProduto(props){
         return valorfinal;
     }
 
-    async function chamarImg(id){
-        const resp = await imgProd(id);
-        setImg(resp);
-    }
     function selProd(id) {
         navigate('/compra/produto/' + id);
     }
@@ -48,15 +43,6 @@ export default function CardProduto(props){
         }
         return resp;
     }
-
-    function imag(caminho){
-        const resp = caminho + '.jpg'
-        return resp;
-    }
-
-    useEffect(() =>{
-        chamarImg(props.item.id)
-    }, [])
     return(
         <section className='cont-card-main'>
                             <div className='cont-01-card'>
@@ -78,7 +64,7 @@ export default function CardProduto(props){
                                 </ul>
                             </div>
                             <div className='img-card'>
-                                <img src={imag(img.img)}/>
+                                <img src={buscarImgProd(props.item.imagem)} alt=''/>
                             </div>
                             <div className='cont-nmproduto-card'>
                                 <p className='nm-produto-card'>
