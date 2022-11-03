@@ -2,7 +2,8 @@ import { con } from './connection.js';
 
 export async function cartaoUsuario(cartao){
     const comando = `
-        INSERT INTO TB_USUARIO_CARTAO(ID_USUARIO,
+        INSERT INTO TB_USUARIO_CARTAO(
+             ID_USUARIO,
              NM_CARTAO,
              NR_CARTAO,
              DT_VALIDADE,
@@ -23,5 +24,5 @@ export async function cartaoUsuario(cartao){
         cartao.pagamento
     ])
 
-    return resp.InsertID;
+    return resp.affectedRows;
 } 

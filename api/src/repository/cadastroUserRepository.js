@@ -2,7 +2,15 @@ import { con } from "./connection.js";
 
 export async function cadUser(usuario){
     const linhas = `
-        INSERT INTO TB_USUARIO(NM_USUARIO, NM_SOBRENOME, DS_CPF, DT_NASCIMENTO, DS_GENERO, DS_EMAIL, DS_CELULAR, DS_SENHA)
+        INSERT INTO TB_USUARIO(
+             NM_USUARIO,
+             NM_SOBRENOME, 
+             DS_CPF,
+             DT_NASCIMENTO,
+             DS_GENERO,
+             DS_EMAIL,
+             DS_CELULAR,
+             DS_SENHA)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?)
     `
 
