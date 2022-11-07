@@ -1,6 +1,8 @@
 import './index.scss';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../../../Api/config';
+import { buscarImgProd } from '../../../Api/cadProdutoApi';
 
 import SetaCardDesc from '../../../assets/images/Seta-Desconto-Card.svg';
 import Carrinho from '../../../assets/images/Carrinho-Preto.svg';
@@ -15,6 +17,18 @@ export default function CardProduto(props){
 
         return valorfinal;
     }   
+
+    function mostrarImg(imagem){
+        if(typeof(imagem) == 'object'){
+            return URL.createObjectURL(imagem);
+        }
+        else if(typeof(imagem) == 'string'){
+            return `${API_URL}/${imagem}`
+        }
+        else{
+            return buscarImgProd(imagem)
+        }
+    }
 
     function selProd(id) {
         navigate('/compra/produto/' + id);
@@ -50,7 +64,7 @@ export default function CardProduto(props){
                         </ul>
                     </div>
                     <div className='img-card'>
-                        
+                        <img src={mostrarImg(props.item.imagem)} />
                     </div>
                     <div className='cont-nmproduto-card'>
                         <p className='nm-produto-card'>

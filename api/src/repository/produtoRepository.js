@@ -144,8 +144,8 @@ export async function prodPromoImperdivel(){
         INNER JOIN TB_PRODUTO_IMAGEM
         ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
         WHERE  VL_DESCONTO > 20
-        GROUP BY TB_PRODUTO.ID_PRODUTO
-        LIMIT  8;
+        GROUP BY TB_PRODUTO.ID_PRODUTO = ID_PRODUTO_IMAGEM
+	    LIMIT  8;
     `
     const [linhas] = await con.query(comando)
     return linhas;
@@ -206,7 +206,7 @@ export async function prodMaisVendidos(){
     INNER JOIN TB_PRODUTO_IMAGEM
     ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
     WHERE  QTD_ESTOQUE < 7
-    GROUP BY TB_PRODUTO.ID_PRODUTO
+    GROUP BY TB_PRODUTO.ID_PRODUTO = ID_PRODUTO_IMAGEM
     LIMIT  4;
     `
     const [linhas] = await con.query(comando)
