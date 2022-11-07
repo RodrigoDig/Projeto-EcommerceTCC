@@ -2,6 +2,7 @@ import './index.scss';
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { API_URL } from '../../../Api/config';
 
 import { buscarImgProd } from '../../../Api/cadProdutoApi';
 import Fogo2Icon from '../../../assets/images/Fogo-icon02.svg';
@@ -20,6 +21,18 @@ export default function CardProduto(props){
         return valorfinal;
     }
 
+    function mostrarImg(imagem){
+        if(typeof(imagem) == 'object'){
+            return URL.createObjectURL(imagem);
+        }
+        else if(typeof(imagem) == 'string'){
+            return `${API_URL}/${imagem}`
+        }
+        else{
+            return buscarImgProd(imagem)
+        }
+    }
+    
     function selProd(id) {
         navigate('/compra/produto/' + id);
     }
@@ -64,7 +77,7 @@ export default function CardProduto(props){
                                 </ul>
                             </div>
                             <div className='img-card'>
-                                <img src={buscarImgProd(props.item.imagem)} alt=''/>
+                                <img src={mostrarImg(props.item.imagem)} alt=''/>
                             </div>
                             <div className='cont-nmproduto-card'>
                                 <p className='nm-produto-card'>

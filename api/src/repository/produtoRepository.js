@@ -189,21 +189,25 @@ export async function remomoverProduto(idProduto){
 export async function prodMaisVendidos(){
     const comando = 
     `
-    SELECT ID_PRODUTO              id,
-           NM_DEPARTAMENTO         nomeDepartamento,
-           NM_PRODUTO              nomeProduto,
-           VL_PRECO                valorProduto,
-           VL_DESCONTO             valorDesconto, 
-           VL_AVALIACAO            avaliacao,
-           DS_FABRICANTE           fabricante,
-           QTD_ESTOQUE             estoque,
-           DS_INFORMACOES          informações,
-           DS_DESCRICAO            descricao,
-           DT_GARANTIA             garantia
+    SELECT 
+    TB_PRODUTO.ID_PRODUTO 		id,
+    ID_DEPARTAMENTO         idDepartamento,
+    NM_PRODUTO              nomeProduto,
+    VL_PRECO                valorProduto,
+    VL_DESCONTO             valorDesconto, 
+    VL_AVALIACAO            avaliacao,
+    DS_FABRICANTE           fabricante,
+    QTD_ESTOQUE             estoque,
+    DS_INFORMACOES          informações,
+    DS_DESCRICAO            descricao,
+    DT_GARANTIA             garantia,
+    IMG_PRODUTO             imagem
     FROM   TB_PRODUTO
-    INNER JOIN TB_DEPARTAMENTO ON TB_PRODUTO.ID_DEPARTAMENTO  = TB_DEPARTAMENTO.ID_DEPARTAMENTO
+    INNER JOIN TB_PRODUTO_IMAGEM
+    ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
     WHERE  QTD_ESTOQUE < 7
-    LIMIT  4
+    GROUP BY TB_PRODUTO.ID_PRODUTO
+    LIMIT  4;
     `
     const [linhas] = await con.query(comando)
     return linhas;
