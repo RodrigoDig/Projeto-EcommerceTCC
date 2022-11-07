@@ -5,6 +5,7 @@ import Alterar from '../../../assets/images/lapis-de-cor.png';
 import Deletar from '../../../assets/images/lixeira-de-reciclagem.png';
 
 import {toast} from 'react-toastify';
+import { confirmAlert } from 'react-confirm-alert';
 import { useEffect, useState } from "react";
 import { listarCupons, buscarNome, deletarCupom} from "../../../Api/cadCupomAPI";
 
@@ -24,15 +25,26 @@ export default function ConsultarCupom() {
     }
 
     async function removerCupom(id) {
-        try{ 
-            await deletarCupom(id);
-            await listarCupons(id);
-            toast.success("Cupom Removido com Sucesso");
-        }
-        catch(err) {
-            toast.error(err.response.data.erro);
-        }
-
+        confirmAlert({
+            title: "Remover cupom",
+            message: "Deseja remover o cupom?",
+            buttons:[
+                {
+                    label: "Sim",
+                    onClick: async () => {
+                        const resposta = await deletarCupom(id);
+                        if(filtrin === '')
+                            listarCupons(id);
+                        else
+                            filtrar();
+                        toast.success("Cupom removido com sucesso!")
+                    }
+                },
+                {
+                    label: "Não"
+                }
+            ]
+        })
     }
 
     useEffect(() => {

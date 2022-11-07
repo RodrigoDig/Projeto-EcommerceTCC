@@ -3,25 +3,44 @@ import './index.scss';
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import CupomLogo from '../../../assets/images/cupom (1).png';
 
-import { cadCupom } from '../../../Api/cadCupomAPI';
+import { alterarCupom, cadCupom } from '../../../Api/cadCupomAPI';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 export default function Cupom() {
     const [cupom, setCupom] = useState();
     const [codigo, setCodigo] = useState();
-    const [desconto, setDesconto] = useState();
+    const [desconto, setDesconto] = useState(0);
     const [inscricao, setInscricao] = useState();
     const [vencimento, setVencimento] = useState();
+    const [id, setId] = useState(0);
 
     async function salvarClick() {
         try {
-            const r = await cadCupom(cupom, codigo, desconto, inscricao, vencimento);
-            toast.success('Cupom cadastrado com sucesso!')
+            //let idCupom = 0;
+            if(id === 0){
+                const novoCupom = await cadCupom(cupom, codigo, desconto, inscricao, vencimento);
+                setId(novoCupom.id);
+                toast.success('Cupom cadastrado com sucesso!')
+            }
+            else {
+                await alterarCupom(id, cupom, codigo, desconto, inscricao, vencimento);
+                toast.success('Cupom alterado com sucesso!')
+            }
+        
         }
         catch (err) {
             toast.error(err.message);
         }
+    }
+
+    function novoClick(){
+        setId(0);
+        setCupom('');
+        setCodigo('');
+        setDesconto(0);
+        setInscricao('');
+        setVencimento('');
     }
 
     return (
@@ -64,7 +83,8 @@ export default function Cupom() {
                     </div>
 
                     <div className='botao-cupom'>
-                        <button onClick={salvarClick}>Cadastrar</button>
+                        <button onClick={salvarClick}>Cadastrar</button> &nbsp; &nbsp;
+                        <button onClick={novoClick}>Novo</button>
                     </div>
                 </div>
             </section>

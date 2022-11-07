@@ -77,7 +77,7 @@ server.delete('/cupom/:id', async (req, resp) => {
     }
 })
 
-server.put('/cupom/:id', async(req, resp) =>{
+server.put('/cadastro/cupom/:id', async(req, resp) =>{
     try{
         const {id} = req.params;
         const cupom = req.body;
@@ -90,7 +90,7 @@ server.put('/cupom/:id', async(req, resp) =>{
     }
     catch(err){
         resp.status(400).send({
-            erro:"Ops, algo não está funcionando corretamente!!"
+            erro:err.message
         }) 
     }
 })

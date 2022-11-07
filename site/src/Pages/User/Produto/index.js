@@ -57,8 +57,7 @@ export default function Produto(){
     function adicionarCarrinho(){
         let carrinho = [];
         if(Storag ('carrinho')){
-            carrinho = Storag('carinho');
-            console.log('Carrinho capotou aki...')
+            carrinho = Storag('carrinho');
         }
 
         if(!carrinho.find(item => item.id == id)){

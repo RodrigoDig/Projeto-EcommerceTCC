@@ -2,6 +2,7 @@ import './index.scss';
 
 import {toast} from 'react-toastify';
 import {useEffect, useState} from 'react';
+import { confirmAlert } from 'react-confirm-alert';
 
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import EstoqueLogo from '../../../assets/images/Caixa-estoquefase01.svg';
@@ -32,14 +33,27 @@ export default function ConsEstoque() {
     }, [])
 
     async function deletarProduto(id) {
-        try{ 
-            await removerProduto(id);
-            await carregarTodosProdutos(id);
-            toast.error("Produto Removido com Sucesso");
-        }
-        catch(err) {
-            toast.error(err.response.data.erro);
-        }
+
+        confirmAlert({
+            title: "Remover produto",
+            message:"Deseja mesmo remover o produto?",
+            buttons:[
+                {
+                    label:"Sim",
+                    onClick: async () =>{
+                        const resposta = await removerProduto(id);
+                        if(filtro === '')
+                            listarTodosProdutos(id);
+                        else
+                            filtrar();
+                        toast.success("Produto removido com sucesso!");
+                    }
+                },
+                {
+                    label: "Não"
+                }
+            ] 
+        })
 
     }
 
