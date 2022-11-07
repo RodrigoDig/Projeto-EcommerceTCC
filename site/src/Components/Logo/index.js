@@ -7,9 +7,9 @@ export default function Logo(){
         <main>
             <section>
                 <div className="espacamento-logo">
-                    <h1>Byte</h1>
+                    <h1 className='text-logo'>Byte</h1>
                     <img src={FogueteIcon} className='foguete-icon-logo'/>
-                    <h1>Speed</h1>
+                    <h1 className='text-logo'>Speed</h1>
                 </div>
             </section>
         </main>
