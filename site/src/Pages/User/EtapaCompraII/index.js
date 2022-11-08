@@ -1,26 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.scss';
+
 import Cabeçalho05 from '../../../Components/Cabeçalho05'
 import { useNavigate } from 'react-router-dom';
 import Etapa from '../../../Components/etapas';
 import Tracos from '../../../assets/images/options.svg';
 import Cart from '../../../assets/images/cartaob.svg';
+import userCartao from '../../../Api/cadCartaoApi'
     
 
 export default function EtapaCompraII(){
+    const [titular, setTitular] =  useState('');
+    const [numeroCartao, setNumeroCartao] = useState('');
+    const [validade, setValidade] = useState('');
+    const [cvv, setCvv] = useState('');
+    const [cpf, setCpf] = useState('');
+    const [nascimento, setNascimento] = useState('');
+    const [pagamento, setPagamento] = useState ('');
+
+    function salvarCartao() {
+
+        let cart = {
+            nome: titular,
+            numero: numeroCartao,
+            validade: validade,
+            cvv: cvv,
+            cpf: cpf,
+            nascimento: nascimento,
+            pagamento: pagamento
+        }
+    }
+    
 
     const navigate = useNavigate();
 
     function voltar(){
         navigate('/etapaI')
 }
-
-
-    function mostrarConteudo(){
-        const temp = document.getElementsByTagName("template")[1];
-        const clon = temp.content.cloneNode(true);
-        document.body.appendChild(clon);
-    }
 
 
     return(
@@ -48,7 +64,7 @@ export default function EtapaCompraII(){
 
                                             <div className='cont-zbx'>
                                                 <button className='cdp'>chave pix</button>
-                                                <button className='cdc' onClick={mostrarConteudo} >
+                                                <button className='cdc'>
                                                     <img className='idz' src={Cart} />
                                                     cartão de crédito
                                                 </button>
@@ -68,20 +84,22 @@ export default function EtapaCompraII(){
                                                     <li className='gsd'> Novo Cartão</li>
 
                                                     <div className='info-1'>
-                                                        <input className='asp' type="text" placeholder="Titular do Cartão" />
-                                                        <input className='ahs' type="text" placeholder="Numéro do Cartão" />
+                                                        <input className='asp' type="text" placeholder="Titular do Cartão" value={titular} onChange={e => setTitular(e.target.value)}/>
+                                                        <input className='ahs' type="text" placeholder="Numéro do Cartão" value={numeroCartao} onChange={e => setNumeroCartao(e.target.value)} />
                                                     </div>
 
                                                     <div className='info-2'>
-                                                        <input className='fja' type="text" placeholder="Validade" />
-                                                        <input className='gad' type="text" placeholder="Verificação CVV" />
-                                                        <input className='gha' type="text" placeholder="Cpf do Titular"  />
+                                                        <input className='fja' type="text" placeholder="Validade" value={validade} onChange={e => setValidade(e.target.value)} />
+                                                        <input className='gad' type="text" placeholder="Verificação CVV" value={cvv} onChange={e => setCvv(e.target.value)} />
+                                                        <input className='gha' type="text" placeholder="Cpf do Titular" value={cpf} onChange={e => setCpf(e.target.value)} />
                                                     </div>
 
                                                     <div className='info-3'>
-                                                        <input className='hga' type="text" placeholder="Nascimento" />
-                                                        <select className='lkf'>
+                                                        <input className='hga' type="text" placeholder="Nascimento" value={nascimento} onChange={e => setNascimento(e.target.value)} />
+                                                        <select className='lkf' value={pagamento} onChange={e => setPagamento(e.target.value)}>
                                                         <option selected disabled hidden >Forma de pagamento</option>
+                                                        <option>Débito</option>
+                                                        <option>Crédito</option>
                                                         </select>
                                                     </div>
                                                 </ul>
@@ -97,7 +115,7 @@ export default function EtapaCompraII(){
                                                     <button onClick={voltar} className='fjh1'> Voltar</button>
                                                 </div>
                                                 <div className='cont-zxd'>
-                                                    <button className='fjh2'> Pagar com cartão</button>
+                                                    <button className='fjh2' onClick={salvarCartao}> Pagar com cartão</button>
                                                 </div>
                                         </div>
                                     </div>
