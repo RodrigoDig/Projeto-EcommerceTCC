@@ -6,12 +6,15 @@ const api = axios.create({
     baseURL: API_URL
 })
 
-export async function cartaoUsuario(nome, numero, validade, cvv){
+export async function cartaoUsuario(nome, numero, validade, cvv, cpf, nascimento, pagamento){
     const r = await api.post('/usuario/cartao', {
         nome,
         numero,
         validade, 
-        cvv
+        cvv,
+        cpf,
+        nascimento,
+        pagamento
     })
 
     return r.data;

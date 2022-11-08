@@ -128,24 +128,25 @@ export async function prodPromoImperdivel(){
     const comando = 
     `
     SELECT 
-        TB_PRODUTO.ID_PRODUTO 		id,
-        ID_DEPARTAMENTO         idDepartamento,
-        NM_PRODUTO              nomeProduto,
-        VL_PRECO                valorProduto,
-        VL_DESCONTO             valorDesconto, 
-        VL_AVALIACAO            avaliacao,
-        DS_FABRICANTE           fabricante,
-        QTD_ESTOQUE             estoque,
-        DS_INFORMACOES          informações,
-        DS_DESCRICAO            descricao,
-        DT_GARANTIA             garantia,
-        IMG_PRODUTO             imagem
-        FROM   TB_PRODUTO
-        INNER JOIN TB_PRODUTO_IMAGEM
-        ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
-        WHERE  VL_DESCONTO > 20
-        GROUP BY TB_PRODUTO.ID_PRODUTO = ID_PRODUTO_IMAGEM
-	    LIMIT  8;
+    TB_PRODUTO.ID_PRODUTO 		id,
+    ID_DEPARTAMENTO         idDepartamento,
+    NM_PRODUTO              nomeProduto,
+    VL_PRECO                valorProduto,
+    VL_DESCONTO             valorDesconto, 
+    VL_AVALIACAO            avaliacao,
+    DS_FABRICANTE           fabricante,
+    QTD_ESTOQUE             estoque,
+    DS_INFORMACOES          informações,
+    DS_DESCRICAO            descricao,
+    DT_GARANTIA             garantia,
+    IMG_PRODUTO             imagem
+    FROM   TB_PRODUTO
+    INNER JOIN TB_PRODUTO_IMAGEM
+    ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
+    WHERE  VL_DESCONTO > 20
+    AND   TB_PRODUTO.ID_PRODUTO = TB_PRODUTO_IMAGEM.ID_PRODUTO
+    GROUP BY TB_PRODUTO.ID_PRODUTO
+    LIMIT  8;
     `
     const [linhas] = await con.query(comando)
     return linhas;
@@ -204,9 +205,10 @@ export async function prodMaisVendidos(){
     IMG_PRODUTO             imagem
     FROM   TB_PRODUTO
     INNER JOIN TB_PRODUTO_IMAGEM
-    ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
-    WHERE  QTD_ESTOQUE < 7
-    GROUP BY TB_PRODUTO.ID_PRODUTO = ID_PRODUTO_IMAGEM
+		ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
+	WHERE  QTD_ESTOQUE < 7
+    AND ID_PRODUTO_IMAGEM = TB_PRODUTO.ID_PRODUTO
+      GROUP BY TB_PRODUTO.ID_PRODUTO
     LIMIT  4;
     `
     const [linhas] = await con.query(comando)

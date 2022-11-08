@@ -7,7 +7,7 @@ server.post('/usuario/cartao', async (req, resp) =>{
     try{
         const cartao = req.body;
         const linhas = await cartaoUsuario(cartao)
-        resp.send(cartao)
+        resp.send(linhas)
 
     }catch(err){
         resp.status(400).send({

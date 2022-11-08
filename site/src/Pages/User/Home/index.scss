@@ -455,6 +455,18 @@
         height: 2.8em;
         margin-right: 0.5em;
     }
+    .cont-capa-dep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 16em;
+    }
+    .img-capa-dep{
+        width: 210px;
+        height: 210px;
+    }
     .titulo-dep-card{
         font-size: 26px;
         font-family: 'Goldman';
