@@ -6,6 +6,9 @@ import Rodape from '../../../Components/Rodapé';
 
 import { prodPromoImperdivel, prodMaisVendidos, depSelecionar, imgProd} from '../../../Api/cadProdutoApi';
 
+import Hardware from '../../../assets/images/Hardware Capa.png';
+import Computadores from '../../../assets/images/Comp Capa.png';
+import Games from '../../../assets/images/Games Capa.png';
 import Controle from '../../../assets/images/Controle-icon.svg'; 
 import TrofeuIcon from '../../../assets/images/Trofeu-icon.svg';
 import SeloIcon from '../../../assets/images/Selo-icon.svg';
@@ -27,6 +30,17 @@ export default function Home() {
         setMaisVendidos(resp);
     }
 
+    function verificarDep(nomeDep){
+        if(nomeDep.toLowerCase() == 'hardware'){
+            return Hardware;
+        }
+        else if(nomeDep.toLowerCase() == 'computadores'){
+            return Computadores;
+        }
+        else if(nomeDep.toLowerCase() == 'games'){
+            return Games;
+        }
+    }
     async function depSelecionado() {
         const resposta = await depSelecionar();
         setDepartamentos(resposta);
@@ -108,6 +122,9 @@ export default function Home() {
                                 <h3 className='titulo-dep-card'>
                                     {item.nomeDepartamento}
                                 </h3>
+                            </div>
+                            <div className='cont-capa-dep'>
+                                <img src={verificarDep(item.nomeDepartamento)} className='img-capa-dep' />
                             </div>
                         </section>
                     )}
