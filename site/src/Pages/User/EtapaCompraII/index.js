@@ -7,6 +7,7 @@ import Etapa from '../../../Components/etapas';
 import Tracos from '../../../assets/images/options.svg';
 import Cart from '../../../assets/images/cartaob.svg';
 import userCartao from '../../../Api/cadCartaoApi'
+import { toast } from 'react-toastify';
     
 
 export default function EtapaCompraII(){
@@ -18,8 +19,9 @@ export default function EtapaCompraII(){
     const [nascimento, setNascimento] = useState('');
     const [pagamento, setPagamento] = useState ('');
 
-    function salvarCartao() {
+   async function salvarCartao() {
 
+    try{
         let cart = {
             nome: titular,
             numero: numeroCartao,
@@ -28,6 +30,14 @@ export default function EtapaCompraII(){
             cpf: cpf,
             nascimento: nascimento,
             pagamento: pagamento
+        }
+
+        const r = await userCartao(cart);
+        toast.dark('Cartão adicionado com sucesso!')
+        
+
+                } catch(err){
+            toast.dark(err.response.data.erro)
         }
     }
     
