@@ -20,6 +20,7 @@ import Login from './Pages/User/LoginI';
 import Pedido from './Pages/User/Pedido';
 import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
+import Status from './Pages/User/Status';
 
 /*ADM*/
 
@@ -60,6 +61,7 @@ export default function Index(){
                 <Route path="/cadastroproduto" element={<Cadastro />} />
                 <Route path="/cupom" element={<Cupom/>} />
                 <Route path="/consulta/cupom" element={<ConsultarCupom/>} />
+                <Route path="/status" exact element={<Status />} />
             </Routes>
         </BrowserRouter>
     )
