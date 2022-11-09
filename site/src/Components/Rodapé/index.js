@@ -65,7 +65,7 @@ export default function Rodape(){
                         <img alt='instagram' className='icons-rodape' src={InstagramIcon} />
                     </div>
 
-                    <hr/>
+                    <hr className='linha-hr'/>
                 </div>
                 <div className='componentes-3'>
                     <div>

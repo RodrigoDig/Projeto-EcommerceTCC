@@ -5,8 +5,6 @@ import Cabeçalho05 from '../../../Components/Cabeçalho05'
 import { useNavigate } from 'react-router-dom';
 import Etapa from '../../../Components/etapas';
 import Tracos from '../../../assets/images/options.svg';
-import Cart from '../../../assets/images/cartaob.svg';
-import userCartao from '../../../Api/cadCartaoApi'
 import { toast } from 'react-toastify';
     
 
@@ -31,9 +29,6 @@ export default function EtapaCompraII(){
             nascimento: nascimento,
             pagamento: pagamento
         }
-
-        const r = await userCartao(cart);
-        toast.dark('Cartão adicionado com sucesso!')
         
 
                 } catch(err){
@@ -75,7 +70,7 @@ export default function EtapaCompraII(){
                                             <div className='cont-zbx'>
                                                 <button className='cdp'>chave pix</button>
                                                 <button className='cdc'>
-                                                    <img className='idz' src={Cart} />
+                                                    <img className='idz' />
                                                     cartão de crédito
                                                 </button>
                                                 <h1 className='ncx'> Utilizar cartão cadastrado?</h1>

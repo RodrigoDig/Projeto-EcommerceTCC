@@ -64,7 +64,7 @@ export default function CardProduto(props){
                         </ul>
                     </div>
                     <div className='img-card'>
-                        <img src={mostrarImg(props.item.imagem)} />
+                        <img src={mostrarImg(props.item.imagem)} className='img-capa'/>
                     </div>
                     <div className='cont-nmproduto-card'>
                         <p className='nm-produto-card'>
