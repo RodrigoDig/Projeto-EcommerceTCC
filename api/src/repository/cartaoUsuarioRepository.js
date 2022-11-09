@@ -2,19 +2,19 @@ import { con } from './connection.js';
 
 export async function cartaoUsuario(cartao){
     const comando = `
-        INSERT INTO TB_USUARIO_CARTAO(
-             ID_USUARIO,
-             NM_CARTAO,
-             NR_CARTAO,
-             DT_VALIDADE,
-             NR_CVV, 
-             DS_CPF, 
-             DT_NASCIMENTO,
-             DS_FORMA_PAGAMENTO)
-            VALUES(?, ?, ?, ?, ?, ?, ?, ?);
+    INSERT INTO TB_USUARIO_CARTAO(
+        ID_USUARIO,         
+        NM_CARTAO,         
+        NR_CARTAO,
+        DT_VALIDADE,   
+        NR_CVV,
+        DS_CPF,
+        DT_NASCIMENTO,
+        DS_FORMA_PAGAMENTO)
+       VALUES(?, ?, ?, ?, ?, ?, ?, ?);
     `
     const [resp] = await con.query(comando, [
-        cartao.idUsuario,
+        cartao.id,
         cartao.nome,
         cartao.numero,
         cartao.validade,
@@ -24,5 +24,5 @@ export async function cartaoUsuario(cartao){
         cartao.pagamento
     ])
 
-    return resp.affectedRows;
+    return resp;
 } 

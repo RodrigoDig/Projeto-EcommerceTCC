@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './index.scss';
 
+import cartaoUsuario from '../../../Api/cadCartaoApi'
 import Cabeçalho05 from '../../../Components/Cabeçalho05'
 import { useNavigate } from 'react-router-dom';
 import Etapa from '../../../Components/etapas';
 import Tracos from '../../../assets/images/options.svg';
 import { toast } from 'react-toastify';
+import Cart from '../../../assets/images/cartaob.svg'
     
 
 export default function EtapaCompraII(){
@@ -20,19 +22,11 @@ export default function EtapaCompraII(){
    async function salvarCartao() {
 
     try{
-        let cart = {
-            nome: titular,
-            numero: numeroCartao,
-            validade: validade,
-            cvv: cvv,
-            cpf: cpf,
-            nascimento: nascimento,
-            pagamento: pagamento
-        }
-        
-
-                } catch(err){
-            toast.dark(err.response.data.erro)
+        const r = await  cartaoUsuario (titular, numeroCartao, validade, cvv, cpf, nascimento, pagamento);
+        toast.success('Cartão cadastrado com sucesso!');
+    } 
+    catch(err){
+         toast.dark(err.response.data.erro)
         }
     }
     
@@ -63,14 +57,14 @@ export default function EtapaCompraII(){
                                         <div className='mlnu'>
 
                                             <div className='cont-nml'>
-                                                <img src={Tracos}/>
+                                                <img className='vzx1' src={Tracos}/>
                                                 <h1 className='nmrx1'>Opções de pagamento</h1>                                                
                                             </div>
 
                                             <div className='cont-zbx'>
                                                 <button className='cdp'>chave pix</button>
                                                 <button className='cdc'>
-                                                    <img className='idz' />
+                                                    <img className='idz' src={Cart} />
                                                     cartão de crédito
                                                 </button>
                                                 <h1 className='ncx'> Utilizar cartão cadastrado?</h1>

@@ -42,6 +42,13 @@
                         padding-left: 0.5em;                        
                     }
 
+                    @media screen and (max-width: 1300px) and (min-width: 1000px){
+                        .nmrx1{
+                            font-size: 1.7em;
+                            margin-bottom: 10em;
+                        }
+                    }                    
+
                 }
 
                 .cont-zbx{
@@ -97,6 +104,20 @@
                          margin-top: 3em;
                          font-size: 40px;
                          
+                    }
+
+                    @media screen and (max-width: 1300px) and (min-width: 1000px){
+                        .cdp{
+                            font-size: 25px;
+                            width: 10em;
+                            height: 2em;
+                        }
+
+                        .cdc{
+                            font-size: 20px;
+                            width: 12.5em;
+                            height: 2em;
+                        }
                     }
                 }
 
@@ -258,11 +279,7 @@
                   
                 }
 
-                .cont-zxd{
-
-             
-                    
-                    
+                .cont-zxd{ 
                     
                     .fjh1{
                         background-color: #f27400;
@@ -276,8 +293,43 @@
                     }
                 
                 }
+
+                @media screen and (max-width: 1300px) and (min-width: 1000px){
+                    .cont-nml{
+                        position: absolute;
+                        left: 3em;
+                        top: 5%;
+                    }
+
+                    .cont-zbx{
+                        position: absolute;
+                        left: 3em;
+                        top: 20%;
+                    }
+                }
                 
-            }         
+            } 
+            @media screen and (max-width: 1300px) and (min-width: 1000px){
+
+                .vzx1{
+                    padding-top: 1em;
+                    width: 4em;
+                    height: 3em;
+                }
+
+                .nmrx1{
+                    font-size: 0.7em;
+                }
+
+                .mlnu{
+                    width: 120%;
+                    height: 120vh;
+                }
+                
+                .const-adl{
+                    font-size: 0.7em;
+                }
+            }        
         }      
         .cnt-03{
             display: flex;
@@ -321,5 +373,12 @@
                     }
                 }
             }
+    
+    }
+
+    @media screen and (max-width: 1300px) and (min-width: 1000px){
+        .dtt-2{
+            
+        }
     }
 }
