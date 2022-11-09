@@ -3,9 +3,10 @@ import './index.scss';
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import CupomLogo from '../../../assets/images/cupom (1).png';
 
-import { alterarCupom, cadCupom } from '../../../Api/cadCupomAPI';
-import { useState } from 'react';
+import { alterarCupom, buscarId, cadCupom } from '../../../Api/cadCupomAPI';
+import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 
 export default function Cupom() {
     const [cupom, setCupom] = useState();
@@ -15,9 +16,22 @@ export default function Cupom() {
     const [vencimento, setVencimento] = useState();
     const [id, setId] = useState(0);
 
+    const { idParam } = useParams();
+
+    useEffect(() => {
+        if(idParam){
+            carregarCupom();
+        }
+    }, [])
+
+    async function carregarCupom(){
+        const resposta = await buscarId(idParam);
+        setCupom(id)
+    }
+
     async function salvarClick() {
         try {
-            //let idCupom = 0;
+
             if(id === 0){
                 const novoCupom = await cadCupom(cupom, codigo, desconto, inscricao, vencimento);
                 setId(novoCupom.id);

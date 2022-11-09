@@ -60,6 +60,7 @@ export default function Index(){
                 <Route path="/loginadm" element={<LoginAdm />} />
                 <Route path="/cadastroproduto" element={<Cadastro />} />
                 <Route path="/cupom" element={<Cupom/>} />
+                <Route path="/alterar/:idParam" element={<Cupom/>} />
                 <Route path="/consulta/cupom" element={<ConsultarCupom/>} />
                 <Route path="/status" exact element={<Status />} />
             </Routes>

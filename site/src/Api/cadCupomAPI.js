@@ -41,9 +41,13 @@ export async function buscarNome(nome){
 }
 
 
-export async function deletarCupom(id) {
-    
+export async function deletarCupom(id) {  
     const resposta = await api.delete('/cupom/' + id);
+    return resposta.data;
+}
+
+export async function buscarId(id){
+    const resposta = await api.get(`/consulta/cupom/${id}`);
     return resposta.data;
 }
 
