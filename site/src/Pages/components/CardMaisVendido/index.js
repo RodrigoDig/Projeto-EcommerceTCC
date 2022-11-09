@@ -60,7 +60,7 @@ export default function CardProduto(props){
         <section className='cont-card-mais-vendido'>
                             <div className='cont-01-card'>
                                 <div className='cont-desconto-card'>
-                                    <img src={Fogo2Icon} className='fogo-card-mvendido' />
+                                    <img src={Fogo2Icon} className='fogo-icon' />
                                 </div>
                                 <div className='cont-rec-card'>
                                     <h1 className='titulo-rec-card'>
@@ -77,7 +77,7 @@ export default function CardProduto(props){
                                 </ul>
                             </div>
                             <div className='img-card'>
-                                <img src={mostrarImg(props.item.imagem)} alt=''/>
+                                <img src={mostrarImg(props.item.imagem)} className='img-capa' alt=''/>
                             </div>
                             <div className='cont-nmproduto-card'>
                                 <p className='nm-produto-card'>

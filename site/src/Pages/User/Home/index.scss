@@ -378,26 +378,6 @@
         width: 8em;
         height: 4em;
     }
-    .coracao-icon-card{
-        width: 30px;
-        height: 30px;
-    }
-    .cont-favorito-card{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        width: 5.3em;
-        height: 5em;
-
-
-        border-radius: 10px;
-    }
-    .coracao-icon-card{
-        fill: #C90000;
-        cursor: pointer;
-    }
 
     .cont-filha4-002home{
         display: flex;
@@ -531,12 +511,6 @@
         margin-top: 0.6em;
         margin-right: 0.8em;
     }
-    .cont-rec-card{
-        display: flex;
-        flex-direction: column;
-        width: 9em;
-        height: 4em;
-    }
     @media screen and (max-width: 1500px) and (min-width: 1300px){
         .cont-cabecalho-home{
             height: 3.6em;
@@ -600,6 +574,53 @@
         }
         .cont-filha2-002home{
             width: 97%;
+        }
+        .cont-filha3-002home{
+            width: 12em;
+            height: 2em;
+            margin-top: 1.3em;
+        }
+        .titulo-maisvendido-home{
+            font-size: 18px;
+        }
+        .cont-filha4-002home{
+            width: 14em;
+            height: 2em;
+            margin-top: 1.3em;
+        }
+        .dep-icon-home{
+            width: 24px;
+            height: 24px; 
+        }
+        .titulo-departamento-home{
+            font-size: 18px;
+        }
+
+        .cont-dep-card{
+            background-size: 100%;
+            width: 16em;
+            height:13em;
+        }
+        .img-capa-dep{
+            width: 170px;
+            height: 170px;
+        }
+        .cont-capa-dep{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 9em;
+        }
+        .dep-card{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 8em;
+            height: 2.8em;
+            margin-right: 0.5em;
         }
     }
 }

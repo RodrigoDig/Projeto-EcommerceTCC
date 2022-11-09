@@ -51,6 +51,12 @@
         width: 18px;
         height: 18px;
     }
+    .cont-rec-card{
+        display: flex;
+        flex-direction: column;
+        width: 9em;
+        height: 4em;
+    }
     .titulo-desc-card{
         font-family: 'Goldman';
         font-size: 18px;
@@ -76,28 +82,46 @@
     
         width: 7em;
         height:2.4em;
+        .star-icon{
+            list-style-type: none;
+            cursor: pointer;
+            color: #FF9736;
+        
+            font-size: 27px;
+            margin: 0px;
+        }
+        .star-icon::before{
+            content:"\2605";
+        }
+        .star-icon.ativo ~ .star-icon::before{
+            content: "\2606";
+        }
+        
+        .cont-avaliacao-star:hover .star-icon::before{
+            content: "\2605";
+        }
+        .star-icon:hover ~ .star-icon::before{
+            content: "\2606";
+        }
+        @media screen and (max-width:1300px) and (min-width:1000px) {
+            .star-icon{
+                font-size: 17px;
+                margin: 0px;
+            }
+        }
     }
     
-    .star-icon{
-        list-style-type: none;
-        cursor: pointer;
-        color: #FF9736;
-    
-        font-size: 27px;
-        margin: 0px;
-    }
-    .star-icon::before{
-        content:"\2605";
-    }
-    .star-icon.ativo ~ .star-icon::before{
-        content: "\2606";
-    }
-    
-    .cont-avaliacao-star:hover .star-icon::before{
-        content: "\2605";
-    }
-    .star-icon:hover ~ .star-icon::before{
-        content: "\2606";
+    .cont-favorito-card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 5.3em;
+        height: 5em;
+
+
+        border-radius: 10px;
     }
     .img-card{
         margin-top: 1em;
@@ -165,6 +189,14 @@
         background-color: #e1e1e1;
         border: 1px solid #F27400;
     }
+    .coracao-icon-card{
+        width: 30px;
+        height: 30px;
+    }
+    .coracao-icon-card{
+        fill: #C90000;
+        cursor: pointer;
+    }
     .text-restam-card{
         font-size: 15px;
         font-family: 'Goldman';
@@ -209,5 +241,112 @@
         font-family: 'Goldman';
     
         margin: 0px;
+    }
+
+    @media screen and (max-width: 1300px) and (min-width:1000px) {
+        height: 350px;
+        width: 14em;
+        
+        .cont-01-card{
+            margin-top: 0.3em;
+            justify-content: space-around;
+            width: 12.5em;
+            height: 2.8em;
+        }
+        .coracao-icon-card{
+            width: 20px;
+            height: 20px;
+        }
+        .coracao-icon-card{
+            fill: #C90000;
+            cursor: pointer;
+        }
+        .cont-desconto-card{
+            margin: 0px;
+            width: 2.4em;
+            height: 2.4em;
+            margin-top: 0.3em;
+        }
+        .cont-rec-card{
+            width: 5.2em;
+            height: 2.8em;
+        }
+        .titulo-rec-card{
+            font-size: 9px;
+            margin: 0px;
+            height: max-content;
+            margin-top: 0.5em;
+        }
+        .cont-avaliacao-star{
+            width: 4em;
+            height: 2em;
+        }
+        .valor-desconto-card{
+            font-size: 13px;
+        }
+        .seta-card-desc{
+            width: 13px;
+            height: 13px;
+        }
+        .img-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.2em;
+            width: 9em;
+            height: 9em;
+        }
+        .img-capa{
+            width: 130px;
+            height: 130px;
+        }
+        .fogo-icon{
+            width: 20px;
+            height: 20px;
+        }
+        .nm-produto-card{
+            font-size: 10px;  
+        }
+        .cont-nmproduto-card{
+            margin-top: 0.3em;
+            width: 12em;
+            height: 3em;
+            margin-bottom: 0px;
+        }
+        .cont-valorqtd-card{
+            margin-top: 0px;
+            justify-content: flex-start;
+            width: 87%;
+            height: 3em;
+            margin-bottom: 0.4em;
+        }
+        .cont-favorito-card{
+            width: 3em;
+            height: 2em;
+        }
+        .cont-valores-card{
+            align-items: center;
+            justify-content: center;
+            width: 70%;
+            height: 2em;
+        }
+        .antigo-valor{
+            font-size: 10px;
+        }
+        .valor-atual{
+            font-size: 17px;
+        }
+        .botao-comprar-card{
+            width: 8em;
+            height: 2em;
+        }
+        .carrinho-icon-card{
+            width: 25px;
+            height: 25px;
+        }
+        .titulo-comprar-card{
+            font-size: 11px;
+        }
     }
 }

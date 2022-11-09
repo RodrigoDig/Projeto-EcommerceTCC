@@ -106,7 +106,7 @@
 
         @media screen and (max-width:1300px) and (min-width:1000px) {
             .star-icon{
-                font-size: 22px;
+                font-size: 17px;
                 margin: 0px;
             }
         }
@@ -224,26 +224,26 @@
         margin: 0px;
     }
     @media screen and (max-width: 1300px) and (min-width:1000px) {
-        height: 340px;
+        height: 350px;
         width: 14em;
         
         .cont-01-card{
             margin-top: 0.3em;
             justify-content: space-around;
-            width: 13em;
-            height: 3.8em;
+            width: 12.5em;
+            height: 2.8em;
         }
         .cont-desconto-card{
             margin: 0px;
             width: 2.4em;
             height: 2.4em;
-            margin-top: 0.5em;
+            margin-top: 0.3em;
         }
         .titulo-desc-card{
             font-size: 11px;
             margin: 0px;
             height: 1em;
-            margin-top: 0.9em;
+            margin-top: 0.5em;
         }
         .cont-avaliacao-star{
             width: 4em;
@@ -253,18 +253,18 @@
             font-size: 15px;
         }
         .valor-desconto-card{
-            font-size: 14px;
+            font-size: 13px;
         }
         .seta-card-desc{
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
         }
         .img-card{
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            margin-top: 0.7em;
+            margin-top: 0.2em;
             width: 9em;
             height: 9em;
         }
@@ -273,54 +273,55 @@
             height: 130px;
         }
         .nm-produto-card{
-            font-size: 12px;  
+            font-size: 10px;  
         }
         .cont-nmproduto-card{
-            margin-top: 0.6em;
+            margin-top: 0.3em;
             width: 12em;
-            height: 4em;
+            height: 3em;
+            margin-bottom: 0px;
         }
         .cont-valorqtd-card{
+            margin-top: 0px;
             justify-content: flex-start;
             width: 87%;
-            height: 4.2em;
-            margin-bottom: 0.2em;
+            height: 3.6em;
+            margin-bottom: 0.4em;
         }
         .cont-valores-card{
             width: 70%;
             height: 3em;
         }
         .antigo-valor{
-            font-size: 12px;
-        }
-        .valor-atual{
-            font-size: 20px;
-        }
-        .qtd-estoque-card{
-            width: 4em;
-            height: 3.6em; 
-        }
-        .text-restam-card{
-            font-size: 12px;
-        }
-        .unidades-text-card{
             font-size: 10px;
         }
+        .valor-atual{
+            font-size: 17px;
+        }
+        .qtd-estoque-card{
+            width: 3.2em;
+            height: 3em; 
+            border-radius: 8px;
+        }
+        .text-restam-card{
+            font-size: 9px;
+        }
+        .unidades-text-card{
+            font-size: 8px;
+        }
         .qtd-restam-card{
-            font-size: 18px;
+            font-size: 16px;
         }
         .botao-comprar-card{
-            margin-top: 0.4em;
-            width: 11em;
-            height: 2.6em;
+            width: 8em;
+            height: 2em;
         }
         .carrinho-icon-card{
-            width: 31px;
-            height: 33px;
+            width: 25px;
+            height: 25px;
         }
         .titulo-comprar-card{
-            font-size: 14px;
+            font-size: 11px;
         }
     }
-
 }
