@@ -81,29 +81,37 @@
     
         width: 7em;
         height:2.4em;
+        .star-icon{
+            list-style-type: none;
+            cursor: pointer;
+            color: #FF9736;
+        
+            font-size: 27px;
+            margin: 0px;
+        }
+    
+        .star-icon::before{
+            content:"\2605";
+        }
+        .star-icon.ativo ~ .star-icon::before{
+            content: "\2606";
+        }
+        
+        .cont-avaliacao-star:hover .star-icon::before{
+            content: "\2605";
+        }
+        .star-icon:hover ~ .star-icon::before{
+            content: "\2606";
+        }
+
+        @media screen and (max-width:1300px) and (min-width:1000px) {
+            .star-icon{
+                font-size: 22px;
+                margin: 0px;
+            }
+        }
     }
     
-    .star-icon{
-        list-style-type: none;
-        cursor: pointer;
-        color: #FF9736;
-    
-        font-size: 27px;
-        margin: 0px;
-    }
-    .star-icon::before{
-        content:"\2605";
-    }
-    .star-icon.ativo ~ .star-icon::before{
-        content: "\2606";
-    }
-    
-    .cont-avaliacao-star:hover .star-icon::before{
-        content: "\2605";
-    }
-    .star-icon:hover ~ .star-icon::before{
-        content: "\2606";
-    }
     .img-card{
         margin-top: 1em;
         width: 12em;
@@ -215,4 +223,104 @@
     
         margin: 0px;
     }
+    @media screen and (max-width: 1300px) and (min-width:1000px) {
+        height: 340px;
+        width: 14em;
+        
+        .cont-01-card{
+            margin-top: 0.3em;
+            justify-content: space-around;
+            width: 13em;
+            height: 3.8em;
+        }
+        .cont-desconto-card{
+            margin: 0px;
+            width: 2.4em;
+            height: 2.4em;
+            margin-top: 0.5em;
+        }
+        .titulo-desc-card{
+            font-size: 11px;
+            margin: 0px;
+            height: 1em;
+            margin-top: 0.9em;
+        }
+        .cont-avaliacao-star{
+            width: 4em;
+            height: 2em;
+        }
+        .star-icon{
+            font-size: 15px;
+        }
+        .valor-desconto-card{
+            font-size: 14px;
+        }
+        .seta-card-desc{
+            width: 14px;
+            height: 14px;
+        }
+        .img-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.7em;
+            width: 9em;
+            height: 9em;
+        }
+        .img-capa{
+            width: 130px;
+            height: 130px;
+        }
+        .nm-produto-card{
+            font-size: 12px;  
+        }
+        .cont-nmproduto-card{
+            margin-top: 0.6em;
+            width: 12em;
+            height: 4em;
+        }
+        .cont-valorqtd-card{
+            justify-content: flex-start;
+            width: 87%;
+            height: 4.2em;
+            margin-bottom: 0.2em;
+        }
+        .cont-valores-card{
+            width: 70%;
+            height: 3em;
+        }
+        .antigo-valor{
+            font-size: 12px;
+        }
+        .valor-atual{
+            font-size: 20px;
+        }
+        .qtd-estoque-card{
+            width: 4em;
+            height: 3.6em; 
+        }
+        .text-restam-card{
+            font-size: 12px;
+        }
+        .unidades-text-card{
+            font-size: 10px;
+        }
+        .qtd-restam-card{
+            font-size: 18px;
+        }
+        .botao-comprar-card{
+            margin-top: 0.4em;
+            width: 11em;
+            height: 2.6em;
+        }
+        .carrinho-icon-card{
+            width: 31px;
+            height: 33px;
+        }
+        .titulo-comprar-card{
+            font-size: 14px;
+        }
+    }
+
 }

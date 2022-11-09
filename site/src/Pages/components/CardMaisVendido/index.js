@@ -57,7 +57,7 @@ export default function CardProduto(props){
         return resp;
     }
     return(
-        <section className='cont-card-main'>
+        <section className='cont-card-mais-vendido'>
                             <div className='cont-01-card'>
                                 <div className='cont-desconto-card'>
                                     <img src={Fogo2Icon} className='fogo-card-mvendido' />

@@ -136,21 +136,21 @@
         height: max-content;
     }
 
-    .cont-card-main{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        width: 22.5em;
-        height: 550px;
+    // .cont-card-main{
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    //     justify-content: flex-start;
+    //     width: 22.5em;
+    //     height: 550px;
 
-        border-radius: 13px;
+    //     border-radius: 13px;
 
-        background-color: #fff;
+    //     background-color: #fff;
 
-        margin-right: 1em;
-        margin-bottom: 1.5em;
-    }
+    //     margin-right: 1em;
+    //     margin-bottom: 1.5em;
+    // }
     .cont-01-card{
         display: flex;
         flex-direction: row;
@@ -537,10 +537,69 @@
         width: 9em;
         height: 4em;
     }
-
-    @media screen and (max-width: 1500px) and (min-width: 1000px){
+    @media screen and (max-width: 1500px) and (min-width: 1300px){
         .cont-cabecalho-home{
             height: 3.6em;
+        }
+    }
+    @media screen and (max-width: 1299px) and (min-width: 1000px){
+        .cont-cabecalho-home{
+            height: 3.3em;
+        }
+        .cont-001-home{
+            height: 15em;
+        }
+        .cont-filha1-001{
+            height: 15em;
+            width: 33.3%;
+        }
+        .titulo-01-home{
+            text-align: center;
+            margin: 0px;
+            font-size: 16px;
+        }
+        .controle-icon-home{
+            width: 120px;
+            height: 120px;
+        }
+        .cont-filha2-001{
+            height: 15em;
+            width: 33.3%;
+        }
+        .trofeu-icon-home{
+            width: 100px;
+            height: 100px;
+            margin: 0px;
+        }
+        .titulo-02-home{
+            font-size: 16px;
+        }
+        .cont-filha3-001{
+            height: 15em;
+            width: 33.3%;
+        }
+        .selo-icon-home{
+            margin: 0px;
+            width: 79px;
+            height: 79px;
+        }
+        .titulo-03-home{
+            font-size: 16px;
+        }
+        .cont-filha1-002home{
+            width: 20em;
+            height: 2em;
+            margin-top: 1.3em;
+        }
+        .relogio-icon-home{
+            width: 25px;
+            height: 25px;
+        }
+        .titulo-promocoes-home{
+            font-size: 18px;
+        }
+        .cont-filha2-002home{
+            width: 97%;
         }
     }
 }

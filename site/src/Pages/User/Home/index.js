@@ -95,7 +95,7 @@ export default function Home() {
                 </div>
                 <div className='cont-filha2-002home'>
                     {produtos.map(item =>
-                        <CardProduto item={item} />
+                        <CardProduto className='comp-promo' item={item} />
                     )}
                 </div>
                 <div className='cont-filha3-002home'>
