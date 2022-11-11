@@ -1,0 +1,73 @@
+.sct{
+    background-color: #d9d9d9 ;
+    height: 150vh;
+
+    .align-1{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 50%;
+
+        .dv-1{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            background-color: #fff;
+            width: 95%;
+            height: 76%;
+            border-radius: 1em;
+
+            .align-2{
+                font-size: 2em;
+
+                .txt-1{
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .txt-2{
+                }
+            }
+
+            .align-3{
+             display: flex;
+             justify-content: flex-end;
+             align-items: flex-end;
+
+             width: 100%;
+
+                .img-1{
+                    padding-right: 3em;
+
+                }
+        
+            }
+        }
+
+        
+        
+    }
+    .align-4{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    
+        height: 50vh;
+
+            .card-1{
+                width: 10em;
+                background-color: #fff;
+            }
+    
+            .card-2{
+    
+            }
+    
+            .card-3{
+    
+            }
+    }
+}
