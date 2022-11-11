@@ -13,7 +13,7 @@ export default function Cabecalho3(){
 
     return(
         <main>
-            <section className='cabecalho2'>
+            <section className='cabecalho03'>
                 <div onClick={Home} className='cont-logo'>
                     <Logo className='logo-bt'/>
                 </div>

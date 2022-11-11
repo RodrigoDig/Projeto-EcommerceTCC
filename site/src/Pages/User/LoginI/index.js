@@ -65,7 +65,7 @@ export default function UserLogin() {
                 </div>
                 <div className='cont-02-login1'>
                     <div className='bloco-informações'>
-                        <h1>User Login</h1>
+                        <h1 className='titulo-user'>User Login</h1>
 
                         <div className='input-login'>
                             <img src={LoginIcon} className='logo-login-user' />

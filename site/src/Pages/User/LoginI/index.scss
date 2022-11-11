@@ -2,11 +2,8 @@
     display: flex;
     flex-direction: column;
 
-    background-image: url(../../../assets/images/login-I.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position-y: -70px;
 
+    width: 100%;
     height: 100vh;
     .cont-caecalho-login1{
         width: 100%;
@@ -17,6 +14,10 @@
         flex-direction: row;
         align-items: center;
         justify-content: flex-end;
+        background-image: url(../../../assets/images/login-I.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        box-shadow: inset 0px 1200px 4px rgba(0, 0, 0, 0.25);
         width: 100%;
         height: 100%;
     }
@@ -26,20 +27,12 @@
         align-items: center;
 
         margin-right: 3em;
-
+        
         background: rgba(255, 255, 255, 0.85);
         border-radius: 50px;
-
-        width: 42em;
         
-        h1{
-            font-family: 'Goldman';
-            font-weight: normal;
-            font-size: 3.5em;
-
-            color: #852E8A;
-        }
-
+        width: 42em;
+    }
         .input-login{
             display: flex;
             flex-direction: row;
@@ -59,7 +52,7 @@
                 font-size: 1.8em;
 
             }
-
+            
             ::-webkit-input-placeholder { 
                 font-size:1.3em;
                 text-align: center;
@@ -90,25 +83,32 @@
             input{
                 border: 0px;
                 outline: none;
-
+                
                 font-family: 'Goldman';
                 font-size: 1.8em;
-
+                
             }
-
+            
             ::-webkit-input-placeholder { 
                 font-size:1.3em;
                 text-align: center;
-
+                
                 color: #852E8A;
             }
         }
+        
+        
+        .titulo-user{
+            font-family: 'Goldman';
+            font-weight: normal;
+            font-size: 3.5em;
 
-
+            color: #852E8A;
+        }
         .input-login-3{
             margin-top: 3em;
             input{
-
+                
                 background-image: url('../../../assets/images/email 10.png');
                 background-repeat: no-repeat;
                 background-size: 1.8em;
@@ -176,11 +176,25 @@
         
                 
             }
-        }
         .user-invalido{
             font-size: 1em;
             color:#ff0000;
 
             margin: 0px;
         }
+    @media screen and (max-width:1300px) and (min-width:1000px){
+            .cont-caecalho-login1{
+                height: 4em;
+            }
+            .cont-02-login1{
+                background-size: 100% 100%;
+            }
+            .bloco-informações{
+                width: 22em;
+                height: 29em;
+            }
+            .titulo-user{
+                font-size: 20px;
+            }
+    }
 }

@@ -1,4 +1,4 @@
-.cabecalho2{
+.cabecalho03{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,5 +36,17 @@
     .login-icon{
         margin-right: 4em;
     }
-
+    @media screen and (max-width:1300px) and (min-width:1000px) {
+        height: 4em;
+        .cont-logo{
+        
+            padding: 0px;
+        
+            width: 14em;
+            height: 3em;
+        }
+        .login-icon{
+            margin-right: 2em;
+        }
+    }
 }

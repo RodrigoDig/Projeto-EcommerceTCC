@@ -596,6 +596,9 @@
             font-size: 18px;
         }
 
+        .cont-map-dep{
+            height: 24em;
+        }
         .cont-dep-card{
             background-size: 100%;
             width: 16em;
@@ -617,10 +620,28 @@
             display: flex;
             flex-direction: row;
             justify-content: center;
-            align-items: center;
+            align-items: flex-end;
             width: 8em;
-            height: 2.8em;
+            height: 2.3em;
             margin-right: 0.5em;
+        }
+        .titulo-dep-card{
+            font-size: 17px;
+        }
+        .cont-filha5-002home{
+            width: 13em;
+            height: 2em;
+            margin-top: 1.3em;
+        }
+        .rec-icon-home{
+            width: 30px;
+            height: 30px; 
+        }
+        .titulo-recomendados-home{
+            font-size: 18px;
+        }
+        .cont-filha6-002home{
+            width: 97%;
         }
     }
 }
