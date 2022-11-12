@@ -8,6 +8,7 @@ import Cabecalho03 from '../../../Components/Cabeçalho03';
 import { useNavigate } from 'react-router-dom';
 import userlogin from '../../../Api/userLogin';
 
+import Gmail from '../../../assets/images/gmail icon.svg';
 import LoginIcon from '../../../assets/images/user 15.svg';
 import CadeadoIcon from '../../../assets/images/cadeado 10.png';
 
@@ -69,29 +70,36 @@ export default function UserLogin() {
 
                         <div className='input-login'>
                             <img src={LoginIcon} className='logo-login-user' />
-                            <input type='text' placeholder='Insira seu nome' value={nome} onChange={e => setNome(e.target.value)} />
+                            <input className='input01' type='text' placeholder='Insira seu nome' value={nome} onChange={e => setNome(e.target.value)} />
                         </div>
 
                         <div className='input-login-2'>
                             <img src={CadeadoIcon} className='logo-cad-user' />
-                            <input type='password' placeholder='Insira sua senha' value={senha} onChange={e => setSenha(e.target.value)} />
+                            <input className='input02' type='password' placeholder='Insira sua senha' value={senha} onChange={e => setSenha(e.target.value)} />
                         </div>
 
-                        <div className='input-login-3'>
-                            <input type='text' placeholder='Insira seu email' value={email} onChange={e => setEmail(e.target.value)} />
+                        <div className='input-login-2'>
+                            <img src={Gmail} className='gmail-icon'/>
+                            <input className='input02' type='text' placeholder='Insira seu email' value={email} onChange={e => setEmail(e.target.value)} />
                         </div>
 
-                        <div>
+                        <div className='cont-user-invalido'>
                             <p className='user-invalido'>
                                 {erro}
                             </p>
                         </div>
-                        <div className='botao-login'>
-                            <button onClick={entrarClick} disabled={carregando}>Login</button>
-                        </div>
+                            <button className='botao-login' onClick={entrarClick} disabled={carregando}>Login</button>
 
                         <div className='texto-final-login'>
-                            <p>Não possui uma conta? Acesse aqui e <p onClick={cadUser}> cadastre-se</p> </p>
+                            <div className='cont-text-final'>
+                                <p className='text-final'>Não possui uma conta? </p>
+                            </div>
+                            <div className='cont-cad'>
+                                <p className='text-final'>
+                                    Acesse aqui e
+                                </p>
+                                <p className='text-cad' onClick={cadUser}> cadastre-se</p>
+                            </div>
                         </div>
 
                     </div>

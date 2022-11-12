@@ -42,23 +42,23 @@
 
             width: 34em;
             height: 4.5em;
-            input{
-
-                outline: none;
-
-                border: none;
-
-                font-family: 'Goldman';
-                font-size: 1.8em;
-
-            }
             
-            ::-webkit-input-placeholder { 
-                font-size:1.3em;
-                text-align: center;
-
-                color: #852E8A;
-            }
+        }
+        .input01{
+            
+            outline: none;
+            
+            border: none;
+            
+            font-family: 'Goldman';
+            font-size: 1.8em;
+            
+        }
+        ::-webkit-input-placeholder { 
+            font-size:1.3em;
+            text-align: center;
+            
+            color: #852E8A;
         }
         .logo-login-user{
             margin-left: 0.9em;
@@ -80,21 +80,21 @@
 
             width: 34em;
             height: 4.5em;
-            input{
-                border: 0px;
-                outline: none;
-                
-                font-family: 'Goldman';
-                font-size: 1.8em;
-                
-            }
             
-            ::-webkit-input-placeholder { 
-                font-size:1.3em;
-                text-align: center;
-                
-                color: #852E8A;
-            }
+        }
+        ::-webkit-input-placeholder { 
+            font-size:1.3em;
+            text-align: center;
+            
+            color: #852E8A;
+        }
+        .input02{
+            border: 0px;
+            outline: none;
+            
+            font-family: 'Goldman';
+            font-size: 1.8em;
+            
         }
         
         
@@ -107,78 +107,89 @@
         }
         .input-login-3{
             margin-top: 3em;
-            input{
-                
-                background-image: url('../../../assets/images/email 10.png');
-                background-repeat: no-repeat;
-                background-size: 1.8em;
-                background-position: 12px;
+            
+        }
+        .gmail-icon{
+            width: 45px;
+            height: 45px;
+        }
+        .input03{
+            outline: none;
 
-                outline: none;
+            border: 3px solid #FF6F86;
+            border-radius: 25px;
 
-                border: 3px solid #FF6F86;
-                border-radius: 25px;
+            font-family: 'Goldman';
+            font-size: 1.8em;
+            width: 19em;
+            height: 2.6em;
+            color: #550255;
 
-                font-family: 'Goldman';
-                font-size: 1.8em;
-                width: 19em;
-                height: 2.6em;
-                color: #550255;
-
-            }
-
-            ::-webkit-input-placeholder { 
-                font-size:1.3em;
-                text-align: center;
-
-                color: #852E8A;
-            }
         }
 
 
         .botao-login{
             margin-top: 1em;
+            
+            width: 14em;
+            height: 2.1em;
 
-            button{
-                width: 14em;
-                height: 2.1em;
+            border-radius: 20px;
+            border: #FF6F86;
 
-                border-radius: 20px;
-                border: #FF6F86;
+            font-family: 'Goldman';
+            font-size: 2.5em;
 
-                font-family: 'Goldman';
-                font-size: 2.5em;
+            background-color: #FF6F86;
+            color: #fff;
 
-                background-color: #FF6F86;
-                color: #fff;
+            transition: 0.3s;
+            cursor: pointer;
 
-                transition: 0.3s;
-                cursor: pointer;
-            }
-
-            button:hover{
-                background: rgba(255, 255, 255, 0.30);
-                border: 0.5px solid #FF6F86;
-                color: #FF6F86;
-            }
+        }
+        .botao-login:hover{
+            background: rgba(255, 255, 255, 0.30);
+            border: 0.5px solid #FF6F86;
+            color: #FF6F86;
         }
 
         .texto-final-login{
             
-                p{ font-family: 'Goldman';
-                font-size: 1em;
-
-                    color: #852E8A;
-                    width: 15em;
-
-                    text-align: center;
-                }
-        
-                
-            }
-        .user-invalido{
+            
+            
+        }
+        .text-final{ font-family: 'Goldman';
             font-size: 1em;
-            color:#ff0000;
+
+            width: max-content;
+            color: #FF6F86;
+        }
+        .cadastre-se{
+            width: 10em;
+            height: 7em;
+        }
+        .cont-cad{
+            margin-left: 0.5em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 12.6em;
+            height: 2em;
+        }
+        .text-cad{
+            margin: 0px;
+            width: 8em;
+            font-weight: 700;
+            font-size: 13px;
+            color: #852E8A;
+        }
+        .cont-user-invalido{
+            width: max-content;
+            height: 1em;
+        }
+        .user-invalido{
+            font-size: 16px;
+            color:#ff0000b7;
 
             margin: 0px;
         }
@@ -190,11 +201,93 @@
                 background-size: 100% 100%;
             }
             .bloco-informações{
+                justify-content: space-evenly;
+                border-radius: 17px;
                 width: 22em;
-                height: 29em;
+                height: 27em;
             }
             .titulo-user{
                 font-size: 20px;
+            }
+            .input-login{
+                border: 1px solid #FF6F86;
+                border-radius: 10px;
+                align-items: center;
+                width: 17em;
+                height: 2.2em;
+                background-color: transparent;
+            }
+            .botao-login{
+                margin-top: 0.3em;
+                border-radius: 9px;
+                width: 10em;
+                height: 2.3em;
+                font-size: 17px;
+
+            }
+            .input-login-2{
+                border: 1px solid #FF6F86;
+                border-radius: 10px;
+                align-items: center;
+                width: 17em;
+                height: 2.2em;
+                background-color: transparent;
+            }
+            .input01{
+                font-size: 15px;
+                padding-left: 0.4em;
+                width: 15em;
+                height: 1.9em;
+                background-color: transparent;
+            }
+            .input02{
+                font-size: 15px;
+                width: 15em;
+                padding-left: 0.4em;
+                height: 1.9em;
+                background-color: transparent;
+            }
+            .input03{
+                font-size: 15px;
+                width: 15em;
+
+                padding-left: 0.4em;
+                height: 1.9em;
+                background-color: transparent;
+            }
+            ::-webkit-input-placeholder { 
+                font-size:1em;
+                text-align: center;
+                
+                color: #852E8A;
+            }
+            .logo-login-user{
+                margin: 0px;
+                width: 22px;
+                height: 22px;
+                margin-left: 0.7em;
+            }
+            .logo-cad-user{
+                margin: 0px;
+                width: 22px;
+                height: 22px;
+                margin-left: 0.7em;
+            }
+            .gmail-icon{
+                margin-left: 0.7em;
+                width: 22px;
+                height: 22px;
+            }
+            .texto-final-login{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 17em;
+                height: 5em;
+            }
+            .text-final{
+                margin: 0px;
+                font-size: 13px;
             }
     }
 }
