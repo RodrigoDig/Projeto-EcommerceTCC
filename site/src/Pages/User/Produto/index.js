@@ -4,6 +4,7 @@ import './index.scss';
 import Cabecalho1 from '../../../Components/Cabeçalho01';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import { CardOutrasOp } from '../../components/CardOutrasOp';
+import { useNavigate } from 'react-router-dom';
 
 import Storag from 'local-storage';
 import Carrinho from '../../../assets/images/Carrinho-branco.svg'
@@ -26,6 +27,7 @@ import { estrelasAvaliacao } from '../../components/estrelaAva';
 export default function Produto(){
     const [produtos, setProdutos] = useState({ info: {}, cat: [], maiorAvaliacao: [], menorAvaliacao: [], opGeral: []});
     const { id } = useParams();
+    const navigate = useNavigate();
     
     function opiniaoGeral(item, qtd){
         let condicao = item / qtd;
@@ -36,6 +38,10 @@ export default function Produto(){
         const r = await prodSelCompra(id);
         console.log(r);
         setProdutos(r);
+    }
+
+    function comprar(){
+        navigate('/etapai');
     }
 
     function valorDesconto(valor, desconto) {
@@ -153,9 +159,9 @@ export default function Produto(){
                                     <img src={Carrinho} className='carrinho-add'/>
                                     <h1 className='text-addcarrinho'>    Adicionar ao Carrinho   </h1>
                                 </button>
-                                <button className='botao-comprar'>  
-                                    <img src={Carrinho} className='carrinho-add'/>
-                                    <h1 className='text-comprar'>
+                                <button className='botao-comprar' onClick={comprar}>  
+                                    <img onClick={comprar} src={Carrinho} className='carrinho-add'/>
+                                    <h1 onClick={comprar} className='text-comprar'>
                                         Comprar
                                     </h1> 
                                 </button>

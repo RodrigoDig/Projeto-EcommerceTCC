@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.scss';
 
-import Cabecalho from '../../../Components/Cabeçalho02( Resp )';
+import Cabecalho from '../../../Components/Cabeçalho02';
 import Carrinho from '../../../assets/images/Carrinho-fase01.svg';
 import Card from '../../../assets/images/icon-addcard.svg';
 import User from '../../../assets/images/user-icon.svg';

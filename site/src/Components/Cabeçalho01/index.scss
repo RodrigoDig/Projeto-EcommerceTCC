@@ -7,7 +7,46 @@
     width: 100%;
     height: 4.2em;
     background-color: #1E1E1E;
-
+    .cont-info-userlogado{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        width: 12em;
+        height: 3em;
+    }
+    .icon-sair{
+        width: 22px;
+        height:25px;
+        cursor: pointer;
+    }
+    .inicial{
+        color: black;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: 'Goldman';
+        margin: 0px;
+    }
+    .cont-inicial{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        border-radius: 30px;
+        width: 1.9em;
+        height: 1.9em;
+        margin-right: 0.5em;
+    }
+    .titulo-usuario{
+        color: white;
+        font-size: 16px;
+        font-weight: 100;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+        margin-right: 0.6em;
+    }
 
     .cont-pesquisa{
         display: flex;

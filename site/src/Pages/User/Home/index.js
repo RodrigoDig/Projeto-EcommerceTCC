@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
-import Cabecalho01 from '../../../Components/Cabeçalho01';
+import Cabecalho1 from '../../../Components/Cabeçalho01';
 import Rodape from '../../../Components/Rodapé';
+import storage from 'local-storage';
 
 import { prodPromoImperdivel, prodMaisVendidos, depSelecionar, imgProd} from '../../../Api/cadProdutoApi';
 
@@ -30,6 +31,15 @@ export default function Home() {
         setMaisVendidos(resp);
     }
 
+    function verificarCabeçalho(){
+        if(!storage('usuario-logado')){
+            return Cabecalho1;
+        } 
+        else{
+            return Cabecalho1;
+        }
+    }
+
     function verificarDep(nomeDep){
         if(nomeDep.toLowerCase() == 'hardware'){
             return Hardware;
@@ -50,6 +60,9 @@ export default function Home() {
         const resp = await prodPromoImperdivel();
         setProdutosPromo(resp);
     }
+        useEffect(() => {
+            verificarCabeçalho();
+        }, [])
 
         useEffect(() => {
             produtoPromo();
@@ -61,7 +74,7 @@ export default function Home() {
     return (
         <main className='cont-main-home'>
             <section className='cont-cabecalho-home'>
-                <Cabecalho01 />
+                <Cabecalho1/>
             </section>
             <section className='cont-001-home'>
                 <div className='cont-filha1-001'>

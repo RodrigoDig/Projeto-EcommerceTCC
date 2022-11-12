@@ -43,7 +43,7 @@ export default function UserLogin() {
 
             setTimeout(() => {
                 navigate('/');
-            }, 5000);
+            }, 3000);
 
 
         } catch (err) {

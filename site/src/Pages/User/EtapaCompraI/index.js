@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './index.scss';
+
+import  storage  from 'local-storage';
+import { useNavigate } from 'react-router-dom';
 import Cabecalho03 from '../../../Components/Cabeçalho03'
 import lixeira from '../../../assets/images/lixeira.svg';
 import local from '../../../assets/images/local.svg';
@@ -8,6 +11,14 @@ import caminhao from '../../../assets/images/caminhao-de-entrega 1.svg';
 import Etapas from '../../../Components/etapas'
 
 export default function EtapaCompra() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!storage('usuario-logado')){
+            navigate('/login');
+        }
+    }, [])
+
     return (
         <main>
             <Cabecalho03 />
