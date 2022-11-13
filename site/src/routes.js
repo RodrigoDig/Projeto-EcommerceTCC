@@ -53,6 +53,7 @@ export default function Index(){
                 <Route path="/pedido" element={<Pedido />} />
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/compra/produto/:id" element={<Produto />} />
+                <Route path="/status" element={<Status />} />
                 
                 <Route path="/alterarproduto" element={<Alterar />} />
                 <Route path="/estoque" element={<CstEstoque />} />
@@ -62,7 +63,6 @@ export default function Index(){
                 <Route path="/cupom" element={<Cupom/>} />
                 <Route path="/alterar/:idParam" element={<Cupom/>} />
                 <Route path="/consulta/cupom" element={<ConsultarCupom/>} />
-                <Route path="/status" exact element={<Status />} />
             </Routes>
         </BrowserRouter>
     )

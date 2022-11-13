@@ -1,9 +1,8 @@
 import './index.scss';
 
 import Cabecalho04 from '../../../Components/Cabeçalho04';
-import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg'
+import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg';
 import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
-import EstrelaIcon from '../../../assets/images/Star-fase1.svg';
 
 import storage from 'local-storage';
 import { cadastrarProduto, salvarImagens } from '../../../Api/cadProdutoApi';
@@ -18,7 +17,6 @@ export default function Cadastro() {
     const [preco, setPreco] = useState();
     const [fabricante, setFabricante] = useState('');
     const [estoque, setQtdEstoque] = useState()
-    const [avaliacao, setAvaliacao] = useState(0);
     const [valordesconto, setValorDesconto] = useState();
     const [garantia, setGarantia] = useState('')
     const [infotecnicas, setInfoTecnicas] = useState('');

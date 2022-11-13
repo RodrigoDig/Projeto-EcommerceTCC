@@ -3,8 +3,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import Index from './routes';
+import ReactDOM from 'react-dom/client';
 
 import { ToastContainer } from 'react-toastify';
 

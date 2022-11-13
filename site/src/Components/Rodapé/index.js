@@ -6,8 +6,20 @@ import FaceIcon from '../../assets/images/face-icon.svg';
 import TwiterIcon from '../../assets/images/twiterr-logo.svg';
 import InstagramIcon from '../../assets/images/instagram-logo.svg';
 
+import { useNavigate } from 'react-router-dom';
 
 export default function Rodape(){
+    const navigate = useNavigate();
+    function carrinho(){
+        navigate('/carrinho')
+    }
+    function favoritos(){
+        navigate('/favoritos')
+    }
+    function pedidos(){
+        navigate('/status')
+    }
+
     return(
         <main>
             <section className='fundo-rodape'>
@@ -34,9 +46,9 @@ export default function Rodape(){
 
                         <div className='coluna03'>                            
                             <h2 className='titulo-empresa'>Minha Conta</h2>
-                            <a href='#' className='link-desenv'>teste</a>
-                            <a href='#'className='link-desenv'>teste</a>
-                            <a href='#'className='link-desenv'>teste</a>
+                            <a onClick={carrinho} className='link-desenv'>Carrinho</a>
+                            <a onClick={favoritos} className='link-desenv'>Favoritos</a>
+                            <a onClick={pedidos} className='link-desenv'>Meus pedidos</a>
                         </div> 
 
                         <div className='coluna04'>

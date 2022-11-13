@@ -10,18 +10,15 @@ import { toast } from 'react-toastify';
 export default function CadastroUser() {
 
     const navigate = useNavigate();
-
-    function voltar() {
-        navigate('/')
-    }
     
     async function SalvarCLick() {
         try {
             const r = await cadUser(nome, sobrenome, cpf, nascimento, genero, email, celular, senha);
-            toast.success('Usuário cadastrado com sucesso!')
+            toast.success('Usuário cadastrado com sucesso!');
+            navigate('/login');
         }
         catch (err) {
-            toast.error(err.message);
+            toast.error(err.response.data.erro);
         }
     }
 
@@ -100,7 +97,6 @@ export default function CadastroUser() {
                 <hr />
 
                 <div className='botao-cad-user'>
-                    <button onClick={voltar}>Voltar Home</button>
                     <button onClick={SalvarCLick}>Cadastrar</button>
                 </div>
             </section>
