@@ -5,6 +5,7 @@ import Alterar from '../../../assets/images/lapis-de-cor.png';
 import Deletar from '../../../assets/images/lixeira-de-reciclagem.png';
 
 import {toast} from 'react-toastify';
+import { useNavigate } from "react-router-dom";
 import { confirmAlert } from 'react-confirm-alert';
 import { useEffect, useState } from "react";
 import { listarCupons, buscarNome, deletarCupom} from "../../../Api/cadCupomAPI";
@@ -13,7 +14,13 @@ export default function ConsultarCupom() {
 
     const [cupom, setCupom] = useState([]);
     const [filtrin, setFiltrin] = useState('');
+    const navigate = useNavigate();
+
     
+    function editarCupom(id){
+        navigate(`/alterar/${id}`)
+    }
+
     async function filtrar(){
         const x = await buscarNome(filtrin);
         setCupom(x);
@@ -34,7 +41,7 @@ export default function ConsultarCupom() {
                     onClick: async () => {
                         const resposta = await deletarCupom(id);
                         if(filtrin === '')
-                            listarCupons(id);
+                            listarCupons();
                         else
                             filtrar();
                         toast.success("Cupom removido com sucesso!")
@@ -93,7 +100,7 @@ export default function ConsultarCupom() {
                                 <td>{item.cadastro.substr(0, 10)}</td>
                                 <td>{item.vencimento.substr(0, 10)}</td>
                                 <td>
-                                    <img src={Alterar} />
+                                    <img src={Alterar} onClick={ () => editarCupom(item.id)}/>
                                     <img src={Deletar} onClick ={() => removerCupom(item.id)}/>
                                 </td>
                             </tr>

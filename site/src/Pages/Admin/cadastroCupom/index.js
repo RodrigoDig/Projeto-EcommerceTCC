@@ -26,7 +26,12 @@ export default function Cupom() {
 
     async function carregarCupom(){
         const resposta = await buscarId(idParam);
-        setCupom(id)
+        setCupom(resposta.cupom);
+        setCodigo(resposta.codigo);
+        setDesconto(resposta.desconto);
+        setInscricao(resposta.inscricao);
+        setVencimento(resposta.vencimento);
+        setId(resposta.id);
     }
 
     async function salvarClick() {
