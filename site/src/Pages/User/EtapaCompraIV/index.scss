@@ -1,87 +1,71 @@
- .dt-1{
-        background-color: #d9d9d9;
-        height: 100vh;
+.dt-1{
+     background-color: #d9d9d9;
+     height: 100vh;    
+    .ctr{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80vh;
+        width: 70%;
+        padding-left: 5.5em;
+        padding-top: 4em; 
+    }
+    .dci-1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        width: 130%;
+        height: 100%;
+    }
+    .cont-mid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2em;     
+    }               
+    .ptt1{
+        font-size: 60px;
+        color: #f27400;
+        border-bottom: 1px solid chocolate;     
+    }                       
+    .at1{
+        font-size: 30px;
+        width: 60%;
+        margin-left: 1em;
+        color: #f27400;                    
+        padding-top: 0.5em;
+        padding-bottom: 2em;                    
+    }                        
+    .carrin{
+        padding-right: 2em;
+        padding-bottom: 0.1em;
+        width: auto;
+        height: auto;
+    }                                            
+    .bbtt{
+        background-color: #f27400;
+        color: #ffffff;
+        border-style: none;
+        width: 40%;
+        height: 2.5em;
+        font-size: 50px;
+        border-radius: 0.2em;
+        transition: width 1s;
+        transition-delay: 0.2s;                      
+    }
 
-        
-       
-            .ctr{
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                height: 80vh;
-                width: 70%;
-                padding-left: 5.5em;
-                padding-top: 4em;
-                
-                
-                .dci-1{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background-color: #ffffff;
-                    width: 130%;
-                    height: 100%;
-                    
-                    
-                    
-                    
-                    .cont-mid{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        margin-bottom: 2em;
-                    
-                    
-                        .ptt1{
-                            font-size: 60px;
-                            color: #f27400;
-                            border-bottom: 1px solid chocolate;
-                            
-                            
-                        }
-                        
-                        .at1{
-                            width: 60%;
-                            font-size: 30px;
-                            color: #f27400;
-                            margin-left: 1em;
-                            
-                            padding-bottom: 2em;                    
-                            padding-top: 0.5em;
-                        }
-                        
-                        .carrin{
-                            padding-right: 2em;
-                            padding-bottom: 0.1em;
-                            width: auto;
-                            height: auto;
-                        }
-                        
-                        
-                        .bbtt{
-                            background-color: #f27400;
-                            color: #ffffff;
-                            border-style: none;
-                            width: 40%;
-                            height: 2.5em;
-                            font-size: 50px;
-                            border-radius: 0.2em;
-                            transition: width 1s;
-                            transition-delay: 0.2s;
-                            
-                        }
-
-                        .bbtt:hover{
-                            color: #f27400;
-                            background-color: #fff;
-                            border-style:groove;
-                            width: 300px;
-                            font-size: 30px;
-                        }
-                    }
-                }         
-            }      
+    .bbtt:hover{
+        color: #f27400;
+        background-color: #fff;
+        border-style:groove;
+        width: 300px;
+        font-size: 30px;
+    }
 }
+                         
+           
+
         
 
