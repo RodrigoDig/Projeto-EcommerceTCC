@@ -79,3 +79,8 @@ export async function buscarPorId(id){
 export async function buscarImgProd(imagem){
     return `${api.getUri()}/${imagem}`
 }
+
+export async function depPage(nome){
+    const resposta = await api.get('/departamentos' + nome);
+    return resposta.data
+}

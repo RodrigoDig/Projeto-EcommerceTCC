@@ -19,6 +19,7 @@ import StarAva from '../../../assets/images/star-icon.svg';
 import OutrasOp from '../../../assets/images/icon-outrasop.png';
 import Seta from '../../../assets/images/seta-vertodos.svg';
 import Rodape from '../../../Components/Rodapé';
+
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';

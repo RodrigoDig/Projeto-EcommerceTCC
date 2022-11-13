@@ -26,8 +26,50 @@
         border: 0.1px solid rebeccapurple;
     }
     .cont-01-titulodep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         width: 97%;
-        height: 3.4em;
+        height: 3.1em;
         background-color: #fff;
+    }
+    .cont-outros-dep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 30%;
+        height: 3.1em;
+    }
+    .cont-01-outrosdep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: max-content;
+        padding-left: 11px;
+        padding-right: 9px;
+
+        border-right: 1px solid black;
+        height: 2.3em;
+    }
+    .titulo-outrosdep{
+        font-size: 14px;
+        margin: 0px;
+        font-family: 'Goldman';
+    }
+    .icon-outrosdep{
+        width: 23px;
+        height: 23px;
+        margin-right: 0.3em;
+    }
+    .cont-02-outrosdep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: max-content;
+        padding-left: 9px;
+        padding-right: 9px;
+        height: 2.3em;
     }
 }

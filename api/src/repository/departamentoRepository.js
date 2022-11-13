@@ -22,3 +22,16 @@ export async function buscarDepartamentoPorId(id) {
     const [linhas] = await con.query(comando, [id]);
     return linhas[0];
 }
+
+
+export async function buscarDepartamentoPorNome(nome) {
+    const comando = `
+    select id_departamento         as id,
+    nm_departamento         as departamento
+    from tb_departamento
+    where nm_departamento like ?
+    `
+
+    const [linhas] = await con.query(comando, [nome]);
+    return linhas[0];
+}

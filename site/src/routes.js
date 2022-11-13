@@ -37,7 +37,7 @@ export default function Index(){
         <BrowserRouter>
             <Routes>
                 <Route path="/" exact element={<Home />} />
-                <Route path="/departamentos" element={<Departamentos/>} />
+                <Route path="/departamentos/:nome" element={<Departamentos/>} />
                 <Route path="/AlterarDados" element={<AlterarDados/>} />
                 <Route path="/atendimento" element={<Atendimento />} />
                 <Route path="/cadastroendereco" element={<CadastroEnd />} />

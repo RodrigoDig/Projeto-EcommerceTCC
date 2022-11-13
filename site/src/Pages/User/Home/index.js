@@ -9,7 +9,7 @@ import { prodPromoImperdivel, prodMaisVendidos, depSelecionar, imgProd} from '..
 
 import { useNavigate } from 'react-router-dom';
 import Hardware from '../../../assets/images/Hardware Capa.png';
-import Computadores from '../../../assets/images/Comp Capa.png';
+import Computadores from '../../../assets/images/computadoresDep.png';
 import Games from '../../../assets/images/Games Capa.png';
 import Controle from '../../../assets/images/Controle-icon.svg'; 
 import TrofeuIcon from '../../../assets/images/Trofeu-icon.svg';
@@ -25,6 +25,7 @@ export default function Home() {
     const [produtos, setProdutosPromo] = useState([]);
     const [prodmaisVendidos, setMaisVendidos] = useState([]);
     const [departamento, setDepartamentos] = useState([]);
+    console.log(departamento);
     const navigate = useNavigate();
 
     
@@ -33,8 +34,8 @@ export default function Home() {
         setMaisVendidos(resp);
     }
 
-    function deparPage(){
-        navigate('/departamentos');
+    function deparPage(nome){
+        navigate('/departamentos/' + nome);
     }
 
     function verificarCabeçalho(){
@@ -74,7 +75,7 @@ export default function Home() {
             produtoPromo();
             maisVendidos(); 
             depSelecionado();
-        })
+        }, [])
 
 
     return (
@@ -136,9 +137,9 @@ export default function Home() {
                 </div>
                 <div className='cont-map-dep'>
                     {departamento.map(item =>
-                        <section className='cont-dep-card' onClick={deparPage}>
-                            <div className='dep-card' onClick={deparPage}>
-                                <h3 className='titulo-dep-card' onClick={deparPage}>
+                        <section className='cont-dep-card' onClick={() => deparPage(item.nomeDepartamento)}>
+                            <div className='dep-card' onClick={() => deparPage(item.nomeDepartamento)}>
+                                <h3 className='titulo-dep-card' onClick={() => deparPage(item.nomeDepartamento)}>
                                     {item.nomeDepartamento}
                                 </h3>
                             </div>

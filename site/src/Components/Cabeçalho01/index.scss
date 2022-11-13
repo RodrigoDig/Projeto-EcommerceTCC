@@ -380,6 +380,7 @@
         }
         .text-login{
             font-size: 17px;
+            margin: 0px;      
         }
         .botao-cadastro{
             width: 7.3em;
@@ -388,8 +389,8 @@
             font-size: 16px;
         }
         .botao-cadastro:hover{
-            width: 7.9em;
-            height: 2em;
+            width: 7.3em;
+            height: 1.8em;
 
         border: 4px solid #fff ;
         }
@@ -400,7 +401,15 @@
             margin-left: 0em;
         }
         .text-login:hover{
-            font-size: 20px;   
+            font-size: 17px;   
+        }
+        .carrinho:hover{
+            width: 39px;
+            height: 39px;
+        }
+        .numbercar:hover{
+            width: 18px;
+            height: 18px;
         }
     }
 }
