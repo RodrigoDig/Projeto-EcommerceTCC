@@ -7,6 +7,7 @@ import storage from 'local-storage';
 
 import { prodPromoImperdivel, prodMaisVendidos, depSelecionar, imgProd} from '../../../Api/cadProdutoApi';
 
+import { useNavigate } from 'react-router-dom';
 import Hardware from '../../../assets/images/Hardware Capa.png';
 import Computadores from '../../../assets/images/Comp Capa.png';
 import Games from '../../../assets/images/Games Capa.png';
@@ -24,11 +25,16 @@ export default function Home() {
     const [produtos, setProdutosPromo] = useState([]);
     const [prodmaisVendidos, setMaisVendidos] = useState([]);
     const [departamento, setDepartamentos] = useState([]);
+    const navigate = useNavigate();
 
     
     async function maisVendidos() {
         const resp = await prodMaisVendidos();
         setMaisVendidos(resp);
+    }
+
+    function deparPage(){
+        navigate('/departamentos');
     }
 
     function verificarCabeçalho(){
@@ -130,9 +136,9 @@ export default function Home() {
                 </div>
                 <div className='cont-map-dep'>
                     {departamento.map(item =>
-                        <section className='cont-dep-card'>
-                            <div className='dep-card'>
-                                <h3 className='titulo-dep-card'>
+                        <section className='cont-dep-card' onClick={deparPage}>
+                            <div className='dep-card' onClick={deparPage}>
+                                <h3 className='titulo-dep-card' onClick={deparPage}>
                                     {item.nomeDepartamento}
                                 </h3>
                             </div>
