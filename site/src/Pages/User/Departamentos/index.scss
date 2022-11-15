@@ -72,4 +72,57 @@
         padding-right: 9px;
         height: 2.3em;
     }
+    .cont-nome-departamento{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 22%;
+        height: 2.3em;
+    }
+    .cont-ordenar{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: max-content;
+        height: 2.3em;
+        margin-right: 0.7em;
+    }
+    .titulo-ordenar{
+        font-size: 11px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        color: #F27400;
+        margin: 0px;
+        margin-right: 0.1em;
+    }
+    .titulo-nomeDep{
+        font-size: 18px;
+        font-family: 'Goldman';
+        font-weight: 100;
+        margin: 0px;
+    }
+    .icon-departamento{
+        width: 26px;
+        height: 26px;
+        margin-right: 0.2em;
+
+    }
+    .icon-seta{
+        width: 10px;
+        height: 10px;
+    }
+    .cont-produtos-dep{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        margin-top: 2em;
+        
+        width: 95%;
+        height: max-content;
+    }
 }

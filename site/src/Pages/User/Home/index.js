@@ -34,8 +34,8 @@ export default function Home() {
         setMaisVendidos(resp);
     }
 
-    function deparPage(nome){
-        navigate('/departamentos/' + nome);
+    function deparPage(id){
+        navigate('/departamentos/' + id);
     }
 
     function verificarCabeçalho(){
@@ -137,9 +137,9 @@ export default function Home() {
                 </div>
                 <div className='cont-map-dep'>
                     {departamento.map(item =>
-                        <section className='cont-dep-card' onClick={() => deparPage(item.nomeDepartamento)}>
-                            <div className='dep-card' onClick={() => deparPage(item.nomeDepartamento)}>
-                                <h3 className='titulo-dep-card' onClick={() => deparPage(item.nomeDepartamento)}>
+                        <section className='cont-dep-card' onClick={() => deparPage(item.idDepartamento)}>
+                            <div className='dep-card' onClick={() => deparPage(item.idDepartamento)}>
+                                <h3 className='titulo-dep-card' onClick={() => deparPage(item.idDepartamento)}>
                                     {item.nomeDepartamento}
                                 </h3>
                             </div>

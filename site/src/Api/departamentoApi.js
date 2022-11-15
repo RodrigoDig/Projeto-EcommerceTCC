@@ -9,3 +9,8 @@ export async function listarDepartamentos(){
     const x = await api.get('/api/departamento');
     return x.data;
 }
+
+export async function buscarProdutosDep(id){
+    const resposta = await api.get('/buscarDep/' + id);
+    return resposta.data;
+}

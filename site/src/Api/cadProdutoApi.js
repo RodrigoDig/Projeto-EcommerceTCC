@@ -80,7 +80,7 @@ export async function buscarImgProd(imagem){
     return `${api.getUri()}/${imagem}`
 }
 
-export async function depPage(nome){
-    const resposta = await api.get('/departamentos' + nome);
+export async function depPage(id){
+    const resposta = await api.get('/departamentos/' + id);
     return resposta.data
 }
