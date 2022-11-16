@@ -1,111 +1,128 @@
-import React, { useEffect } from 'react';
 import './index.scss';
 
-import  storage  from 'local-storage';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Cabecalho03 from '../../../Components/Cabeçalho03'
-import lixeira from '../../../assets/images/lixeira.svg';
-import local from '../../../assets/images/local.svg';
+
+import storage from 'local-storage';
+import Etapas from '../../../Components/etapas';
 import cesta from '../../../assets/images/cesta.svg';
+import Cabecalho from '../../../Components/CabecalhoCompras';
+import Localização from '../../../assets/images/pin-de-localizacao.png';
 import caminhao from '../../../assets/images/caminhao-de-entrega 1.svg';
-import Etapas from '../../../Components/etapas'
 
 export default function EtapaCompra() {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if(!storage('usuario-logado')){
-            navigate('/login');
-        }
-    }, [])
-
     return (
         <main>
-            <Cabecalho03 />
-
             <section>
+                <Cabecalho />
+            </section>
 
-                <div className='fundo1'>
+            <section className='Bloco-etapa1'>
+                <div>
                     <Etapas />
-                    <div className='f2'>
-                        <img src={local} className='local' />
-                        <h1>Selecione o endereço</h1>
-                        <label>Rua:
-                            <br />
-                            Número:
-                            <br />
-                            CEP:
-                        </label>
-
-
-                    </div>
-                    <button className='btn1'>Editar</button>
-                    <button className='btn2'>Novo Endereço</button>
-                    <div className='produto'>
-
-                        <img src={cesta} className='cesta' />
-                        <img src={lixeira} className='lixeira' />
-                        <h1>Produto</h1>
-
-                        <button className='buttonL1'>Remover Produtos</button>
-
-                        <hr />
-
-
-
-
-                        <button className='buttonP'>insira o cupom de desconto</button>
-                        <button className='buttonL2'>Aplicar cupom</button>
-                    </div>
-
-                    <div className='resumo'>
-                        <h1>Resumo</h1>
-
-                        <label>Valor total do Produto: R$ 4.000.00</label>
-                        <hr />
-
-                        <p>Frete: R$ 15.00</p>
-                        <input type='text' placeholder='Subtotal:'></input>
-                        <button className='button1'>Continuar Comprando</button>
-                        <button className='button2'>Comprar</button>
-                    </div>
-
                 </div>
 
-                <div className='frete'>
-                    <img src={caminhao} className='caminhao' />
+                <div className='divisão-etapa1'>
+                    <div className='divisão-informações-produto-etp1'>
+                        <div className='bloco-endereco-etp1'>
+                            <div className='titulo-end-etp1'>
+                                <img src={Localização} />
+                                <h1>Selecione o endereço</h1>
+                            </div>
 
-                    <h1>Escolha sua opção de frete</h1>
-                    <h2>Valores Fixos</h2>
-                    <hr />
+                            <div className='informações-end-etp1'>
+                                <div className='end-etp1'>
+                                    <h2>Rua: </h2>
+                                    <h2>Número: </h2>
+                                    <h2>CEP: xxxxx-xxx - sao paulo sp</h2>
+                                </div>
+                                <div className='edit-etp1'>
+                                    <span>Editar</span> &nbsp; &nbsp;
+                                    <span style={{color : "#f27400"}}>Novo endereço</span>
+                                </div>
+                            </div>
+                        </div>
 
-                    <input type='radio' placeholder='Frete Comum' />
-                    <input type='radio' placeholder='Frete Comum' />
+                        <div className='produto-etp1'>
+                            <div className='titulo2-etp1'>
+                                <img src={cesta} />
+                                <h1>Produto </h1>
+                            </div>
+                            <hr />
 
-                    <p className='pC'>Frete Comum</p>       <label className='labelC'>R$ 15.00</label>
-                    <p className='pS'>Frete Sedex</p>       <label className='labelS'>R$ 25.00</label>
+                            <div className='img-desc-produto-etp1'>
+                                <img />
+                                <p>Descrição do produto</p>
+                            </div>
 
-                </div>
+                            <div className='cupom-etp1'>
+                                <input type='text' placeholder='Insira seu cupom de desconto' />
+                                <button>Aplicar cupom</button>
+                            </div>
+                        </div>
 
-                <div className='FRETE'>
-                    <h1>FRETE</h1>
-                    <div className='div'>
+                        <div className='opção-frete-etp1'>
+                            <div className='titulo-frete-etp1'>
+                                <div className='frete-etp1'>
+                                    <img src={caminhao} />
+                                    <h1>Escolha sua opção de frete </h1>
+                                </div>
 
-                        <p>Valores fixos para todos os fretes.</p>
+                                <div className='valores-fixos'>
+                                    <h1>Valores Fixos</h1>
+                                </div>
+                            </div>
+                            <hr />
 
-                        <p>Para produtos vendidos fora do estado de São Paulo possuimos um valor de entrega fixo, custando R$ 50,00.
-                        </p>
+                            <div className='parte-final-frete'>
+                                <div className='tipos-frete'>
+                                    <label>
+                                        Frete Comum
+                                        <input type='checkbox' />
+                                    </label>
 
-                        <p>Para produtos vendidos dentro do estado de São Paulo, o cliente possui  duas opções, e são elas:
-                            *Entrega comum;
-                            *Entrega via Sedex(mais rápida)</p>
+                                    <label>
+                                        Frete Sedex
+                                        <input type='checkbox' />
+                                    </label>
+                                </div>
+
+                                <div className='valores-frete'>
+                                    <span>R$ 15,00</span>
+                                    <span>R$ 25,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className='bloco-final-etp1'>
+                        <div className='Resumo-carrinho'>
+                            <h1>Resumo</h1>
+                            <p>Valor da compra: R$ </p>
+                            <button>Comprar</button>
+                            
+                        </div>
+
+                        <div className='informação-frete-etp1'>
+                            <h1>Frete</h1>
+                            
+                            <p>Valores fixos para todos os fretes.</p>
+                            <p>Para produtos vendidos fora do estado de São Paulo possuimos um valor de entrega fixo, custando R$ 50,00.</p>
+                            <p>Para produtos vendidos dentro do estado de São Paulo, o cliente possui duas opções, e são elas:
+                                *Entrega comum; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                                *Entrega via Sedex(mais rápida);
+                            </p>
+                            
+                        </div>
+
+                        <div className='cancelar-pedido'>
+                            <button>Cancelar pedido</button>
+                        </div>
                     </div>
                 </div>
 
-                <div className='divbtn'>
-
-                    <button>Cancelar Pedido</button>
-                </div>
             </section>
         </main>
     )

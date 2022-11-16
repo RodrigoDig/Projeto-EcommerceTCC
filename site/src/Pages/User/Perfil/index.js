@@ -1,13 +1,18 @@
-import React from 'react';
 import './index.scss';
 
-import Cabecalho from '../../../Components/Cabeçalho06';
+import Usuario from '../../../Components/CabeçalhoUser';
+import Cabecalho01 from '../../../Components/Cabeçalho01';
 
 export default function Perfil(){
     return(
-        <main className='cont-main-perfiluser'>
-            <section className='cont-cabecalho-perfiluser'>
-                <Cabecalho />
+        <main>
+            <section>
+                <Cabecalho01 />
+                <Usuario/>
+            </section>
+
+            <section>
+                
             </section>
         </main>
     )

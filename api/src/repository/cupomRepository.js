@@ -34,7 +34,7 @@ export async function buscarId(id){
         SELECT ID_CUPOM        id,
                 NM_CUPOM       nome,
                 DS_CODIGO      codigo,
-                VL_CUPOM       valor,
+                VL_CUPOM       valor,   
                 DT_CADASTRO    cadastro,
                 DT_VENCIMENTO  vencimento
           FROM TB_CUPOM
