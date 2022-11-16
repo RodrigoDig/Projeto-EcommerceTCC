@@ -6,6 +6,8 @@ import './index.scss';
 
 import Storag from 'local-storage';
 import CarrinhoItem from '../../../Components/carrinho';
+import Cabeçalho01 from '../../../Components/Cabeçalho01';
+import CarrinhoLogo from '../../../assets/images/Group.png';
 import CabaçalhoUsuario from '../../../Components/CabeçalhoUser';
 
 export default function Carrinho() {
@@ -16,6 +18,26 @@ export default function Carrinho() {
         navigate('/')
     }
 
+    function qtdItens(){
+        return itens.length;
+    }
+
+    function valorDesconto(valor, desconto) {
+        const valordesc = desconto / 100;
+        const vl = valor * valordesc;
+        const valorfinal = valor - vl;
+
+        return valorfinal;
+    }
+
+    function calcularTotal(){
+        let total = 0;
+        for(let item of itens){
+            total = total + valorDesconto(item.produto.preco, item.produto.desconto); 
+        }
+        return total;
+    }
+    
     function removerItem(id) {
         let carrinho = Storag('carrinho');
         carrinho = carrinho.filter(item => item.id != id);
@@ -48,23 +70,35 @@ export default function Carrinho() {
     }, [])
 
     return (
-        <main>
+        <main className='pagina-carrinho'>
+            <section className='Componentes-carrinho'>
+                <Cabeçalho01/>
+                <CabaçalhoUsuario/>
+            </section>
             <section>
+                <div className='titulo-carrinho'>
 
-                <div>
-                    <div>
-                        <h1>Carrinho</h1>
+                    <div className='carrinho'>
+                        <img  src={CarrinhoLogo}/>
+                        <h1>Seu carrinho</h1>
                     </div>
+                                    
+                    <div className='Informações-Carrinho'>
 
-                    <div className='produto'>
-                        <div className='card-informacao-carrinho'>
+                        <div className='itens-carrinho'>
                             {itens.map(item =>
-                                <CarrinhoItem item={item} removerItem={removerItem} />
+                                <CarrinhoItem 
+                                    item={item} 
+                                    removerItem={removerItem} 
+                                    carregarCarrinho={carregarCarrinho} />
                             )}
+                        
                         </div>
 
-                        <div className='card-resumo'>
+                        <div className='Resumo-carrinho'>
                             <h1>Resumo</h1>
+                            <p>Total de Intens: {qtdItens()} </p>
+                            <p>Valor da compra: R$ {calcularTotal()}</p>
                             <button>Comprar</button>
                             <button onClick={voltar}>Continuar Comprando</button>
                         </div>

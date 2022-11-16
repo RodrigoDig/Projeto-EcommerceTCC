@@ -1,9 +1,24 @@
-import { useState } from "react";
+import './index.scss';
 import Storage from "local-storage";
 
-export default function CarrinhoItem(props){
+import { useState } from "react";
+import { API_URL } from '../../Api/config';
+
+export default function CarrinhoItem(props) {
     const [qtdProduto, setQtdProduto] = useState(1);
 
+    function exibirImagem(){
+        if(props.item.produto.imagem > 0){
+            return API_URL + '/' + props.item.produto.imagem[0];
+        }
+        else{
+            return "Imagem não disponivel!"
+        }
+    }
+
+    function carrinho(){
+        return props.carregarCarrinho()
+    }
     function valorDesconto(valor, desconto) {
         const valordesc = desconto / 100;
         const vl = valor * valordesc;
@@ -12,12 +27,12 @@ export default function CarrinhoItem(props){
         return valorfinal;
     }
 
-    function calcularSubTotal(preco, desconto){
-        const subtotal = valorDesconto(preco, desconto) * qtdProduto ;
+    function calcularSubTotal(preco, desconto) {
+        const subtotal = valorDesconto(preco, desconto) * qtdProduto;
         return subtotal;
     }
 
-    function alterarQuantidade(novaQtd){
+    function alterarQuantidade(novaQtd) {
         setQtdProduto(novaQtd);
 
         let carrinho = Storage('carrinho');
@@ -25,28 +40,34 @@ export default function CarrinhoItem(props){
         itemStorag.qtd = novaQtd;
 
         Storage('carrinho', carrinho);
+        props.carrinho();
     }
 
-    function remover(){
+    function remover() {
         props.removerItem(props.item.produto.idProduto)
     }
 
-    return(
-        <main className="comp-carrinho-item">
-            <section>
-                <div>{props.item.produto.nome}</div>
-                
-                <label>Preço</label>
-                <div>De {props.item.produto.preco} por</div>
-                <div>{valorDesconto(props.item.produto.preco, props.item.produto.desconto)}</div>
-                <div>{props.item.produto.desconto}</div>
+    return (
+        <main>
+            <section className='posicionamento-carrinho'>
 
-                <div>
-                    <label>Subtotal</label>
-                    <div>R$ {calcularSubTotal(props.item.produto.preco, props.item.produto.desconto)}</div>
+                <div className='imagem-produto-carrinho'>
+                    <img src={exibirImagem()}/>
                 </div>
-                <div>
-                    <div>
+
+                <div className='informações-carrinho-comp'>
+                    <div className='descrição-produto'>
+                        <span>{props.item.produto.nome}</span>
+                    </div>
+
+                    <div className='preço-produto-carrinho'>
+                        <label>Preço</label>
+                        <span>De R$ {props.item.produto.preco} Por R$ {valorDesconto(props.item.produto.preco, props.item.produto.desconto)},00</span>
+                    </div>
+                </div>
+
+                <div className='subtotal-carrinho'>
+                    <div className='select-carrinho'>
                         <label>Qtd.</label>
                         <select onChange={e => alterarQuantidade(e.target.value)} value={qtdProduto}>
                             <option>1</option>
@@ -56,12 +77,21 @@ export default function CarrinhoItem(props){
                             <option>5</option>
                         </select>
                     </div>
+
+                    <div className='valor-subtotal'>
+                        <label>Subtotal
+                            <p>R$ {calcularSubTotal(props.item.produto.preco, props.item.produto.desconto)},00</p>
+                        </label>
+                    </div>
+
                 </div>
 
-                <div onClick={remover}>
-                    excluir
+                <div onClick={remover} className='excluir-produto-carrinho'>
+                    <span>Excluir</span> 
                 </div>
+
             </section>
+            <hr/>
         </main>
     )
 }
