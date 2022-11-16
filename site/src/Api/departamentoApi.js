@@ -11,6 +11,11 @@ export async function listarDepartamentos(){
 }
 
 export async function buscarProdutosDep(id){
-    const resposta = await api.get('/buscarDep/' + id);
+    const resposta = await api.get('/departamentos/produtos/' + id);
+    return resposta.data;
+}
+
+export async function buscarProdutosCatDep(idCat, idDep){
+    const resposta = await api.get('/dep/cat/produtos/' + idCat + '/ ' + idDep);
     return resposta.data;
 }

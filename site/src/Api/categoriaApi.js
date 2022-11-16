@@ -9,3 +9,8 @@ export async function listarCategorias(){
     const x = await api.get('/api/categoria');
     return x.data;
 }
+
+export async function buscarCategoriasDep(){
+    const resposta = await api.get('/dep/categorias');
+    return resposta.data;
+}

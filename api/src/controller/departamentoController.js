@@ -1,4 +1,4 @@
-import { buscarDepartamentoDiferentes, buscarDepartamentoPorId, listarDepartamentos, produtosDepartamento } from "../repository/departamentoRepository.js";
+import { buscarDepartamentoDiferentes, buscarDepartamentoPorId, listarDepartamentos, prodDepartamento, produtosCatDep, produtosDepartamento } from "../repository/departamentoRepository.js";
 
 import { Router } from "express";
 const server = Router();
@@ -24,7 +24,7 @@ server.get('/departamentos/:id', async (req, resp) =>{
         resp.send({
             departamento: nome,
             dep1: dif[0],
-            dep2: dif[1]
+            dep2: dif[1],
         });
     }catch(err){
         resp.status(404).send({
@@ -48,4 +48,31 @@ server.get('/buscarDep/:id', async (req, resp) =>{
     }
 }) 
 
+
+server.get('/departamentos/produtos/:id', async (req, resp) =>{
+    try{
+        const id = req.params.id;
+        let prod = await prodDepartamento(id);
+        resp.send(prod);
+    }catch(err){
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+}) 
+
+
+server.get('/dep/cat/produtos/:idcat/:iddep', async (req, resp) =>{
+    try{
+        const idcat = req.params.idcat;
+        const iddep = req.params.iddep;
+
+        let prod = await produtosCatDep(idcat, iddep);
+        resp.send(prod);
+    }catch(err){
+        resp.status(404).send({
+            erro: err.message
+        })
+    }
+}) 
 export default server;

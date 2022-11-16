@@ -1,41 +1,49 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+
+// VERIFICAÇÕES DE SERVIÇO
+import verificarIcone from './services/ValidacaoIcone';
+import verificarIconCategoria from './services/ValIconeCat';
 
 import Cabecalho01 from '../../../Components/Cabeçalho01';
-import Computadores from '../../../assets/images/icon-computadores.svg';
-import Games from '../../../assets/images/games-icon.svg';
-import Hardware from '../../../assets/images/hard-icon.svg';
-import Seta from '../../../assets/images/ordenar-seta.svg'
+import Seta from '../../../assets/images/ordenar-seta.svg';
+
+// CARDS DE PRODUTOS
+import CardProdDep from '../../components/CardProdDep';
+import CardProdCat from '../../components/CardProdCat';
+
 import Rodape from '../../../Components/Rodapé';
 import { depPage } from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
 import './index.scss';
-import { buscarProdutosDep } from '../../../Api/departamentoApi';
 
-export default function Departamentos(){
-    const[depart, setDepart] = useState({ departamento: [], dep1: [], dep2: []});
-    const[ prodSel, setProdSel ] = useState([]);
-    console.log(depart);
+// BUSCA NA API
+import { buscarProdutosCatDep } from '../../../Api/departamentoApi';
+import { buscarProdutosDep } from '../../../Api/departamentoApi';
+import { buscarCategoriasDep } from '../../../Api/categoriaApi';
+
+export default function DepPage(){
+    const [depart, setDepart] = useState({ departamento: [], dep1: [], dep2: []});
+    const [prodSel, setProdSel ] = useState([]);
+    const [cats, setCatsDep] = useState({c1: [], c2: [], c3: []});
+    const [prodCat1, setProdCat1] = useState([]);
+    const [prodCat2, setProdCat2] = useState([]);
+    const [prodCat3, setProdCat3] = useState([]);
     const {id} = useParams();
     
+
     async function carregarPag(){
         const r = await depPage(id);
         const f = await buscarProdutosDep(id);
+        const prod1 = await buscarProdutosCatDep(c2, id);
+        const prod2 = await buscarProdutosCatDep(c2, id);
+        const prod3 = await buscarProdutosCatDep(c3, id);
+        const cats = await buscarCategoriasDep();
+        setProdCat1(prod1);
+        setProdCat2(prod2);
+        setProdCat3(prod3);
+        setCatsDep(cats);
         setDepart(r);
         setProdSel(f);
-    }
-    
-    
-    function verificarIcone(nome){
-        if(nome == 'Hardware'){
-            return Hardware;
-        }
-        else if(nome == 'Games'){
-            return Games;
-        }
-        else if(nome == 'Computadores'){
-            return Computadores;
-        }
     }
 
     useEffect(() =>{
@@ -76,7 +84,31 @@ export default function Departamentos(){
                 </div>
             </section>
             <section className='cont-produtos-dep'>
-
+                {prodSel.map(item => 
+                    <CardProdDep item={item}/>    
+                )}
+            </section>
+            <section className='cont-filha5-002home'>
+                    <img className='rec-icon-home' src={verificarIconCategoria(cats.c1.categoria)}/>
+                    <h1 className='titulo-recomendados-home'>
+                        {cats.c1.categoria}
+                    </h1>
+            </section>
+            <section className='cont-produtos-cat1'>
+                {prodCat1.map(item => 
+                    <CardProdCat item={item}/>    
+                )}
+            </section>
+            <section className='cont-filha5-002home'>
+                    <img className='rec-icon-home' src={verificarIconCategoria(cats.c3.categoria)}/>
+                    <h1 className='titulo-recomendados-home'>
+                        {cats.c2.categoria}
+                    </h1>
+            </section>
+            <section className='cont-produtos-cat1'>
+                {prodCat2.map(item => 
+                    <CardProdCat item={item}/>    
+                )}
             </section>
         </main>
     )
