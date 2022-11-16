@@ -21,7 +21,11 @@ export default function Cabecalho1(){
     const ref = useRef();
 
     function carrinho(){
-        navigate('/carrinho')
+        navigate('/carrinho');
+    }
+
+    function perfil(){
+        navigate('/perfil');
     }
 
     function sairUser(){
@@ -67,7 +71,7 @@ export default function Cabecalho1(){
                             <h1 className='titulo-usuario'>
                                 Olá {infoUser}
                             </h1>
-                            <div className='cont-inicial'>
+                            <div className='cont-inicial' onClick={perfil}>
                                 <p className='inicial'>
                                     {infoUser[0]}
                                 </p>

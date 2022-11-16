@@ -1,0 +1,50 @@
+.cont-main-cardendereco{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 16em;
+    height: 6em;
+    background-color: #d9d9d9;
+    .titulo-endereco{
+        font-size: 12px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+        margin-left: 0.4em;
+    }
+    .nome-endereco{
+        font-size: 12px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+        margin-left: 0.4em;
+    }
+    .numero-endereco{
+        font-size: 12px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+        margin-left: 0.4em;
+    }
+    .cep-cidade-endereco{
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+        margin-left: 0.4em;
+    }
+    .numero-cep{
+        font-size: 11px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+        margin-left: 0.2em;
+        margin-right: 0.2em;
+    }
+    .cont-001{
+        width: 100%;
+        height: 2.4em;
+    }
+}
