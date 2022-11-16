@@ -1,0 +1,10 @@
+.cont-main-perfiluser{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: max-content;
+    .cont-cabecalho-perfiluser{
+        width: 100%;
+        height: max-content;
+    }
+}

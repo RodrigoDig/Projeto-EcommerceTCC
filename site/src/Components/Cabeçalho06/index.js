@@ -11,10 +11,10 @@ export default function Cabecalho2(){
             <section className='cb-02'>
                 <div className='cont-lg'>
                     <Logo className='lg-bt'/>
-                    <div className='alin'>
-                        <div className='cb-r'></div>
-                        <p className='p1'> Compre por departamento</p>
-                    </div>
+                </div>
+                <div className='cb-r'></div>
+                <div className='alin'>
+                    <p className='p1'> Compre por departamento</p>
                 </div>
                 <div className='cont-pqs'>
                     <input className='input-pqs' placeholder='Busque aqui'/>
@@ -25,7 +25,7 @@ export default function Cabecalho2(){
                
                 <div className='cont-lgn'>
                     <img className='ibc' src={Carrin} />
-                    <img src={Logouser} />
+                    <img src={Logouser}  className='icon-login'/>
                 </div>
             </section>
         </main>

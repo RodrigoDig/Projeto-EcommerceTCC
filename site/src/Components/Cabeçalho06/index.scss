@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     background-color: black;
 
     width: 100%;
@@ -11,40 +10,36 @@
     .cont-lg{
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-start;
+        align-items: center;
+        justify-content: center;
     
         padding: 0px;
-        margin-left: 2em;
-    
+
         width: 19em;
         height: 70%;
-        border-bottom: 2px solid #F27400;
-
-        .alin{
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-end;
-            align-items: center;
-
-            .cb-r{
-                display: flex;
-                justify-content: flex-start;
-                border-right: 2px solid #f27500a1;
-                width: 30%;
-                height: 3.2em;
-                padding-left: 2em;
-                margin-bottom: 0.2em;
-
-            }
-                .p1{
-                    padding-left: 1em;
-                    height: 3em;
-                    color: #D9D9D9; 
-                }
-        }
+        border-bottom: 2px solid #F27400 ;
     }      
+    .alin{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
 
+    }
+    .p1{
+        padding-left: 1em;
+        height: 3em;
+        color: #D9D9D9; 
+    }
+    .cb-r{
+        display: flex;
+        justify-content: flex-start;
+        border-right: 1px solid #F27400;
+        width: 30%;
+        height: 3em;
+
+    }
+    
 
     .cont-pqs{
         display: flex;
@@ -60,7 +55,7 @@
 
         padding-left: 5.5em;
     
-    
+    }
     .input-pqs{
         padding-left: 10px;
         width: 100em;
@@ -97,8 +92,7 @@
         background-color: #F27400;
 
         cursor: pointer;
-    }
-}  
+    }  
 
 
     .cont-lgn{
@@ -112,10 +106,104 @@
 
         margin-right: 2em;
 
-        .ibc{
-            width: 3em;
-            padding-right: 3.8em;
-        }
+    }
+    .ibc{
+        width: 3em;
+        padding-right: 3.8em;
     }
 
+    @media screen and (max-width: 1300px) and (min-width: 1000px) {
+      height: 3.5em; 
+      justify-content: space-around;
+      .cont-lg{
+        align-items: flex-start;
+        width: max-content;
+        height: 2.7em;
+        margin-left: 0.8em;
+        margin-bottom: 0.4em;
+    }
+    .cb-r{
+        height: 2.6em;
+        width: 1em;
+    }
+    .p1{
+        margin: 0px;
+        padding-left: 0px;
+        height: max-content;
+        font-size: 13px;
+        margin-left: 0.7em;
+        font-family: 'Goldman';
+        font-weight: 100;
+        color: #D9D9D9; 
+    }
+    .cont-pqs{
+        align-items: center;
+        justify-content: center;
+        
+        margin-right: 0px;
+        margin-left: 0px;
+
+        width: 46em;
+        height: 2.8em;
+
+        padding-left: 0em;
+    }
+    .input-pqs{
+        padding-left: 0px;
+        width: 25em;
+        height: 2.4em;
+        margin-left: 0em;
+        margin-right: -10px;
+        padding-left: 0.5em;
+
+        border: none;
+        background-color: #D9D9D9;
+        border-radius: 6px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    textarea:focus, input:focus, select:focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+    } 
+
+    input::placeholder{
+        color: rgba(0, 0, 0, 0.651);
+        font-family:'Goldman';
+        font-weight: 100;
+        font-size:14px;
+    }
+    .botao-pqs{
+        height: 2.6em;
+        width: 3.6em;
+        margin: 0px;
+        margin-bottom: 0.8px;
+        border-radius: 8px;
+        border: none;
+
+        background-color: #F27400;
+
+        cursor: pointer;
+    }
+    .ibc{
+        width: 2.7em;
+        padding-right: 1em;
+    }
+    .icon-login{
+        width: 25px;
+        height: 25px;
+    }
+    .cont-lgn{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 12em;
+        height: 2.9em;
+
+        margin-right: 1.4em;
+    }
+    }
 }
