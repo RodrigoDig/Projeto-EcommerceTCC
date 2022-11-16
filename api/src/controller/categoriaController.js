@@ -1,4 +1,4 @@
-import { cat1, cat2, cat3, listarCategorias } from "../repository/categoriaRepository.js";
+import { buscaCatNome, cat1, cat2, cat3, listarCategorias } from "../repository/categoriaRepository.js";
 
 import {Router} from "express";
 const server = Router();
@@ -27,6 +27,20 @@ server.get('/dep/categorias', async (req, resp) => {
             c2: categoria2,
             c3: categoria3
         });
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+
+server.get('/dep/categorias/:nome', async (req, resp) => {
+    try{
+        const { nome } =  req.params.nome
+        const resposta = await buscaCatNome(nome);
+        resp.send(resposta);
     }
     catch (err) {
         resp.status(400).send({

@@ -139,13 +139,79 @@
 
         border-bottom: 2px solid #F27400;
     }
-    .rec-icon-home{
+    .cont-cat3-dep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        margin-top: 3em;
+
+        width: max-content;
+        height: 2em;
+        margin-top: 1.3em;
+
+        border-bottom: 2px solid #F27400;
+    }
+    .cont-cat2-dep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        margin-top: 3em;
+
+        width: max-content;
+        height: 2em;
+        margin-top: 1.3em;
+
+        border-bottom: 2px solid #F27400;
+    }
+    .cont-cat1-dep{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+
+        margin-top: 3em;
+
+        width: max-content;
+        height: 2em;
+        margin-top: 1.3em;
+
+        border-bottom: 2px solid #F27400;
+    }
+    .icon-cat1{
         width: 30px;
         height: 30px; 
 
         margin-right: 0.5em;
     }
-    .titulo-recomendados-home{
+    .icon-cat2{
+        width: 25px;
+        height: 30px; 
+
+        margin-right: 0.5em;
+    }
+    .icon-cat3{
+        width: 30px;
+        height: 30px; 
+
+        margin-right: 0.5em;
+    }
+    .titulo-cat1{
+        font-family: 'Goldman';
+        font-size: 18px;
+        
+        margin: 0px;
+    }
+    .titulo-cat2{
+        font-family: 'Goldman';
+        font-size: 18px;
+        
+        margin: 0px;
+    }
+    .titulo-cat3{
         font-family: 'Goldman';
         font-size: 18px;
         
@@ -161,6 +227,10 @@
         margin-top: 2em;
         
         width: 97%;
+        height: max-content;
+    }
+    .cont-rodapé-dep{
+        width: 100%;
         height: max-content;
     }
 }

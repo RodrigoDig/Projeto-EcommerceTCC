@@ -51,6 +51,19 @@ export async function cat3(){
     return linhas[0];
 }
 
+export async function buscaCatNome(nome){
+    const comando = 
+    `
+        select ID_CATEGORIA     id
+        from tb_categoria
+        where NM_CATEGORIA like ?
+    `
+
+    const [linhas] = await con.query(comando, [ `%${nome}%` ]);
+    return linhas[0];
+}
+
+
 export async function buscarCategoriaPorId(id) {
     const comando = `
         select ID_CATEGORIA         as id,

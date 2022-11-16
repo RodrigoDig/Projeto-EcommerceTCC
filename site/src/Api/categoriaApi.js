@@ -14,3 +14,8 @@ export async function buscarCategoriasDep(){
     const resposta = await api.get('/dep/categorias');
     return resposta.data;
 }
+
+export async function buscarCategoriasDepNome(nome){
+    const resposta = await api.get('/dep/categorias/' + nome);
+    return resposta.data;
+}

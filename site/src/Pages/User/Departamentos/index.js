@@ -19,7 +19,8 @@ import './index.scss';
 // BUSCA NA API
 import { buscarProdutosCatDep } from '../../../Api/departamentoApi';
 import { buscarProdutosDep } from '../../../Api/departamentoApi';
-import { buscarCategoriasDep } from '../../../Api/categoriaApi';
+import { buscarCategoriasDep, buscarCategoriasDepNome } from '../../../Api/categoriaApi';
+import { set } from 'local-storage';
 
 export default function DepPage(){
     const [depart, setDepart] = useState({ departamento: [], dep1: [], dep2: []});
@@ -30,21 +31,25 @@ export default function DepPage(){
     const [prodCat3, setProdCat3] = useState([]);
     const {id} = useParams();
     
-
     async function carregarPag(){
+        const cats = await buscarCategoriasDep();
+        setCatsDep(cats);
+        let c1 = cats.c1.id;
+        let c2 = cats.c2.id;
+        let c3 = cats.c3.id;
         const r = await depPage(id);
         const f = await buscarProdutosDep(id);
-        const prod1 = await buscarProdutosCatDep(c2, id);
+        const prod1 = await buscarProdutosCatDep(c1 , id);
         const prod2 = await buscarProdutosCatDep(c2, id);
         const prod3 = await buscarProdutosCatDep(c3, id);
-        const cats = await buscarCategoriasDep();
         setProdCat1(prod1);
         setProdCat2(prod2);
         setProdCat3(prod3);
-        setCatsDep(cats);
         setDepart(r);
         setProdSel(f);
     }
+
+    
 
     useEffect(() =>{
         carregarPag();
@@ -88,9 +93,9 @@ export default function DepPage(){
                     <CardProdDep item={item}/>    
                 )}
             </section>
-            <section className='cont-filha5-002home'>
-                    <img className='rec-icon-home' src={verificarIconCategoria(cats.c1.categoria)}/>
-                    <h1 className='titulo-recomendados-home'>
+            <section className='cont-cat1-dep'>
+                    <img className='icon-cat1' src={verificarIconCategoria(cats.c1.categoria)}/>
+                    <h1 className='titulo-cat1'>
                         {cats.c1.categoria}
                     </h1>
             </section>
@@ -99,9 +104,9 @@ export default function DepPage(){
                     <CardProdCat item={item}/>    
                 )}
             </section>
-            <section className='cont-filha5-002home'>
-                    <img className='rec-icon-home' src={verificarIconCategoria(cats.c3.categoria)}/>
-                    <h1 className='titulo-recomendados-home'>
+            <section className='cont-cat2-dep'>
+                    <img className='icon-cat2' src={verificarIconCategoria(cats.c2.categoria)}/>
+                    <h1 className='titulo-cat2'>
                         {cats.c2.categoria}
                     </h1>
             </section>
@@ -109,6 +114,20 @@ export default function DepPage(){
                 {prodCat2.map(item => 
                     <CardProdCat item={item}/>    
                 )}
+            </section>
+            <section className='cont-cat3-dep'>
+                    <img className='icon-cat3' src={verificarIconCategoria(cats.c3.categoria)}/>
+                    <h1 className='titulo-cat3'>
+                        {cats.c3.categoria}
+                    </h1>
+            </section>
+            <section className='cont-produtos-cat1'>
+                {prodCat3.map(item => 
+                    <CardProdCat item={item}/>    
+                )}
+            </section>
+            <section className='cont-rodapé-dep'>
+                <Rodape />
             </section>
         </main>
     )
