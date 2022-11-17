@@ -1,9 +1,8 @@
 import './index.scss';
-
-import { useEffect } from 'react';
+import  storage  from 'local-storage';
 import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-import storage from 'local-storage';
 import Etapas from '../../../Components/etapas';
 import cesta from '../../../assets/images/cesta.svg';
 import Cabecalho from '../../../Components/CabecalhoCompras';
@@ -11,8 +10,22 @@ import Localização from '../../../assets/images/pin-de-localizacao.png';
 import caminhao from '../../../assets/images/caminhao-de-entrega 1.svg';
 
 export default function EtapaCompra() {
+    const[infoUser, setInfoUser] = useState({ id: [], nome: [], email: [] });
+    console.log(infoUser);
     const navigate = useNavigate();
 
+
+    useEffect(() => {
+        if(!storage('user-logado')){
+            navigate('/login');
+        }
+        if(!storage('user-logado')){
+            setInfoUser('');
+        }else{
+            const userLogado = storage('user-logado');
+            setInfoUser(userLogado);
+        }
+    }, [])
     return (
         <main>
             <section>

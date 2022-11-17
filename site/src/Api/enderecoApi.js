@@ -6,8 +6,9 @@ const api = axios.create({
     baseURL: API_URL
 })
 
-export async function CadEnd(logadouro, numero, bairro, cep, cidade, estado, complemento, casa){
+export async function CadEnd(idUsuario, logadouro, numero, bairro, cep, cidade, estado, complemento, casa){
     const r = await api.post('/cadastro/endereco', {
+        idUsuario,
         logadouro,
         numero,
         bairro,
