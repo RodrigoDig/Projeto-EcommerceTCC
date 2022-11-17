@@ -38,9 +38,11 @@ server.put('/cadastro/user/:id', async(req, resp) =>{
     }
 })
 
-server.get('/usuario', async (req, resp) =>{
+server.get('/usuario/:id', async (req, resp) =>{
     try{
-        const usuario = await listarUsuarios();
+        const id = req.params.id;
+        console.log(id)
+        const usuario = await listarUsuarios(id);
         resp.send(usuario);
     }
     catch(err){

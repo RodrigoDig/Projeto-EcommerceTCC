@@ -33,6 +33,10 @@ export default function Perfil(){
         }
     }, [])
 
+    function alterar(){
+        navigate('/configuracoes')
+    }
+
     return(
         <main className='cont-main-perfiluser'>
             <section className='cont-cabecalho-perfiluser'>
@@ -58,8 +62,9 @@ export default function Perfil(){
                                         {infoUser.email}
                                     </h1>
                                 </div>
-
                             </div>
+
+                            <p onClick={alterar}>Alterar Dados</p>
                         </div>
                         <div className='cont-endereco-user'>
                             <div className='cont-titulo-endereco'>

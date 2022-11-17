@@ -40,8 +40,9 @@ export default function Index(){
                 <Route path="/atendimento" element={<Atendimento />} />
                 <Route path="/cadastroendereco" element={<CadastroEnd />} />
                 <Route path="/cadastrouser" element={<CadastroUser />} />
+                <Route path="/alteraruser/:idParam" element={<CadastroUser />} />
                 <Route path="/carrinho" element={<Carrinho />} />
-                <Route path="/configuracoes/alteraruser/:id" element={<Configurações />} />
+                <Route path="/configuracoes" element={<Configurações />} />
                 <Route path="/etapaI" element={<EtapaCompraI />} />
                 <Route path="/etapaII" element={<EtapaCompraII />} />
                 <Route path="/etapa3" element={<EtapaCompraIII />} />

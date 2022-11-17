@@ -3,24 +3,16 @@ import './index.scss';
 import Cabecalho03 from '../../../Components/Cabeçalho02'
 
 import { toast } from 'react-toastify';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { cadUser } from '../../../Api/cadUsuarioApi';
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { alterarUsuario, buscarId, cadUser } from '../../../Api/cadUsuarioApi';
+import storage from 'local-storage';
+import { useRef } from 'react';
 
 export default function CadastroUser() {
     const navigate = useNavigate();
+    const ref = useRef();
     
-    async function SalvarCLick() {
-        try {
-            const r = await cadUser(nome, sobrenome, cpf, nascimento, genero, email, celular, senha);
-            toast.success('Usuário cadastrado com sucesso!');
-            navigate('/login');
-        }
-        catch (err) {
-            toast.error(err.response.data.erro);
-        }
-    }
-
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [cpf, setCpf] = useState('');
@@ -29,6 +21,57 @@ export default function CadastroUser() {
     const [email, setEmail] = useState('');
     const [celular, setCelular] = useState('');
     const [senha, setSenha] = useState('');
+    const [id, setId] = useState(0);
+
+    const { idParam } = useParams();
+
+    useEffect(() => {
+        if(idParam){
+            carregarUsuarios();
+        }
+    }, [])
+
+    function Voltar(){
+        navigate('/configuracoes')
+    }
+    
+    async function SalvarCLick() {
+        try {
+            if(id === 0){
+                const r = await cadUser(nome, sobrenome, cpf, nascimento, genero, email, celular, senha);
+                setId(r.id);
+                toast.success('Usuário cadastrado com sucesso!');
+                navigate('/login');
+            }
+            else{
+                await alterarUsuario(id, nome, sobrenome, cpf, nascimento, genero, email, celular, senha);
+                toast.success('Usuário alterado com sucesso!')
+                ref.current.complete();
+                storage.remove('user-logado');
+                setTimeout(() => {
+                    navigate('/login');
+                }, 1000)
+            }
+        }
+        catch (err){
+            toast.error(err.response.data.erro);
+        }
+    }
+
+
+    async function carregarUsuarios(){
+        const resposta = await buscarId(idParam);
+        setNome(resposta.nome);
+        setSobrenome(resposta.sobrenome);
+        setCpf(resposta.cpf);
+        setNascimento(resposta.nascimento);
+        setGenero(resposta.genero);
+        setEmail(resposta.email);
+        setCelular(resposta.celular);
+        setSenha(resposta.senha);
+        setId(resposta.id);
+    }
+
 
     return (
         <main className='container-principal-caduser'>
@@ -97,6 +140,7 @@ export default function CadastroUser() {
 
                 <div className='botao-cad-user'>
                     <button onClick={SalvarCLick}>Cadastrar</button>
+                    <button onClick={Voltar}>Voltar</button>
                 </div>
             </section>
 

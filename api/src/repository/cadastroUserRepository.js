@@ -53,20 +53,22 @@ export async function alterarUsuario(id, usuario) {
     return resposta.affectedRows;
 }
 
-export async function listarUsuarios() {
+export async function listarUsuarios(id) {
     const comando = `
         SELECT ID_USUARIO   id,
-            NM_USUARIO      usuario,     
-            NM_SOBRENOME    sobrenome,
-            DS_CPF          cpf,
-            DT_NASCIMENTO   nascimento,
-            DS_GENERO       genero,
-            DS_EMAIL        email,
-            DS_CELULAR      celular,
-            DS_SENHA        senha
-        FROM  TB_USUARIO`;
+                NM_USUARIO      usuario,     
+                NM_SOBRENOME    sobrenome,
+                DS_CPF          cpf,
+                DT_NASCIMENTO   nascimento,
+                DS_GENERO       genero,
+                DS_EMAIL        email,
+                DS_CELULAR      celular,
+                DS_SENHA        senha
+            FROM  TB_USUARIO
+        WHERE ID_USUARIO = ?
+        `;
 
-    const [linhas] = await con.query(comando)
+    const [linhas] = await con.query(comando, [id])
     return linhas;
 }
 

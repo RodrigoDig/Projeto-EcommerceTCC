@@ -36,7 +36,7 @@
             }
 
             .inputs-dados-user{
-                input{
+                p{
                     background-color: #d9d9d9;
 
                     border: none;
@@ -46,9 +46,6 @@
 
                     padding: 12px;
                     margin-bottom: 1em;
-                }
-                input::placeholder{
-                    font-size: 1.1em;
                 }
 
                 button{

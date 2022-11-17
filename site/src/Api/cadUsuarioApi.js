@@ -36,8 +36,8 @@ export async function alterarUsuario(id, nome, sobrenome, cpf, nascimento, gener
     return r.data;
 }
 
-export async function listarUsuarios(){
-    const resposta = await api.get('/usuario');
+export async function listarUsuarios(id){
+    const resposta = await api.get('/usuario/ ' + id);
     return resposta.data;
 }
 
