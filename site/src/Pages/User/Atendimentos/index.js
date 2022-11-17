@@ -6,6 +6,8 @@ import Interrogacao from '../../../assets/images/interrogacao.svg';
 import Correspondencia from '../../../assets/images/correspondencia-1.svg';
 import Reuniao from '../../../assets/images/reuniao-on-line-1.svg';
 import Telefone from '../../../assets/images/telefone-2.svg';
+import Seta from '../../../assets/images/seta-para-baixo.svg';
+import Rodape from '../../../Components/Rodapé';
 
 export default function Atendimento(){
 
@@ -57,6 +59,41 @@ export default function Atendimento(){
                         </div>
                     </div>
 
+                    <div className='align-5'>
+                        <div className='dv-2'>
+                            <h1 className='txt-16'>Dúvidas Frequentes</h1>
+                            <div className='div-fantasma'></div>
+                           <button className='duvidas'>
+                            <h1> DÚVIDAS SOBRE PAGAMENTO</h1>
+                            <img src={Seta} />
+                           </button>
+
+                           <button className='duvidas'>
+                            <h1> DÚVIDAS SOBRE CADASTRO</h1>
+                            <img src={Seta} />
+                           </button>
+
+                           <button className='duvidas'>
+                            <h1> GARANTIA BYTESPEED</h1>
+                            <img src={Seta} />
+                           </button>
+
+                           <button className='duvidas'>
+                            <h1> DÚVIDAS SOBRE O PEDIDO</h1>
+                            <img src={Seta} />
+                           </button>
+
+                           <button className='duvidas'>
+                            <h1> DÚVIDAS SOBRE AS FASES DE COMPRA</h1>
+                            <img src={Seta} />
+                           </button>
+                        </div>
+                    </div>
+
+                    <footer>
+                        <Rodape/>
+                    </footer>
+                   
             </section>  
 
 
