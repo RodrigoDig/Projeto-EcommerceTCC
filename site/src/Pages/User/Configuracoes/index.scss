@@ -1,0 +1,135 @@
+.fundo-alterar-dados{
+    background-color: #d9d9d9;
+    height: 100vh;
+
+    .alterar-informações{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        
+        background-color: #fff;
+
+        margin: 5em;
+
+        .informações-user-alt{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+
+            h2{
+                font-size: 1.5em;
+                font-weight: 500;
+            }
+
+            .titulo-alterar-dados{
+                display: flex;
+                flex-direction: row;
+
+                margin-top: 2em;
+
+                h1{
+                    margin-left: 0.3em;
+
+                    font-size: 1.8em;
+                    font-weight: 500;
+                }
+            }
+
+            .inputs-dados-user{
+                input{
+                    background-color: #d9d9d9;
+
+                    border: none;
+                    outline: none;
+
+                    font-size: 1.5em;
+
+                    padding: 12px;
+                    margin-bottom: 1em;
+                }
+                input::placeholder{
+                    font-size: 1.1em;
+                }
+
+                button{
+                    color: #fff;
+                    background-color: #f27400;
+
+                    border: none;
+                    border-radius: 5px;
+                    box-shadow: 2px 3px 2px black;
+
+                    font-size: 1.5em;   
+
+                    padding: 8px 2em;
+                    margin-top: 1.2em;
+                    margin-bottom: 2.2em;
+                }
+                button:hover{
+                    transform: scale(1.08);
+                }
+            }
+        }
+
+        .bloco-endereços-user{
+            display: flex;
+            flex-direction: column;
+
+            .titulo-endereço-config{
+                display: flex;
+                flex-direction: row;
+
+                margin-top: 2em;
+
+                img{
+                    height: 4em;
+                }
+
+                h1{
+                    margin-left: 0.3em;
+
+                    font-size: 1.8em;
+                    font-weight: 500;
+                }
+            }
+            .info-end-user{
+                display: flex;
+                flex-direction: column;
+
+                margin-top: 2em;
+                background-color: #d9d9d9;
+
+                h2{
+                    font-weight: normal;
+                    font-size: 1em;
+
+                    margin: 1em;
+                }
+                span{
+                    font-weight: normal;
+                    font-size: 1em;
+
+                    margin: 1em;
+                }
+            }
+
+            button{
+                color: #fff;
+                background-color: #f27400;
+
+                border: none;
+                border-radius: 5px;
+                box-shadow: 2px 3px 2px black;
+
+                font-size: 1.5em;   
+
+                padding: 8px 2em;
+                margin-top: 1.2em;
+                margin-bottom: 2.2em;
+            }
+            button:hover{
+                transform: scale(1.08);
+            }
+        }
+    }
+}

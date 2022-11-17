@@ -5,7 +5,7 @@ import Cabecalho03 from '../../../Components/Cabeçalho02'
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cadUser } from '../../../Api/cadUsuarioApi';
-import { toast } from 'react-toastify';
+id,
 
 export default function CadastroUser() {
 
