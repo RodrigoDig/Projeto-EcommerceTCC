@@ -1,0 +1,259 @@
+.cont-main-perfiluser{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background-color: #d9d9d9;
+    .cont-cabecalho-perfiluser{
+        width: 100%;
+        height: max-content;
+    }
+    .cont-info-userMain{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        height: 100vh;
+    }
+    .cont-cabecalho-usuario{
+        width: 20%;
+        height: max-content;
+    }
+    .cont-info-usuario{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height:92vh;
+    }
+    .cont-fundo-branco{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 87%;
+        height: 35em;
+
+        background-color: white;
+    }
+    .cont-nome-email{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 90%;
+        height: 6em;
+
+        border-bottom: 1px solid #d9d9d9;
+    }
+    .cont-icon-perfil{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        width: 4em;
+        height: 80%;
+    }
+    .icone-user{
+        width: 47px;
+        height: 46px;
+    }
+    .nome-email{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 19em;
+        height: 44%;
+    }
+    .titulo-bemvindo{
+        font-size: 16px;
+        font-family: 'Goldman';
+        font-weight: 100;
+        margin: 0px;
+    }
+    .cont-email{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        width: 90%;
+        height: 1.3em;
+    }
+    .icon-email{
+        width: 18px;
+        height: 18px;
+        margin-right: 0.2em;
+    }
+    .email-usuario{
+        font-size: 13px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin:0px;
+    }
+    .cont-endereco-user{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        width: 90%;
+        height: 13em;
+
+    }
+    .cont-titulo-endereco{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 60%;
+        height: 4.3em;
+    }
+    .cont-icon-location{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        width: 3.3em;
+        height: 80%;
+        margin-right: 0.4em;
+    }
+    .icone-location{
+        width: 39px;
+        height: 38px;
+    }
+    .titulo-endereco{
+        font-size: 19px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+    }
+    .cont-enderecos-cadastrados{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 8.5em;
+    }
+    .botao-cadastrar-endereco{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 14em;
+        height: 3em;
+        border: 0px;
+        border-radius: 6px;
+        background-color: #F27400;
+    }
+    .titulo-botao{
+        font-size: 14px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+        color: #fff;
+    }
+    .cont-atalhos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        height: 13em;
+        border-top: 1px solid #d9d9d9;
+    }
+    .cont-atalhos-titulo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        width: 95%;
+        height: 3em;
+    }
+    .titulo-atalhos{
+        margin: 0px;
+        font-size: 18px;
+        font-weight: 100;
+        font-family: 'Goldman';
+    }
+    .icon-atalho{
+        margin-right: 0.3em;
+        width: 35px;
+        height: 35px;
+    }
+    .cont-cada-atalho{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        height: 10em;
+    }
+    .cont-atalho1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 12em;
+        height: 7em;
+
+        border: 0.1px solid #F27400;
+    }
+
+    .atalho-meuspedidos{
+        margin: 0px;
+        font-size: 13px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        color: #F27400;
+    }
+    .cont-atalho2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 12em;
+        height: 7em;
+
+        border: 0.1px solid #F27400;
+    }
+    .icon-atalho-atend{
+        width: 35px;
+        height: 35px;
+    }
+    .atalho-atendimento{
+        margin: 0px;
+        font-size: 13px;
+        text-align: center;
+        width: 8em;
+        font-weight: 100;
+        font-family: 'Goldman';
+        color: #F27400;
+    }
+    .icon-atalho-pedidos{
+        width: 35px;
+        height: 35px;
+    }
+    .cont-atalho3{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 12em;
+        height: 7em;
+
+        border: 0.1px solid #F27400;
+    }
+    .icon-atalho-favoritos{
+        width: 25px;
+        height: 25px;
+        margin-right: 0.2em;
+    }
+    .atalho-favoritos{
+        margin: 0px;
+        font-size: 13px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        color: #F27400;
+    }
+}

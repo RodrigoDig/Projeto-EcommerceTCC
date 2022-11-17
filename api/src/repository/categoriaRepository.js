@@ -66,10 +66,10 @@ export async function buscaCatNome(nome){
 
 export async function buscarCategoriaPorId(id) {
     const comando = `
-        select ID_CATEGORIA         as id,
-               NM_CATEGORIA        as categoria
+        select ID_CATEGORIA         id,
+               NM_CATEGORIA         categoria
           from TB_CATEGORIA
-         where ID_CATEGORIA = ?
+         where ID_CATEGORIA = ?;
     `
 
     const [linhas] = await con.query(comando, [id]);

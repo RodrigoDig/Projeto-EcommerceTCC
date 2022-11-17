@@ -66,7 +66,6 @@ server.get('/dep/cat/produtos/:idcat/:iddep', async (req, resp) =>{
     try{
         const idcat = req.params.idcat;
         const iddep = req.params.iddep;
-
         let prod = await produtosCatDep(idcat, iddep);
         resp.send(prod);
     }catch(err){
