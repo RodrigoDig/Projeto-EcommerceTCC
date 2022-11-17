@@ -2,13 +2,12 @@ import React from 'react';
 import './index.scss';
 import Cabecalho03 from '../../../Components/Cabeçalho02'
 
+import { toast } from 'react-toastify';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cadUser } from '../../../Api/cadUsuarioApi';
-id,
 
 export default function CadastroUser() {
-
     const navigate = useNavigate();
     
     async function SalvarCLick() {

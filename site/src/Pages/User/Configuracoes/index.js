@@ -3,10 +3,12 @@ import './index.scss';
 import User from '../../../assets/images/icon-user.svg';
 import Localização from '../../../assets/images/pin-de-localizacao.png';
 
-import { toast } from 'react-toastify';
+import { alterarUsuario } from '../../../Api/cadUsuarioApi';
+import { toast } from 'react-toastify'
 import { useNavigate } from 'react-router-dom';
 
 import Cabeçalho from '../../../Components/CabecalhoCompras';
+import { useState } from 'react';
 
 export default function Configuracoes(){
     const [nome, setNome] = useState('');
@@ -24,10 +26,10 @@ export default function Configuracoes(){
         navigate('/perfil')
     }
 
-    function alterarUser(){
+    async function alterarUser(){
         try{
             if(id != 0){
-                const alterar = await (id, );
+                const alterar = await alterarUsuario(id);
                 setId(alterar.id);
                 toast.success('Usuário alterado com sucesso!')
             }
