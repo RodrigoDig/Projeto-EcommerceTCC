@@ -9,6 +9,7 @@ export default function CarrinhoItem(props) {
 
     function exibirImagem(){
         if(props.item.produto.imagem > 0){
+            console.log("aaa")
             return API_URL + '/' + props.item.produto.imagem[0];
         }
         else{
@@ -16,9 +17,6 @@ export default function CarrinhoItem(props) {
         }
     }
 
-    function carrinho(){
-        return props.carregarCarrinho()
-    }
     function valorDesconto(valor, desconto) {
         const valordesc = desconto / 100;
         const vl = valor * valordesc;
@@ -40,12 +38,13 @@ export default function CarrinhoItem(props) {
         itemStorag.qtd = novaQtd;
 
         Storage('carrinho', carrinho);
-        props.carrinho();
+        props.carregarCarrinho();
     }
 
     function remover() {
         props.removerItem(props.item.produto.idProduto)
     }
+
 
     return (
         <main>

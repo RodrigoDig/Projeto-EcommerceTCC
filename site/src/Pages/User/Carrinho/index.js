@@ -33,7 +33,7 @@ export default function Carrinho() {
     function calcularTotal(){
         let total = 0;
         for(let item of itens){
-            total = total + valorDesconto(item.produto.preco, item.produto.desconto); 
+            total = total + valorDesconto(item.produto.preco, item.produto.desconto) * item.qtd; 
         }
         return total;
     }
@@ -67,6 +67,7 @@ export default function Carrinho() {
 
     useEffect(() => {
         carregarCarrinho();
+        calcularTotal()
     }, [])
 
     return (

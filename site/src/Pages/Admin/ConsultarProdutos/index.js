@@ -28,12 +28,9 @@ export default function ConsEstoque() {
         setProduto(r);
     }
 
-    useEffect(() => {
-        carregarTodosProdutos();
-    }, [])
-
+    
     async function deletarProduto(id) {
-
+        
         confirmAlert({
             title: "Remover produto",
             message:"Deseja mesmo remover o produto?",
@@ -41,9 +38,10 @@ export default function ConsEstoque() {
                 {
                     label:"Sim",
                     onClick: async () =>{
+
                         const resposta = await removerProduto(id);
                         if(filtro === '')
-                            listarTodosProdutos(id);
+                            listarTodosProdutos();
                         else
                             filtrar();
                         toast.success("Produto removido com sucesso!");
@@ -54,8 +52,12 @@ export default function ConsEstoque() {
                 }
             ] 
         })
-
+        
     }
+    
+    useEffect(() => {
+        carregarTodosProdutos();
+    }, [])
 
     return (
         <main className='cont-main-estoque'>
