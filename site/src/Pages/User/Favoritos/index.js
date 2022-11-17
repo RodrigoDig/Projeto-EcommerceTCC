@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss';
 import Cabecalho01 from '../../../Components/Cabeçalho07';
 import Cabecalho02 from '../../../Components/CabeçalhoUser';
-import CFavoritos from '../../../Components/favoritos';
+import CFavoritos from '../../../Components/Favoritos';
 
 export default function Favoritos(){
     return(
