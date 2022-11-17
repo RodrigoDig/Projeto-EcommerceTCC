@@ -23,3 +23,6 @@ code {
 
 @import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap');
 
+*{
+  border: 1px solid green;
+}
