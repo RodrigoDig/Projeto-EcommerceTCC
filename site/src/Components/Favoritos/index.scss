@@ -1,18 +1,40 @@
 .sct-2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: blue;
 
 .align-1{
     display:flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+
+    height: 75vh;
+    width: 70em;
 }
 .cont-1{
     display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #ffffff;
+    border-radius: 0.5em;
+    width: 80%;
+    height: 20%;
+    position: relative;
+}
+.txt-1{
+    display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 40px;
+
+    width: 8.5em;
 }
 
+.ghost{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #d9d9d9;
+    width: 96%;
+
+    position: absolute;
+    top: 70]%;
+    left: 2%;
+}
 }   

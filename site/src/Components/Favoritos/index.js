@@ -11,7 +11,8 @@ export default function CompFav() {
 
                 <div className='align-1'>
                     <div className='cont-1'>
-                       
+                       <h1 className='txt-1'> Favoritos</h1>
+                       <div className='ghost'></div>
                     </div>
                 </div>    
 
