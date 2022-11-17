@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './index.scss';
 
+
 import Cabecalho1 from '../../../Components/Cabeçalho01';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import { CardOutrasOp } from '../../components/CardOutrasOp';
@@ -19,6 +20,7 @@ import StarAva from '../../../assets/images/star-icon.svg';
 import OutrasOp from '../../../assets/images/icon-outrasop.png';
 import Seta from '../../../assets/images/seta-vertodos.svg';
 import Rodape from '../../../Components/Rodapé';
+import Modal from '../../../Components/Modal';
 
 import { prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
@@ -27,6 +29,7 @@ import { estrelasAvaliacao } from '../../components/estrelaAva';
 
 export default function Produto(){
     const [produtos, setProdutos] = useState({ info: {}, cat: [], maiorAvaliacao: [], menorAvaliacao: [], opGeral: []});
+    const [isModalVisible, setIsModalVisible] = useState(false);
     const { id } = useParams();
     const navigate = useNavigate();
     
@@ -257,12 +260,19 @@ export default function Produto(){
                                 Avaliação dos clientes
                             </h1>
                         </div>
-                        <button className='botao-cliente-avaliar'>
-                            <img src={StarAva} className='img-star-ava' />
-                            <p className='text-cliente-avaliar'>
+                        <button onClick={() => setIsModalVisible(true)} className='botao-cliente-avaliar'>
+                            <img onClick={() => setIsModalVisible(true)} src={StarAva} className='img-star-ava' />
+                            <p onClick={() => setIsModalVisible(true)} className='text-cliente-avaliar'>
                                 Faça sua avaliação!
                             </p>
                         </button>
+                <Modal isOpen={isModalVisible} setIsOpen={setIsModalVisible}>
+                    <div>
+                        <h1>
+                            Modal
+                        </h1>
+                    </div>
+                </Modal>
                 </div>
                 <div className='cont-maior-ava'>
                     <div className='cont-text-maiorav'>
