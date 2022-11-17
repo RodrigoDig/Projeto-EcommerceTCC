@@ -2,11 +2,12 @@ import { con } from "./connection.js";
 
 export async function CadastroEnd(endereco){
     const linhas = `
-        INSERT INTO TB_USUARIO_ENDERECO(ID_USUARIO, DS_LOGADOURO, NR_NUMERO, NM_BAIRRO, DS_CEP, NM_CIDADE, NM_ESTADO, DS_COMPLEMENTO, DS_CASA)
-                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO TB_USUARIO_ENDERECO( ID_USUARIO, DS_LOGADOURO, NR_NUMERO, NM_BAIRRO, DS_CEP, NM_CIDADE, NM_ESTADO, DS_COMPLEMENTO, DS_CASA)
+    VALUES(?, ? , ? , ? , ? , ? , ? , ? , ?);
     `
 
-    const [resp] = await con.query(linhas, [
+    const [resp] = await con.query(linhas, [,
+        endereco.idUsuario,
         endereco.logadouro,
         endereco.numero,
         endereco.bairro,
