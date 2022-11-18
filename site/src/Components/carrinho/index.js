@@ -61,7 +61,7 @@ export default function CarrinhoItem(props) {
 
                     <div className='preço-produto-carrinho'>
                         <label>Preço</label>
-                        <span>De R$ {props.item.produto.preco} Por R$ {valorDesconto(props.item.produto.preco, props.item.produto.desconto)},00</span>
+                        <span>De R$ {props.item.produto.preco} Por R$ {valorDesconto(props.item.produto.preco, props.item.produto.desconto)}</span>
                     </div>
                 </div>
 
@@ -77,10 +77,9 @@ export default function CarrinhoItem(props) {
                         </select>
                     </div>
 
-                    <div className='valor-subtotal'>
-                        <label>Subtotal
-                            <p>R$ {calcularSubTotal(props.item.produto.preco, props.item.produto.desconto)},00</p>
-                        </label>
+                    <div>
+                        <label>Subtotal</label>
+                        <p>R$ {calcularSubTotal(props.item.produto.preco, props.item.produto.desconto)}</p>
                     </div>
 
                 </div>

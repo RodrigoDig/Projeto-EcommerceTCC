@@ -1,32 +1,13 @@
-.dtnr{
+.status-pedido{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    
+    align-items: center;
 
-.contt{
-    display:flex;
-    flex-direction:row;
-    justify-content: space-around;
-    align-items: flex-end;
-    margin-left: 4.2em;
-    
-    height: 10vh;
-    width: 70%;
-
-    position: relative;
-    right: 2em;
-    
-    .tc1{
-        border-bottom: 3px solid #f27400;
-        width: 15%;
-        margin-bottom: 1.2em;
+    .ax1x{
+        margin-right: 1em;
+        height: 2.5em;
     }
-
     .ax2x{
-        margin-top: 3em;
+        margin-right: 1em;
     }
-
-}
-
 }

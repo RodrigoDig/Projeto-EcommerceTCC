@@ -1,94 +1,108 @@
 .pagina-carrinho{
-
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     height: 100vh;
+    
     background-color: #d9d9d9;
 
     .Componentes-carrinho{
+        width: 100%;
+        height: max-content;
+    }
+
+    .divisão-responsiva{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
-    }
 
-    .titulo-carrinho{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    
-        .carrinho{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            margin-top: 2em;
-            margin-left: 25em;
-
-            img{
-                width: 4em;
-                height: 3em;
-
-                margin-right: 15px;
-            }
-            h1{
-                font-size: 2em;
-            }
-
+        .cabecalho-usuario-main{
+            width: 20%;
+            height: max-content;
         }
-    
-        .Informações-Carrinho{
+
+        .titulo-carrinho{
             display: flex;
-            flex-direction: row;
-            justify-content: center;
-            
-            .itens-carrinho{
-                margin-right: 3em;
-                margin-left: 5em;
-
-                background-color: #fff;
-            }  
-
-            .Resumo-carrinho{
+            flex-direction: column;
+            justify-content: space-between;
+        
+            .carrinho{
                 display: flex;
-                flex-direction: column;
-            
-                width: 25em;
-
-                padding-left: 2em;
-                background-color: #fff;
-                
+                flex-direction: row;
+                align-items: center;
+    
+                margin-top: 2em;
+                margin-left: 2em;
+    
+                img{
+                    width: 3em;
+                    height: 2em;
+    
+                    margin-right: 15px;
+                }
                 h1{
-                    font-size: 2em;
-                    font-weight: normal;
+                    font-size: 1.7em;
                 }
-                p{
-                    font-size: 1.3em;
-
-                    background-color: #d9d9d9;
-
-                    border: none;
-                    width: 16.8em;
-
-                    padding: 13px;
+    
+            }
+        
+            .Informações-Carrinho{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                
+                .itens-carrinho{
+                    margin-right: 2em;
+                    margin-left: 2em;
+    
+                    background-color: #fff;
+                }  
+    
+                .Resumo-carrinho{
+                    display: flex;
+                    flex-direction: column;
+                
+                    width: 13em;
+    
+                    padding-left: 1.3em;
+                    background-color: #fff;
                     
-                }
-                button{
-                    font-size: 1.3em;
-
-                    color: #fff;
-                    background-color: #f27400;
-
-                    border: none;
-                    width: 18em;
-
-                    padding: 13px;
-                    margin-bottom: 1em;
-                }
-                button:hover{
-                    transform: scale(1.02);
+                    h1{
+                        font-size: 2em;
+                        font-weight: normal;
+                    }
+                    p{
+                        font-size: 1.1em;
+    
+                        background-color: #d9d9d9;
+    
+                        border: none;
+                        width: 9em;
+    
+                        padding: 13px;
+                        
+                    }
+                    button{
+                        font-size: 1.1em;
+    
+                        color: #fff;
+                        background-color: #f27400;
+    
+                        border: none;
+                        width: 10.5em;
+    
+                        padding: 13px;
+                        margin-bottom: 1em;
+                    }
+                    button:hover{
+                        transform: scale(1.02);
+                    }
                 }
             }
+    
         }
-
     }
+    
 }
 
 

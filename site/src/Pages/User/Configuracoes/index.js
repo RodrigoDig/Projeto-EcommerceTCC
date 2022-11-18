@@ -57,7 +57,7 @@ export default function Configuracoes() {
                     <h2>Dados do usuário:</h2>
 
                     <div className='inputs-dados-user'>
-                            <div >
+                            <div>
                                 <p>{usuario.usuario}</p>
                                 <p>{usuario.sobrenome}</p>
                                 <p>{usuario.nascimento}</p>

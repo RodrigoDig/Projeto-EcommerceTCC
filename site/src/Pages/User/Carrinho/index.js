@@ -6,7 +6,7 @@ import './index.scss';
 
 import Storag from 'local-storage';
 import CarrinhoItem from '../../../Components/carrinho';
-import Cabeçalho01 from '../../../Components/Cabeçalho01';
+import Cabeçalho01 from '../../../Components/Cabeçalho06';
 import CarrinhoLogo from '../../../assets/images/Group.png';
 import CabaçalhoUsuario from '../../../Components/CabeçalhoUser';
 
@@ -74,9 +74,11 @@ export default function Carrinho() {
         <main className='pagina-carrinho'>
             <section className='Componentes-carrinho'>
                 <Cabeçalho01/>
-                <CabaçalhoUsuario/>
             </section>
-            <section>
+            <section className='divisão-responsiva'>
+                <div className='cabecalho-usuario-main'>
+                    <CabaçalhoUsuario/>
+                </div>
                 <div className='titulo-carrinho'>
 
                     <div className='carrinho'>
@@ -98,8 +100,8 @@ export default function Carrinho() {
 
                         <div className='Resumo-carrinho'>
                             <h1>Resumo</h1>
-                            <p>Total de Intens: {qtdItens()} </p>
-                            <p>Valor da compra: R$ {calcularTotal()}</p>
+                            <p>Intens: {qtdItens()} </p>
+                            <p>Valor: R$ {calcularTotal()}</p>
                             <button>Comprar</button>
                             <button onClick={voltar}>Continuar Comprando</button>
                         </div>

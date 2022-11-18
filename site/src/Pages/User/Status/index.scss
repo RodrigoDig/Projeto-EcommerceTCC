@@ -1,124 +1,173 @@
-* {
-    font-family: 'Goldman';
-}
-
-.fundo {
-    background-color: #D9D9D9;
-}
-
-.f2 {
-    background-color: #ffffff;
-
-    position: relative;
-    left: 30em;
-    top: 1em;
-
-    height: 60em;
-    width: 80em;
-
-    h1 {
-        color: #F27400;
-        font-size: 2em;
-        position: relative;
-        top: 2em;
-        left: 11em;
-    }
-
-    p {
-        margin-left: 4;
-    }
-
-    hr {
-        margin-top: 1em;
-        width: 76em;
-    }
-
-    h2 {
-        position: relative;
-        top: 3em;
-        left: 5em;
-    }
-
-    p {
-        position: relative;
-        top: 2em;
-        left: 40em;
-    }
-
-
-    input {
-        position: relative;
-        bottom: .3em;
-        left: 68em;
-
-
-        background-color: transparent;
-        color: #F27400;
-        border: none;
-    }
-}
-
-.div1{
-    display: flex;
-    flex-direction: row;
-}
-
-.divp{
+.pagina-status-pedido{
     display: flex;
     flex-direction: column;
-    width: 3-em;
-}
+    width: 100%;
+    height: 100vh;
+    background-color: #d9d9d9;
 
-
-.divb {
-    position: relative;
-    top: 3em;
-    left: 58em;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-    button{
-    
-        height: 3em;
-        width: 19em;
-        border-radius: .5em;
-        border-color: #F27400;
-
-        color: #F27400;
-        background-color: transparent;
-
-        font-size: 1em;
+    .cont-cabecalho-perfiluser{
+        width: 100%;
+        height: max-content;
     }
-    
 
-}
+    .informações-pedido-user{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 100%;
+        height: 100vh;
 
-.button2 {
-    position: relative;
-    top: 7em;
-    left: 38em;
+        .cont-cabecalho-usuario{
+            width: 20%;
+            height: max-content;
+        }
 
-    height: 4em;
-    width: 40em;
+        .informações-pedido-usuario{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
 
-    display: flex;
-    justify-content: start;
-    align-items: center;
+            background-color: #fff;
 
-    border-radius: 0;
-    border-color: #F27400;
+            margin: 2em;
 
-    color: #F27400;
-    background-color: transparent;
+            hr{
+                border:1px solid #d9d9d9;
 
-    font-size: 1em;
+                margin-right: 1em;
+                margin-left: 1em;
+            }
+            .situação-etapas-usertt{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
 
-}
+                h1{
+                    font-family: 'Goldman';
+                    font-size: 1.3em;
 
-.Seta {
-    position: relative;
-    top: 4em;
-    left: 75em;
+                    color: #f27400;
+                }
+            }
+
+            .info-pedido{
+                display: flex;
+                flex-direction: row;
+
+                margin: 2em;
+
+                .detalhes-compra{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    h1{
+                        text-align: center;
+                        font-family: 'Goldman';
+                        font-size: 1.5em;
+                    }
+                    img{
+                        border: 1px solid black;
+
+                        height: 8em;
+                        width: 7em;
+                        margin-bottom: 1.5em;
+                    }
+                    span{
+                        border: 1px solid black;
+
+                        height: 8em;
+                        width: 7em;
+                    }
+                }
+
+                .informações-entrega{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    width: 30em;
+
+                    .frete{
+                        display: flex;
+                        width: 25em;
+
+                        p{
+                            font-family:'Goldman';
+                            font-weight: normal;
+                            font-size: 14px;
+
+                            margin  : 1em;
+                        }
+                    }
+
+                    .botao-entrega{
+                        display: flex;
+                        flex-direction: row;
+
+                        margin-top: 1em;
+                        width: 25em;
+
+                        p{
+                            font-family:'Goldman';
+                            font-weight: normal;
+                            font-size: 14px;
+                            
+                            margin-right: 1em;
+                        }
+
+                        button{
+                            font-family:'Goldman';
+                            font-weight: normal;
+                            font-size: 14px;
+
+                            background-color: #fff;
+                            color: #f27400;
+                            border: 1px solid #f27400;
+                        }
+                        button:hover{
+                            transform: scale(1.1);
+                            background-color: #f27400;
+                            color: #fff;
+                            border: 1px solid #fff;
+                        }
+
+                    }
+
+                    .informação-final-status{
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        width: 28em;    
+                        margin-top: 1em;
+
+                        .text-status{
+                            margin: 1em;
+                            border: 3px solid #f27400;
+
+                            h1{
+                                font-family:'Goldman';
+                                font-weight: normal;
+                                font-size: 1.1em; 
+
+                                color: #f27400;
+
+                                margin: 1em;
+                            }
+
+                            p{
+                                font-family:'Goldman';
+                                font-weight: normal;
+                                font-size: 14px;
+
+                                margin: 1em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

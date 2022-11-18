@@ -16,7 +16,6 @@ import EtapaCompraIII from './Pages/User/EtapaCompraIII';
 import EtapaCompraIV from './Pages/User/EtapaCompraIV'
 import Favoritos from './Pages/User/Favoritos';
 import Login from './Pages/User/LoginI';
-import Pedido from './Pages/User/Pedido';
 import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
 import Status from './Pages/User/Status';
@@ -49,7 +48,6 @@ export default function Index(){
                 <Route path="/etapaIV" element={<EtapaCompraIV />} />
                 <Route path="/favoritos" element={<Favoritos />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="/pedido" element={<Pedido />} />
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/compra/produto/:id" element={<Produto />} />
                 <Route path="/status" element={<Status />} />
