@@ -774,4 +774,58 @@
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.438);
     }
+    @media screen and (max-width: 1300px) and (min-width: 1000px) {
+        .cont-dep-infoprod{
+            height: 3em;
+        }
+        .cont-filhadep001{
+            align-items: center;
+        }
+        .departamento-infoprod{
+            font-size: 18px;
+        }
+        .nmdep-infoprod{
+            font-size: 18px;
+        }
+        .class-infoprod{
+            font-size: 18px;
+        }
+        .favoritar-infoprod{
+            width: 25px;
+            height: 25px;
+            margin-right: 0.2em;
+        }
+
+
+        .cont-ava-infoprod{        
+                width: 50%;
+        
+                border: 0.1px solid rebeccapurple;
+        }
+        .cont-produto-infoprod{
+            height: 39em;
+        }
+        .cont-imagem-maior-infoprod{
+            height: 38%;
+            border: 0px;
+        }
+        .cont-imgs-infoprod{
+            border: 0px;
+            width: 59%;
+            height: max-content;
+        }
+        .imagem1-prod{
+            width: 180px;
+            height: 180px;
+            border: none;
+        }
+        .imagem2-prod{
+            width: 80px;
+            height: 80px;
+        }
+        .imagem3-prod{
+            width: 80px;
+            height: 80px;
+        }
+    }
 }
