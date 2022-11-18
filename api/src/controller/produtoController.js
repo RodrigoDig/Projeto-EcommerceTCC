@@ -1,4 +1,4 @@
-import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd, buscarImgsProdutos, inserirFavorito, varificarSeJaFavoritou } from "../repository/produtoRepository.js";
+import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd, buscarImgsProdutos, inserirFavorito, varificarSeJaFavoritou, deletarFavorito } from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { alterarValid } from '../services/alterarValidacao.js';
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
@@ -277,11 +277,11 @@ server.post('/favorito/usuario/avaliacao', async (req, resp) => {
         const usid = req.body;
         const verificar = await varificarSeJaFavoritou(usid.idUsuario, usid.idProduto);
         let produtosFav = '';
-        if(!verificar || verificar === null || verificar === 0){
+        if(!verificar || verificar === undefined || verificar === null || verificar === 0){
             produtosFav = await inserirFavorito(usid);
         }
         else{
-            throw new Error('Você já Faoritou esse produto')
+            throw new Error('Você já Favoritou esse produto');
         }
         resp.send({
             idFavorito: produtosFav
@@ -295,11 +295,26 @@ server.post('/favorito/usuario/avaliacao', async (req, resp) => {
     }
 })
 
-server.get('/verificar/favoritado', async (req, resp) => {
+server.delete('/favorito/deletar/:usuario/:produto', async (req, resp) => {
     try {
-        const usid = req.body;
-        const verificar = await varificarSeJaFavoritou(usid.idUsuario, usid.idProduto);
-        
+        const usid = req.params;
+        const verificar = await deletarFavorito(usid);
+        let status = 0;
+        if(verificar === 1){
+            status = 204
+        }
+        resp.send(status);
+    } catch (err) {
+        return resp.status(400).send({
+            erro: (err.message)
+        });
+    }
+})
+
+server.get('/verificar/favoritado/:usuario/:produto', async (req, resp) => {
+    try {
+        const usid = req.params;
+        const verificar = await varificarSeJaFavoritou(usid.usuario, usid.produto);
         resp.send(verificar);
 
     } catch (err) {

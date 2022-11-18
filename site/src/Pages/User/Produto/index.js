@@ -136,13 +136,15 @@ export default function Produto(){
                                 20 avaliações
                             </h1>
                         </div>
-                        <div className='cont-imagem-maior-infoprod'>
-                            <img src={mostrarImg(imagens.imagem1.img)} className='imagem1-prod' />
-                        </div>
-                        <div className='cont-imgs-infoprod'>
-                            <img src={mostrarImg(imagens.imagem1.img)} className='imagem2-prod' />
-                            <img src={mostrarImg(imagens.imagem2.img)} className='imagem2-prod'/>
-                            <img src={mostrarImg(imagens.imagem3.img)} className='imagem3-prod'/>
+                        <div className='cont-imagens'>                            
+                            <div className='cont-imagem-maior-infoprod'>
+                                <img src={mostrarImg(imagens.imagem1.img)} className='imagem1-prod' />
+                            </div>
+                            <div className='cont-imgs-infoprod'>
+                                <img src={mostrarImg(imagens.imagem1.img)} className='imagem2-prod' />
+                                <img src={mostrarImg(imagens.imagem2.img)} className='imagem2-prod'/>
+                                <img src={mostrarImg(imagens.imagem3.img)} className='imagem3-prod'/>
+                            </div>
                         </div>
                     </div>
                     <div className='cont-vlcompra-infoprod'>
@@ -276,19 +278,6 @@ export default function Produto(){
                                 Avaliação dos clientes
                             </h1>
                         </div>
-                        <button onClick={() => setIsModalVisible(true)} className='botao-cliente-avaliar'>
-                            <img onClick={() => setIsModalVisible(true)} src={StarAva} className='img-star-ava' />
-                            <p onClick={() => setIsModalVisible(true)} className='text-cliente-avaliar'>
-                                Faça sua avaliação!
-                            </p>
-                        </button>
-                <Modal isOpen={isModalVisible} setIsOpen={setIsModalVisible}>
-                    <div>
-                        <h1>
-                            Modal
-                        </h1>
-                    </div>
-                </Modal>
                 </div>
                 <div className='cont-maior-ava'>
                     <div className='cont-text-maiorav'>
@@ -356,13 +345,13 @@ export default function Produto(){
                     </div>
                 </div>
                 </div>
-                <div className='cont-maior-ava'>
+                <div className='cont-men-ava'>
                     <div className='cont-text-maiorav'>
                         <p className='text-maior-ava'>
                             Menor Avaliação:
                         </p>
                     </div>
-                <div className='cont-maior-menor-ava'>
+                <div className='cont-maior-menor-ava2'>
                     <div className='cont-melhor-ava'>
                         <div className='cont-filha1-melhorava'>
                             <h1 className='titulo-ava-cliente'>

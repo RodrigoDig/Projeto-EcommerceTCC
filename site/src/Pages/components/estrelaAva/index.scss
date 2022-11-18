@@ -30,4 +30,11 @@
     .star-icon:hover ~ .star-icon::before{
         content: "\2606";
     }
+    @media screen and (max-width:130px) and (min-width: 1000px) {
+        width: 4em;
+        height: 2.1em;
+        .star-icon{
+            font-size: 20px;
+        }
+    }
 }

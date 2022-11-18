@@ -14,6 +14,14 @@
         width: 100%;
         height: 4.2em;
     }
+    .cont-imagens{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 40em;
+    }
     .cont-produto-infoprod{
         display: flex;
         flex-direction: column;
@@ -548,7 +556,21 @@
         
         border-bottom: 2px solid #d9d9d9;
     }
+    .cont-maior-menor-ava2{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 20em;
+        
+        border-bottom: 2px solid #d9d9d9;
+    }
     .cont-maior-ava{
+        display: flex;
+        flex-direction: column;
+        width: 95%;
+        height: 20em;
+    }
+    .cont-men-ava{
         display: flex;
         flex-direction: column;
         width: 95%;
@@ -782,17 +804,17 @@
             align-items: center;
         }
         .departamento-infoprod{
-            font-size: 18px;
+            font-size: 16px;
         }
         .nmdep-infoprod{
-            font-size: 18px;
+            font-size: 16px;
         }
         .class-infoprod{
-            font-size: 18px;
+            font-size: 16px;
         }
         .favoritar-infoprod{
-            width: 25px;
-            height: 25px;
+            width: 20px;
+            height: 20px;
             margin-right: 0.2em;
         }
 
@@ -826,6 +848,282 @@
         .imagem3-prod{
             width: 80px;
             height: 80px;
+        }
+        .cont-ava-infoprod{
+            width: 51%;
+            height: 2.3em;
+            border: 0px;
+            margin-bottom: 0.9em;
+        }
+        .text-cont-ava{
+            margin-bottom: 0.4em;
+            font-size: 15px;
+        }
+        .cont-divulgacao-infoprod{
+            margin-top: 0.5em;
+            width: 80%;
+            height: 4em;
+            border-radius: 13px;
+        }
+        .text-adquira{
+            font-size: 14px;
+        }
+        .text-nmprod{
+            width: 80%;
+            font-family: 'Goldman';
+            font-size: 16px;
+            margin: 0px;
+        }
+        .cont-nmprod-infoprod{
+            flex-wrap: wrap;
+            margin-top: 0.9em;
+            width: 80%;
+            height: max-content;
+        }
+        .cont-fabricante-infoprod{
+            width: 80%;
+            height: max-content;
+            margin-top: 0.5em;   
+        }
+        .text-fabricante{
+            font-size: 14px;
+        }
+        .cont-valor-infoprod{
+            display: flex;
+            flex-direction: column;
+            margin-top: 0.9em;
+            width: 80%;
+            height: max-content;
+        }
+        .valor-antigo-infoprod{
+            font-size: 12px;
+        }
+        .text-valor-infoprod{
+           font-size: 22px; 
+        }
+        .text-mostrando-desconto{
+            font-size: 13px;
+        }
+        .cont-botao-comp{
+            height: 10em;
+        }
+        .cont-prodvl-infoprod{
+            display: flex;
+            flex-direction: row;
+    
+            width: 100%;
+            height: 100%;
+        }
+        .cont-produto-infoprod{
+            height: 32em;
+        }
+        .botao-carrinho{
+            width: 50%;
+            height: 2.9em;
+            background-color: #F27400;
+            border: 0px;
+            border-radius: 10px;
+            margin-bottom: 1em;
+            .text-addcarrinho{
+                color: white;
+                font-family: 'Goldman';
+                font-weight: 100;
+                font-size: 12px;
+                margin: 0%;
+            }
+            .carrinho-add{
+                width: 30px;
+                height: 30px;
+                margin-right: 0.3em;
+            }
+        }
+        .botao-comprar{
+            width: 50%;
+            height: 2.9em;
+            background-color: #F27400;
+            border: 0px;
+            border-radius: 10px;
+            .text-comprar{
+                color: white;
+                font-family: 'Goldman';
+                font-weight: 100;
+                font-size: 12px;
+                margin: 0%;
+            }
+            .carrinho-add{
+                width: 30px;
+                height: 30px;
+                margin-right: 0.3em;
+            }
+        }
+        .cont-vlcompra-infoprod{
+            border-left: 2px solid #d9d9d9;
+        }
+        .cont-avaimgs-infoprod{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 69%;
+    
+            border-right: 0px;
+        }
+        .cont-imagem-maior-infoprod{
+            height: 12em;
+        }
+        .cont-titulo-catgerais{
+            width: 95%;
+            height: 3.3em;
+        }
+        .titulo-catgerais{
+            font-size: 17px;
+            margin-left: 0.5em;
+        }
+        .cont-text-catgerais{
+            margin-top: 0.5em;
+            width: 95%;
+            height: 3.2em;
+        }
+        .text-catgerais{
+            font-size: 15px;
+        }
+        .cont-caracteristicas{
+            width: 90%;
+            height: 15em;
+        }
+        .cont-car01{    
+            width: 12em;
+            height: 14em;
+            box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
+        }
+        .caracteristica-01{
+            font-size: 14px;
+        }
+        .caracteristica-03{
+            font-size: 14px;
+        }
+        .img-cat-01{
+            width: 5em;
+            height: 5em;  
+        }
+        .img-cat-03{
+            width: 5em;
+            height: 5em;  
+        }
+        .text-cat-01{
+            font-size: 13px;
+        }
+        .cont-catgerais{
+            height: 27em;
+        }
+        .cont-descricao{
+
+        }
+        .cont-titulo-desc{
+            width: 95%;
+            height: 3.6em;
+        }
+        .img-desc{
+            margin-left: 0.5em;
+            width: 1.4em;
+            height: 1.4em;
+        }
+        .titulo-desc{
+            font-size: 17px;
+        }
+        .cont-text-desc{
+            width: 90%;
+            height: 13em;
+            margin-top: 0.5em;
+            margin-bottom: 0.7em;
+        }
+        .text-desc{
+            font-size: 17px;
+        }
+        .img-info{
+            width: 30px;
+            height: 28px;
+            margin-left: 0.4em;
+        }
+        .cont-informacoes{
+            height: 12em;
+        }
+        .paragrafo-informacoes{
+            font-size: 18px;
+        }
+        .cont-infotec{
+            height: max-content;
+        }
+        .cont-titulo-ava{
+            height: 3.6em;
+        }
+        .titulo-av{
+            font-size:  16px;
+        }
+        .cont-01-ava{
+            width: 30%;
+        }
+        .text-maior-ava{
+            font-size: 15px;
+        }
+        .cont-text-maiorav{
+            height: 1.9em;
+        }
+        .cont-maior-menor-ava{
+            height: 13em;
+        }
+        .cont-maior-menor-ava2{
+            height: 13em;
+            border: 0px;
+        }
+        .cont-filha1-melhorava{
+            height: 13em;
+        }
+        .titulo-ava-cliente{
+            font-size: 15px;
+        }
+        .titulo-ava-desemp{
+            font-size: 15px;
+        }
+        .titulo-ava-geral{
+            font-size: 15px;
+        }
+        .titulo-ava-atendi{
+            font-size: 15px;
+        }
+        .titulo-ava-sats{
+            font-size: 15px;
+        }
+        .cont-filha2-melhorava{
+            height: 13em;
+        }
+        .titulo-op-geral{
+            font-size: 15px;
+        }
+        .cont-avalialiacoes{
+            height: 13em;
+        }
+        .cont-filha4-melhorava{
+            height: 13em;
+            width: max-content;
+        }
+        .cont-op-geral{
+            height: 13em;
+        }
+        .cont-melhor-ava{
+            height: 13em;
+        }
+        .cont-maior-ava{
+            height: 15.2em;
+        }
+        .cont-avaliacoes{
+            height: max-content;
+        }
+        .cont-men-ava{
+            height: 15.2em;
+            margin-bottom: 0.7em;
+            border-bottom: 0px;
         }
     }
 }

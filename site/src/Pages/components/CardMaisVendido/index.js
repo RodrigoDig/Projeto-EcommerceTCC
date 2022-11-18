@@ -5,7 +5,8 @@ import { useState } from 'react';
 import { API_URL } from '../../../Api/config';
 import storage from 'local-storage';
 
-import { buscarImgProd } from '../../../Api/cadProdutoApi';
+import FogueteRec from '../../../assets/images/foguete-recomandados.svg';
+import { buscarImgProd, deletarProdutoFavoritado } from '../../../Api/cadProdutoApi';
 import Fogo2Icon from '../../../assets/images/Fogo-icon02.svg';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
 import Coracao2Icon from '../../../assets/images/Coracao-icon02.svg';
@@ -15,28 +16,41 @@ import { verificarProdutoFavoritado } from '../../../Api/cadProdutoApi';
 
 export default function CardProduto(props){
     const userLogado = storage('user-logado');
-        
+    
+    const [favorito, setFavorito] = useState();
     const [idUsuario, setIdUsuario] = useState();
+    const [fav1, setFav1] = useState();
+    const [dele, setDel] = useState();
     
     useEffect(() => {
-        setIdUsuario(userLogado.id);
-        verificarSeEstáVerificado(idUsuario, props.item.id);
+        if(!userLogado){
+            setIdUsuario(null)
+        }
+        else {
+            setIdUsuario(userLogado.id);
+        }
+        
+        verificarSeEstáVerificado(userLogado.id, props.item.id);
     }, []);
+
+    useEffect(() =>{
+        verificarSeEstáVerificado(userLogado.id, props.item.id);
+    }, [favorito]);
 
     async function verificarSeEstáVerificado(idUser, idProd){
         const resposta = await verificarProdutoFavoritado(idUser, idProd);
+        
         if(resposta == undefined || resposta === null || !resposta || resposta == ''){
             setFavorito(CoracaoIcon);
         }
         else{
-            setCarreg(Coracao2Icon);
+            setFavorito(Coracao2Icon);
         }
     }
 
     const [prodFav, setProdFav] = useState('');
     console.log(prodFav);
     const [carreg, setCarreg] = useState();
-    const [favorito, setFavorito] = useState();
     console.log(carregCoracao(carreg))
     const navigate = useNavigate();
     
@@ -46,6 +60,36 @@ export default function CardProduto(props){
         const valorfinal = valor - vl;
 
         return valorfinal;
+    }
+
+    function valorestoque(valor){
+        if(valor > 10){
+            return 'qtd-restam-card2';
+        }
+        else if(valor <= 10 && valor > 0){
+            return 'qtd-restam-card';
+        }
+    }
+
+    function exibirFavoritos(id){
+        if(id === undefined || id === 0 || id === null){
+            return <div className={valorestoque()}>
+                        <p className='text-restam-card'>
+                            RESTAM
+                        </p>
+                        <p className='qtd-restam-card'>
+                            {props.item.estoque}
+                        </p>
+                        <p className='unidades-text-card'>
+                            UNIDADES
+                        </p>
+                    </div>
+        }
+        else{
+            return  <div className='cont-favorito-card'>
+                        <img src={favorito} className='coracao-icon-card' onClick={() => favoritado(idUsuario, props.item.id)} />
+                    </div> 
+        }
     }
 
     function carregCoracao(valor){
@@ -60,10 +104,13 @@ export default function CardProduto(props){
     async function favoritado(idUser, idProd) {
         const resp = '';
         if (favorito == Coracao2Icon) {
+            const del = deletarProdutoFavoritado(idUser, idProd)
+            setDel(del);
             resp = setFavorito(CoracaoIcon)
         }
         else if (favorito == CoracaoIcon) {
-            const fav = await produtoFavoritado(idUser, idProd);    
+            const fav1 = await produtoFavoritado(idUser, idProd);  
+            setFav1(fav1);
             resp = setFavorito(Coracao2Icon);
         }
         return resp;
@@ -136,9 +183,7 @@ export default function CardProduto(props){
                                         R$ {valorDesconto(props.item.valorProduto, props.item.valorDesconto)}
                                     </h3>
                                 </div>
-                                <div className='cont-favorito-card'>
-                                    <img src={favorito} className='coracao-icon-card' onClick={() => favoritado(idUsuario, props.item.id)} />
-                                </div>
+                                {exibirFavoritos(idUsuario)}
                             </div>
                             <button className='botao-comprar-card'>
                                 <img src={Carrinho} className='carrinho-icon-card' onClick={() => selProd(idUsuario, props.item.id)}/>

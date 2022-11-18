@@ -205,10 +205,10 @@ export async function prodMaisVendidos(){
     IMG_PRODUTO             imagem
     FROM   TB_PRODUTO
     INNER JOIN TB_PRODUTO_IMAGEM
-		ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
-	WHERE  QTD_ESTOQUE < 7
-    AND ID_PRODUTO_IMAGEM = TB_PRODUTO.ID_PRODUTO
-      GROUP BY TB_PRODUTO.ID_PRODUTO
+        ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
+    WHERE  QTD_ESTOQUE < 7
+    AND   TB_PRODUTO.ID_PRODUTO = TB_PRODUTO_IMAGEM.ID_PRODUTO
+    GROUP BY TB_PRODUTO.ID_PRODUTO
     LIMIT  4;
     `
     const [linhas] = await con.query(comando)
@@ -407,6 +407,22 @@ export async function inserirFavorito(avaliacao){
     return resp.insertId; 
 }
 
+export async function deletarFavorito(avaliacao){
+    const comando = `
+        delete  
+        from tb_usuario_favorito
+        where id_usuario = ?
+        and   id_produto = ?
+    `
+
+    const [resp] = await con.query(comando, [
+        avaliacao.usuario,
+        avaliacao.produto
+        ])
+    return resp.affectedRows; 
+
+}
+
 export async function varificarSeJaFavoritou(idUser, idProduto){
     const comando = 
     `
@@ -415,6 +431,14 @@ export async function varificarSeJaFavoritou(idUser, idProduto){
           where id_usuario = ?
           and 	id_produto = ?;
     `
-    const [linhas] = await con.query(comando,  [idUser, idProduto])
-    return linhas[0];   
+    let [linhas] = await con.query(comando,  [idUser, idProduto])
+    console.log(linhas);
+    if(linhas  == undefined){
+        linhas = undefined
+    }
+    else if(linhas[0] === !linhas ){
+        linhas = 1
+    }
+    return linhas[0];
 }
+

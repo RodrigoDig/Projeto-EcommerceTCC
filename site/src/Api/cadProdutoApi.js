@@ -99,9 +99,11 @@ export async function produtoFavoritado(idUsuario, idProduto){
 }
 
 export async function verificarProdutoFavoritado(idUsuario, idProduto){
-    const resposta = await api.get('/verificar/favoritado', {
-        idUsuario,
-        idProduto
-    });
+    const resposta = await api.get('/verificar/favoritado/' + idUsuario + '/' + idProduto);
+    return resposta.data
+}
+
+export async function deletarProdutoFavoritado(idUsuario, idProduto){
+    const resposta = await api.delete('/favorito/deletar/' + idUsuario + '/' + idProduto);
     return resposta.data
 }

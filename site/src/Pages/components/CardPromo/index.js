@@ -97,7 +97,6 @@ export default function CardProduto(props){
                         <h3 className='titulo-comprar-card'>
                             COMPRAR
                         </h3>
-    
                     </button>
                 </section>
     )

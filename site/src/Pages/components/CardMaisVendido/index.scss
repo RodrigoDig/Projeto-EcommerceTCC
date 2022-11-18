@@ -21,7 +21,46 @@
         width: 20.5em;
         height: 4.5em;
     }
+    .qtd-estoque-card{
+        width: 3.2em;
+        height: 3em; 
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
+        background-color: #e1e1e1;
+        border: 1px solid #F27400;
+    }
+    .text-restam-card{
+        font-size: 9px;
+        font-family: 'Goldman';
+        text-align: center;
+        margin: 0px;
+    }
+    .qtd-restam-card{
+        font-size: 16px;
+        font-family: 'Goldman';
+        text-align: center;
+        margin: 0px;
+    
+        color: #E61717;
+    }
+    .qtd-restam-card2{
+        font-size: 16px;
+        font-family: 'Goldman';
+        text-align: center;
+        margin: 0px;
+    
+        color: #E61717;
+    }
+    .unidades-text-card{
+        font-size: 8px;
+        font-family: 'Goldman';
+        text-align: center;
+        margin: 0px;
+    }
     .img-capa{
         width: 200px;
         height: 200px;
@@ -180,20 +219,6 @@
     
         text-shadow: 0px 0px 4px rgba(242, 116, 0, 0.69);
     }
-    .qtd-estoque-card{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    
-        width: 5.3em;
-        height: 5em;
-        
-    
-        border-radius: 10px;
-        background-color: #e1e1e1;
-        border: 1px solid #F27400;
-    }
     .coracao-icon-card{
         width: 30px;
         height: 30px;
@@ -202,26 +227,7 @@
         fill: #C90000;
         cursor: pointer;
     }
-    .text-restam-card{
-        font-size: 15px;
-        font-family: 'Goldman';
-        text-align: center;
-        margin: 0px;
-    }
-    .qtd-restam-card{
-        font-size: 23px;
-        font-family: 'Goldman';
-        text-align: center;
-        margin: 0px;
-    
-        color: #E61717;
-    }
-    .unidades-text-card{
-        font-size: 14px;
-        font-family: 'Goldman';
-        text-align: center;
-        margin: 0px;
-    }
+
     .botao-comprar-card{
         display: flex;
         flex-direction: row;
