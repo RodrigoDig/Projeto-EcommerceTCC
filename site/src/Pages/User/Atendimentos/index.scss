@@ -207,6 +207,9 @@
     }
 
     @media screen and (max-width: 1300px) and (min-width: 1000px){
+    *{  
+        font-family: Goldman;
+        
         .txt-1{
             font-size: 40px;
         }
@@ -273,5 +276,6 @@
         .duvidas{
             margin-top: 2em;
         }
-    }
+    }   
+  }
 }

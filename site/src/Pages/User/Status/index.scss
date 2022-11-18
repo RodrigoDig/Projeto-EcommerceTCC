@@ -9,7 +9,6 @@
         width: 100%;
         height: max-content;
     }
-
     .informações-pedido-user{
         display: flex;
         flex-direction: row;
@@ -17,157 +16,143 @@
         justify-content: space-between;
         width: 100%;
         height: 100vh;
+    .cont-cabecalho-usuario{
+        width: 20%;
+        height: max-content;
+    }
+    .informações-pedido-usuario{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
-        .cont-cabecalho-usuario{
-            width: 20%;
-            height: max-content;
-        }
+        background-color: #fff;
 
-        .informações-pedido-usuario{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        margin: 2em;
+    hr{
+        border:1px solid #d9d9d9;
 
-            background-color: #fff;
+        margin-right: 1em;
+        margin-left: 1em;
+    }
+    .situação-etapas-usertt{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    h1{
+        font-family: 'Goldman';
+        font-size: 1.3em;
 
-            margin: 2em;
+        color: #f27400;
+    }
+    }
 
-            hr{
-                border:1px solid #d9d9d9;
+    .info-pedido{
+        display: flex;
+        flex-direction: row;
 
-                margin-right: 1em;
-                margin-left: 1em;
-            }
-            .situação-etapas-usertt{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
+        margin: 2em;
+    .detalhes-compra{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    h1{
+        text-align: center;
+        font-family: 'Goldman';
+        font-size: 1.5em;
+    }
+    img{
+        border: 1px solid black;
 
-                h1{
-                    font-family: 'Goldman';
-                    font-size: 1.3em;
+        height: 8em;
+        width: 7em;
+        margin-bottom: 1.5em;
+    }
+    span{
+        border: 1px solid black;
 
-                    color: #f27400;
-                }
-            }
+        height: 8em;
+        width: 7em;
+    }
+    }
+    .informações-entrega{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-            .info-pedido{
-                display: flex;
-                flex-direction: row;
+        width: 30em;
+    .frete{
+        display: flex;
+        width: 25em;
+    p{
+        font-family:'Goldman';
+        font-weight: normal;
+        font-size: 14px;
 
-                margin: 2em;
+        margin  : 1em;
+    }
+    }
+    .botao-entrega{
+        display: flex;
+        flex-direction: row;
 
-                .detalhes-compra{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    h1{
-                        text-align: center;
-                        font-family: 'Goldman';
-                        font-size: 1.5em;
-                    }
-                    img{
-                        border: 1px solid black;
-
-                        height: 8em;
-                        width: 7em;
-                        margin-bottom: 1.5em;
-                    }
-                    span{
-                        border: 1px solid black;
-
-                        height: 8em;
-                        width: 7em;
-                    }
-                }
-
-                .informações-entrega{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-
-                    width: 30em;
-
-                    .frete{
-                        display: flex;
-                        width: 25em;
-
-                        p{
-                            font-family:'Goldman';
-                            font-weight: normal;
-                            font-size: 14px;
-
-                            margin  : 1em;
-                        }
-                    }
-
-                    .botao-entrega{
-                        display: flex;
-                        flex-direction: row;
-
-                        margin-top: 1em;
-                        width: 25em;
-
-                        p{
-                            font-family:'Goldman';
-                            font-weight: normal;
-                            font-size: 14px;
+        margin-top: 1em;
+        width: 25em;
+    p{
+        font-family:'Goldman';
+        font-weight: normal;
+        font-size: 14px;
                             
-                            margin-right: 1em;
-                        }
+        margin-right: 1em;
+    }
 
-                        button{
-                            font-family:'Goldman';
-                            font-weight: normal;
-                            font-size: 14px;
+    button{
+        font-family:'Goldman';
+        font-weight: normal;
+        font-size: 14px;
 
-                            background-color: #fff;
-                            color: #f27400;
-                            border: 1px solid #f27400;
-                        }
-                        button:hover{
-                            transform: scale(1.1);
-                            background-color: #f27400;
-                            color: #fff;
-                            border: 1px solid #fff;
-                        }
+        background-color: #fff;
+        color: #f27400;
+        border: 1px solid #f27400;
+    }
+    button:hover{
+        transform: scale(1.1);
+        background-color: #f27400;
+        color: #fff;
+        border: 1px solid #fff;
+    }
+    }
+    .informação-final-status{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-                    }
+        width: 28em;    
+        margin-top: 1em;
 
-                    .informação-final-status{
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
+    .text-status{
+        margin: 1em;
+        border: 3px solid #f27400;
 
-                        width: 28em;    
-                        margin-top: 1em;
+    h1{
+        font-family:'Goldman';
+        font-weight: normal;
+        font-size: 1.1em; 
 
-                        .text-status{
-                            margin: 1em;
-                            border: 3px solid #f27400;
+        color: #f27400;
 
-                            h1{
-                                font-family:'Goldman';
-                                font-weight: normal;
-                                font-size: 1.1em; 
+        margin: 1em;
+    }
+    p{
+        font-family:'Goldman';
+        font-weight: normal;
+        font-size: 14px;
 
-                                color: #f27400;
-
-                                margin: 1em;
-                            }
-
-                            p{
-                                font-family:'Goldman';
-                                font-weight: normal;
-                                font-size: 14px;
-
-                                margin: 1em;
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        margin: 1em;
+    }
+    }
+    }
+    }
+    }
+    }
     }
 }

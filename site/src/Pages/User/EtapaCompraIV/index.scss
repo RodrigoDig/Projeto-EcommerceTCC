@@ -63,6 +63,31 @@
         width: 300px;
         font-size: 30px;
     }
+
+    @media screen and (max-width: 1300px) and (min-width: 1000px) {
+        *{
+            font-family: Goldman;
+        
+            .ptt1{
+                padding-top: 0em;
+                font-size: 40px;
+            }
+            .dci-1{
+                width: 120%;
+                height: 90%;
+            }
+            .carrin{
+                width: 10em;
+            }
+            .at1{
+                font-size: 20px;
+                width: 75%;
+            }
+            .bbtt{
+                font-size: 30px;
+            }
+        }
+    }
 }
                          
            
