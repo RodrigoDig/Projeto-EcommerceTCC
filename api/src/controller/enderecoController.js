@@ -1,13 +1,26 @@
-import { CadastroEnd } from '../repository/enderecoRepository.js';
+import { salvar, listar} from '../repository/enderecoRepository.js';
 import { Router } from 'express';
 
 const server = Router();
 
-server.post('/cadastro/endereco', async (req, resp)=> {
+server.get('/user/:id/endereco', async (req, resp)=> {
     try{
-        const endereco = req.body;
-        const linhas = await CadastroEnd(endereco);
-        resp.send(linhas)
+        const id = req.params.id;
+        const r = await listar(id);
+
+    }catch(err){
+        return resp.status(400).send({
+            erro: "Ops, algo não está funcionando corretamente!!"
+        })
+    }
+})
+
+server.post('/user/:id/endereco', async (req, resp)=> {
+    try{
+        const id = req.params.id;
+        const endereco = req.body;  
+        const r = await salvar(id, endereco);
+        resp.status(204).send();
         
     }catch(err){
         return resp.status(400).send({

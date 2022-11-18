@@ -8,6 +8,7 @@ import cesta from '../../../assets/images/cesta.svg';
 import Cabecalho from '../../../Components/CabecalhoCompras';
 import Localização from '../../../assets/images/pin-de-localizacao.png';
 import caminhao from '../../../assets/images/caminhao-de-entrega 1.svg';
+import Pagamento from '../../../assets/images/forma-de-pagamento.png';
 
 export default function EtapaCompra() {
     const[infoUser, setInfoUser] = useState({ id: [], nome: [], email: [] });
@@ -108,13 +109,21 @@ export default function EtapaCompra() {
                                 </div>
                             </div>
                         </div>
+
+                        <div className='produto-etp1-pagamento'>
+                            <div className='titulo2-etp1-pagamento'>
+                                <img src={Pagamento} />
+                                <h1>Pagamento </h1>
+                            </div>
+                            <hr/>
+                        </div>
                     </div>
 
                     <div className='bloco-final-etp1'>
                         <div className='Resumo-carrinho'>
                             <h1>Resumo</h1>
                             <p>Valor da compra: R$ </p>
-                            <button>Comprar</button>
+                            <button>Finalizar compra</button>
 
                         </div>
 
