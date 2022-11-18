@@ -50,7 +50,7 @@ export default function EtapaCompraII(){
 
                     <div className='cbx-x'>
                         <Etapa/>
-                    </div>
+                    .</div>
 
                         <div className='cxdo'>
 
@@ -67,8 +67,12 @@ export default function EtapaCompraII(){
                                                     <img className='idz' src={Cart} />
                                                     cartão de crédito
                                                 </button>
-                                                <h1 className='ncx'> Utilizar cartão cadastrado?</h1>
-                                            </div>
+
+                                                <div className='aln-txt'>
+                                                    <h1 className='ncx'>Utilizar cartão cadastrado?</h1>
+                                                </div>
+                                                
+                                                </div>
 
                                             <div className='const-adl'>
                                                 <h1 className='ndx'>Cartão de crédito <h1 className='afs'> À vista com até 10% de desconto* ou tudo em até 10x sem juros! </h1> </h1>
@@ -118,7 +122,9 @@ export default function EtapaCompraII(){
                                                 </div>
                                         </div>
                                     </div>
-                </div>                     
+                </div>
+
+                                   
 
             </section>
         </main>

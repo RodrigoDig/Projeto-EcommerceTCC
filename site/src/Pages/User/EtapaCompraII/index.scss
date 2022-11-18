@@ -1,6 +1,7 @@
 .dtt-2{
     background-color: #d9d9d9;
     height: 170vh;
+    position: relative;
 
     .cxdo{
         display: flex;
@@ -8,8 +9,11 @@
         justify-content: center;
         height: 130vh;
         width: 70%;
-        padding-left: 5.5em;
+        padding-left: 4.5em;
         padding-top: 2em; 
+
+        position: absolute;
+        right: 25%;
     }         
     .mlnu{
         display: flex;
@@ -135,8 +139,6 @@
         position: absolute;
         top: 20%;
         border-radius: 0%;
-                                
-        margin-left: 2em;
     }
     .asp{
         width: 30em;
@@ -156,7 +158,6 @@
     .info-2{
         position: absolute;
         top: 45%;
-        margin-left: 2em;
     }
     .fja{
         width: 15em;
@@ -188,8 +189,6 @@
 
         display: flex;
         flex-direction: row;
-                                
-        margin-left: 2em;
     }
     .hga{
         width: 15em;
@@ -229,9 +228,13 @@
         align-items: center;
         margin-right: 5em;
         background-color: #ffffff;
-        width: 95.5%;
+        width: 91%;
         height: 15vh;
         position: relative;
+
+        position: absolute;
+        top: 92%;
+        left: 5%;
     }    
     .cont-zxd{     
         padding-left: 1em;
@@ -255,6 +258,100 @@
         height: 2.5em;
         font-size: 30px;
         border-radius: 0.2em;
-    }           
+    }      
+    
+    @media screen and (max-width: 1300px) and (min-width: 1000px){
+        *{
+            font-family: Goldman;
+
+            .cxdo{
+                
+            }
+            .cont-nml{
+                left: 5.5%;
+            }
+            .cont-zbx{
+                left: 5.5%;
+            }
+            .vzx1{
+                width: 3.5em;
+            } 
+            .nmrx1{
+                font-size: 27.5px;
+            } 
+            .cdp{
+                font-size: 20px;
+                width:62%;
+            }
+            .cdc{
+                width:62%;
+                font-size: 20px
+            }
+            .idz{
+                width: 1.2em;
+            }
+            .ndx{
+                padding-left: 3em;
+                font-size: 17px;
+            }
+            .pdt{
+                padding-left: 3em;
+                font-size: 17px;
+            }
+            .dbz{
+                padding-left: 3em;
+                font-size: 17px;
+            }
+            .ncx{
+                font-size: 25px;
+                height: 18.2em;
+            }
+            .dga{
+                top: 60%;
+            }
+            .info-1{
+                top: 25%;;
+            }
+            .asp{
+                height: 3.5em;
+                width: 16.5em;
+            }
+            .ahs{
+                height: 3.5em; 
+                width: 16.5em;
+            }
+            .fja{
+                height: 3.5em;
+                width: 7em;
+            }
+            .gad{
+                height: 3.5em;
+                width: 10em;
+            }
+            .gha{
+                height: 3.5em;
+                width: 11em;
+            }
+            .hga{
+                height: 3.5em;
+                width: 11em;
+            }
+            .lkf{
+                height: 3.5em;
+                width: 22.6em;
+            }
+            .cbx-02{
+                height: 10vh;
+            }
+            .fjh1{
+                height: 1.8em;
+                width: 10em;
+            }
+            .fjh2{
+                height: 1.8em;
+                width: 10em;
+            }
+        }
+    }
 }    
 
