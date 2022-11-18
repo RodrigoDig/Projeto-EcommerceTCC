@@ -24,13 +24,14 @@ server.get('/dep/categorias', async (req, resp) => {
         let categoria3 = await cat3();
 
         if(categoria1 == 0 || !categoria1 || categoria1 == undefined){
-            categoria1 = await buscarCategoriaPorId(1);
+            categoria1 = buscarCategoriaPorId(1);
+            categoria1 = categoria1 
         }
         if(categoria2 == 0 || !categoria2 || categoria2 == undefined){
-            categoria2 = await buscarCategoriaPorId(1);
+            categoria2 = buscarCategoriaPorId(1);
         }
         if(categoria3 == 0 || !categoria3 || categoria3 == undefined){
-            categoria3 = await buscarCategoriaPorId(1);
+            categoria3 = buscarCategoriaPorId(1);
         }
 
         console.log(categoria1);
@@ -50,8 +51,8 @@ server.get('/dep/categorias', async (req, resp) => {
 
 server.get('/dep/categorias/:nome', async (req, resp) => {
     try{
-        const { nome } =  req.params.nome
-        const resposta = await buscaCatNome(nome);
+        const  up  =  req.params.nome
+        const resposta = await buscaCatNome(up);
         resp.send(resposta);
     }
     catch (err) {

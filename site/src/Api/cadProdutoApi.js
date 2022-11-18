@@ -84,3 +84,24 @@ export async function depPage(id){
     const resposta = await api.get('/departamentos/' + id);
     return resposta.data
 }
+
+export async function imagensProduto(id){
+    const resposta = await api.get('/imagem/busca/' + id);
+    return resposta.data
+}
+
+export async function produtoFavoritado(idUsuario, idProduto){
+    const resposta = await api.post('/favorito/usuario/avaliacao/', {
+        idUsuario,
+        idProduto
+    });
+    return resposta.data
+}
+
+export async function verificarProdutoFavoritado(idUsuario, idProduto){
+    const resposta = await api.get('/verificar/favoritado', {
+        idUsuario,
+        idProduto
+    });
+    return resposta.data
+}

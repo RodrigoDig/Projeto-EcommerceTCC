@@ -1,4 +1,4 @@
-import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd } from "../repository/produtoRepository.js";
+import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd, buscarImgsProdutos, inserirFavorito, varificarSeJaFavoritou } from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { alterarValid } from '../services/alterarValidacao.js';
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
@@ -250,5 +250,69 @@ server.get('/compra/produto/:id', async (req, resp) => {
         })
     }
 })
+
+server.get('/imagem/busca/:id', async (req, resp) => {
+    try {
+        const id = req.params.id;
+        const resposta = await buscarImgsProdutos(id);
+
+        let img1 = resposta[0];
+        let img2 = resposta[1];
+        let img3 = resposta[2];
+        resp.send({
+            imagem1: img1,
+            imagem2: img2,
+            imagem3: img3 
+        });
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.post('/favorito/usuario/avaliacao', async (req, resp) => {
+    try {
+        const usid = req.body;
+        const verificar = await varificarSeJaFavoritou(usid.idUsuario, usid.idProduto);
+        let produtosFav = '';
+        if(!verificar || verificar === null || verificar === 0){
+            produtosFav = await inserirFavorito(usid);
+        }
+        else{
+            throw new Error('Você já Faoritou esse produto')
+        }
+        resp.send({
+            idFavorito: produtosFav
+        });
+
+    } catch (err) {
+
+        return resp.status(400).send({
+            erro: (err.message)
+        });
+    }
+})
+
+server.get('/verificar/favoritado', async (req, resp) => {
+    try {
+        const usid = req.body;
+        const verificar = await varificarSeJaFavoritou(usid.idUsuario, usid.idProduto);
+        
+        resp.send(verificar);
+
+    } catch (err) {
+
+        return resp.status(400).send({
+            erro: (err.message)
+        });
+    }
+})
+
+
+
+
+
 
 export default server;

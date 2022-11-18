@@ -22,14 +22,18 @@ import Seta from '../../../assets/images/seta-vertodos.svg';
 import Rodape from '../../../Components/Rodapé';
 import Modal from '../../../Components/Modal';
 
-import { prodSelCompra }from '../../../Api/cadProdutoApi';
+import { imagensProduto, prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { estrelasAvaliacao } from '../../components/estrelaAva';
+import { API_URL } from '../../../Api/config';
+import { buscarImgProd } from '../../../Api/cadProdutoApi';
 
 export default function Produto(){
     const [produtos, setProdutos] = useState({ info: {}, cat: [], maiorAvaliacao: [], menorAvaliacao: [], opGeral: []});
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [imagens, setImagens] = useState({imagem1: {}, imagem2: {}, imagem3: {}});
+    console.log(imagens.imagem2);
     const { id } = useParams();
     const navigate = useNavigate();
     
@@ -40,7 +44,8 @@ export default function Produto(){
 
     async function carregarPag(){
         const r = await prodSelCompra(id);
-        console.log(r);
+        const im = await imagensProduto(id);
+        setImagens(im);
         setProdutos(r);
     }
 
@@ -55,6 +60,19 @@ export default function Produto(){
 
         return valorfinal;
     }
+
+    function mostrarImg(imagem){
+        if(typeof(imagem) == 'object'){
+            return URL.createObjectURL(imagem);
+        }
+        else if(typeof(imagem) == 'string'){
+            return `${API_URL}/${imagem}`
+        }
+        else{
+            return buscarImgProd(imagem)
+        }
+    }
+
     function verificarDesconto(valor){
         if(valor <= 0){
             return ''
@@ -119,14 +137,12 @@ export default function Produto(){
                             </h1>
                         </div>
                         <div className='cont-imagem-maior-infoprod'>
-                            <h1>
-                                img 1 
-                            </h1>
+                            <img src={mostrarImg(imagens.imagem1.img)} className='imagem1-prod' />
                         </div>
                         <div className='cont-imgs-infoprod'>
-                            <h1>
-                                img 2,3
-                            </h1>
+                            <img src={mostrarImg(imagens.imagem1.img)} className='imagem2-prod' />
+                            <img src={mostrarImg(imagens.imagem2.img)} className='imagem2-prod'/>
+                            <img src={mostrarImg(imagens.imagem3.img)} className='imagem3-prod'/>
                         </div>
                     </div>
                     <div className='cont-vlcompra-infoprod'>

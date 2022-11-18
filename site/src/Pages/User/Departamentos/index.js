@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 // VERIFICAÇÕES DE SERVIÇO
 import verificarIcone from './services/ValidacaoIcone';
 import verificarIconCategoria from './services/ValIconeCat';
+import verCategorias from './services/validarCategoria';
 
 import Cabecalho01 from '../../../Components/Cabeçalho01';
 import Seta from '../../../assets/images/ordenar-seta.svg';
@@ -26,29 +27,26 @@ export default function DepPage(){
     const [depart, setDepart] = useState({ departamento: [], dep1: [], dep2: []});
     const [prodSel, setProdSel ] = useState([]);
     const [cats, setCatsDep] = useState({c1: [], c2: [], c3: []});
-    const [prodCat1, setProdCat1] = useState([]);
-    const [prodCat2, setProdCat2] = useState([]);
-    const [prodCat3, setProdCat3] = useState([]);
-    const {id} = useParams();
-    
+    const { id } = useParams();
+
+    console.log(depart)
     async function carregarPag(){
         const cats = await buscarCategoriasDep();
         setCatsDep(cats);
-        let c1 = cats.c1.id;
-        let c2 = cats.c2.id;
-        let c3 = cats.c3.id;
         const r = await depPage(id);
         const f = await buscarProdutosDep(id);
-        const prod1 = await buscarProdutosCatDep(c1 , id);
-        const prod2 = await buscarProdutosCatDep(c2, id);
-        const prod3 = await buscarProdutosCatDep(c3, id);
-        setProdCat1(prod1);
-        setProdCat2(prod2);
-        setProdCat3(prod3);
         setDepart(r);
         setProdSel(f);
     }
 
+    function validarCats(entrada){
+        if(entrada === {}|| entrada === null || !entrada){
+            entrada = {categoria: undefined} 
+            return entrada;
+        }else{
+            return entrada
+        }
+    }
     
 
     useEffect(() =>{
@@ -58,9 +56,6 @@ export default function DepPage(){
         <main className='cont-main-departamento'>
             <section className='cont-cabecalho-dep'>
                 <Cabecalho01/>   
-            </section>
-            <section className='cont-carrossel'>
-
             </section>
             <section className='cont-titulo-dep'>
                 <div className='cont-01-titulodep'>
@@ -88,44 +83,7 @@ export default function DepPage(){
                         </div>
                 </div>
             </section>
-            <section className='cont-produtos-dep'>
-                {prodSel.map(item => 
-                    <CardProdDep item={item}/>    
-                )}
-            </section>
-            <section className='cont-cat1-dep'>
-                    <img className='icon-cat1' src={verificarIconCategoria(cats.c1.categoria)}/>
-                    <h1 className='titulo-cat1'>
-                        {cats.c1.categoria}
-                    </h1>
-            </section>
-            <section className='cont-produtos-cat1'>
-                {prodCat1.map(item => 
-                    <CardProdCat item={item}/>    
-                )}
-            </section>
-            <section className='cont-cat2-dep'>
-                    <img className='icon-cat2' src={verificarIconCategoria(cats.c2.categoria)}/>
-                    <h1 className='titulo-cat2'>
-                        {cats.c2.categoria}
-                    </h1>
-            </section>
-            <section className='cont-produtos-cat1'>
-                {prodCat2.map(item => 
-                    <CardProdCat item={item}/>    
-                )}
-            </section>
-            <section className='cont-cat3-dep'>
-                    <img className='icon-cat3' src={verificarIconCategoria(cats.c3.categoria)}/>
-                    <h1 className='titulo-cat3'>
-                        {cats.c3.categoria}
-                    </h1>
-            </section>
-            <section className='cont-produtos-cat1'>
-                {prodCat3.map(item => 
-                    <CardProdCat item={item}/>    
-                )}
-            </section>
+            {verCategorias(validarCats(cats.c1), id)}
             <section className='cont-rodapé-dep'>
                 <Rodape />
             </section>

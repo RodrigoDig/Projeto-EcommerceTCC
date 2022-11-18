@@ -380,3 +380,41 @@ export async function imgProd(id){
     const [linhas] = await con.query(comando,  [id])
     return linhas[0];   
 }
+
+export async function buscarImgsProdutos(id){
+    const comando = 
+    `
+    select IMG_PRODUTO     img
+		FROM TB_PRODUTO_IMAGEM
+		INNER JOIN TB_PRODUTO
+        ON TB_PRODUTO.ID_PRODUTO = TB_PRODUTO_IMAGEM.ID_PRODUTO
+        WHERE TB_PRODUTO.ID_PRODUTO = ?
+    `
+    const [linhas] = await con.query(comando,  [id])
+    return linhas;   
+}
+
+export async function inserirFavorito(avaliacao){
+    const comando = `
+        INSERT INTO TB_USUARIO_FAVORITO(ID_USUARIO, ID_PRODUTO)
+        VALUES( ? , ? );
+    `
+
+    const [resp] = await con.query(comando, [
+        avaliacao.idUsuario,
+        avaliacao.idProduto
+        ])
+    return resp.insertId; 
+}
+
+export async function varificarSeJaFavoritou(idUser, idProduto){
+    const comando = 
+    `
+    select id_usuario  id
+		  from tb_usuario_favorito
+          where id_usuario = ?
+          and 	id_produto = ?;
+    `
+    const [linhas] = await con.query(comando,  [idUser, idProduto])
+    return linhas[0];   
+}
