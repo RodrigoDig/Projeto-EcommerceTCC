@@ -13,8 +13,8 @@ export default function Rodape(){
     function carrinho(){
         navigate('/carrinho')
     }
-    function favoritos(){
-        navigate('/favoritos')
+    function atendimento(){
+        navigate('/atendimento')
     }
     function pedidos(){
         navigate('/status')
@@ -47,7 +47,7 @@ export default function Rodape(){
                         <div className='coluna03'>                            
                             <h2 className='titulo-empresa'>Minha Conta</h2>
                             <a onClick={carrinho} className='link-desenv'>Carrinho</a>
-                            <a onClick={favoritos} className='link-desenv'>Favoritos</a>
+                            <a onClick={atendimento} className='link-desenv'>Atendimento ao cliente</a>
                             <a onClick={pedidos} className='link-desenv'>Meus pedidos</a>
                         </div> 
 
