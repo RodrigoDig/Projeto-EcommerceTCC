@@ -37,7 +37,6 @@ export default function Status() {
                         <div className='informações-entrega'>
                             <div className='frete'>
                                 <p>O prazo de entrega via Comum tem por padrão o tempo de espera de 2/5 semana a 2/5 mês variando o seu local de residência.</p>
-                                <p>O prazo de entrega via Sedex tem por padrão o tempo de espera de 1/5 semana a 1/5 mês variando o seu local de residência.</p>
                             </div>
 
                             <div className='botao-entrega'>
