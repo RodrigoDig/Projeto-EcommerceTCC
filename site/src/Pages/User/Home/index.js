@@ -25,7 +25,6 @@ export default function Home() {
     const [produtos, setProdutosPromo] = useState([]);
     const [prodmaisVendidos, setMaisVendidos] = useState([]);
     const [departamento, setDepartamentos] = useState([]);
-    console.log(departamento);
     const navigate = useNavigate();
 
     

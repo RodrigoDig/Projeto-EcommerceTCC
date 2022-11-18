@@ -15,6 +15,12 @@
         width: 12em;
         height: 3em;
     }
+    .number-carrinho{
+        color: black;
+        font-size: 16px;
+        font-family: 'Goldman';
+        font-weight: 700;
+    }
     .icon-sair{
         width: 19px;
         height:22px;
@@ -324,6 +330,18 @@
             margin: 0px;
             
         }
+        textarea:focus, input:focus, select:focus {
+            box-shadow: 0 0 0 0;
+            border: 0 none;
+            outline: 0;
+        } 
+    
+        input::placeholder{
+            color: black;
+            font-family:'Goldman';
+            font-size: 13px;
+        }
+    
         .input-pesquisa{
             padding-left: 10px;
             width: 12em;
@@ -338,6 +356,23 @@
         .botao-pesquisa{
             height: 2.2em;
             width: 3em;
+        }
+        .number-carrinho{
+            font-size: 14px;
+        }
+        .bolinha-carrinho{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.952);
+            width: 19px;
+            height: 19px;
+            position: relative;
+            margin-left: 36px;
+            margin-bottom: 28px;
+
+            border-radius: 20px;
         }
         .linha-cabeçalho{
             height: 0px;

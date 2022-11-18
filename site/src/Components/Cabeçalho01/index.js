@@ -16,6 +16,7 @@ import storage from 'local-storage';
 
 export default function Cabecalho1(){
     const[infoUser, setInfoUser] = useState('');
+    const[carrinhoInf, setCarrinhoInf] = useState([]);
 
     const navigate = useNavigate();
     const ref = useRef();
@@ -28,6 +29,15 @@ export default function Cabecalho1(){
         navigate('/perfil');
     }
 
+    function somarItensCarrinho(itens){
+        let a = itens.length;
+        let b = 0;
+        for(let i = 0; i < a; i++){
+            b = b + Number(itens[i].qtd);
+        }
+        return b;
+    }
+
     function sairUser(){
         ref.current.complete();
         storage.remove('user-logado');
@@ -36,12 +46,21 @@ export default function Cabecalho1(){
         }, 3000)
     }
 
+    useEffect(() =>{
+        const carrin = storage('carrinho');
+        setCarrinhoInf(carrin);
+    }, [])
+
     function verificar(){
         if(!storage('user-logado')){
             return      <div className='cont-login'>
                         <div className='cont-carrinho'>
                             <img src={Carrinho} className='carrinho' onClick={carrinho} />
-                            <img src={NumeroIcon} className='numbercar' />
+                            <div className='bolinha-carrinho'>
+                                <p className=''>
+
+                                </p>
+                            </div>
                         </div>
 
                         <div className='cont-icon-login'>
@@ -65,8 +84,12 @@ export default function Cabecalho1(){
             return  <div className='cont-login'>
                         <div className='cont-carrinho'>
                             <img src={Carrinho} className='carrinho' onClick={carrinho} />
-                            <img src={NumeroIcon} className='numbercar' />
-                        </div>
+                            <div className='bolinha-carrinho'>
+                                <p className='number-carrinho'>
+                                    {somarItensCarrinho(carrinhoInf)}
+                                </p>
+                            </div>
+                            </div>
                         <div className='cont-info-userlogado'>
                             <h1 className='titulo-usuario'>
                                 Olá {infoUser}

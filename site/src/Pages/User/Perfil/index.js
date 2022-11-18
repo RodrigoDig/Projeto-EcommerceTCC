@@ -18,7 +18,6 @@ import Pedidos from '../../../assets/images/pedidos-perfil-atalho.svg';
 
 export default function Perfil(){
     const[infoUser, setInfoUser] = useState({ id: [], nome: [], email: [] });
-    console.log(infoUser);
     const navigate = useNavigate();
 
     useEffect(() => {

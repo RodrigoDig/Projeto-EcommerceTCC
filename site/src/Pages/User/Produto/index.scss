@@ -803,6 +803,13 @@
         .cont-filhadep001{
             align-items: center;
         }
+        .cont-text-desc{
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .text-desc{
+            flex-wrap: nowrap;
+        }
         .departamento-infoprod{
             font-size: 16px;
         }

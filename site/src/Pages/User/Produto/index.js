@@ -31,7 +31,6 @@ import { buscarImgProd } from '../../../Api/cadProdutoApi';
 
 export default function Produto(){
     const [produtos, setProdutos] = useState({ info: {}, cat: [], maiorAvaliacao: [], menorAvaliacao: [], opGeral: []});
-    const [isModalVisible, setIsModalVisible] = useState(false);
     const [imagens, setImagens] = useState({imagem1: {}, imagem2: {}, imagem3: {}});
     console.log(imagens.imagem2);
     const { id } = useParams();
