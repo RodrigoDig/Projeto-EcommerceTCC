@@ -1,19 +1,49 @@
 import './index.scss';
 import Storage from "local-storage";
+import { buscarImgProd, prodPromoImperdivel } from '../../Api/cadProdutoApi';
+import Excluir from '../../assets/images/icon-excluir.svg';
+import storage from 'local-storage';
+import { confirmAlert } from 'react-confirm-alert';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { API_URL } from '../../Api/config';
+import { toast } from 'react-toastify';
 
 export default function CarrinhoItem(props) {
+    const carr = storage('carrinho');
     const [qtdProduto, setQtdProduto] = useState(1);
+    const [filtro, setFiltro] = useState('');
+    const [quantia, setQuantia] = useState([]);
 
-    function exibirImagem(){
-        if(props.item.produto.imagem > 0){
-            console.log("aaa")
-            return API_URL + '/' + props.item.produto.imagem[0];
+    useEffect(() => {
+        setQuantia(carr);
+    }, [])
+    async function filtrar(){
+        const x =  storage('carrinho');
+        setFiltro(x);
+    } 
+
+    function ver(){
+        let a = quantia.length;
+        let b = 0
+        for(let i = 1; i <= a; i++){
+            if(props.item.produto.idProduto === i){
+                b = (b + i) - 1; 
+            }
+        }
+        console.log(props.item.produto.idProduto)
+        console.log(b);
+        return b;
+    }
+    function mostrarImg(imagem){
+        if(typeof(imagem) == 'object'){
+            return URL.createObjectURL(imagem);
+        }
+        else if(typeof(imagem) == 'string'){
+            return `${API_URL}/${imagem}`
         }
         else{
-            return "Imagem não disponivel!"
+            return buscarImgProd(imagem)
         }
     }
 
@@ -36,39 +66,73 @@ export default function CarrinhoItem(props) {
         let carrinho = Storage('carrinho');
         let itemStorag = carrinho.find(item => item.id == props.item.produto.idProduto);
         itemStorag.qtd = novaQtd;
-
         Storage('carrinho', carrinho);
         props.carregarCarrinho();
+        
+    }
+    
+    
+    function remover() {
+        confirmAlert({
+            title: "Remover produto",
+            message:"Deseja mesmo remover o produto?",
+            buttons:[
+                {
+                    label:"Sim",
+                    onClick: async () =>{
+
+                        props.removerItem(props.item.produto.idProduto)
+                        
+                        if(filtro != !filtro)
+                            toast.arguments("Não foi possivel remover o produto")
+                        else
+                            filtrar();
+                            toast.success("Produto removido com sucesso!");
+                    }
+                },
+                {
+                    label: "Não"
+                }
+            ] 
+        })
     }
 
-    function remover() {
-        props.removerItem(props.item.produto.idProduto)
-    }
+    
 
 
     return (
-        <main>
+        <main className='cont-main-card-carrinho'>
             <section className='posicionamento-carrinho'>
 
                 <div className='imagem-produto-carrinho'>
-                    <img src={exibirImagem()}/>
+                    <img className='img-produto' src={mostrarImg(props.item.produto.imagem)}/>
                 </div>
 
                 <div className='informações-carrinho-comp'>
                     <div className='descrição-produto'>
-                        <span>{props.item.produto.nome}</span>
+                        <h1 className='nome-produto'>{props.item.produto.nome}</h1>
                     </div>
 
                     <div className='preço-produto-carrinho'>
-                        <label>Preço</label>
-                        <span>De R$ {props.item.produto.preco} Por R$ {valorDesconto(props.item.produto.preco, props.item.produto.desconto)}</span>
+                        <h1 className='preco-iten'>Preço</h1>
+                        <div className='cont-valor-antigo'>
+                            <h2 className='txt-valor' >De: </h2> 
+                            <h2 className='valor-antigo'>R$ {props.item.produto.preco}</h2> 
+                        </div>
+                        <div className='cont-valor-novo'>
+                            <h2 className='valor-novo'>Por: </h2>
+                            <h2 className='valor-verde'>R$ {valorDesconto(props.item.produto.preco, props.item.produto.desconto)}</h2>
+                        </div>
                     </div>
                 </div>
 
                 <div className='subtotal-carrinho'>
+                    <div className='cont-excluir'>
+                        <img className='icon-excluir' src={Excluir} onClick={remover}/>
+                    </div>
                     <div className='select-carrinho'>
-                        <label>Qtd.</label>
-                        <select onChange={e => alterarQuantidade(e.target.value)} value={qtdProduto}>
+                        <label>Quantia: </label>
+                        <select className='select-quantia' onChange={e => alterarQuantidade(e.target.value)} value={carr[ver()].qtd}>
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -77,19 +141,14 @@ export default function CarrinhoItem(props) {
                         </select>
                     </div>
 
-                    <div>
+                    <div className='cont-subtotal'>
                         <label>Subtotal</label>
                         <p>R$ {calcularSubTotal(props.item.produto.preco, props.item.produto.desconto)}</p>
                     </div>
 
                 </div>
 
-                <div onClick={remover} className='excluir-produto-carrinho'>
-                    <span>Excluir</span> 
-                </div>
-
             </section>
-            <hr/>
         </main>
     )
 }

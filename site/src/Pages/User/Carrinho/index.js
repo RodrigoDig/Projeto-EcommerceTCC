@@ -7,7 +7,7 @@ import './index.scss';
 import Storag from 'local-storage';
 import CarrinhoItem from '../../../Components/carrinho';
 import Cabeçalho01 from '../../../Components/Cabeçalho06';
-import CarrinhoLogo from '../../../assets/images/Group.png';
+import CarrinhoLogo from '../../../assets/images/carrinho-black.svg';
 import CabaçalhoUsuario from '../../../Components/CabeçalhoUser';
 
 export default function Carrinho() {
@@ -35,7 +35,7 @@ export default function Carrinho() {
         for(let item of itens){
             total = total + valorDesconto(item.produto.preco, item.produto.desconto) * item.qtd; 
         }
-        return total;
+        return total.toFixed(2);
     }
     
     function removerItem(id) {
@@ -57,7 +57,8 @@ export default function Carrinho() {
 
                 temp.push({
                     produto: p,
-                    qtd: produto.qtd
+                    qtd: produto.qtd,
+                    img: produto.imagem
                 })
             }
 
@@ -82,10 +83,10 @@ export default function Carrinho() {
                 <div className='titulo-carrinho'>
 
                     <div className='carrinho'>
-                        <img  src={CarrinhoLogo}/>
-                        <h1>Seu carrinho</h1>
+                        <img className='img-carrinho-icon'  src={CarrinhoLogo}/>
+                        <h1 className='titulo-do-carrinho'>Seu carrinho</h1>
                     </div>
-                                    
+
                     <div className='Informações-Carrinho'>
 
                         <div className='itens-carrinho'>
@@ -100,8 +101,12 @@ export default function Carrinho() {
 
                         <div className='Resumo-carrinho'>
                             <h1>Resumo</h1>
-                            <p>Intens: {qtdItens()} </p>
-                            <p>Valor: R$ {calcularTotal()}</p>
+                            <div className='cont-valor-total'>
+                                <p>Intens: {qtdItens()} </p>
+                            </div>
+                            <div className='cont-valor-total'>
+                                <p>Total: R$ {calcularTotal()}</p>
+                            </div>
                             <button>Comprar</button>
                             <button onClick={voltar}>Continuar Comprando</button>
                         </div>

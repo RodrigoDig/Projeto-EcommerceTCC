@@ -63,19 +63,24 @@ export async function listarProdutos() {
 export async function buscarPorId(id){
     const comando = 
     `
-    SELECT ID_PRODUTO              idProduto,
-           ID_DEPARTAMENTO         idDepartamento,
-           NM_PRODUTO              nome,
-           VL_PRECO                preco,
-           VL_DESCONTO             desconto, 
-           VL_AVALIACAO            avaliacao,
-           DS_FABRICANTE           fabricante,
-           QTD_ESTOQUE             estoque,
-           DS_INFORMACOES          informacoes,
-           DS_DESCRICAO            descricao,
-           DT_GARANTIA             garantia
+    SELECT TB_PRODUTO.ID_PRODUTO              	idProduto,
+    ID_DEPARTAMENTO         			  	idDepartamento,
+    NM_PRODUTO              				nome,
+    VL_PRECO                				preco,
+    VL_DESCONTO             				desconto, 
+    VL_AVALIACAO            				avaliacao,
+    DS_FABRICANTE           				fabricante,
+    QTD_ESTOQUE             				estoque,
+    DS_INFORMACOES          				informacoes,
+    DS_DESCRICAO            				descricao,
+    DT_GARANTIA             				garantia,
+    IMG_PRODUTO			   				imagem
     FROM   TB_PRODUTO
-    WHERE  ID_PRODUTO = ?
+    INNER JOIN TB_PRODUTO_IMAGEM
+        ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
+    WHERE  TB_PRODUTO.ID_PRODUTO = ?
+        AND   TB_PRODUTO.ID_PRODUTO = TB_PRODUTO_IMAGEM.ID_PRODUTO
+    GROUP BY TB_PRODUTO.ID_PRODUTO;
     `;
 
     const [linhas] = await con.query(comando, [id]);
