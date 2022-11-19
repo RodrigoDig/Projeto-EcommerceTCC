@@ -1,15 +1,16 @@
 import './index.scss';
-import React from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { API_URL } from '../../../Api/config';
 import { buscarImgProd } from '../../../Api/cadProdutoApi';
+import LoadingBar from 'react-top-loading-bar';
 
 import SetaCardDesc from '../../../assets/images/Seta-Desconto-Card.svg';
 import Carrinho from '../../../assets/images/Carrinho-Preto.svg';
 
 export default function CardProduto(props){
     const navigate = useNavigate();
-
+    const ref = useRef();
     function valorDesconto(valor, desconto) {
         const valordesc = desconto / 100;
         const vl = valor * valordesc;
@@ -30,6 +31,28 @@ export default function CardProduto(props){
         }
     }
 
+    function valorestoque(valor){
+        if(valor > 10){
+            return 'qtd-restam-card2';
+        }
+        else if(valor <= 10 && valor > 0){
+            return 'qtd-restam-card';
+        }
+    }
+
+    function valorestoque(valor){
+        if(valor > 10){
+            return  <p className='qtd-restam-card2'>
+                        {props.item.estoque}
+                    </p>
+        }
+        else if(valor <= 10 && valor > 0){
+            return  <p className='qtd-restam-card'>
+                        {props.item.estoque}
+                    </p>;
+        }
+    }
+
     function selProd(id) {
         navigate('/compra/produto/' + id);
     }
@@ -44,7 +67,7 @@ export default function CardProduto(props){
             return 'star-icon'
     }
     return(
-                <section className='cont-card-main'>
+        <section className='cont-card-main'>
                     <div className='cont-01-card'>
                         <div className='cont-desconto-card'>
                             <p className='valor-desconto-card'>
@@ -84,9 +107,7 @@ export default function CardProduto(props){
                             <p className='text-restam-card'>
                                 RESTAM
                             </p>
-                            <p className='qtd-restam-card'>
-                                {props.item.estoque}
-                            </p>
+                            {valorestoque(props.item.estoque)}
                             <p className='unidades-text-card'>
                                 UNIDADES
                             </p>

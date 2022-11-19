@@ -2,6 +2,8 @@
     display: flex;
     flex-direction: column;
     background-color: #d9d9d9;
+    scroll-behavior: auto;
+    scroll-behavior: smooth;
 
     width: 100%;
     height: max-content;

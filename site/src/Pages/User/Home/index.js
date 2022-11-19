@@ -161,7 +161,7 @@ export default function Home() {
                 </div>
             </section>
             <div className='rodape-home'>
-                <Rodape />
+                <Rodape/>
             </div>
         </main>
     )

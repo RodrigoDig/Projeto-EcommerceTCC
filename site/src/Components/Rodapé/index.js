@@ -5,11 +5,14 @@ import Logo from '../Logo';
 import FaceIcon from '../../assets/images/face-icon.svg';
 import TwiterIcon from '../../assets/images/twiterr-logo.svg';
 import InstagramIcon from '../../assets/images/instagram-logo.svg';
-
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function Rodape(){
     const navigate = useNavigate();
+    const ref = useRef();
+
     function carrinho(){
         navigate('/carrinho')
     }
@@ -18,6 +21,10 @@ export default function Rodape(){
     }
     function pedidos(){
         navigate('/status')
+    }
+
+    function home(){
+            navigate('#');
     }
 
     return(
@@ -85,7 +92,7 @@ export default function Rodape(){
                         <div className='cont-logo-final'>
                             <Logo/>
                         </div>
-                        <button className='botao-voltar-inicio'>Voltar ao início</button>
+                        <button className='botao-voltar-inicio' >Voltar ao início</button>
                     </div>
                 </div>
             </section>
