@@ -1,8 +1,12 @@
 import './index.scss';
 import  storage  from 'local-storage';
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
 
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { listar } from '../../../Api/enderecoApi';
+
+import Modal from '../../../Components/ModalEnd';
+import Componente  from '../../../Components/EnderecoComp';
 import Etapas from '../../../Components/etapas';
 import cesta from '../../../assets/images/cesta.svg';
 import Cabecalho from '../../../Components/CabecalhoCompras';
@@ -10,25 +14,37 @@ import Localização from '../../../assets/images/pin-de-localizacao.png';
 import caminhao from '../../../assets/images/caminhao-de-entrega 1.svg';
 import Pagamento from '../../../assets/images/forma-de-pagamento.png';
 
-export default function EtapaCompra() {
-    const[infoUser, setInfoUser] = useState({ id: [], nome: [], email: [] });
-    console.log(infoUser);
-    const navigate = useNavigate();
 
+export default function EtapaCompra() {
+    const [endereco, setEndereco] = useState([]);
+    const [exibirEndereço, setExibirEndereço] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if(!storage('user-logado')){
             navigate('/login');
         }
-        if(!storage('user-logado')){
-            setInfoUser('');
-        }else{
-            const userLogado = storage('user-logado');
-            setInfoUser(userLogado);
-        }
     }, [])
+
+    async function carregarEnd(){
+        const id = storage('user-logado').id;
+        const r = await listar(id);
+        setEndereco(r);
+    }
+    function exibirNovoEnd(){
+        setExibirEndereço(true);
+    }
+    function fecharEnd(){
+        setExibirEndereço(false);
+        carregarEnd();
+    }
+
+    useEffect(() => {
+        carregarEnd();
+    })
     return (
         <main>
+            <Modal exibir={exibirEndereço} fechar={fecharEnd} />
             <section>
                 <Cabecalho />
             </section>
@@ -47,16 +63,15 @@ export default function EtapaCompra() {
                             </div>
 
                             <div className='informações-end-etp1'>
-                                <div className='end-etp1'>
-                                    <h2>Rua: </h2>
-                                    <h2>Número: </h2>
-                                    <h2>CEP: xxxxx-xxx - sao paulo sp</h2>
-                                </div>
+                                {endereco.map(item =>
+                                    <Componente item={item}/>
+                                )}
                                 <div className='edit-etp1'>
                                     <span>Editar</span> &nbsp; &nbsp;
-                                    <span style={{color : "#f27400"}}>Novo endereço</span>
+                                    <span onClick={exibirNovoEnd} style={{ color: "#f27400" }}>Novo endereço</span>
                                 </div>
                             </div>
+
                         </div>
 
                         <div className='produto-etp1'>
