@@ -55,6 +55,9 @@ export default function Cabecalho1(){
     }
 
     function somarItensCarrinho(itens){
+        if(itens === null){
+            return 0
+        }
         let a = itens.length;
         let b = 0;
         for(let i = 0; i < a; i++){
