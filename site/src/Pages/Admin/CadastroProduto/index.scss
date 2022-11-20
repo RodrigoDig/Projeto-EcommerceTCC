@@ -458,6 +458,27 @@
     .star-icon:hover ~ .star-icon::before{
         content: "\2606";
     }
+
+    .star-icon1{
+        list-style-type: none;
+        cursor: pointer;
+        color: #ffe500;
+
+        font-size: 50px;
+    }
+    .star-icon1::before{
+        content:"\2606";
+    }
+    .star-icon1.ativo ~ .star-icon1::before{
+        content: "\2606";
+    }
+    
+    .cont-avaliacao-star:hover .star-icon1::before{
+        content: "\2605";
+    }
+    .star-icon1:hover ~ .star-icon1::before{
+        content: "\2606";
+    }
     
     
     .cont3-contfilha2-infocad002{

@@ -142,10 +142,10 @@
         }
         
         .cont-avaliacao-star:hover .star-icon::before{
-            content: "\2605";
+            content: "\2606";
         }
         .star-icon:hover ~ .star-icon::before{
-            content: "\2606";
+            content: "\2605";
         }
         @media screen and (max-width:1300px) and (min-width:1000px) {
             .star-icon{

@@ -447,3 +447,25 @@ export async function varificarSeJaFavoritou(idUser, idProduto){
     return linhas[0];
 }
 
+export async function buscarPorDep(nome){
+    const comando = 
+    `
+    SELECT 	TB_PRODUTO.ID_PRODUTO 		id,
+    NM_PRODUTO 					nome,
+    VL_PRECO					valor,
+    IMG_PRODUTO					imagem
+    FROM TB_PRODUTO_IMAGEM
+    INNER JOIN TB_PRODUTO
+        ON TB_PRODUTO.ID_PRODUTO = TB_PRODUTO.ID_PRODUTO
+    INNER JOIN TB_DEPARTAMENTO
+        ON TB_DEPARTAMENTO.ID_DEPARTAMENTO = TB_DEPARTAMENTO.ID_DEPARTAMENTO
+    WHERE NM_DEPARTAMENTO like ?
+        AND TB_PRODUTO.ID_DEPARTAMENTO = TB_DEPARTAMENTO.ID_DEPARTAMENTO
+        AND   TB_PRODUTO.ID_PRODUTO = TB_PRODUTO_IMAGEM.ID_PRODUTO
+    GROUP BY TB_PRODUTO.ID_PRODUTO
+    LIMIT 4;
+    `;
+    const [linhas] = await con.query(comando, [ `%${nome}%` ]);
+    return linhas;
+}
+

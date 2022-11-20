@@ -113,3 +113,8 @@ export async function deletarProdutoFavoritado(idUsuario, idProduto){
     const resposta = await api.delete('/favorito/deletar/' + idUsuario + '/' + idProduto);
     return resposta.data
 }
+
+export async function buscarProdutoDepNm(nome) {
+    const resposta = await api.get('/prod/outrasop/' + nome);
+    return resposta.data;
+}

@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router-dom';
 
 import Storag from 'local-storage';
 import Carrinho from '../../../assets/images/Carrinho-branco.svg'
+import VerifiIcon from'../../../assets/images/produto-avaliado.svg';
 import ImgCat1 from '../../../assets/images/img-cat-01.png';
 import ImgCat2 from '../../../assets/images/img-cat-02.png';
 import ImgCat3 from '../../../assets/images/img-cat-03.png';
@@ -17,19 +18,23 @@ import ImgCat4 from '../../../assets/images/img-cat-04.png';
 import DescIcon from '../../../assets/images/img-desc.png';
 import InfoIcon from '../../../assets/images/img-info.png';
 import AvIcon from '../../../assets/images/img-avaliacao.png';
+import SuaAv from '../../../assets/images/icon-sua-ava.svg';
 import StarAva from '../../../assets/images/star-icon.svg';
 import OutrasOp from '../../../assets/images/icon-outrasop.png';
 import Seta from '../../../assets/images/seta-vertodos.svg';
 import Rodape from '../../../Components/Rodapé';
 import Modal from '../../../Components/Modal';
 
-import { imagensProduto, prodSelCompra }from '../../../Api/cadProdutoApi';
+import { buscarProdutoDepNm, imagensProduto, prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { estrelasAvaliacao } from '../../components/estrelaAva';
+import { EstrelasAvaliacao2 } from '../../components/estrelaSuaAva';
 import { API_URL } from '../../../Api/config';
 import { buscarImgProd } from '../../../Api/cadProdutoApi';
 import { verificarProdutoFavoritado2 } from '../../../Api/cadProdutoApi';
+import { inserirAvaliacao } from '../../../Api/usuarioAvaliacao';
+import { verificarUsuarioAvaliacao } from '../../../Api/usuarioAvaliacao';
 import storage from 'local-storage';
 
 export default function Produto(){
@@ -37,14 +42,19 @@ export default function Produto(){
     const [imagens, setImagens] = useState({imagem1: {}, imagem2: {}, imagem3: {}});
     const [idprod, setIdProd] = useState();
     const [idUser, setIdUser] = useState();
+    const[geral, setGeral] = useState(0);
+    const[desempenho, setDesempenho] = useState(0);
+    const[atendimento, setAtendimento] = useState(0);
+    const[satisfacao, setSatisfacao] = useState(0);
+    const[verAva, setVerAva] = useState();
+    const[produtosOp, setProdutosOp] = useState([]);
+
     const [verifica, setVerifica] = useState({ id: []})
     const { id } = useParams();
     const navigate = useNavigate();
     const userLogado = storage('user-logado'); 
-    useEffect(() => {
-        carregarPag();
-    }, [])
-
+    
+    
     useEffect(() => {
         if(userLogado === null || !userLogado){
             setIdUser('Não logado');
@@ -53,18 +63,40 @@ export default function Produto(){
             setIdUser(userLogado.id);
         }
     }, [])
+    
+    useEffect(() => {
+        carregarPag();
+    }, [])
 
     useEffect(() => {
         setIdProd(produtos.info.idProduto);
+        carregarOutrasOp(produtos.info.nomeDepartamento);
     }, [produtos])
-
+    
     useEffect(() =>{
-        verificarItem(userLogado.id, idprod);
+        if(userLogado === undefined || userLogado === null || !userLogado){
+            verificarSeJaAv(undefined, produtos.info.idProduto);
+            verificarItem(undefined, idprod);
+        }
+        else{
+            verificarSeJaAv(userLogado.id, produtos.info.idProduto);
+            verificarItem(userLogado.id, idprod);
+        }
     }, [idprod])
-
+    
+    async function carregarPag(){
+        const r = await prodSelCompra(id);
+        const im = await imagensProduto(id);
+        setImagens(im);
+        setProdutos(r);
+    }
+    
+    async function carregarOutrasOp(){
+        const outrasOp = await buscarProdutoDepNm(produtos.info.nomeDepartamento);
+        setProdutosOp(outrasOp);
+    }
     async function verificarItem(idU, idP){
         const a = await verificarProdutoFavoritado2(idU, idP);
-        console.log(a);
         setVerifica(a);
     }
     
@@ -73,10 +105,30 @@ export default function Produto(){
         return Math.floor(condicao);
     }
     
+    async function confirmarAvaliacao(idUs, idPro, geral, des, ate, satis, nmUser){
+        try{
+            const resp = await inserirAvaliacao(idUs, idPro, geral, des, ate, satis);
+            toast.success('Obrigado ' + nmUser + ' por sua avaliação :)')
+        }catch(err){
+            toast.error(err.response.data.erro);
+        }
+
+    }
+
     function querFavoritar(){
         if(!storage('user-logado')){
             carregarLogins2();
         }
+    }
+
+    function lerEstrelas(estrela, estrelas) {
+        if(estrelas === 0){
+            return 'star-icon1'
+        }
+        if (estrelas <= estrela)
+            return 'star-icon ativo'
+        else
+            return 'star-icon'
     }
 
     function verificarSeEstáVerificado(idUsuario, idProd){
@@ -94,12 +146,6 @@ export default function Produto(){
         }
     }
     
-    async function carregarPag(){
-        const r = await prodSelCompra(id);
-        const im = await imagensProduto(id);
-        setImagens(im);
-        setProdutos(r);
-    }
 
     function comprar(){
         navigate('/etapai');
@@ -165,6 +211,46 @@ export default function Produto(){
     function valorProd(valor){
         const vl = valor.toFixed(2);
         return vl;
+    }
+
+    async function verificarSeJaAv(idUs, idProd){
+        const resposta = await verificarUsuarioAvaliacao(idUs, idProd);
+        if(idUs === undefined){
+            setVerAva('-');
+        }
+        else{
+            setVerAva(resposta.id);
+        }
+    }
+
+    function exibirAv(objeto){
+        if(objeto === undefined || objeto === null || !objeto || objeto === ''){
+            return  <div className='cont-verificacao-bot2'>
+                        <button className='botao-avaliar' onClick={() => confirmarAvaliacao(userLogado.id, produtos.info.idProduto, geral, desempenho, atendimento, satisfacao, userLogado.nome)}>
+                            Confirmar
+                        </button>
+                    </div>
+        }
+        else if(String(objeto) === '-'){
+            return <div className='cont-verificacao-bot3'>
+                        <h1 className='faca-login'>
+                            Faça Login para Avaliar
+                        </h1>
+                        <button className='login-botao' onClick={() => querFavoritar()}>
+                            Login
+                        </button>
+                    </div>
+        }
+        else{
+            return  <div className='cont-verificacao-bot'>
+                        <div className='cont-verifi'>
+                            <h1 className='titulo-recebemos'>
+                                Recebemos sua Avaliação
+                            </h1>
+                            <img src={VerifiIcon} className='icone-verifi'/>
+                        </div>
+                    </div>  
+        }
     }
     
     return(
@@ -367,10 +453,12 @@ export default function Produto(){
                             <p className='nome-usuario-text'>
                                 {produtos.maiorAvaliacao.nmUsuario}
                             </p>
-                            {estrelasAvaliacao(produtos.maiorAvaliacao.avGeral)}
-                            {estrelasAvaliacao(produtos.maiorAvaliacao.avDesempenho)}
-                            {estrelasAvaliacao(produtos.maiorAvaliacao.avAtendimento)}
-                            {estrelasAvaliacao(produtos.maiorAvaliacao.avSatsfacao)}
+                            <div className='cont-avas-filha2'>
+                                {estrelasAvaliacao(produtos.maiorAvaliacao.avGeral)}
+                                {estrelasAvaliacao(produtos.maiorAvaliacao.avDesempenho)}
+                                {estrelasAvaliacao(produtos.maiorAvaliacao.avAtendimento)}
+                                {estrelasAvaliacao(produtos.maiorAvaliacao.avSatsfacao)}
+                            </div>
                         </div>
                     </div>
                     <div className='cont-op-geral'>
@@ -442,33 +530,61 @@ export default function Produto(){
                     <div className='cont-op-geral2'>
                         <div className='cont-filha3-melhorava2'>
                             <div className='cont-titulo-suaava'>
+                                <div className='cont-01-titulo'>
+                                    <img src={SuaAv} className='icon-sua-av'/>
+                                    <h1 className='titulo-sua-av'>
+                                        Faça sua avaliação
+                                    </h1>
 
+                                </div>
                             </div>
                             <div className='cont-ava-usu'>
 
                                 <div className='cont-avalialiacoes2'>
-                                    <h1 className='titulo-ava-geral'>
+                                    <h1 className='titulo-sua-geral'>
                                         Geral:
                                     </h1>
-                                    <h1 className='titulo-ava-desemp'>
+                                    <h1 className='titulo-sua-desemp'>
                                         Desempenho:
                                     </h1>
-                                    <h1 className='titulo-ava-atendi'>
+                                    <h1 className='titulo-sua-atendi'>
                                         Atendimento:
                                     </h1>
-                                    <h1 className='titulo-ava-sats'>
+                                    <h1 className='titulo-sua-sats'>
                                         Satisfação:
                                     </h1>
                                 </div>
                                 <div className='cont-filha4-melhorava2'>
-                                    {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalGer, produtos.opGeral.qtdUsers))}
-                                    {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalDes, produtos.opGeral.qtdUsers))}
-                                    {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalAte, produtos.opGeral.qtdUsers))}
-                                    {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalSatis, produtos.opGeral.qtdUsers))}
+                                    <ul className='cont-avaliacao-star2'>
+                                        <li className={lerEstrelas(1, geral)} onClick={e => setGeral(1)}></li>
+                                        <li className={lerEstrelas(2, geral)} onClick={e => setGeral(2)}></li>
+                                        <li className={lerEstrelas(3, geral)} onClick={e => setGeral(3)}></li>
+                                        <li className={lerEstrelas(4, geral)} onClick={e => setGeral(4)}></li>
+                                        <li className={lerEstrelas(5, geral)} onClick={e => setGeral(5)}></li>
+                                    </ul>
+                                    <ul className='cont-avaliacao-star2'>
+                                        <li className={lerEstrelas(1, desempenho)} onClick={e => setDesempenho(1)}></li>
+                                        <li className={lerEstrelas(2, desempenho)} onClick={e => setDesempenho(2)}></li>
+                                        <li className={lerEstrelas(3, desempenho)} onClick={e => setDesempenho(3)}></li>
+                                        <li className={lerEstrelas(4, desempenho)} onClick={e => setDesempenho(4)}></li>
+                                        <li className={lerEstrelas(5, desempenho)} onClick={e => setDesempenho(5)}></li>
+                                    </ul>
+                                    <ul className='cont-avaliacao-star2'>
+                                        <li className={lerEstrelas(1, atendimento)} onClick={e => setAtendimento(1)}></li>
+                                        <li className={lerEstrelas(2, atendimento)} onClick={e => setAtendimento(2)}></li>
+                                        <li className={lerEstrelas(3, atendimento)} onClick={e => setAtendimento(3)}></li>
+                                        <li className={lerEstrelas(4, atendimento)} onClick={e => setAtendimento(4)}></li>
+                                        <li className={lerEstrelas(5, atendimento)} onClick={e => setAtendimento(5)}></li>
+                                    </ul>
+                                    <ul className='cont-avaliacao-star2'>
+                                        <li className={lerEstrelas(1, satisfacao)} onClick={e => setSatisfacao(1)}></li>
+                                        <li className={lerEstrelas(2, satisfacao)} onClick={e => setSatisfacao(2)}></li>
+                                        <li className={lerEstrelas(3, satisfacao)} onClick={e => setSatisfacao(3)}></li>
+                                        <li className={lerEstrelas(4, satisfacao)} onClick={e => setSatisfacao(4)}></li>
+                                        <li className={lerEstrelas(5, satisfacao)} onClick={e => setSatisfacao(5)}></li>
+                                    </ul>
                                 </div>
-                                <button className='botao-avaliar'>
-                                    Confirmar
-                                </button>
+                                {exibirAv(verAva)}
                             </div>
                         </div>
                     </div>
@@ -492,7 +608,9 @@ export default function Produto(){
                 </div>
                 <div className='cont-cards-outrasop'>
                     <div className='cont-filha1-cards'>
-                        <CardOutrasOp />
+                        {produtosOp.map(item =>
+                            <CardOutrasOp item = {item}/>
+                        )}
                     </div>
                 </div>
             </section>

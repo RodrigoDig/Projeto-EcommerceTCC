@@ -118,7 +118,7 @@ export default function Cabecalho1(){
             
         }
         else{
-            return  <div className='cont-login'>
+            return  <div className='cont-login2'>
                         <div className='cont-carrinho'>
                             <img src={Carrinho} className='carrinho' onClick={carrinho} />
                             <div className='bolinha-carrinho' onClick={carrinho}>

@@ -38,7 +38,7 @@
         justify-content: center;
 
         width: 100%;
-        height: 4em;
+        height: max-content;
     }
     .cont-titulo-nmprod{
         width: 90%;
@@ -57,12 +57,59 @@
         align-items: center;
         justify-content: center;
         width: 100%;
-        height: 2.8em;
+        height: 2em;
+    }
+    .valorprod{
+        font-size: 20px;
+        font-family: 'Goldman';
+        font-weight: 100;
+        color: #F27400;
+    }
+    @media screen and (max-width:1300px) and (min-width: 1000px) {
+        width: 13em;
+        height: 17em;
+        .cont-img-fav{
+            margin-top: 0em;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 80%;
+            height: 9em;
+        }
+        .img-produto{
+            width: 120px;
+            height: 130px;
+        }
+        .paragrafo-nmprod{
+            font-size: 10px;
+            font-family: 'Goldman';
+            margin: 0px;
+            text-align: center;
+            color: black;
+        }
+        .cont-icon-favorito{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: flex-start;
+            width:2.8em;
+            height: 4em;
+        }
         .valorprod{
-            font-size: 20px;
+            font-size: 16px;
             font-family: 'Goldman';
             font-weight: 100;
             color: #F27400;
+        }
+        .cont-titulo-nmprod{
+            width: 90%;
+            height: 3.5em;
+        }
+        .coracao-icon-card{
+            width: 20px;
+            margin-left: 0.4em;
+            height: 20px;
+            cursor: pointer;
         }
     }
 }
