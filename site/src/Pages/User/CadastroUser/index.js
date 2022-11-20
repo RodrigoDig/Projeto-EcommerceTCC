@@ -75,7 +75,7 @@ export default function CadastroUser() {
 
     return (
         <main className='container-principal-caduser'>
-            <section>
+            <section className='cont-cabecalho-caduser'>
                 <Cabecalho03 />
             </section>
 

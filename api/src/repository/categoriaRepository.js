@@ -15,7 +15,8 @@ export async function listarCategorias(){
 export async function cat1(){
     const comando = 
     `
-        select NM_CATEGORIA     categoria
+        select NM_CATEGORIA     categoria,
+               ID_CATEGORIA     id
         from tb_categoria
         where NM_CATEGORIA = 'Alto Desempenho Em Velocidade'
     `
@@ -27,7 +28,8 @@ export async function cat1(){
 export async function cat2(){
     const comando = 
     `
-        select NM_CATEGORIA     categoria
+        select  NM_CATEGORIA     categoria,
+                ID_CATEGORIA     id
         from tb_categoria
         where NM_CATEGORIA = 'Mais Memória'
     `
@@ -39,7 +41,8 @@ export async function cat2(){
 export async function cat3(){
     const comando = 
     `
-        select NM_CATEGORIA     categoria
+        select  NM_CATEGORIA     categoria,
+                ID_CATEGORIA     id
         from tb_categoria
         where NM_CATEGORIA = 'Os Gamers Adoram'
     `
