@@ -9,14 +9,15 @@ import { useEffect } from 'react';
 
 import exitIcon from '../../assets/images/exit.svg';
 import LupaIcon from '../../assets/images/Lupa-busca.svg';
-import Carrinho from '../../assets/images/Carrinho-fase01.svg';
+import Carrinho from '../../assets/images/carrin.svg';
 import NumeroIcon from '../../assets/images/Numero Produtos.svg';
 import LoginIcon from '../../assets/images/Login-icon-fase01.svg';
 import storage from 'local-storage';
 
 export default function Cabecalho1(){
-    const[infoUser, setInfoUser] = useState('');
-    const[carrinhoInf, setCarrinhoInf] = useState([]);
+    const [infoUser, setInfoUser] = useState('');
+    const [carrinhoInf, setCarrinhoInf] = useState([]);
+    const [log, setLog] = useState();
 
     const navigate = useNavigate();
     const ref = useRef();
@@ -29,6 +30,29 @@ export default function Cabecalho1(){
         navigate('/perfil');
     }
 
+    function carregarLogins(){
+        let min = Math.ceil(1);
+        let max = Math.floor(2);
+        let retorno = Math.floor(Math.random() * (max - min + 1)) + min;
+        if(retorno === 1){
+                return '/login/style1';
+        }
+        else if(retorno === 2){
+                return '/login/style2';
+        }
+    }
+    function carregarLogins2(){
+        let min = Math.ceil(1);
+        let max = Math.floor(2);
+        let retorno = Math.floor(Math.random() * (max - min + 1)) + min;
+        if(retorno === 1){
+                navigate('/login/style1')
+        }
+        else if(retorno === 2){
+                navigate('/login/style2')
+        }
+    }
+
     function somarItensCarrinho(itens){
         let a = itens.length;
         let b = 0;
@@ -37,6 +61,18 @@ export default function Cabecalho1(){
         }
         return b;
     }
+
+    function verificarQtdCarrinho(valor){
+        if(valor < 10 && valor > 0){
+            return 'number-carrinho'
+        }
+        else if(valor > 10 && valor <= 98){
+            return 'number-carrinho2'
+        }
+        else if(valor >= 99){
+            return 'number-carrinho3'
+        }
+    }   
 
     function sairUser(){
         ref.current.complete();
@@ -55,17 +91,17 @@ export default function Cabecalho1(){
         if(!storage('user-logado')){
             return      <div className='cont-login'>
                         <div className='cont-carrinho'>
-                            <img src={Carrinho} className='carrinho' onClick={carrinho} />
-                            <div className='bolinha-carrinho'>
-                                <p className=''>
-
-                                </p>
+                            <img src={Carrinho} className='carrinho' onClick={() => carregarLogins2()} />
+                            <div className='bolinha-carrinho' >
+                                <p onClick={() => carregarLogins2()} className={verificarQtdCarrinho(1)}>
+                                    0
+                                   </p>
                             </div>
                         </div>
 
                         <div className='cont-icon-login'>
                             <img src={LoginIcon} className='icon-login'/>
-                            <Link to='/login' className='link'>
+                            <Link to={carregarLogins()} className='link'>
                                 <h2 className='text-login'>
                                     Login
                                 </h2>
@@ -84,8 +120,8 @@ export default function Cabecalho1(){
             return  <div className='cont-login'>
                         <div className='cont-carrinho'>
                             <img src={Carrinho} className='carrinho' onClick={carrinho} />
-                            <div className='bolinha-carrinho'>
-                                <p className='number-carrinho'>
+                            <div className='bolinha-carrinho' onClick={carrinho}>
+                                <p onClick={carrinho} className={verificarQtdCarrinho(somarItensCarrinho(carrinhoInf))}>
                                     {somarItensCarrinho(carrinhoInf)}
                                 </p>
                             </div>

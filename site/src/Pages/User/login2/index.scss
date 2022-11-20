@@ -1,0 +1,293 @@
+.fundo-tela-login2{
+    display: flex;
+    flex-direction: column;
+
+
+    width: 100%;
+    height: 100vh;
+    .cont-caecalho-login1{
+        width: 100%;
+        height: 6em;
+    }
+    .cont-02-login1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        background-image: url(../../../assets/images/fundo-login2.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+        box-shadow: inset 0px 1200px 4px rgba(0, 0, 0, 0.25);
+        width: 100%;
+        height: 100%;
+    }
+    .bloco-informações{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        margin-right: 3em;
+        
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 50px;
+        
+        width: 42em;
+    }
+        .input-login{
+            display: flex;
+            flex-direction: row;
+            border: 3px solid #FF6F86;
+            border-radius: 20px;
+            background-color: #fff;
+
+            width: 34em;
+            height: 4.5em;
+            
+        }
+        .input01{
+            
+            outline: none;
+            
+            border: none;
+            
+            font-family: 'Goldman';
+            font-size: 1.8em;
+            
+        }
+        ::-webkit-input-placeholder { 
+            font-size:1.3em;
+            text-align: center;
+            
+            color: #852E8A;
+        }
+        .logo-login-user{
+            margin-left: 0.9em;
+        }
+
+        .logo-cad-user{
+            width: 40px;
+            height: 40px;
+            margin-left: 0.9em;
+        }
+        .input-login-2{
+            margin-top: 1em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border: 3px solid #FF6F86;
+            border-radius: 20px;
+            background-color: #fff;
+
+            width: 34em;
+            height: 4.5em;
+            
+        }
+        ::-webkit-input-placeholder { 
+            font-size:1.3em;
+            text-align: center;
+            
+            color: #852E8A;
+        }
+        .input02{
+            border: 0px;
+            outline: none;
+            
+            font-family: 'Goldman';
+            font-size: 1.8em;
+            
+        }
+        
+        
+        .titulo-user{
+            font-family: 'Goldman';
+            font-weight: normal;
+            font-size: 3.5em;
+
+            color: #852E8A;
+        }
+        .input-login-3{
+            margin-top: 3em;
+            
+        }
+        .gmail-icon{
+            width: 45px;
+            height: 45px;
+        }
+        .input03{
+            outline: none;
+
+            border: 3px solid #FF6F86;
+            border-radius: 25px;
+
+            font-family: 'Goldman';
+            font-size: 1.8em;
+            width: 19em;
+            height: 2.6em;
+            color: #550255;
+
+        }
+
+
+        .botao-login{
+            margin-top: 1em;
+            
+            width: 14em;
+            height: 2.1em;
+
+            border-radius: 20px;
+            border: #FF6F86;
+
+            font-family: 'Goldman';
+            font-size: 2.5em;
+
+            background-color: #FF6F86;
+            color: #fff;
+
+            transition: 0.3s;
+            cursor: pointer;
+
+        }
+        .botao-login:hover{
+            background: rgba(255, 255, 255, 0.30);
+            border: 0.5px solid #FF6F86;
+            color: #FF6F86;
+        }
+
+        .texto-final-login{
+            
+            
+            
+        }
+        .text-final{ font-family: 'Goldman';
+            font-size: 1em;
+
+            width: max-content;
+            color: #FF6F86;
+        }
+        .cadastre-se{
+            width: 10em;
+            height: 7em;
+        }
+        .cont-cad{
+            margin-left: 0.5em;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 12.6em;
+            height: 2em;
+        }
+        .text-cad{
+            margin: 0px;
+            width: 8em;
+            font-weight: 700;
+            font-size: 13px;
+            color: #852E8A;
+        }
+        .cont-user-invalido{
+            width: max-content;
+            height: 1em;
+        }
+        .user-invalido{
+            font-size: 16px;
+            color:#ff0000b7;
+
+            margin: 0px;
+        }
+    @media screen and (max-width:1300px) and (min-width:1000px){
+            .cont-caecalho-login1{
+                height: 4em;
+            }
+            .cont-02-login1{
+                background-size: 100% 100%;
+            }
+            .bloco-informações{
+                justify-content: space-evenly;
+                border-radius: 17px;
+                width: 22em;
+                height: 27em;
+            }
+            .titulo-user{
+                font-size: 20px;
+            }
+            .input-login{
+                border: 1px solid #FF6F86;
+                border-radius: 10px;
+                align-items: center;
+                width: 17em;
+                height: 2.2em;
+                background-color: transparent;
+            }
+            .botao-login{
+                margin-top: 0.3em;
+                border-radius: 9px;
+                width: 10em;
+                height: 2.3em;
+                font-size: 17px;
+
+            }
+            .input-login-2{
+                border: 1px solid #FF6F86;
+                border-radius: 10px;
+                align-items: center;
+                width: 17em;
+                height: 2.2em;
+                background-color: transparent;
+            }
+            .input01{
+                font-size: 15px;
+                padding-left: 0.4em;
+                width: 15em;
+                height: 1.9em;
+                background-color: transparent;
+            }
+            .input02{
+                font-size: 15px;
+                width: 15em;
+                padding-left: 0.4em;
+                height: 1.9em;
+                background-color: transparent;
+            }
+            .input03{
+                font-size: 15px;
+                width: 15em;
+
+                padding-left: 0.4em;
+                height: 1.9em;
+                background-color: transparent;
+            }
+            ::-webkit-input-placeholder { 
+                font-size:1em;
+                text-align: center;
+                
+                color: #852E8A;
+            }
+            .logo-login-user{
+                margin: 0px;
+                width: 22px;
+                height: 22px;
+                margin-left: 0.7em;
+            }
+            .logo-cad-user{
+                margin: 0px;
+                width: 22px;
+                height: 22px;
+                margin-left: 0.7em;
+            }
+            .gmail-icon{
+                margin-left: 0.7em;
+                width: 22px;
+                height: 22px;
+            }
+            .texto-final-login{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 17em;
+                height: 5em;
+            }
+            .text-final{
+                margin: 0px;
+                font-size: 13px;
+            }
+    }
+}

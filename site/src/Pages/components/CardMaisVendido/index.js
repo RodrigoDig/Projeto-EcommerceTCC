@@ -16,6 +16,8 @@ import { verificarProdutoFavoritado } from '../../../Api/cadProdutoApi';
 
 export default function CardProduto(props){
     const userLogado = storage('user-logado');
+    console.log(userLogado);
+
     
     const [favorito, setFavorito] = useState();
     const [idUsuario, setIdUsuario] = useState();
@@ -29,12 +31,16 @@ export default function CardProduto(props){
         else {
             setIdUsuario(userLogado.id);
         }
-        
-        verificarSeEstáVerificado(userLogado.id, props.item.id);
+        if(userLogado === null  ){
+            setIdUsuario(null)
+        }
+        else{
+            verificarSeEstáVerificado(idUsuario, props.item.id);
+        }
     }, []);
 
     useEffect(() =>{
-        verificarSeEstáVerificado(userLogado.id, props.item.id);
+        verificarSeEstáVerificado(idUsuario, props.item.id);
     }, [favorito]);
 
     async function verificarSeEstáVerificado(idUser, idProd){
@@ -49,9 +55,7 @@ export default function CardProduto(props){
     }
 
     const [prodFav, setProdFav] = useState('');
-    console.log(prodFav);
     const [carreg, setCarreg] = useState();
-    console.log(carregCoracao(carreg))
     const navigate = useNavigate();
     
     function valorDesconto(valor, desconto) {

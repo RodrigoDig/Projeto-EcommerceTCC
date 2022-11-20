@@ -15,10 +15,12 @@ import EtapaCompraII from './Pages/User/EtapaCompraII';
 import EtapaCompraIII from './Pages/User/EtapaCompraIII';
 import EtapaCompraIV from './Pages/User/EtapaCompraIV'
 import Favoritos from './Pages/User/Favoritos';
-import Login from './Pages/User/LoginI';
 import Perfil from './Pages/User/Perfil';
 import Produto from './Pages/User/Produto';
 import Status from './Pages/User/Status';
+
+import UserLogin2 from './Pages/User/login2';
+import Login from './Pages/User/LoginI';
 
 /*ADM*/
 
@@ -47,10 +49,12 @@ export default function Index(){
                 <Route path="/etapa3" element={<EtapaCompraIII />} />
                 <Route path="/etapaIV" element={<EtapaCompraIV />} />
                 <Route path="/favoritos" element={<Favoritos />} />
-                <Route path="/login" element={<Login />} />
                 <Route path="/perfil" element={<Perfil />} />
                 <Route path="/compra/produto/:id" element={<Produto />} />
                 <Route path="/status" element={<Status />} />
+
+                <Route path="/login/style1" element={<Login />} />
+                <Route path="/login/style2" element={<UserLogin2 />} />
                 
                 <Route path="/alterarproduto" element={<Alterar />} />
                 <Route path="/estoque" element={<CstEstoque />} />
