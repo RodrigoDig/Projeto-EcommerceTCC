@@ -7,6 +7,7 @@ server.get('/user/:id/endereco', async (req, resp)=> {
     try{
         const id = req.params.id;
         const r = await listar(id);
+        resp.send(r);
 
     }catch(err){
         return resp.status(400).send({

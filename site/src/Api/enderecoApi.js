@@ -6,9 +6,8 @@ const api = axios.create({
     baseURL: API_URL
 })
 
-export async function CadEnd(idUsuario, logadouro, numero, bairro, cep, cidade, estado, complemento, casa){
-    const r = await api.post('/cadastro/endereco', {
-        idUsuario,
+export async function salvar(idUsuario, logadouro, numero, bairro, cep, cidade, estado, complemento, casa){
+    const r = await api.post('/user/' + idUsuario +'/endereco', {
         logadouro,
         numero,
         bairro,
@@ -19,5 +18,10 @@ export async function CadEnd(idUsuario, logadouro, numero, bairro, cep, cidade, 
         casa
     })
 
+    return r.data;
+}
+
+export async function listar(idUsuario){
+    const r = await api.get('/user/' + idUsuario +'/endereco');
     return r.data;
 }

@@ -3,15 +3,19 @@ import './index.scss';
 import User from '../../../assets/images/icon-user.svg';
 import Localização from '../../../assets/images/pin-de-localizacao.png';
 import Cabeçalho from '../../../Components/CabecalhoCompras';
+import ComponenteConfig from '../../../Components/EnderecoConfig';
 
 import { listarUsuarios } from '../../../Api/cadUsuarioApi';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { listar } from '../../../Api/enderecoApi';
+
 import storage from 'local-storage';
 
 export default function Configuracoes() {
     const [usuario, setUsuario] = useState([]);
     const [infoUser, setInfoUser] = useState();
+    const [endereco, setEndereco] = useState([]);
 
     const navigate = useNavigate();
     function perfil() {
@@ -35,7 +39,15 @@ export default function Configuracoes() {
         carregarUsuarios();
     }, [])
     
-    
+    async function carregarEnd(){
+        const id = storage('user-logado').id;
+        const r = await listar(id);
+        setEndereco(r);
+    }
+
+    useEffect(() => {
+        carregarEnd();
+    })
 
     function alterarUsuario(id) {
         navigate(`/alteraruser/${id}`)
@@ -80,10 +92,9 @@ export default function Configuracoes() {
                     </div>
 
                     <div className='info-end-user'>
-                        <h2>Endereço principal</h2>
-                        <span>Logadouro: xxx</span>
-                        <span>Número: xx</span>
-                        <span>CEP: xxx</span>
+                        {endereco.map(item =>
+                            <ComponenteConfig item={item}/>
+                        )}
                     </div>
 
                     <button>Alterar endereço</button>

@@ -6,7 +6,6 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Home from './Pages/User/Home';
 import DepPage from './Pages/User/Departamentos';
 import Atendimento from './Pages/User/Atendimentos';
-import CadastroEnd from './Pages/User/CadastroEndereco';
 import CadastroUser from './Pages/User/CadastroUser';
 import Carrinho from './Pages/User/Carrinho'; 
 import Configurações from './Pages/User/Configuracoes';
@@ -37,7 +36,6 @@ export default function Index(){
                 <Route path="/" exact element={<Home />} />
                 <Route path="/departamentos/:id" element={<DepPage/>} />
                 <Route path="/atendimento" element={<Atendimento />} />
-                <Route path="/cadastroendereco" element={<CadastroEnd />} />
                 <Route path="/cadastrouser" element={<CadastroUser />} />
                 <Route path="/alteraruser/:idParam" element={<CadastroUser />} />
                 <Route path="/carrinho" element={<Carrinho />} />

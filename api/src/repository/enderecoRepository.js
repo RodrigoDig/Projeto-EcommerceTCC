@@ -3,11 +3,11 @@ import { con } from "./connection.js";
 export async function salvar(idUsuario, endereco){
     const linhas = `
     INSERT INTO TB_USUARIO_ENDERECO(ID_USUARIO, DS_LOGADOURO, NR_NUMERO, NM_BAIRRO, DS_CEP, NM_CIDADE, NM_ESTADO, DS_COMPLEMENTO, DS_CASA)
-                    VALUES(? , ?, ? , ?, ?, ?, ?, ?,?);
+            VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)
 
     `
-    const [info] = await con.query(linhas, [,
-        endereco.idUsuario,
+    const [info] = await con.query(linhas, [
+        idUsuario,
         endereco.logadouro,
         endereco.numero,
         endereco.bairro,
@@ -33,7 +33,7 @@ export async function listar(idUsuario){
                 ds_complemento         complemento,
                 ds_casa                casa
            from tb_usuario_endereco
-        where id_usuario_endereco = ?`;
+        where id_usuario = ?`
 
     const [linhas] = await con.query(comando, [idUsuario])
     return linhas;

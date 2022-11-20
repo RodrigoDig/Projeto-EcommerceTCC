@@ -40,18 +40,28 @@
                     align-items: flex-end;
 
                     .end-etp1{
-                        line-height: 25px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        line-height: 2px;
+                        background-color: #d9d9d9;
 
+                        padding: 1em;
+                        margin-bottom: 1.2em;
+                        margin-left: 0.9em;
+                        
                         h2{
                             font-weight: 400;
-                            font-size: 1.5em;
+                            font-size: 1.3em;
                             font-family:'Goldman';
-                            
+
                         }
                     }
 
                     .edit-etp1{
                         margin-bottom: 1.2em;
+                        margin-right: 1em;
+                        margin-left: 1em;
 
                         span{
                             font-size: 1.3em;

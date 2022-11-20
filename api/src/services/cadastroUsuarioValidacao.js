@@ -20,7 +20,7 @@ export async function validacaoUsuario(usuario){
         throw new Error('Email é obrigatório');
     }
     else if(usuario.celular === undefined || usuario.celular === ''){
-        throw new Error('Informe seu numero de celular');
+        throw new Error('Informe seu número de celular');
     }
     else if(usuario.senha === undefined || usuario.senha === ''){
         throw new Error('Não é possivel efetuar seu cadastro sem uma senha!');

@@ -7,7 +7,7 @@ import TwiterIcon from '../../assets/images/twiterr-logo.svg';
 import InstagramIcon from '../../assets/images/instagram-logo.svg';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link, animateScroll as scroll } from "react-scroll";
+//import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function Rodape(){
     const navigate = useNavigate();

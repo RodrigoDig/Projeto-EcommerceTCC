@@ -1,0 +1,108 @@
+.comp-modal-endereco {
+
+    .modal-endereco {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        min-height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form>div label {
+        min-width: 8em;
+    }
+
+    .form>div:last-child {
+        justify-content: flex-end;
+    }
+
+
+    visibility: hidden;
+
+    .exibir {
+        visibility: visible !important;
+    }
+
+    .conteudo {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: -50px;
+        width: 600px;
+        padding: 20px 20px 35px 20px;
+        margin: 10px;
+        border-radius: 5px;
+
+
+        background-color: #fff;
+
+        h1{
+            text-align: center;
+            font-family: 'Goldman'; 
+            font-weight: normal;
+            margin-bottom: 1.3em;
+        }
+        
+        .btn{
+            text-align: center;
+            button{
+                color: #fff;
+                background-color: #f27400;
+
+                border: none;
+                border-radius: 5px;
+                box-shadow: 2px 3px 2px black;
+
+                font-size: 1.4em;   
+                font-family: 'Goldman';
+                font-weight: normal;
+
+                padding: 8px 2em;
+                margin-top: 1.2em;
+                margin-bottom: 2.2em;
+            }
+            button:hover{
+                transform: scale(1.08);
+            }
+        }
+
+        .form{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            .Locações{
+                display: flex;
+                flex-direction: column;
+                text-align: end;
+
+                margin-right: 1em;
+                margin-left: 2em;
+            }
+            label{
+                font-family: 'Goldman';
+                font-size: 1.5em;
+                margin-bottom: 1em;
+            }
+
+            input{
+                font-family: 'Goldman';
+                font-size: 1.2em;
+                margin-bottom: 0.7em;
+                
+                background-color: #d9d9d9;
+
+                outline: none;
+                border: none;
+
+                padding: 8px;
+            }
+
+        }
+    }
+}
