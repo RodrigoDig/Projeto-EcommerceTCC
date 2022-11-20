@@ -190,7 +190,7 @@ export default function CardProduto(props){
                                 {exibirFavoritos(idUsuario)}
                             </div>
                             <button className='botao-comprar-card'>
-                                <img src={Carrinho} className='carrinho-icon-card' onClick={() => selProd(idUsuario, props.item.id)}/>
+                                <img src={Carrinho} className='carrinho-icon-card' onClick={() => selProd(props.item.id)}/>
                                 <h3 className='titulo-comprar-card'>
                                     COMPRAR
                                 </h3>

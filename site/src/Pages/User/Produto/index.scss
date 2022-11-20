@@ -14,13 +14,16 @@
         width: 100%;
         height: 4.2em;
     }
+    .cont01-filha3-melhorava{
+        color: #d9d9d9;
+    }
     .cont-imagens{
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         width: 100%;
-        height: 40em;
+        height: 20em;
     }
     .cont-produto-infoprod{
         display: flex;
@@ -77,6 +80,7 @@
     .favoritar-infoprod{
         width: 37px;
         height: 35px;
+        cursor: pointer;
     }
     .cont-prodvl-infoprod{
         display: flex;
@@ -679,6 +683,14 @@
         height: 16.6em;
         margin: 0px;
     }
+    .cont-op-geral2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 50%;
+        height: 16.6em;
+        margin: 0px;
+    }
     .cont-titulo-op-geral{
         display: flex;
         flex-direction: column;
@@ -702,13 +714,31 @@
         width: 50%;
         height: 16.6em;
     }
+    .cont-avalialiacoes2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 35%;
+        height: 7em;
+    }
     .cont-filha3-melhorava{
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        width: 50%;
+        width: 80%;
         height: 16.6em;
+    }
+    .cont-filha3-melhorava2{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 16.6em;
+
+        border: 1px solid #F27400;
     }
     .cont-filha4-melhorava{
         display: flex;
@@ -718,8 +748,14 @@
         width: 20%;
         height: 16.6em;
     }
-
-
+    .cont-filha4-melhorava2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 27%;
+        height: 7.4em;
+    }
 
 
     .cont-outras-op{
@@ -796,6 +832,13 @@
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.438);
     }
+
+    .cont-titulo-suaava{
+        color: #676767;
+    }
+    .cont-ava-usu{
+        color: #676767;
+    }
     @media screen and (max-width: 1300px) and (min-width: 1000px) {
         .cont-dep-infoprod{
             height: 3em;
@@ -823,6 +866,7 @@
             width: 20px;
             height: 20px;
             margin-right: 0.2em;
+            cursor: pointer;
         }
 
 
@@ -970,9 +1014,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content:space-between;
             width: 50%;
-            height: 69%;
+            height: 82%;
     
             border-right: 0px;
         }
@@ -1085,7 +1129,8 @@
             border: 0px;
         }
         .cont-filha1-melhorava{
-            height: 13em;
+            justify-content: flex-start;
+            height: 10.9em;
         }
         .titulo-ava-cliente{
             font-size: 15px;
@@ -1109,16 +1154,26 @@
             font-size: 15px;
         }
         .cont-avalialiacoes{
-            height: 13em;
+            align-items: flex-start;
+            justify-content: flex-end;
+            height: 10.6em;
+            width: 54%;
         }
         .cont-filha4-melhorava{
-            height: 13em;
+            align-items: center;
+            justify-content: flex-end;
+            height: 10.7em;
             width: max-content;
         }
         .cont-op-geral{
             height: 13em;
         }
+        .cont-op-geral2{
+            justify-content: flex-end;
+            height: 13em;
+        }
         .cont-melhor-ava{
+            align-items: center;
             height: 13em;
         }
         .cont-maior-ava{
@@ -1131,6 +1186,60 @@
             height: 15.2em;
             margin-bottom: 0.7em;
             border-bottom: 0px;
+        }
+        .cont-titulo-op-geral{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height:13em;
+            width: 50%;    
+        }
+        .cont-filha3-melhorava{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            width: 80%;
+            height: 12em;
+        }
+        .cont-filha3-melhorava2{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            width: 80%;
+            height: 12em;
+            border: 1px solid #f99940;
+        }
+        .cont-titulo-suaava{
+            width: 100%;
+            height: 3em;
+        }
+        .cont-ava-usu{
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            width: 100%;
+            height: 8.6em;
+        }
+        .botao-avaliar{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            color: #FD8B23;
+            font-family: 'Goldman';
+            font-size: 14px;
+
+            width: 8em;
+            height: 2.4em;
+
+            border-radius: 10px;
+            background-color: transparent;
+
+            border: 1px solid #FD8B23;
         }
     }
 }

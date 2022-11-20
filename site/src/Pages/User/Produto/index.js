@@ -4,6 +4,7 @@ import './index.scss';
 
 import Cabecalho1 from '../../../Components/Cabeçalho01';
 import CoracaoIcon from '../../../assets/images/Coracao-icon.svg';
+import Coracao2Icon from '../../../assets/images/Coracao-icon02.svg'
 import { CardOutrasOp } from '../../components/CardOutrasOp';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,19 +29,71 @@ import { toast } from 'react-toastify';
 import { estrelasAvaliacao } from '../../components/estrelaAva';
 import { API_URL } from '../../../Api/config';
 import { buscarImgProd } from '../../../Api/cadProdutoApi';
+import { verificarProdutoFavoritado2 } from '../../../Api/cadProdutoApi';
+import storage from 'local-storage';
 
 export default function Produto(){
     const [produtos, setProdutos] = useState({ info: {}, cat: [], maiorAvaliacao: [], menorAvaliacao: [], opGeral: []});
     const [imagens, setImagens] = useState({imagem1: {}, imagem2: {}, imagem3: {}});
-    console.log(imagens.imagem2);
+    const [idprod, setIdProd] = useState();
+    const [idUser, setIdUser] = useState();
+    const [verifica, setVerifica] = useState({ id: []})
     const { id } = useParams();
     const navigate = useNavigate();
+    const userLogado = storage('user-logado'); 
+    useEffect(() => {
+        carregarPag();
+    }, [])
+
+    useEffect(() => {
+        if(userLogado === null || !userLogado){
+            setIdUser('Não logado');
+        }
+        else{
+            setIdUser(userLogado.id);
+        }
+    }, [])
+
+    useEffect(() => {
+        setIdProd(produtos.info.idProduto);
+    }, [produtos])
+
+    useEffect(() =>{
+        verificarItem(userLogado.id, idprod);
+    }, [idprod])
+
+    async function verificarItem(idU, idP){
+        const a = await verificarProdutoFavoritado2(idU, idP);
+        console.log(a);
+        setVerifica(a);
+    }
     
     function opiniaoGeral(item, qtd){
         let condicao = item / qtd;
         return Math.floor(condicao);
     }
+    
+    function querFavoritar(){
+        if(!storage('user-logado')){
+            carregarLogins2();
+        }
+    }
 
+    function verificarSeEstáVerificado(idUsuario, idProd){
+        if(idUsuario === 'Não logado' || !idUsuario || idUsuario === undefined){
+            return CoracaoIcon
+        } else{
+            const resposta = verifica.id;
+            
+            if(resposta == undefined || resposta === null || !resposta || resposta == ''){
+                return CoracaoIcon
+            }
+            else{
+                return Coracao2Icon
+            }
+        }
+    }
+    
     async function carregarPag(){
         const r = await prodSelCompra(id);
         const im = await imagensProduto(id);
@@ -81,6 +134,18 @@ export default function Produto(){
         }
     }
 
+    function carregarLogins2(){
+        let min = Math.ceil(1);
+        let max = Math.floor(2);
+        let retorno = Math.floor(Math.random() * (max - min + 1)) + min;
+        if(retorno === 1){
+                navigate('/login/style1')
+        }
+        else if(retorno === 2){
+                navigate('/login/style2')
+        }
+    }
+
     function adicionarCarrinho(){
         let carrinho = [];
         if(Storag ('carrinho')){
@@ -96,17 +161,12 @@ export default function Produto(){
         }
         toast.success('Produto adicionado ao carrinho');
     }
-
+    
     function valorProd(valor){
         const vl = valor.toFixed(2);
         return vl;
     }
-
-
-    useEffect(() => {
-        carregarPag();
-    }, [])
-
+    
     return(
         <main className='cont-main-infoprod'>
             <section className='cont-cabecalho-infoprod'>
@@ -125,7 +185,7 @@ export default function Produto(){
                             Gabinete
                         </h1>
                     </div>
-                    <img src={CoracaoIcon} className='favoritar-infoprod' />
+                    <img src={verificarSeEstáVerificado(idUser, produtos.info.idProduto)} className='favoritar-infoprod' onClick={querFavoritar}/>
                 </div>
                 <div className='cont-prodvl-infoprod'>
                     <div className='cont-avaimgs-infoprod'>
@@ -379,33 +439,37 @@ export default function Produto(){
                             {estrelasAvaliacao(produtos.menorAvaliacao.avSatsfacao)}
                         </div>
                     </div>
-                    <div className='cont-op-geral'>
-                        <div className='cont-filha3-melhorava'>
-                            <div className='cont-titulo-op-geral'>
-                                <h1 className='titulo-op-geral'>
-                                    Opinião geral:
-                                </h1>
+                    <div className='cont-op-geral2'>
+                        <div className='cont-filha3-melhorava2'>
+                            <div className='cont-titulo-suaava'>
+
                             </div>
-                            <div className='cont-avalialiacoes'>
-                                <h1 className='titulo-ava-geral'>
-                                    Geral:
-                                </h1>
-                                <h1 className='titulo-ava-desemp'>
-                                    Desempenho:
-                                </h1>
-                                <h1 className='titulo-ava-atendi'>
-                                    Atendimento:
-                                </h1>
-                                <h1 className='titulo-ava-sats'>
-                                    Satisfação:
-                                </h1>
+                            <div className='cont-ava-usu'>
+
+                                <div className='cont-avalialiacoes2'>
+                                    <h1 className='titulo-ava-geral'>
+                                        Geral:
+                                    </h1>
+                                    <h1 className='titulo-ava-desemp'>
+                                        Desempenho:
+                                    </h1>
+                                    <h1 className='titulo-ava-atendi'>
+                                        Atendimento:
+                                    </h1>
+                                    <h1 className='titulo-ava-sats'>
+                                        Satisfação:
+                                    </h1>
+                                </div>
+                                <div className='cont-filha4-melhorava2'>
+                                    {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalGer, produtos.opGeral.qtdUsers))}
+                                    {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalDes, produtos.opGeral.qtdUsers))}
+                                    {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalAte, produtos.opGeral.qtdUsers))}
+                                    {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalSatis, produtos.opGeral.qtdUsers))}
+                                </div>
+                                <button className='botao-avaliar'>
+                                    Confirmar
+                                </button>
                             </div>
-                        </div>
-                        <div className='cont-filha4-melhorava'>
-                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalGer, produtos.opGeral.qtdUsers))}
-                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalDes, produtos.opGeral.qtdUsers))}
-                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalAte, produtos.opGeral.qtdUsers))}
-                            {estrelasAvaliacao(opiniaoGeral(produtos.opGeral.totalSatis, produtos.opGeral.qtdUsers))}
                         </div>
                     </div>
                 </div>

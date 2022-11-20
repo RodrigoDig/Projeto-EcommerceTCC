@@ -23,18 +23,18 @@
     .star-icon.ativo ~ .star-icon::before{
         content: "\2606";
     }
-    
-    .cont-avaliacao-star:hover .star-icon::before{
-        content: "\2605";
-    }
-    .star-icon:hover ~ .star-icon::before{
-        content: "\2606";
-    }
     @media screen and (max-width:130px) and (min-width: 1000px) {
         width: 4em;
         height: 2.1em;
         .star-icon{
             font-size: 20px;
+        }
+    }
+    @media screen and (max-width:1300px) and (min-width: 1000px) {
+        width: max-content;
+        height: max-content;
+        .star-icon{
+            font-size: 21px;
         }
     }
 }

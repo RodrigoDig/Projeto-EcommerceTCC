@@ -92,10 +92,10 @@ export default function UserLogin2() {
 
                         <div className='texto-final-login'>
                             <div className='cont-text-final'>
-                                <p className='text-final'>Não possui uma conta? </p>
+                                <p className='text-final1'>Não possui uma conta? </p>
                             </div>
                             <div className='cont-cad'>
-                                <p className='text-final'>
+                                <p className='text-final2'>
                                     Acesse aqui e
                                 </p>
                                 <p className='text-cad' onClick={cadUser}> cadastre-se</p>

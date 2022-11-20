@@ -41,6 +41,7 @@ export default function Cabecalho1(){
                 return '/login/style2';
         }
     }
+    
     function carregarLogins2(){
         let min = Math.ceil(1);
         let max = Math.floor(2);
@@ -79,7 +80,7 @@ export default function Cabecalho1(){
         storage.remove('user-logado');
         setTimeout(() => {
             navigate('/');
-        }, 3000)
+        }, 1500)
     }
 
     useEffect(() =>{

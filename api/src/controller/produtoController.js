@@ -325,6 +325,21 @@ server.get('/verificar/favoritado/:usuario/:produto', async (req, resp) => {
     }
 })
 
+server.get('/verificar/favoritado2/:usuario/:produto', async (req, resp) => {
+    try {
+        const usid = req.params;
+        const verificar = await varificarSeJaFavoritou(usid.usuario, usid.produto);
+        resp.send({
+            id: verificar.id
+        });
+
+    } catch (err) {
+
+        return resp.status(400).send({
+            erro: (err.message)
+        });
+    }
+})
 
 
 

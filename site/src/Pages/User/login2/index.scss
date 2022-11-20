@@ -148,9 +148,9 @@
 
         }
         .botao-login:hover{
-            background: rgba(255, 255, 255, 0.30);
-            border: 0.5px solid #FF6F86;
-            color: #FF6F86;
+            background: rgba(255, 255, 255, 0.235);
+            border: 0.5px solid #ffffff;
+            color: #fff;
         }
 
         .texto-final-login{
@@ -169,7 +169,7 @@
             height: 7em;
         }
         .cont-cad{
-            margin-left: 0.5em;
+            margin-left: 1em;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -181,7 +181,13 @@
             width: 8em;
             font-weight: 700;
             font-size: 13px;
-            color: #852E8A;
+            color: black;
+            font-family: 'Goldman';
+            cursor: pointer;
+        }
+        .text-cad:hover{
+            transform: scale(1.03);
+            text-decoration: underline;
         }
         .cont-user-invalido{
             width: max-content;
@@ -190,7 +196,7 @@
         .user-invalido{
             font-size: 16px;
             color:#ff0000b7;
-
+            font-weight: 600;
             margin: 0px;
         }
     @media screen and (max-width:1300px) and (min-width:1000px){
@@ -205,12 +211,14 @@
                 border-radius: 17px;
                 width: 22em;
                 height: 27em;
+                background: rgba(255, 255, 255, 0.509);
             }
             .titulo-user{
                 font-size: 20px;
+                color: white;
             }
             .input-login{
-                border: 1px solid #FF6F86;
+                border: 1.5px solid #F27400;
                 border-radius: 10px;
                 align-items: center;
                 width: 17em;
@@ -223,10 +231,10 @@
                 width: 10em;
                 height: 2.3em;
                 font-size: 17px;
-
+                background-color: #F27400;
             }
             .input-login-2{
-                border: 1px solid #FF6F86;
+                border: 1.5px solid #F27400;
                 border-radius: 10px;
                 align-items: center;
                 width: 17em;
@@ -259,7 +267,7 @@
                 font-size:1em;
                 text-align: center;
                 
-                color: #852E8A;
+                color: #ffffff;
             }
             .logo-login-user{
                 margin: 0px;
@@ -282,12 +290,22 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                width: 17em;
+                justify-content: flex-start;
+                width: 16em;
                 height: 5em;
             }
-            .text-final{
+            .text-final1{
                 margin: 0px;
                 font-size: 13px;
+                color: white;
+                margin-right: 1em;
+                font-family: 'Goldman';
+            }
+            .text-final2{
+                margin: 0px;
+                font-size: 13px;
+                font-family: 'Goldman';
+                color: white;
             }
     }
 }
