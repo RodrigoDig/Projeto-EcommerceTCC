@@ -57,13 +57,14 @@ export default function Cabecalho1(){
     function somarItensCarrinho(itens){
         if(itens === null){
             return 0
+        }else{
+            let a = itens.length;
+            let b = 0;
+            for(let i = 0; i < a; i++){
+                b = b + Number(itens[i].qtd);
+            }
+            return b;
         }
-        let a = itens.length;
-        let b = 0;
-        for(let i = 0; i < a; i++){
-            b = b + Number(itens[i].qtd);
-        }
-        return b;
     }
 
     function verificarQtdCarrinho(valor){
