@@ -17,6 +17,7 @@ import storage from 'local-storage';
 export default function Cabecalho1(){
     const [infoUser, setInfoUser] = useState('');
     const [carrinhoInf, setCarrinhoInf] = useState([]);
+    console.log(carrinhoInf);
     const [log, setLog] = useState();
 
     const navigate = useNavigate();
@@ -100,7 +101,7 @@ export default function Cabecalho1(){
                             <div className='bolinha-carrinho' >
                                 <p onClick={() => carregarLogins2()} className={verificarQtdCarrinho(1)}>
                                     0
-                                   </p>
+                                </p>
                             </div>
                         </div>
 
