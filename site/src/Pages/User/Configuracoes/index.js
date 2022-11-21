@@ -98,8 +98,6 @@ export default function Configuracoes() {
                             )}
                         </div>
 
-                        <button>Alterar endereço</button>
-
                         <button onClick={perfil}>Voltar ao perfil</button>
                     </div>
                 </section>

@@ -1,7 +1,7 @@
 import {React} from 'react';
 import './index.scss';
 import  storage  from 'local-storage';
-import { useNavigate } from 'react-router-dom';
+import { UNSAFE_NavigationContext, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 import Cabecalho from '../../../Components/Cabeçalho06';
@@ -37,6 +37,15 @@ export default function Perfil(){
         }
     }, [])
 
+    function status(){
+        navigate('/status');
+    }
+    function atendimento(){
+        navigate('/atendimento');
+    }
+    function favoritos(){
+        navigate('/favoritos');
+    }
 
     function verificarEnderecos(){
         let a = endereco.length;
@@ -135,13 +144,13 @@ export default function Perfil(){
                                 </h1>
                             </div>
                             <div className='cont-cada-atalho'>
-                                <div className='cont-atalho1'>
+                                <div className='cont-atalho1' onClick={status}>
                                     <img src={Pedidos} className='icon-atalho-pedidos'/>
                                     <h1 className='atalho-meuspedidos'>
                                         Meus Pedidos
                                     </h1>
                                 </div>
-                                <div className='cont-atalho2'>
+                                <div className='cont-atalho2' onClick={atendimento}>
                                     <img src={Atend} className='icon-atalho-atend'/>
                                     <h1 className='atalho-atendimento'>
                                         Atendimento ao Cliente
