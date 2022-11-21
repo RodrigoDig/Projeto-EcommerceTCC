@@ -132,6 +132,7 @@ export default function Cadastro() {
             return SalvarImgIcon
         }
         else if(typeof (imagem) == 'string'){
+            console.log(imagem);
             return `${API_URL}/${imagem}`
         }
         else{
