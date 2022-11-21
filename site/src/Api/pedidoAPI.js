@@ -1,0 +1,14 @@
+import { API_URL } from './config.js';
+
+import axios from 'axios';
+import { useState } from 'react';
+
+
+const api = axios.create({
+    baseURL: API_URL
+})
+
+export async function salvarNovoPedido(idUsuario, novoPedido){
+    const r = await api.post('/api/pedido/' + idUsuario, novoPedido);
+    return r.data;
+}

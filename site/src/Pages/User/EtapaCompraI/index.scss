@@ -209,86 +209,10 @@
                 }
             }
 
-            .opção-frete-etp1{
-                background-color: #fff;
-
-                margin-top: 2.5em;
-                margin-bottom: 2.5em;
-
-                hr{
-                    width: 70em;
-                }
-
-                .titulo-frete-etp1{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-
-                    margin: 1.5em 3em;
-
-                    .frete-etp1{
-                        display: flex;
-                        flex-direction: row;
-
-                        img{
-                            margin-right: 1em;
-                        }
-                        h1{
-                            font-size: 1.9em;
-                            font-weight: 450;
-                            
-                            
-                        }
-                    }
-
-                    .valores-fixos{
-                        h1{
-                            font-size: 1.9em;
-                            font-weight: 450;
-                        }
-                    }
-                }
-
-                .parte-final-frete{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-
-                    margin: 1.5em 3em;
-
-                    .tipos-frete{
-                        display: flex;
-                        flex-direction: column;
-
-                        label{
-                            font-size: 1.5em;
-                            margin-bottom: 1em;
-
-                            input{
-                                margin-left: 1em;
-
-                            }
-                        }
-
-                    }
-
-                    .valores-frete{
-                        display: flex;
-                        flex-direction: column;
-
-                        color: #f27400;
-
-                        span{
-                            font-size: 1.5em;
-                            margin-bottom: 1em;
-                        }
-                    }
-                }
-            }
-
             .produto-etp1-pagamento{
                 background-color: #fff;
                 
+                margin-top: 2.5em;
                 margin-bottom: 2.5em;
 
                 hr{

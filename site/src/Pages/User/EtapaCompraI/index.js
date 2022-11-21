@@ -1,5 +1,5 @@
 import './index.scss';
-import storage from 'local-storage';
+import storage, {set} from 'local-storage';
 
 import { API_URL } from '../../../Api/config';
 import { useEffect, useState } from 'react';
@@ -15,17 +15,28 @@ import Etapas from '../../../Components/etapas';
 import cesta from '../../../assets/images/cesta.svg';
 import Cabecalho from '../../../Components/CabecalhoCompras';
 import Localização from '../../../assets/images/pin-de-localizacao.png';
-import caminhao from '../../../assets/images/caminhao-de-entrega 1.svg';
 import Pagamento from '../../../assets/images/forma-de-pagamento.png';
+import { salvarNovoPedido } from '../../../Api/pedidoAPI';
+import { toast } from 'react-toastify';
 
 
 export default function EtapaCompra() {
     const [endereco, setEndereco] = useState([]);
     const [exibirEndereço, setExibirEndereço] = useState(false);
+    const [idEndereco, setIdEndereco] = useState();
     const [itens, setItens] = useState([]);
-    const navigate = useNavigate();
 
-    console.log(itens);
+    const [cupom, setCupom] = useState('');
+
+    const [frete, setFrete] = useState('');
+    const [nome, setNome] = useState('');
+    const [numero, setNumero] = useState('');
+    const [validade, setValidade] = useState('');
+    const [cvv, setCvv] = useState('');
+    const [pagamento, setPagamento] = useState('');
+    const [parcelas, setParcelas] = useState('');
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!storage('user-logado')) {
@@ -33,15 +44,48 @@ export default function EtapaCompra() {
         }
     }, [])
 
-    function mostrarImg(imagem){
-        if(typeof(imagem) == 'object'){
+    function mostrarImg(imagem) {
+        if (typeof (imagem) == 'object') {
             return URL.createObjectURL(imagem);
         }
-        else if(typeof(imagem) == 'string'){
+        else if (typeof (imagem) == 'string') {
             return `${API_URL}/${imagem}`
         }
-        else{
+        else {
             return buscarImgProd(imagem)
+        }
+    }
+
+    async function salvarPedidos() {
+
+        try {
+            let produtos = storage('carrinho');
+            let id = storage('user-logado').id;
+
+            let pedido =
+            {
+                cupom: cupom,
+                frete: frete,
+                idEndereco: 1,
+                tipoPagamento: 'Cartão',
+                cartao: {
+                    nome: nome,
+                    numero: numero,
+                    validade: validade,
+                    cvv: cvv,
+                    formaPagamento: pagamento,
+                    parcelas: parcelas
+                },
+                produtos: produtos
+            }
+
+            const r = await salvarNovoPedido(id, pedido);
+            toast.success('Pedido inserido com sucesso!');
+            storage('carrinho', []);
+            navigate('/etapaIV');
+        }
+        catch (err) {
+            toast.error(err.response.data.erro);
         }
     }
 
@@ -57,7 +101,7 @@ export default function EtapaCompra() {
         setExibirEndereço(false);
         carregarEnd();
     }
-    
+
     function valorDesconto(valor, desconto) {
         const valordesc = desconto / 100;
         const vl = valor * valordesc;
@@ -84,13 +128,15 @@ export default function EtapaCompra() {
             setItens(temp);
         }
     }
-    function calcularTotal(){
+    function calcularTotal() {
         let total = 0;
-        for(let item of itens){
+        for (let item of itens) {
             total = total + item.qtd * valorDesconto(item.produto.preco, item.produto.desconto)
         }
         return total;
     }
+
+
 
     useEffect(() => {
         carregarEnd();
@@ -118,7 +164,7 @@ export default function EtapaCompra() {
 
                             <div className='informações-end-etp1'>
                                 {endereco.map(item =>
-                                    <Componente item={item} />
+                                    <Componente item={item} selecionar={setIdEndereco} selecionado={item.id === idEndereco}/>
                                 )}
                                 <div className='edit-etp1'>
                                     <span onClick={exibirNovoEnd} style={{ color: "#f27400" }}>Novo endereço</span>
@@ -150,14 +196,14 @@ export default function EtapaCompra() {
                                         <tr>
                                             <td>
                                                 <div className='celula-item'>
-                                                    <img src={mostrarImg(item.produto.imagem)}/>
+                                                    <img src={mostrarImg(item.produto.imagem)} />
                                                     <div>
                                                         <h3>{item.produto.nome}</h3>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                               {item.qtd} 
+                                                {item.qtd}
                                             </td>
                                             <td>
                                                 R$ {item.produto.preco}
@@ -177,39 +223,6 @@ export default function EtapaCompra() {
                             </div>
                         </div>
 
-                        <div className='opção-frete-etp1'>
-                            <div className='titulo-frete-etp1'>
-                                <div className='frete-etp1'>
-                                    <img src={caminhao} />
-                                    <h1>Escolha sua opção de frete </h1>
-                                </div>
-
-                                <div className='valores-fixos'>
-                                    <h1>Valores Fixos</h1>
-                                </div>
-                            </div>
-                            <hr />
-
-                            <div className='parte-final-frete'>
-                                <div className='tipos-frete'>
-                                    <label>
-                                        Frete Comum
-                                        <input type='checkbox' />
-                                    </label>
-
-                                    <label>
-                                        Frete Sedex
-                                        <input type='checkbox' />
-                                    </label>
-                                </div>
-
-                                <div className='valores-frete'>
-                                    <span>R$ 15,00</span>
-                                    <span>R$ 25,00</span>
-                                </div>
-                            </div>
-                        </div>
-
                         <div className='produto-etp1-pagamento'>
                             <div className='titulo2-etp1-pagamento'>
                                 <img src={Pagamento} />
@@ -225,19 +238,21 @@ export default function EtapaCompra() {
                                     <label>CVV:</label>
                                     <label>Pagamento:</label>
                                     <label>Parcelas:</label>
+                                    <label>Frete:</label>
+
                                 </div>
 
                                 <div className='valores'>
-                                    <input type='text'/>
-                                    <input type='number'/>
-                                    <input type='date'/>
-                                    <input type='number'/>
-                                    <select>
+                                    <input type='text' value={nome} onChange={e => setNome(e.target.value)} />
+                                    <input type='number' value={numero} onChange={e => setNumero(e.target.value)} />
+                                    <input type='date' value={validade} onChange={e => setValidade(e.target.value)} />
+                                    <input type='text' value={cvv} onChange={e => setCvv(e.target.value)} />
+                                    <select value={pagamento} onChange={e => setPagamento(e.target.value)}>
                                         <option selected disabled hidden >Selecione</option>
                                         <option>Crédito</option>
                                         <option>Débito</option>
                                     </select>
-                                    <select>
+                                    <select value={parcelas} onChange={e => setParcelas(e.target.value)}>
                                         <option selected disabled hidden >Selecione</option>
                                         <option value={1}>1x á vista</option>
                                         <option value={1}>1x sem juros</option>
@@ -247,7 +262,12 @@ export default function EtapaCompra() {
                                         <option value={5}>5x sem juros</option>
                                         <option value={6}>6x sem juros</option>
                                         <option value={7}>7x sem juros</option>
-                                        <option value={8}>8x sem juros</option> 
+                                        <option value={8}>8x sem juros</option>
+                                    </select>
+                                    <select value={frete} onChange={e => setFrete(e.target.value)}>
+                                        <option selected disabled hidden >Selecione</option>
+                                        <option>Comum</option>
+                                        <option>Sedex</option>
                                     </select>
                                 </div>
 
@@ -259,7 +279,7 @@ export default function EtapaCompra() {
                         <div className='Resumo-carrinho'>
                             <h1>Resumo</h1>
                             <p>Valor da compra: R$ {calcularTotal()} </p>
-                            <button>Finalizar compra</button>
+                            <button onClick={salvarPedidos}>Finalizar compra</button>
 
                         </div>
 
@@ -267,10 +287,9 @@ export default function EtapaCompra() {
                             <h1>Frete</h1>
 
                             <p>Valores fixos para todos os fretes.</p>
-                            <p>Para produtos vendidos fora do estado de São Paulo possuimos um valor de entrega fixo, custando R$ 50,00.</p>
                             <p>Para produtos vendidos dentro do estado de São Paulo, o cliente possui duas opções, e são elas:
-                                *Entrega comum; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                *Entrega via Sedex(mais rápida);
+                                *Entrega comum R$ 15,00; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                *Entrega via Sedex(mais rápida) R$ 25,00;
                             </p>
 
                         </div>
