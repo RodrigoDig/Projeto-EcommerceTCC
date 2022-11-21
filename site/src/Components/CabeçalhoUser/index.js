@@ -20,7 +20,7 @@ export default function Cabecalho() {
         navigate('/favoritos')
     }
     function pedido(){
-        navigate('/pedido')
+        navigate('/status')
     }
     function perfil(){
         navigate('/perfil')
@@ -28,14 +28,17 @@ export default function Cabecalho() {
     function configurações(){
         navigate('/configuracoes')
     }
+    function Home(){
+        navigate('/')
+    }
     return (
             <section className='alinhamento-cabecalho'>
                 <h1 className='titulo-perfil'>
                     Informações Pessoais
                 </h1>
-                <div className='posicionamento-cabecalho'>
+                <div className='posicionamento-cabecalho' onClick={Home} style={{cursor : "pointer"}}>
                     <img src={Menu}/>
-                    <h1>Minha conta</h1>
+                    <h1>Home</h1>
                 </div>
                 <div className='posicionamento-cabecalho'>
                     <img src={Perfil}/>
