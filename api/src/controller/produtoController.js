@@ -1,4 +1,4 @@
-import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd, buscarImgsProdutos, inserirFavorito, varificarSeJaFavoritou, deletarFavorito, buscarPorDep } from "../repository/produtoRepository.js";
+import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd, buscarImgsProdutos, inserirFavorito, varificarSeJaFavoritou, deletarFavorito } from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { alterarValid } from '../services/alterarValidacao.js';
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
@@ -190,6 +190,27 @@ server.put('/adm/produto/:id', upload.array('imagens'), async (req, resp) => {
         }
 
         resp.status(204).send();
+    }
+    catch (err) {
+        resp.status(400).send({
+            erro: err.message
+        })
+    }
+})
+
+server.get('/adm/produto/:id', async (req, resp) =>{
+    try {
+        const id = req.params.id;
+
+        const produto =  await buscarProdutoPorId(id);
+        const categorias =await buscarProdutoPorCategorias(id);
+        const imagens = await buscarProdutoImagens(id);
+
+        resp.send({
+            info: produto,
+            categorias: categorias,
+            imagens: imagens
+        })
     }
     catch (err) {
         resp.status(400).send({

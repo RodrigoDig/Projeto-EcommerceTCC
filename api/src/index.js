@@ -29,5 +29,7 @@ server.use(userLoginController);
 server.use(CadastroEndController);
 server.use(CadastroCupomController);
 
+server.use('/storage/ImagensProduto', express.static('storage/ImagensProduto'));
+
 server.listen(process.env.PORT,
                () => console.log(`API conectada na porta ${process.env.PORT}`))

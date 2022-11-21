@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "d0fb1062-8439-427d-a227-759260266995",
+    "colId": "history",
+    "containerId": "",
+    "name": "http://localhost:5000/adm/produto/3",
+    "url": "http://localhost:5000/adm/produto/21",
+    "method": "GET",
+    "sortNum": 0,
+    "created": "2022-11-20T21:15:33.757Z",
+    "modified": "2022-11-21T03:01:48.964Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

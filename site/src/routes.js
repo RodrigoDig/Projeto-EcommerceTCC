@@ -25,7 +25,6 @@ import CstEstoque from './Pages/Admin/ConsultarProdutos';
 import CstPedidos from './Pages/Admin/ConsultarPedidos';
 import LoginAdm from './Pages/Admin/LoginAdm';
 import Cadastro from './Pages/Admin/CadastroProduto';
-import Alterar from './Pages/Admin/AlterarProduto';
 import Cupom from './Pages/Admin/cadastroCupom';
 import ConsultarCupom from './Pages/Admin/ConsultarCupom';
 
@@ -50,11 +49,11 @@ export default function Index(){
                 <Route path="/login/style1" element={<Login />} />
                 <Route path="/login/style2" element={<UserLogin2 />} />
                 
-                <Route path="/alterarproduto" element={<Alterar />} />
                 <Route path="/estoque" element={<CstEstoque />} />
                 <Route path="/pedidos" element={<CstPedidos/>}/>
                 <Route path="/loginadm" element={<LoginAdm />} />
-                <Route path="/cadastroproduto" element={<Cadastro />} />
+                <Route path="/adm/produto" element={<Cadastro />} />
+                <Route path="/adm/produto/:id" element={<Cadastro />} />
                 <Route path="/cupom" element={<Cupom/>} />
                 <Route path="/alterar/:idParam" element={<Cupom/>} />
                 <Route path="/consulta/cupom" element={<ConsultarCupom/>} />
