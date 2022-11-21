@@ -3,7 +3,7 @@ import './index.scss';
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import CupomLogo from '../../../assets/images/cupom (1).png';
 
-import { alterarCupom, buscarId, cadCupom } from '../../../Api/cadCupomAPI';
+import { } from '../../../Api/cadCupomAPI';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
@@ -26,24 +26,24 @@ export default function Cupom() {
 
     async function carregarCupom(){
         const resposta = await buscarId(idParam);
-        setCupom(resposta.cupom);
-        setCodigo(resposta.codigo);
-        setDesconto(resposta.desconto);
-        setInscricao(resposta.inscricao);
-        setVencimento(resposta.vencimento);
-        setId(resposta.id);
+        //setCupom(resposta.cupom);
+        //setCodigo(resposta.codigo);
+        //setDesconto(resposta.desconto);
+        //setInscricao(resposta.inscricao);
+        //setVencimento(resposta.vencimento);
+        //setId(resposta.id);
     }
 
     async function salvarClick() {
         try {
 
             if(id === 0){
-                const novoCupom = await cadCupom(cupom, codigo, desconto, inscricao, vencimento);
+                //const novoCupom = await cCupom(cupom, codigo, desconto, inscricao, vencimento);
                 setId(novoCupom.id);
                 toast.success('Cupom cadastrado com sucesso!')
             }
             else {
-                await alterarCupom(id, cupom, codigo, desconto, inscricao, vencimento);
+                //await alterarCupom(id, cupom, codigo, desconto, inscricao, vencimento);
                 toast.success('Cupom alterado com sucesso!')
             }
         
@@ -57,9 +57,7 @@ export default function Cupom() {
         setId(0);
         setCupom('');
         setCodigo('');
-        setDesconto(0);
-        setInscricao('');
-        setVencimento('');
+
     }
 
     return (

@@ -8,7 +8,8 @@ import produtoController from './controller/produtoController.js';
 import cadastroUsuarioController from './controller/cadastroUsuarioController.js';
 import userLoginController from './controller/userLoginController.js';
 import CadastroEndController  from './controller/enderecoController.js';
-import CadastroCupomController from './controller/cupomController.js';
+import pedidoController from './controller/pedidoController.js';
+import cupomController from './controller/cupomController.js'
 
 import express from 'express';
 import cors from 'cors';
@@ -27,7 +28,8 @@ server.use(produtoController);
 server.use(cadastroUsuarioController);
 server.use(userLoginController);
 server.use(CadastroEndController);
-server.use(CadastroCupomController);
+server.use(pedidoController);
+server.use(cupomController);
 
 server.use('/storage/ImagensProduto', express.static('storage/ImagensProduto'));
 

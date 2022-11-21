@@ -1,4 +1,4 @@
-import { alterarCupom, buscarId, buscarNome, CadCupom, deletarCupom, listarCupons } from '../repository/cupomRepository.js';
+import { Cupom} from '../repository/cupomRepository.js';
 import { Router } from 'express';
 
 const server = Router();
@@ -6,13 +6,32 @@ const server = Router();
 server.post('/cadastro/cupom', async (req, resp)=> {
     try{
         const cupom = req.body;
-        const comando = await CadCupom(cupom)
+        const comando = await Cupom(cupom)
         resp.send(cupom)
         
     }catch(err){
+        console.log(err)
         return resp.status(400).send({
             erro: "Ops, algo não está funcionando corretamente!!"
         })
+    }
+})
+
+server.put('/cadastro/cupom/:id', async(req, resp) =>{
+    try{
+        const {id} = req.params;
+        const cupom = req.body;
+
+        const resposta = await alterarCupom(id, cupom);
+        if(resposta != 1)
+            throw new Error('Cupom não pode ser alterado')
+        else
+            resp.status(204).send();
+    }
+    catch(err){
+        resp.status(400).send({
+            erro:err.message
+        }) 
     }
 })
 
@@ -77,21 +96,4 @@ server.delete('/cupom/:id', async (req, resp) => {
     }
 })
 
-server.put('/cadastro/cupom/:id', async(req, resp) =>{
-    try{
-        const {id} = req.params;
-        const cupom = req.body;
-
-        const resposta = await alterarCupom(id, cupom);
-        if(resposta != 1)
-            throw new Error('Cupom não pode ser alterado')
-        else
-            resp.status(204).send();
-    }
-    catch(err){
-        resp.status(400).send({
-            erro:err.message
-        }) 
-    }
-})
 export default server;

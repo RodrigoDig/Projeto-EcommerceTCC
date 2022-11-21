@@ -121,7 +121,6 @@ export default function EtapaCompra() {
                                     <Componente item={item} />
                                 )}
                                 <div className='edit-etp1'>
-                                    <span>Editar</span> &nbsp; &nbsp;
                                     <span onClick={exibirNovoEnd} style={{ color: "#f27400" }}>Novo endereço</span>
                                 </div>
                             </div>

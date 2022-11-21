@@ -74,7 +74,7 @@ export async function buscarPorId(id){
     DS_INFORMACOES          				informacoes,
     DS_DESCRICAO            				descricao,
     DT_GARANTIA             				garantia,
-    IMG_PRODUTO			   				imagem
+    IMG_PRODUTO			   				    imagem
     FROM   TB_PRODUTO
     INNER JOIN TB_PRODUTO_IMAGEM
         ON TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM = TB_PRODUTO_IMAGEM.ID_PRODUTO_IMAGEM
@@ -106,6 +106,30 @@ export async function buscarProdutoPorId(id){
             DS_DESCRICAO             as descricao
       FROM TB_PRODUTO
      WHERE ID_PRODUTO = ?     
+    `
+    const [linhas] = await con.query(comando, [id]);
+    return linhas[0];
+}
+
+export async function buscarItemId(id){
+    const comando = 
+    `
+    SELECT  tb_produto.id_produto              as id,
+            ID_DEPARTAMENTO          as departamento,
+            tb_categoria.id_categoria as categoria,
+            NM_PRODUTO               as produto,
+            VL_PRECO				 as preco,  
+            DS_FABRICANTE            as fabricante,
+            QTD_ESTOQUE              as estoque,
+            VL_AVALIACAO             as avaliacao,
+            VL_DESCONTO              as desconto, 
+            DT_GARANTIA              as garantia,
+            DS_INFORMACOES           as informacoes,
+            DS_DESCRICAO             as descricao
+        FROM TB_PRODUTO
+        inner join tb_categoria
+        on tb_categoria.id_categoria = tb_categoria.id_categoria
+    WHERE ID_PRODUTO = ?  
     `
     const [linhas] = await con.query(comando, [id]);
     return linhas[0];

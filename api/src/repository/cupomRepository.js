@@ -1,18 +1,42 @@
 import { con } from './connection.js';
 
-export async function CadCupom(cupom){
+export async function Cupom(cupom){
     const comando = `
-        INSERT INTO TB_CUPOM(NM_CUPOM, DS_CODIGO, VL_CUPOM, DT_CADASTRO, DT_VENCIMENTO)
-                VALUES(?, ?, ?, ?, ?)
+        insert into tb_cupom( COD_CUPOM, VL_CUPOM, QTD_RESTANTE)
+                VALUES(?, ?, ?)
     `
     const [resp] = await con.query(comando, [
-        cupom.nome,
         cupom.codigo,
         cupom.valor,
-        cupom.cadastro,
-        cupom.vencimento
+        cupom.restante
     ])
     return resp.insertId;
+}
+
+export async function buscarCupom(cod) {
+    const comando = `
+         SELECT id_cupom         id,
+                cod_cupom        cod,
+                vl_cupom         valor,
+                qtd_restante     restante
+           FROM tb_cupom 
+          WHERE cod_cupom = ?
+    `
+
+    const [linhas] = await con.query(comando, [cod]);
+    return linhas[0];
+}
+
+
+export async function atualizarCupom(cod) {
+    const comando = `
+        UPDATE tb_cupom
+           SET qtd_restante = qtd_restante - 1
+         WHERE cod_cupom = ?
+    `
+
+    const [info] = await con.query(comando, [cod]);
+    return info.affectedRows;
 }
 
 export async function listarCupons(){
@@ -46,12 +70,10 @@ export async function buscarId(id){
 
 export async function buscarNome(nome){
     const comando = `
-        SELECT ID_CUPOM        id,
-                NM_CUPOM       nome,
-                DS_CODIGO      codigo,
-                VL_CUPOM       valor,
-                DT_CADASTRO    cadastro,
-                DT_VENCIMENTO  vencimento
+        SELECT ID_CUPOM       id,
+                COD_CODIGO    codigo,
+                VL_CUPOM      valor,
+                QTD_RESTANTE  restante
           FROM TB_CUPOM
         WHERE NM_CUPOM LIKE ?`;
     
@@ -71,13 +93,11 @@ export async function deletarCupom(id){
 export async function alterarCupom(id, cupom){
     const comando = `
         UPDATE TB_CUPOM
-            SET NM_CUPOM        = ?, 
-                DS_CODIGO       = ?,
+            SET COD_CODIGO       = ?,
                 VL_CUPOM        = ?,
-                DT_CADASTRO     = ?,
-                DT_VENCIMENTO   = ?
+                QTD_RESTANTE   = ?
         WHERE ID_CUPOM = ?`;
 
-    const [resposta] = await con.query(comando, [cupom.nome, cupom.codigo, cupom.valor, cupom.cadastro, cupom.vencimento, id]);
+    const [resposta] = await con.query(comando, [cupom.codigo, cupom.valor, cupom.restante, id]);
     return resposta.affectedRows;
 }
