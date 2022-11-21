@@ -147,6 +147,9 @@
             width: 100%;
         }
         .container-dois-cadtextos{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             background-color: #fff;
             border-radius: 10px;
             
@@ -159,9 +162,36 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: center;
+            width: 60%;
+            height: 4em;
             
             h1{
+                font-family: 'Goldman';
                 font-size: 14px;
+                margin: 0px;
+                padding: 0px;
+            }
+            .textos-caduser{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            
+                label{
+                    font-family: 'Goldman';
+                    font-size: 1.7em;
+                    line-height: normal;
+                }
+            
+                input{
+                    border: none;
+                    outline: none;
+                    
+                    font-size: 1em;
+                    font-family: 'Goldman';
+                    color: #1f1f1f;
+                    margin-left: 8px ;
+                }
             }
         }
     }

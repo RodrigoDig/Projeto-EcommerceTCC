@@ -62,6 +62,7 @@ export default function Cabecalho1(){
             let a = itens.length;
             let b = 0;
             for(let i = 0; i < a; i++){
+                console.log(itens[i])
                 b = b + Number(itens[i].qtd);
             }
             return b;
@@ -69,7 +70,7 @@ export default function Cabecalho1(){
     }
 
     function verificarQtdCarrinho(valor){
-        if(valor < 10 && valor > 0){
+        if(valor < 10 && valor >= 0){
             return 'number-carrinho'
         }
         else if(valor > 10 && valor <= 98){
