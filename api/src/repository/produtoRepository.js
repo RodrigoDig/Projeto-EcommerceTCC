@@ -63,7 +63,7 @@ export async function listarProdutos() {
 export async function buscarPorId(id){
     const comando = 
     `
-    SELECT TB_PRODUTO.ID_PRODUTO              	idProduto,
+    SELECT TB_PRODUTO.ID_PRODUTO            idProduto,
     ID_DEPARTAMENTO         			  	idDepartamento,
     NM_PRODUTO              				nome,
     VL_PRECO                				preco,
@@ -87,6 +87,52 @@ export async function buscarPorId(id){
     return linhas[0];
 }
 
+export async function buscarProdutoPorId(id){
+    const comando = 
+    `
+    SELECT  ID_PRODUTO               as id,
+            ID_DEPARTAMENTO          as departamento,
+            ID_CATEGORIA			 as categoria,
+            ID_ADMIN_LOGIN           as adm,
+            NM_PRODUTO               as produto,
+            VL_PRECO				 as preco,  
+            DS_FABRICANTE            as fabricante,
+            QTD_ESTOQUE              as estoque,
+            DS_CARACTERISTICAS       as caracteristicas,
+            VL_AVALIACAO             as avaliacao,
+            VL_DESCONTO              as desconto, 
+            DT_GARANTIA              as garantia,
+            DS_INFORMACOES           as informacoes,
+            DS_DESCRICAO             as descricao
+      FROM TB_PRODUTO
+     WHERE ID_PRODUTO = ?     
+    `
+    const [linhas] = await con.query(comando, [id]);
+    return linhas[0];
+}
+
+export async function buscarProdutoPorCategorias(idProduto){
+    const comando = 
+    `
+    SELECT  ID_CATEGORIA                              as id    			  
+      FROM TB_PRODUTO
+     WHERE ID_PRODUTO = ?      
+    `
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.id);
+}
+
+export async function buscarProdutoImagens(idProduto){
+    const comando = 
+    `
+    SELECT  IMG_PRODUTO                              as imagem   			  
+      FROM TB_PRODUTO_IMAGEM
+     WHERE ID_PRODUTO = ?;      
+    `
+    const [linhas] = await con.query(comando, [idProduto]);
+    return linhas.map(item => item.imagem);
+}
+
 export async function buscarPorNome(nome){
     const comando = 
     `
@@ -102,7 +148,7 @@ export async function buscarPorNome(nome){
            DS_DESCRICAO            descricao,
            DT_GARANTIA             garantia
     FROM   TB_PRODUTO
-    WHERE NM_PRODUTO LIKE ?
+    WHERE NM_PRODUTO LIKE ?;
     `;
     const [linhas] = await con.query(comando, [ `%${nome}%` ]);
     return linhas;

@@ -17,7 +17,9 @@ export default function Carrinho() {
     function voltar() {
         navigate('/')
     }
-
+    function pedido(){
+        navigate('/etapaI')
+    }
     function qtdItens(){
         return itens.length;
     }
@@ -107,7 +109,7 @@ export default function Carrinho() {
                             <div className='cont-valor-total'>
                                 <p>Total: R$ {calcularTotal()}</p>
                             </div>
-                            <button>Comprar</button>
+                            <button onClick={pedido}>Comprar</button>
                             <button onClick={voltar}>Continuar Comprando</button>
                         </div>
                     </div>

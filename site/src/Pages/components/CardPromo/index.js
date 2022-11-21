@@ -16,7 +16,7 @@ export default function CardProduto(props){
         const vl = valor * valordesc;
         const valorfinal = valor - vl;
 
-        return valorfinal;
+        return valorfinal.toFixed(2);
     }   
 
     function mostrarImg(imagem){
