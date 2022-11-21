@@ -24,3 +24,10 @@ export async function verificarUsuarioAvaliacao(idUsuario, idProduto){
     const resposta = await api.get('/verificar/usuario/avaliacao/' + idUsuario + '/' + idProduto);
     return resposta.data
 }
+
+
+
+export async function verificarProdutosFavoritos(idUsuario){
+    const resposta = await api.get('/verificar/usuario/favoritos/' + idUsuario);
+    return resposta.data
+}

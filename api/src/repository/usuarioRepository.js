@@ -48,3 +48,29 @@ export async function verificarSeJaAvaliou(idUser, idProduto){
     }
     return linhas[0];
 }
+
+export async function verificarProdutosFav(idUser){
+    const comando = 
+    `
+    select nm_produto  		     	nome,
+            tb_produto.id_produto 	idP,
+            img_produto				imagem,
+            vl_preco			    valor,
+            vl_desconto				desconto
+        from tb_usuario_favorito
+        inner join tb_produto
+            on tb_produto.id_produto = tb_produto.id_produto
+        inner join tb_usuario
+            on tb_usuario.id_usuario = tb_usuario.id_usuario 
+        inner join tb_produto_imagem
+            on tb_produto_imagem.id_produto_imagem = tb_produto_imagem.id_produto_imagem
+        where tb_usuario_favorito.id_usuario = ?
+            and tb_usuario.id_usuario = tb_usuario_favorito.id_usuario
+            AND   TB_PRODUTO.ID_PRODUTO = tb_usuario_favorito.id_produto
+            AND   TB_PRODUTO.ID_PRODUTO = TB_PRODUTO_IMAGEM.ID_PRODUTO
+        GROUP BY TB_PRODUTO.ID_PRODUTO;
+                     
+    `
+    let [linhas] = await con.query(comando,  [idUser])
+    return linhas;
+}

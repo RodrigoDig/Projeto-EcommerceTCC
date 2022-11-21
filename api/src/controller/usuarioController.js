@@ -1,4 +1,4 @@
-import { login, verificarSeJaAvaliou } from '../repository/usuarioRepository.js';
+import { login, verificarProdutosFav, verificarSeJaAvaliou } from '../repository/usuarioRepository.js';
 
 import { Router } from 'express';
 import { inserirAvaliacao } from '../repository/usuarioRepository.js';
@@ -46,6 +46,20 @@ server.get('/verificar/usuario/avaliacao/:user/:prod', async (req, resp) => {
         resp.send({
             id: verificar
         });
+
+    } catch (err) {
+
+        return resp.status(400).send({
+            erro: (err.message)
+        });
+    }
+})
+
+server.get('/verificar/usuario/favoritos/:user', async (req, resp) => {
+    try {
+        const usid = req.params;
+        const verificar = await verificarProdutosFav(usid.user);
+        resp.send(verificar);
 
     } catch (err) {
 

@@ -1,0 +1,117 @@
+.cont-card-fav{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 10em;
+
+    border-bottom: 1px solid #d9d9d9;
+    .cont-img-prod{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        width: 23%;
+        height: 100%;
+    }
+    .img-produto{
+        width: 120px;
+        height: 130px;
+    }
+    .cont01-card{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: 77%;
+        height: 100%;
+    }
+    .titulo-nm-prod{
+        font-size: 14px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        color: black;
+        margin: 0px;
+    }
+    .cont-excluir{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-end;
+        width: 96%;
+        height: 2em;
+    }
+    .cont-nmprod{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 87%;
+        height: 3em;
+    }
+    .cont-valor-prod{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 80%;
+        height: 2.4em;
+
+    }
+    .valor-antigo{
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        font-family: 'Goldman';
+        font-weight: 100;
+        text-decoration:line-through;
+        margin: 0px;
+        margin-left: 0.5em;
+        color: #e12a1ac1;
+    }
+    .de{
+        font-size: 13px;
+        font-family: 'Goldman';
+        text-decoration: none;
+        font-weight: 100;
+        margin: 0px;
+        margin-right: 0.2em;
+    }
+    .comprar-button{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-radius: 7px;
+        background-color: transparent;
+        border: 0.1px solid #f27400;
+        width: 6.7em;
+        height: 2.3em;
+        font-size: 10px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        color: #f27400;
+        cursor: pointer;
+    }
+    .valor-novo{
+        font-size: 16px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        margin: 0px;
+        color: #f27400;
+        margin-left: 0.5em;
+    }
+    .cont-botao-comprar{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+        width: 96%;
+        height: 2.6em;
+    }
+    .icon-excluir{
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+    }
+}

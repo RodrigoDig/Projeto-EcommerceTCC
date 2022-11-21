@@ -1,14 +1,61 @@
-.sct-1{
-    background-color: #d9d9d9;
-
-    height: 110vh;
-}
-.cont-3{
-
-}
-.cont-4{
-    display:flex;
-    justify-content: space-between;
+.cont-main-fav{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    align-self: center;
+
+    width: 100%;
+    height: 100vh;
+
+    .cont-cabecalho-fav{
+        width: 100%;
+        height: max-content;
+    }
+    .cont-cabe-fav{
+        display: flex;
+        flex-direction: row;
+
+        width: 100%;
+        height: max-content;
+    }
+    .cont-cab2{
+        height: 100%;
+        width: max-content;
+    }
+    .cont-fav{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: #d9d9d9;
+        width: 100%;
+        height: 100%;
+    }
+    .cont-fav-01{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 12px;
+        width: 90%;
+        height: max-content;
+        padding-bottom: 1em;
+    }
+    .cont-titulo-fav{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: flex-start;
+        width: 90%;
+        height: 3.5em;
+
+        border-bottom: 1px solid #d9d9d9;
+    }
+    .titulo-fav{
+        font-size: 19px;
+        margin: 0px;
+        font-weight: 100;
+        font-family: 'Goldman';
+        color: black;
+        margin-bottom: 0.4em;
+    }
 }
