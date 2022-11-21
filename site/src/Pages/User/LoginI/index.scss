@@ -21,6 +21,48 @@
         width: 100%;
         height: 100%;
     }
+    .cont-cad{
+        margin-left: 1em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 12.6em;
+        height: 2em;
+    }
+    .text-cad{
+        margin: 0px;
+        width: 8em;
+        font-weight: 700;
+        font-size: 13px;
+        color: #550255;
+        font-family: 'Goldman';
+        cursor: pointer;
+    }
+    .text-final2{
+        margin: 0px;
+        font-size: 13px;
+        font-family: 'Goldman';
+        color: #FF6F86;
+    }
+    .texto-final-login{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 16em;
+        height: 5em;
+    }
+    .text-final1{
+        margin: 0px;
+        font-size: 13px;
+        color: #FF6F86;
+        margin-right: 1em;
+        font-family: 'Goldman';
+    }
+    .text-cad:hover{
+        transform: scale(1.03);
+        text-decoration: underline;
+    }
     .bloco-informações{
         display: flex;
         flex-direction: column;

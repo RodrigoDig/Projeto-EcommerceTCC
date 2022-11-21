@@ -1,6 +1,6 @@
 import './index.scss';
 
-export default function CardEndereco(){
+export default function CardEndereco(props){
     return(
         <div className="cont-main-cardendereco">
             <div className='cont-001'>
@@ -9,13 +9,13 @@ export default function CardEndereco(){
                 </h1>
             </div>
             <h1 className='nome-endereco'>
-                Rua Roberto Sampaio Ferreira
+                {props.item.logadouro}
             </h1>
             <h1 className='numero-endereco'>
-                Numero: 424
+                Numero: {props.item.numero}
             </h1>
             <h1 className='cep-cidade-endereco'>
-                CEP <p className='numero-cep'> 05848-150</p> - São Paulo SP
+                CEP <p className='numero-cep'>{props.item.cep}</p> - {props.item.cidade} {props.item.estado}
             </h1>
         </div>
     )

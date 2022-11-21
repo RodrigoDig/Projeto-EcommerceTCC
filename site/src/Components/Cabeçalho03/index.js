@@ -13,9 +13,9 @@ export default function Cabecalho3(){
 
     return(
         <main>
-            <section className='cabecalho03'>
+            <section onClick={Home} className='cabecalho03'>
                 <div onClick={Home} className='cont-logo'>
-                    <Logo className='logo-bt'/>
+                    <Logo onClick={Home} className='logo-bt'/>
                 </div>
 
                 <h1 className='text-bemvindo'>

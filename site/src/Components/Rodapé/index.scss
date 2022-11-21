@@ -1,6 +1,7 @@
 .fundo-rodape{
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #1e1e1e;
     width: 100%;
     height: 28em;
@@ -52,7 +53,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        width: 10.2em;
+        width: 9em;
         height: 6.2em;
 
     }
@@ -88,7 +89,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 10.2em;
+        width: 9em;
         height: 6.2em;
         justify-content: space-around;
 
@@ -97,7 +98,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 10.2em;
+        width: 9em;
         height: 6.2em;
         justify-content: space-around;
 
@@ -106,7 +107,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 10.2em;
+        width: 9em;
         height: 6.2em;
         justify-content: space-around;
 
@@ -115,7 +116,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 10.2em;
+        width: 9em;
         height: 6.2em;
         justify-content: space-around;
 
@@ -174,7 +175,7 @@
     }
     
     .espacamento-imgs{
-        width: 95%;
+        width: 94%;
         height: 3em;
 
         border-bottom: 0.1px solid #f27400;
@@ -190,6 +191,7 @@
         justify-content: space-between;
         width: 15%;
         height: 3em;
+        margin-left: 0.9em;
     }
     .cont-icons-pagamento{
         display: flex;
@@ -228,6 +230,7 @@
         border-radius: 12px;
         border: 0px;
         color: #fff;
+        cursor: pointer;
     }
     .botão{
         margin-right: 12em;
@@ -271,7 +274,7 @@
             width: 6em;
         }
         .componentes-1{
-            width: 100%;
+            width: 97%;
         }
     }
 }

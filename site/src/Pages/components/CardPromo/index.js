@@ -114,8 +114,8 @@ export default function CardProduto(props){
                         </div>
                     </div>
                     <button className='botao-comprar-card' onClick={() => selProd(props.item.id)}>
-                        <img src={Carrinho} className='carrinho-icon-card' />
-                        <h3 className='titulo-comprar-card'>
+                        <img src={Carrinho} className='carrinho-icon-card' onClick={() => selProd(props.item.id)}/>
+                        <h3 className='titulo-comprar-card' onClick={() => selProd(props.item.id)}>
                             COMPRAR
                         </h3>
                     </button>

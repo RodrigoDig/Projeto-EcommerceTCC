@@ -16,7 +16,6 @@ import { verificarProdutoFavoritado } from '../../../Api/cadProdutoApi';
 
 export default function CardProduto(props){
     const userLogado = storage('user-logado');
-    console.log(userLogado);
 
     
     const [favorito, setFavorito] = useState();
@@ -53,7 +52,6 @@ export default function CardProduto(props){
             setFavorito(Coracao2Icon);
         }
     }
-    
 
     const [prodFav, setProdFav] = useState('');
     const [carreg, setCarreg] = useState();
@@ -76,19 +74,32 @@ export default function CardProduto(props){
         }
     }
 
+    async function querFavoritar(){
+        if(!storage('user-logado') || storage('user-logado') === null){
+            carregarLogins2();
+        }else {
+            let resposta = await favoritado(idUsuario, props.item.id);
+            return resposta;
+        }
+    }
+
+    function carregarLogins2(){
+        let min = Math.ceil(1);
+        let max = Math.floor(2);
+        let retorno = Math.floor(Math.random() * (max - min + 1)) + min;
+        if(retorno === 1){
+                navigate('/login/style1');
+        }
+        else if(retorno === 2){
+                navigate('/login/style2');
+        }
+    }
+
     function exibirFavoritos(id){
         if(id === undefined || id === 0 || id === null){
-            return <div className={valorestoque()}>
-                        <p className='text-restam-card'>
-                            RESTAM
-                        </p>
-                        <p className='qtd-restam-card'>
-                            {props.item.estoque}
-                        </p>
-                        <p className='unidades-text-card'>
-                            UNIDADES
-                        </p>
-                    </div>
+            return <div className='cont-favorito-card'>
+                        <img src={favorito} className='coracao-icon-card' onClick={() => querFavoritar()} />
+                    </div> 
         }
         else{
             return  <div className='cont-favorito-card'>

@@ -58,49 +58,51 @@ export default function Configuracoes() {
             <section>
                 <Cabeçalho />
             </section>
+            <section className='cont00001'>
 
-            <section className='alterar-informações'>
-                <div className='informações-user-alt'>
-                    <div className='titulo-alterar-dados'>
-                        <img src={User} />
-                        <h1>Meus Dados</h1>
+                <section className='alterar-informações'>
+                    <div className='informações-user-alt'>
+                        <div className='titulo-alterar-dados'>
+                            <img src={User} />
+                            <h1>Meus Dados</h1>
+                        </div>
+
+                        <h2>Dados do usuário:</h2>
+
+                        <div className='inputs-dados-user'>
+                                <div>
+                                    <p>{usuario.usuario}</p>
+                                    <p>{usuario.sobrenome}</p>
+                                    <p>{usuario.nascimento}</p>
+                                    <p>{usuario.genero}</p>
+                                    <p>{usuario.email}</p>
+                                    <p>{usuario.cpf}</p>
+                                    <p>{usuario.celular}</p>
+                                    <p>{usuario.senha}</p>
+
+                                    <button onClick={ () => alterarUsuario(usuario.id)}>Alterar Dados</button>
+                                </div>
+
+                        </div>
+                    </div>                   
+
+                    <div className='bloco-endereços-user'>
+                        <div className='titulo-endereço-config'>
+                            <img src={Localização} />
+                            <h1>Endereço</h1>
+                        </div>
+
+                        <div className='info-end-user'>
+                            {endereco.map(item =>
+                                <ComponenteConfig item={item}/>
+                            )}
+                        </div>
+
+                        <button>Alterar endereço</button>
+
+                        <button onClick={perfil}>Voltar ao perfil</button>
                     </div>
-
-                    <h2>Dados do usuário:</h2>
-
-                    <div className='inputs-dados-user'>
-                            <div>
-                                <p>{usuario.usuario}</p>
-                                <p>{usuario.sobrenome}</p>
-                                <p>{usuario.nascimento}</p>
-                                <p>{usuario.genero}</p>
-                                <p>{usuario.email}</p>
-                                <p>{usuario.cpf}</p>
-                                <p>{usuario.celular}</p>
-                                <p>{usuario.senha}</p>
-
-                                <button onClick={ () => alterarUsuario(usuario.id)}>Alterar Dados</button>
-                            </div>
-
-                    </div>
-                </div>                   
-
-                <div className='bloco-endereços-user'>
-                    <div className='titulo-endereço-config'>
-                        <img src={Localização} />
-                        <h1>Endereço</h1>
-                    </div>
-
-                    <div className='info-end-user'>
-                        {endereco.map(item =>
-                            <ComponenteConfig item={item}/>
-                        )}
-                    </div>
-
-                    <button>Alterar endereço</button>
-
-                    <button onClick={perfil}>Voltar ao perfil</button>
-                </div>
+                </section>
             </section>
         </main>
     )

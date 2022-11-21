@@ -8,6 +8,7 @@ import Cabecalho from '../../../Components/Cabeçalho06';
 import CabecalhoUser from '../../../Components/CabeçalhoUser';
 import CardEndereco from '../../components/CardEndereco';
 
+import { listar } from '../../../Api/enderecoApi';
 import User from '../../../assets/images/icon-user.svg';
 import Email from '../../../assets/images/email-icon-perfil.svg';
 import Location from '../../../assets/images/location-icon.svg';
@@ -15,9 +16,13 @@ import Atalho from '../../../assets/images/atalho-icon.svg';
 import Coracao from '../../../assets/images/heart-icon-laranja.svg';
 import  Atend from '../../../assets/images/atendimento-icon-perfil.svg';
 import Pedidos from '../../../assets/images/pedidos-perfil-atalho.svg';
+import Modal from '../../../Components/ModalEnd';
 
 export default function Perfil(){
     const[infoUser, setInfoUser] = useState({ id: [], nome: [], email: [] });
+    const [endereco, setEndereco] = useState([]);
+    console.log(endereco);
+    const [exibirEndereço, setExibirEndereço] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,12 +37,58 @@ export default function Perfil(){
         }
     }, [])
 
+
+    function verificarEnderecos(){
+        let a = endereco.length;
+        if(a === 2){
+            return <div className='cont-enderecos-cadastrados'>
+                        {endereco.map(item =>
+                            <CardEndereco item = {item}/>
+                        )}
+                    </div>
+        }else {
+            return  <div className='cont-enderecos-cadastrados'>
+                        {endereco.map(item =>
+                            <CardEndereco item = {item}/>
+                        )}
+                        <button className='botao-cadastrar-endereco'>
+                            <h1 className='titulo-botao' onClick={exibirNovoEnd}>
+                                    Cadastrar Endereço
+                            </h1>
+
+                        </button>
+                    </div>
+        }
+    }
+
+    async function carregarEnd(){
+        const id = storage('user-logado').id;
+        const r = await listar(id);
+        setEndereco(r);
+    }
+    function exibirNovoEnd(){
+        setExibirEndereço(true);
+    }
+    function fecharEnd(){
+        setExibirEndereço(false);
+        carregarEnd();
+    }
+
     function alterar(){
         navigate('/configuracoes')
     }
 
+    function favoritos(){
+       navigate('/favoritos') 
+    }
+
+    useEffect(() => {
+        carregarEnd();
+    }, [])
+
     return(
         <main className='cont-main-perfiluser'>
+            <Modal exibir={exibirEndereço} fechar={fecharEnd} />
             <section className='cont-cabecalho-perfiluser'>
                 <Cabecalho />
             </section>
@@ -74,15 +125,7 @@ export default function Perfil(){
                                     Meus Endereços
                                 </h1>
                             </div>
-                            <div className='cont-enderecos-cadastrados'>
-                                <CardEndereco/>
-                                <button className='botao-cadastrar-endereco'>
-                                    <h1 className='titulo-botao'>
-                                            Cadastrar Endereço
-                                    </h1>
-
-                                </button>
-                            </div>
+                            {verificarEnderecos()}
                         </div>
                         <div className='cont-atalhos'>
                             <div className='cont-atalhos-titulo'>
@@ -104,9 +147,9 @@ export default function Perfil(){
                                         Atendimento ao Cliente
                                     </h1>
                                 </div>
-                                <div className='cont-atalho3'>
-                                    <img src={Coracao} className='icon-atalho-favoritos'/>
-                                    <h1 className='atalho-favoritos'>
+                                <div className='cont-atalho3' onClick={() => favoritos()}>
+                                    <img src={Coracao} className='icon-atalho-favoritos' onClick={() => favoritos()}/>
+                                    <h1 className='atalho-favoritos' onClick={() => favoritos()}>
                                         Favoritos
                                     </h1>
                                 </div>
