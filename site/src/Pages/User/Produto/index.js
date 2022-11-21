@@ -25,7 +25,8 @@ import Seta from '../../../assets/images/seta-vertodos.svg';
 import Rodape from '../../../Components/Rodapé';
 import Modal from '../../../Components/Modal';
 
-import { buscarProdutoDepNm, imagensProduto, prodSelCompra }from '../../../Api/cadProdutoApi';
+import { buscarProdutoNome } from '../../../Api/cadProdutoApi';
+import { imagensProduto, prodSelCompra }from '../../../Api/cadProdutoApi';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { estrelasAvaliacao } from '../../components/estrelaAva';
@@ -92,7 +93,7 @@ export default function Produto(){
     }
     
     async function carregarOutrasOp(){
-        const outrasOp = await buscarProdutoDepNm(produtos.info.nomeDepartamento);
+        const outrasOp = await buscarProdutoNome(produtos.info.nomeDepartamento);
         setProdutosOp(outrasOp);
     }
     async function verificarItem(idU, idP){

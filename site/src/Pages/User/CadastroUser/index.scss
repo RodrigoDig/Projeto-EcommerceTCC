@@ -8,7 +8,20 @@
        
     }
     
+
+    .cont-00001{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
     .container-dois-cadtextos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content:space-evenly;
         background-color: #fff;
         border-radius: 10px;
         
@@ -144,6 +157,7 @@
         width: 100%;
         height: 100vh;
         .cont-cabecalho-caduser{
+            height: max-content;
             width: 100%;
         }
         .container-dois-cadtextos{
@@ -153,8 +167,8 @@
             background-color: #fff;
             border-radius: 10px;
             
-            height: 80vh;
-            width: 93%;
+            height: 70vh;
+            width: 80%;
             margin-top: 1em;
             margin-left: 0em;
         }
@@ -163,35 +177,87 @@
             flex-direction: row;
             align-items: center;
             justify-content: center;
-            width: 60%;
-            height: 4em;
+            width: 90%;
+            height: 2em;
+            border-bottom: 1px solid #d9d9d9;
             
             h1{
                 font-family: 'Goldman';
-                font-size: 14px;
+                font-size: 17px;
                 margin: 0px;
                 padding: 0px;
+                color: #1e1e1e;
             }
-            .textos-caduser{
+        }
+        .textos-caduser{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 90%;
+            height: 3em;
+
+            border-bottom: 1px solid #d9d9d9;
+        
+            label{
                 display: flex;
                 flex-direction: row;
-                justify-content: space-around;
-            
-                label{
-                    font-family: 'Goldman';
-                    font-size: 1.7em;
-                    line-height: normal;
-                }
-            
-                input{
-                    border: none;
-                    outline: none;
-                    
-                    font-size: 1em;
-                    font-family: 'Goldman';
-                    color: #1f1f1f;
-                    margin-left: 8px ;
-                }
+                align-items: flex-end;
+                width: 50%;
+                font-family: 'Goldman';
+                font-size: 16px;
+                line-height: normal;
+            }
+        
+            input{
+                border: none;
+                outline: none;
+                
+                font-size: 1em;
+                font-family: 'Goldman';
+                color: #1f1f1f;
+                margin-left: 0px ;
+            }
+        }
+        input::placeholder {
+            font-family: 'Goldman';
+            font-size: 14px;
+            font-weight: 100;
+            color: #1f1f1f;
+            padding-left: 0.3em;
+        }
+        .botao-cad-user{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 0px;
+            width: 100%;
+            height: max-content;
+            button{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                width: 10em;
+                height: 3em;
+                
+    
+                font-family: 'Goldman';
+                font-size: 15px;
+    
+                border-radius: 15px;
+                background-color: #1f1f1f;
+                border: 0px;
+                box-shadow: none;
+                color: #fff;
+                cursor: pointer;
+                transition: 0.1s;
+            }
+    
+            button:hover{
+                transform: scale(1.05);
+                border: 1px solid #1e1e1e;
+                color: #1e1e1e;
+                background-color: transparent;
             }
         }
     }

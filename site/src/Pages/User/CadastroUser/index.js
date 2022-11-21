@@ -34,6 +34,18 @@ export default function CadastroUser() {
     function Voltar(){
         navigate('/configuracoes')
     }
+
+    function carregarLogins2(){
+        let min = Math.ceil(1);
+        let max = Math.floor(2);
+        let retorno = Math.floor(Math.random() * (max - min + 1)) + min;
+        if(retorno === 1){
+                navigate('/login/style1')
+        }
+        else if(retorno === 2){
+                navigate('/login/style2')
+        }
+    }
     
     async function SalvarCLick() {
         try {
@@ -41,7 +53,7 @@ export default function CadastroUser() {
                 const r = await cadUser(nome, sobrenome, cpf, nascimento, genero, email, celular, senha);
                 setId(r.id);
                 toast.success('Usuário cadastrado com sucesso!');
-                navigate('/login');
+                carregarLogins2();
             }
             else{
                 await alterarUsuario(id, nome, sobrenome, cpf, nascimento, genero, email, celular, senha);
@@ -49,7 +61,7 @@ export default function CadastroUser() {
                 ref.current.complete();
                 storage.remove('user-logado');
                 setTimeout(() => {
-                    navigate('/login');
+                    carregarLogins2();
                 }, 1000)
             }
         }
@@ -78,71 +90,68 @@ export default function CadastroUser() {
             <section className='cont-cabecalho-caduser'>
                 <Cabecalho03 />
             </section>
+            <section className='cont-00001'>
+                <section className='container-dois-cadtextos'>
 
-            <section className='container-dois-cadtextos'>
+                    <div className='titulo-caduser'>
+                        <h1>Venha fazer parte da nossa equipe</h1>
+                    </div>
 
-                <div className='titulo-caduser'>
-                    <h1>Venha fazer parte da nossa equipe</h1>
-                </div>
-                <hr />
+                    <div className='textos-caduser'>
+                        <label>
+                            Nome:
+                            <input type='text' value={nome} onChange={e => setNome(e.target.value)} />
+                        </label>
 
-                <div className='textos-caduser'>
-                    <label>
-                        Nome:
-                        <input type='text' value={nome} onChange={e => setNome(e.target.value)} />
-                    </label>
+                        <label>
+                            Sobrenome:
+                            <input type='text' value={sobrenome} onChange={e => setSobrenome(e.target.value)} />
+                        </label>
+                    </div>
 
-                    <label>
-                        Sobrenome:
-                        <input type='text' value={sobrenome} onChange={e => setSobrenome(e.target.value)} />
-                    </label>
-                </div>
-                <hr />
+                    <div className='textos-caduser'>
+                        <label>
+                            Data de nascimento:
+                            <input type='date' value={nascimento} onChange={e => setNascimento(e.target.value)} />
+                        </label>
 
-                <div className='textos-caduser'>
-                    <label>
-                        Data de nascimento:
-                        <input type='date' value={nascimento} onChange={e => setNascimento(e.target.value)} />
-                    </label>
+                        <label>
+                            Gênero:
+                            <input type='text' value={genero} onChange={e => setGenero(e.target.value)} />
+                        </label>
+                    </div>
 
-                    <label>
-                        Gênero:
-                        <input type='text' value={genero} onChange={e => setGenero(e.target.value)} />
-                    </label>
-                </div>
-                <hr />
+                    <div className='textos-caduser'>
+                        <label>
+                            Email:
+                            <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
+                        </label>
 
-                <div className='textos-caduser'>
-                    <label>
-                        Email:
-                        <input type='text' value={email} onChange={e => setEmail(e.target.value)} />
-                    </label>
+                        <label>
+                            Celular:
+                            <input type='text' value={celular} onChange={e => setCelular(e.target.value)} maxLength='15' placeholder='(xx) xxxxx-xxxx' />
+                        </label>
+                    </div>
 
-                    <label>
-                        Celular:
-                        <input type='text' value={celular} onChange={e => setCelular(e.target.value)} maxLength='15' placeholder='(xx) xxxxx-xxxx' />
-                    </label>
-                </div>
-                <hr />
+                    <div className='textos-caduser'>
+                        <label>
+                            CPF:
+                            <input type='text' value={cpf} onChange={e => setCpf(e.target.value)} maxLength='14' placeholder='xxx.xxx.xxx-xx' />
+                        </label>
 
-                <div className='textos-caduser'>
-                    <label>
-                        CPF:
-                        <input type='text' value={cpf} onChange={e => setCpf(e.target.value)} maxLength='14' placeholder='xxx.xxx.xxx-xx' />
-                    </label>
+                        <label>
+                            Senha:
+                            <input type='password' value={senha} onChange={e => setSenha(e.target.value)} />
+                        </label>
+                    </div>
 
-                    <label>
-                        Senha:
-                        <input type='password' value={senha} onChange={e => setSenha(e.target.value)} />
-                    </label>
-                </div>
-                <hr />
-
-                <div className='botao-cad-user'>
-                    <button onClick={SalvarCLick}>Cadastrar</button>
-                    <button onClick={Voltar}>Voltar</button>
-                </div>
+                    <div className='botao-cad-user'>
+                        <button onClick={SalvarCLick}>Cadastrar</button>
+                        <button onClick={Voltar}>Voltar</button>
+                    </div>
+                </section>
             </section>
+
 
         </main>
     )

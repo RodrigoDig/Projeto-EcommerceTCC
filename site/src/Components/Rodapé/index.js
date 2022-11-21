@@ -1,5 +1,5 @@
 import './index.scss';
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../Logo';
 
 import FaceIcon from '../../assets/images/face-icon.svg';
@@ -7,12 +7,16 @@ import TwiterIcon from '../../assets/images/twiterr-logo.svg';
 import InstagramIcon from '../../assets/images/instagram-logo.svg';
 import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { listarDepartamentos } from '../../Api/departamentoApi';
 //import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function Rodape(){
     const navigate = useNavigate();
     const ref = useRef();
-
+    const [comp, setComp] = useState('Computadores')
+    const [gam, setGam] = useState('Games')
+    const [har, setHar] = useState('Hardware')
     function carrinho(){
         navigate('/carrinho')
     }
@@ -24,7 +28,19 @@ export default function Rodape(){
     }
 
     function home(){
-            navigate('#');
+        navigate('/');
+    }
+
+    function depart(nome){
+        if(nome === 'Hardware'){
+            navigate('/departamentos/' + 3)
+        }
+        else if(nome === 'Computadores'){
+            navigate('/departamentos/' + 1)
+        }
+        else if(nome === 'Games'){
+            navigate('/departamentos/' + 2)
+        }
     }
 
     return(
@@ -68,9 +84,9 @@ export default function Rodape(){
 
                         <div className='coluna05'>
                             <h2 className='titulo-desenv'>Departamentos</h2>
-                            <a href='#' className='link-desenv'>Teste</a>
-                            <a href='#' className='link-desenv'>Teste</a>
-                            <a href='#'className='link-desenv'>Teste</a>
+                            <p onClick={() => depart(har)} className='link-desenv'>Hardware</p>
+                            <p onClick={() => depart(comp)} className='link-desenv'>Computadores</p>
+                            <p onClick={() => depart(gam)} className='link-desenv'>Games</p>
                         </div>                
                         
                     </div>
@@ -92,7 +108,7 @@ export default function Rodape(){
                         <div className='cont-logo-final'>
                             <Logo/>
                         </div>
-                        <button className='botao-voltar-inicio' >Voltar ao início</button>
+                        <button className='botao-voltar-inicio' onClick={home}>Voltar ao início</button>
                     </div>
                 </div>
             </section>

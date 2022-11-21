@@ -152,6 +152,7 @@
         border: 0px;
         border-radius: 6px;
         background-color: #F27400;
+        cursor: pointer;
     }
     .titulo-botao{
         font-size: 14px;
@@ -249,11 +250,13 @@
         height: 7em;
 
         border: 0.1px solid #F27400;
+        cursor: pointer;
     }
     .icon-atalho-favoritos{
         width: 25px;
         height: 25px;
         margin-right: 0.2em;
+        cursor: pointer;
     }
     .atalho-favoritos{
         margin: 0px;
@@ -261,5 +264,6 @@
         font-weight: 100;
         font-family: 'Goldman';
         color: #F27400;
+        cursor: pointer;
     }
 }
