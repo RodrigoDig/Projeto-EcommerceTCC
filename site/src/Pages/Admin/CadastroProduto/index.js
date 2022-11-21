@@ -5,14 +5,17 @@ import CadProdLogo from '../../../assets/images/Cad-Prodfase02.svg';
 import SalvarImgIcon from '../../../assets/images/Salvar-Imagem.svg';
 
 import storage from 'local-storage';
-import { cadastrarProduto, salvarImagens } from '../../../Api/cadProdutoApi';
+import { buscarProdutoPorId, cadastrarProduto, salvarImagens } from '../../../Api/cadProdutoApi';
 import { listarCategorias } from '../../../Api/categoriaApi.js';
 import { listarDepartamentos } from '../../../Api/departamentoApi.js';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { API_URL } from '../../../Api/config';
 
 export default function Cadastro() {
+    const [idProduto, setIdProduto] = useState();
+
     const [nome, setNome] = useState('');
     const [preco, setPreco] = useState();
     const [fabricante, setFabricante] = useState('');
@@ -34,6 +37,8 @@ export default function Cadastro() {
     const [departamentos, setDepartamentos] = useState([]);
 
     const [catSelecionadas, setCatSelecionadas] = useState([]);
+
+    const { id } = useParams();
 
     const navigate = useNavigate();
 
@@ -85,6 +90,36 @@ export default function Cadastro() {
         setCategorias(r);
     }
 
+    async function carregarProduto(){
+        if(!id) return;
+        
+        const r = await buscarProdutoPorId(id);
+        setIdProduto(r.info.id);
+        setNome(r.info.produto);
+        setIdCategoria(r.info.idCategoria);
+        setPreco(r.info.preco);
+        setFabricante(r.info.fabricante);
+        setQtdEstoque(r.info.estoque);
+        setValorDesconto(r.info.desconto);
+        setGarantia(r.info.garantia);
+        setInfoTecnicas(r.info.informacoes);
+        setDescricao(r.info.descricao);
+        setIdDepartamento(r.info.departamento);
+        setCatSelecionadas(r.categorias);
+
+        if(r.imagens.lenght > 0){
+            setImagem(r.imagens[0]);
+        }
+
+        if(r.imagens.lenght > 1){
+            setImagem2(r.imagens[1]);
+        }
+
+        if(r.imagens.lenght > 2){
+            setImagem3(r.imagens[2]);
+        }
+    }
+
     function escolherImagem(inputId) {
         document.getElementById(inputId).click();
     }
@@ -92,6 +127,9 @@ export default function Cadastro() {
     function exibirImagem(imagem){
         if(imagem == undefined){
             return SalvarImgIcon
+        }
+        else if(typeof (imagem) == 'string'){
+            return `${API_URL}/${imagem}`
         }
         else{
             return URL.createObjectURL(imagem)
@@ -101,6 +139,7 @@ export default function Cadastro() {
     useEffect(() => {
         carregarCategorias();
         carregarDepartamentos();
+        carregarProduto();
     }, [])
 
     return (
@@ -201,7 +240,7 @@ export default function Cadastro() {
                             </div>
                             <div>
                                 <div className='cont-categorias-sel'>
-                                    {catSelecionadas.map(id =>
+                                    {catSelecionadas.map( id =>
                                         <div className='cat-selecionada'>
                                             {buscarNomeCategoria(id)}
                                         </div>
