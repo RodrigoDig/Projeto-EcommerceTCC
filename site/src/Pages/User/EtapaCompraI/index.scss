@@ -83,6 +83,51 @@
                 hr{
                     width: 70em;
                 }
+
+                table {
+                    width: 93.5%;
+                    border-collapse: collapse;
+                    font-weight: 700;
+                    margin-top: 50px;
+                    margin-left: 2.5em;
+
+                    border: 1px solid #d9d9d9;
+                }
+                th,td {
+                    padding: 20px 10px;
+                    text-align: center;
+                    
+                    font-family: 'Goldman';
+
+                }
+                tr th:first-child {
+                    text-align: left;
+                }
+                th {
+                    font-weight: normal;
+                    border-bottom: 1px solid #f27400;
+                    color: #1e1e1e;
+                }
+                
+                th:first-child {
+                    width: 50%;
+                }
+        
+                .celula-item {
+                    display: flex;
+                    align-items: center;
+                    text-align: left;
+                }
+                .celula-item h3 {
+                    font-family: 'Goldman';
+                    font-weight: normal;
+                    margin: 2px 0px;
+                }
+                .celula-item img {
+                    height: 100px;
+                    margin-right: 15px;
+                }
+            
                 .titulo2-etp1{
                     display: flex;
                     flex-direction: row;
@@ -265,6 +310,60 @@
                         font-family:'Goldman';
                         
                     }
+                }
+
+                .form{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content:left;
+
+                    margin: 2.1em;
+        
+                    .Locações{
+                        display: flex;
+                        flex-direction: column;
+                        text-align: end;
+        
+                        margin-right: 1em;
+                        margin-left: 2em;
+                    }
+                    label{
+                        font-family: 'Goldman';
+                        font-size: 1.5em;
+                        margin-bottom: 1em;
+
+                    }
+                    
+                    .valores{
+                        display: flex;
+                        flex-direction: column;
+
+                        select{
+                            font-family: 'Goldman';
+                            font-size: 1.2em;
+                            margin-bottom: 0.7em;
+                            
+                            background-color: #d9d9d9;
+            
+                            outline: none;
+                            border: none;
+            
+                            padding: 8px;
+                        }
+                    }
+                    input{
+                        font-family: 'Goldman';
+                        font-size: 1.2em;
+                        margin-bottom: 0.7em;
+                        
+                        background-color: #d9d9d9;
+        
+                        outline: none;
+                        border: none;
+        
+                        padding: 8px;
+                    }
+        
                 }
             }
         }

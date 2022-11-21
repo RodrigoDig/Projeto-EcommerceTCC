@@ -10,8 +10,6 @@ import CadastroUser from './Pages/User/CadastroUser';
 import Carrinho from './Pages/User/Carrinho'; 
 import Configurações from './Pages/User/Configuracoes';
 import EtapaCompraI from './Pages/User/EtapaCompraI';
-import EtapaCompraII from './Pages/User/EtapaCompraII';
-import EtapaCompraIII from './Pages/User/EtapaCompraIII';
 import EtapaCompraIV from './Pages/User/EtapaCompraIV'
 import Favoritos from './Pages/User/Favoritos';
 import Perfil from './Pages/User/Perfil';
@@ -43,8 +41,6 @@ export default function Index(){
                 <Route path="/carrinho" element={<Carrinho />} />
                 <Route path="/configuracoes" element={<Configurações />} />
                 <Route path="/etapaI" element={<EtapaCompraI />} />
-                <Route path="/etapaII" element={<EtapaCompraII />} />
-                <Route path="/etapa3" element={<EtapaCompraIII />} />
                 <Route path="/etapaIV" element={<EtapaCompraIV />} />
                 <Route path="/favoritos" element={<Favoritos />} />
                 <Route path="/perfil" element={<Perfil />} />
