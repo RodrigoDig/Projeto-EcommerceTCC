@@ -2,6 +2,76 @@
     background-color:#d9d9d9;
     height: 100%;
 
+    .titulo-end-etp1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        
+        width: 95%;
+        height: 3em;
+        display: flex;
+        flex-direction: row;
+
+        img{
+            width: 2.5em;
+            height: 2.5em;
+            margin-left: 0.6em;
+        }
+        h1{
+            font-size: 16px;
+            font-weight: 450;
+            font-family:'Goldman';
+            font-weight: 100;
+            margin: 0px;
+        }
+    }
+    .end-etp1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        line-height: 2px;
+        background-color: #d9d9d9;
+        width: 14em;
+        height: 7em;
+
+        padding: 1em;
+        margin-bottom: 1.2em;
+        
+        h2{
+            font-weight: 400;
+            font-size: 15px;
+            font-family:'Goldman';
+            
+        }
+    }
+    .informações-end-etp1{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-end;
+
+
+        .edit-etp1{
+            margin-bottom: 1.2em;
+            margin-right: 1em;
+            margin-left: 1em;
+
+            span{
+                font-size: 14px;
+                text-decoration: underline;
+                font-family:'Goldman';
+                font-weight: normal;
+
+                cursor: pointer;
+            }
+        }
+    }
+    .bloco-endereco-etp1{
+        background-color: #fff;
+        width: 100%;
+
+        
+    }
     .divisão-etapa1{
         display: flex;
         flex-direction: row;
@@ -12,76 +82,17 @@
         .divisão-informações-produto-etp1{
             display: flex;
             flex-direction: column;
+            width: 35em;
 
-            .bloco-endereco-etp1{
-                background-color: #fff;
-                width: 75em;
-
-                .titulo-end-etp1{
-                    display: flex;
-                    flex-direction: row;
-
-                    margin: 2em 2em;
-
-                    img{
-                        width: 5.2em;
-                    }
-                    h1{
-                        font-size: 1.9em;
-                        font-weight: 450;
-                        font-family:'Goldman';
-                    }
-                }
-
-                .informações-end-etp1{
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-around;
-                    align-items: flex-end;
-
-                    .end-etp1{
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        line-height: 2px;
-                        background-color: #d9d9d9;
-
-                        padding: 1em;
-                        margin-bottom: 1.2em;
-                        margin-left: 0.9em;
-                        
-                        h2{
-                            font-weight: 400;
-                            font-size: 1.3em;
-                            font-family:'Goldman';
-
-                        }
-                    }
-
-                    .edit-etp1{
-                        margin-bottom: 1.2em;
-                        margin-right: 1em;
-                        margin-left: 1em;
-
-                        span{
-                            font-size: 1.3em;
-                            text-decoration: underline;
-                            font-family:'Goldman';
-                            font-weight: normal;
-
-                            cursor: pointer;
-                        }
-                    }
-                }
-            }
 
             .produto-etp1{
                 background-color: #fff;
+                width: 100%;
 
                 margin-top: 2.5em;
 
                 hr{
-                    width: 70em;
+                    width: 90%;
                 }
 
                 table {
@@ -131,17 +142,20 @@
                 .titulo2-etp1{
                     display: flex;
                     flex-direction: row;
+                    align-items: center;
 
-                    margin: 2em 2em;
+                    margin: 0.8em 0.8em;
 
                     img{
-                        width: 5.2em;
+                        width: 2.5em;
+                        height: 2.5em;
                         margin-right: 1em;
                     }
                     h1{
-                        font-size: 1.9em;
+                        font-size: 16px;
                         font-weight: 450;
                         font-family:'Goldman';
+                        margin: 0px;
                         
                     }
                 }
@@ -172,11 +186,11 @@
                     margin: 4em;
 
                     input{
-                        font-size: 1.5em;
+                        font-size: 15px;
 
                         border: 1px solid black;
                         border-radius: 8px;
-
+                        width: 10em;
                         padding: 12px;
 
                         margin-right: 1em;
@@ -188,7 +202,7 @@
                     button{
                         padding: 12px;
 
-                        font-size: 1.5em;
+                        font-size: 15px;
                         font-family:'Goldman';
                         font-weight: normal;
 
@@ -221,25 +235,28 @@
                 .titulo2-etp1-pagamento{
                     display: flex;
                     flex-direction: row;
+                    align-items: center;
 
                     margin: 2em 2em;
 
                     img{
-                        width: 5.2em;
+                        width: 3em;
+                        height: 3em;
                         margin-right: 1em;
                     }
                     h1{
-                        font-size: 1.9em;
+                        font-size: 16px;
                         font-weight: 450;
                         font-family:'Goldman';
-                        
+                        margin: 0px;
                     }
                 }
 
                 .form{
                     display: flex;
                     flex-direction: row;
-                    justify-content:left;
+                    justify-content:center;
+                    align-items: center;
 
                     margin: 2.1em;
         
@@ -296,43 +313,42 @@
     .bloco-final-etp1{
         display: flex;
         flex-direction: column;
+        width: 16em;
 
         .Resumo-carrinho{
             display: flex;
             flex-direction: column;
 
-            width: 25em;
+            width: 15em;
 
             padding-left: 2em;
             background-color: #fff;
 
             h1{
-                font-size: 2em;
+                font-size: 1em;
                 font-family:'Goldman';
                 font-weight: normal;
             }
             p{
-                font-size: 1.3em;
+                font-size: 15px;
                 font-family:'Goldman';
                 font-weight: normal;
 
                 background-color: #d9d9d9;
 
                 border: none;
-                width: 16.8em;
-
-                padding: 13px;
+                width: 14em;
 
             }
             button{
-                font-size: 1.3em;
+                font-size: 15px;
                 font-family:'Goldman';
 
                 color: #fff;
                 background-color: #f27400;
 
                 border: none;
-                width: 18em;
+                width: 15em;
 
                 padding: 13px;
                 margin-bottom: 1em;
@@ -348,10 +364,10 @@
 
             background-color: #fff;
 
-            margin-top: 2.5em;
+            margin-top: 2em;
 
             h1{
-                font-size: 2em;
+                font-size: 15px;
                 font-family:'Goldman';
                 font-weight: normal;
 
@@ -359,15 +375,15 @@
             }
 
             p{  
-                width: 17em;
+                width: 14em;
 
-                font-size: 1.5em;
+                font-size: 14px;
                 font-family:'Goldman';
                 line-height: 1.5em;
 
                 background-color: #d9d9d9;
 
-                margin-left: 0.5em;
+                margin-left: 0.8em;
             }
         }
 
@@ -382,14 +398,14 @@
             height: 7em;
 
             button{
-                font-size: 1.3em;
+                font-size: 15px;
                 font-family:'Goldman';
 
                 color: #fff;
                 background-color: #f20000;
 
                 border: none;
-                width: 18em;
+                width: 14em;
 
                 padding: 13px;
             }
