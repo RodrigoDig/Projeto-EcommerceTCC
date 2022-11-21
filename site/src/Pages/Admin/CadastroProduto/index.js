@@ -49,6 +49,9 @@ export default function Cadastro() {
     }, [])
 
     function lerEstrelas(estrela) {
+        if(estrelas === 0){
+            return 'star-icon1'
+        }
         if (estrelas <= estrela)
             return 'star-icon ativo'
         else

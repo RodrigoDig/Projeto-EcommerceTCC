@@ -53,6 +53,7 @@ export default function CardProduto(props){
             setFavorito(Coracao2Icon);
         }
     }
+    
 
     const [prodFav, setProdFav] = useState('');
     const [carreg, setCarreg] = useState();

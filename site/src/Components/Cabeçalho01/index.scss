@@ -126,7 +126,8 @@
     .cont-logo{
         display: flex;
         flex-direction: row; 
-        align-items: center;       
+        align-items: center;  
+        justify-content: center;     
 
         width: 50em;
         height: 4em;
@@ -146,6 +147,16 @@
     }
 
     .cont-login{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+
+        width: 29em;
+        height: 4em; 
+
+    }
+    .cont-login2{
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -456,6 +467,13 @@
 
             margin-left: 0em;
         }
+        .cont-login2{
+            justify-content: flex-start;
+            height: 3em;
+            width: 16em;
+
+            margin-left: 0em;
+        }
         .text-login:hover{
             font-size: 17px;   
         }
@@ -463,6 +481,14 @@
         .numbercar:hover{
             width: 18px;
             height: 18px;
+        }
+        .cont-info-userlogado{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-end;
+            width: 10em;
+            height: 3em;
         }
     }
 }

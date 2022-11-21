@@ -27,12 +27,18 @@ export default function DepPage(){
     const [depart, setDepart] = useState({ departamento: [], dep1: [], dep2: []});
     const [prodSel, setProdSel ] = useState([]);
     const [cats, setCatsDep] = useState({c1: [], c2: [], c3: []});
+    const [c1, setC1] = useState();
+    const [c2, setC2] = useState();
+    const [c3, setC3] = useState();
     const { id } = useParams();
 
-    console.log(depart)
+    console.log(c1);
+    console.log(c2);
+    console.log(c3);
+
     async function carregarPag(){
-        const cats = await buscarCategoriasDep();
-        setCatsDep(cats);
+        const caa = await buscarCategoriasDep();
+        setCatsDep(caa);
         const r = await depPage(id);
         const f = await buscarProdutosDep(id);
         setDepart(r);
@@ -47,11 +53,17 @@ export default function DepPage(){
             return entrada
         }
     }
-    
+
+    useEffect(() =>{
+        setC1(cats.c1.id);
+        setC2(cats.c2.id);
+        setC3(cats.c3.id);
+    }, [cats]);
 
     useEffect(() =>{
         carregarPag();
-    }, [])
+    }, []);
+
     return(
         <main className='cont-main-departamento'>
             <section className='cont-cabecalho-dep'>
@@ -83,7 +95,14 @@ export default function DepPage(){
                         </div>
                 </div>
             </section>
-            {verCategorias(validarCats(cats.c1), id)}
+            <section className='cont-produtos-departamento'>
+                {prodSel.map(item =>    
+                    <CardProdDep item = {item}/>
+                )}
+            </section>
+            <section className='cont-produtos-departamento'>
+                {verCategorias(validarCats(cats.c1), id)}
+            </section>
             <section className='cont-rodapé-dep'>
                 <Rodape />
             </section>

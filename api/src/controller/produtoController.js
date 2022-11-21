@@ -1,4 +1,4 @@
-import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd, buscarImgsProdutos, inserirFavorito, varificarSeJaFavoritou, deletarFavorito, buscarProdutoPorId, buscarProdutoPorCategorias, buscarProdutoImagens } from "../repository/produtoRepository.js";
+import { cadastrarProdutos, salvarCategoria, buscarPorId, buscarPorNome, buscarTodosProdutos, prodPromoImperdivel, remomoverProdutoCategoria, remomoverProdutoImagens, remomoverProduto, prodMaisVendidos, depSelecionar, alterarProduto, salvarImagemProd, produtoSelCompra, categoriaSel, maiorAva, menorAva, opiniaoGeral, imgProd, buscarImgsProdutos, inserirFavorito, varificarSeJaFavoritou, deletarFavorito } from "../repository/produtoRepository.js";
 import { validarProduto } from "../services/produtoValidacao.js";
 import { alterarValid } from '../services/alterarValidacao.js';
 import { buscarCategoriaPorId } from "../repository/categoriaRepository.js";
@@ -339,7 +339,6 @@ server.get('/verificar/favoritado/:usuario/:produto', async (req, resp) => {
         resp.send(verificar);
 
     } catch (err) {
-
         return resp.status(400).send({
             erro: (err.message)
         });
@@ -349,10 +348,29 @@ server.get('/verificar/favoritado/:usuario/:produto', async (req, resp) => {
 server.get('/verificar/favoritado2/:usuario/:produto', async (req, resp) => {
     try {
         const usid = req.params;
+        if(usid.usuario === undefined){
+            verificar = 'Usuario não logado'
+        }
         const verificar = await varificarSeJaFavoritou(usid.usuario, usid.produto);
+
         resp.send({
             id: verificar.id
         });
+
+    } catch (err) {
+
+        return resp.status(400).send({
+            erro: (err.message)
+        });
+    }
+})
+
+server.get('/prod/outrasop/:nome', async (req, resp) => {
+    try {
+        const usid = req.params;
+        const verificar = await buscarPorDep(usid.nome);
+
+        resp.send(verificar);
 
     } catch (err) {
 

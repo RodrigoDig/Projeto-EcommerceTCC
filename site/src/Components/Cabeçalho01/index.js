@@ -17,6 +17,7 @@ import storage from 'local-storage';
 export default function Cabecalho1(){
     const [infoUser, setInfoUser] = useState('');
     const [carrinhoInf, setCarrinhoInf] = useState([]);
+    console.log(carrinhoInf);
     const [log, setLog] = useState();
 
     const navigate = useNavigate();
@@ -55,16 +56,21 @@ export default function Cabecalho1(){
     }
 
     function somarItensCarrinho(itens){
-        let a = itens.length;
-        let b = 0;
-        for(let i = 0; i < a; i++){
-            b = b + Number(itens[i].qtd);
+        if(itens === null){
+            return 0;
+        }else{
+            let a = itens.length;
+            let b = 0;
+            for(let i = 0; i < a; i++){
+                console.log(itens[i])
+                b = b + Number(itens[i].qtd);
+            }
+            return b;
         }
-        return b;
     }
 
     function verificarQtdCarrinho(valor){
-        if(valor < 10 && valor > 0){
+        if(valor < 10 && valor >= 0){
             return 'number-carrinho'
         }
         else if(valor > 10 && valor <= 98){
@@ -96,7 +102,7 @@ export default function Cabecalho1(){
                             <div className='bolinha-carrinho' >
                                 <p onClick={() => carregarLogins2()} className={verificarQtdCarrinho(1)}>
                                     0
-                                   </p>
+                                </p>
                             </div>
                         </div>
 
@@ -118,7 +124,7 @@ export default function Cabecalho1(){
             
         }
         else{
-            return  <div className='cont-login'>
+            return  <div className='cont-login2'>
                         <div className='cont-carrinho'>
                             <img src={Carrinho} className='carrinho' onClick={carrinho} />
                             <div className='bolinha-carrinho' onClick={carrinho}>
