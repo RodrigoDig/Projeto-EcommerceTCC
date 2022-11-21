@@ -3,17 +3,15 @@ import './index.scss';
 import Cabecalho04 from '../../../Components/Cabeçalho04';
 import CupomLogo from '../../../assets/images/cupom (1).png';
 
-import { } from '../../../Api/cadCupomAPI';
+import {Cupom, alterarCupom, buscarId } from '../../../Api/cadCupomAPI';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 
-export default function Cupom() {
-    const [cupom, setCupom] = useState();
+export default function CupomCad    () {
     const [codigo, setCodigo] = useState();
-    const [desconto, setDesconto] = useState(0);
-    const [inscricao, setInscricao] = useState();
-    const [vencimento, setVencimento] = useState();
+    const [valor, setValor] = useState(0);
+    const [restante, setRestante] = useState(0);
     const [id, setId] = useState(0);
 
     const { idParam } = useParams();
@@ -26,24 +24,22 @@ export default function Cupom() {
 
     async function carregarCupom(){
         const resposta = await buscarId(idParam);
-        //setCupom(resposta.cupom);
-        //setCodigo(resposta.codigo);
-        //setDesconto(resposta.desconto);
-        //setInscricao(resposta.inscricao);
-        //setVencimento(resposta.vencimento);
-        //setId(resposta.id);
+        setCodigo(resposta.codigo);
+        setValor(resposta.valor);
+        setRestante(resposta.restante);
+        setId(resposta.id);
     }
 
     async function salvarClick() {
         try {
 
             if(id === 0){
-                //const novoCupom = await cCupom(cupom, codigo, desconto, inscricao, vencimento);
+                const novoCupom = await Cupom(codigo, valor, restante);
                 setId(novoCupom.id);
                 toast.success('Cupom cadastrado com sucesso!')
             }
             else {
-                //await alterarCupom(id, cupom, codigo, desconto, inscricao, vencimento);
+                await alterarCupom(id, codigo, valor, restante);
                 toast.success('Cupom alterado com sucesso!')
             }
         
@@ -55,8 +51,9 @@ export default function Cupom() {
 
     function novoClick(){
         setId(0);
-        setCupom('');
         setCodigo('');
+        setValor(0);
+        setRestante('');
 
     }
 
@@ -75,28 +72,18 @@ export default function Cupom() {
                 
                 <div className='componente-bloco-informações'>
                     <div className='informações-cupom'>
-                        <label>Nome Cupom:</label>
-                        <input type='text' value={cupom} onChange={e => setCupom(e.target.value)}/>
-                    </div>
-
-                    <div className='informações-cupom'>
                         <label>Código do Cupom:</label>
                         <input type='text' value={codigo} onChange={e => setCodigo(e.target.value)}/>
                     </div>
 
                     <div className='informações-cupom'>
-                        <label>Valor de desconto:</label>
-                        <input type='number'value={desconto} onChange={e => setDesconto(e.target.value)} />
+                        <label>Valor:</label>
+                        <input type='text' value={valor} onChange={e => setValor(e.target.value)}/>
                     </div>
 
                     <div className='informações-cupom'>
-                        <label>Data de inscrição:</label>
-                        <input type='date' value={inscricao} onChange={e => setInscricao(e.target.value)}/>
-                    </div>
-
-                    <div className='informações-cupom'>
-                        <label>Vencimento:</label>
-                        <input type='date' value={vencimento} onChange={e => setVencimento(e.target.value)}/>
+                        <label>Restante:</label>
+                        <input type='number'value={restante} onChange={e => setRestante(e.target.value)} />
                     </div>
 
                     <div className='botao-cupom'>

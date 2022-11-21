@@ -9,7 +9,7 @@ import cadastroUsuarioController from './controller/cadastroUsuarioController.js
 import userLoginController from './controller/userLoginController.js';
 import CadastroEndController  from './controller/enderecoController.js';
 import pedidoController from './controller/pedidoController.js';
-import cupomController from './controller/cupomController.js'
+import cupomController from './controller/cupomController.js';
 
 import express from 'express';
 import cors from 'cors';

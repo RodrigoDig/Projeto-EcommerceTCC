@@ -82,11 +82,9 @@ export default function ConsultarCupom() {
                     <thead>
                         <tr>
                             <th>ID Cupom</th>
-                            <th>Nome</th>
                             <th>Código</th>
                             <th>Valor</th>
-                            <th>Inscrição</th>
-                            <th>Vencimento</th>
+                            <th>Quantidade</th>
                             <th>Opções</th>
                         </tr>
                     </thead>
@@ -94,11 +92,9 @@ export default function ConsultarCupom() {
                         {cupom.map(item =>
                             <tr>
                                 <td>{item.id}</td>
-                                <td>{item.nome}</td>
                                 <td>{item.codigo}</td>
                                 <td>{item.valor}</td>
-                                <td>{item.cadastro.substr(0, 10)}</td>
-                                <td>{item.vencimento.substr(0, 10)}</td>
+                                <td>{item.restante}</td>
                                 <td>
                                     <img src={Alterar} onClick={ () => editarCupom(item.id)}/>
                                     <img src={Deletar} onClick ={() => removerCupom(item.id)}/>

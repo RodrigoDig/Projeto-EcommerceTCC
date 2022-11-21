@@ -1,4 +1,4 @@
-import { Cupom} from '../repository/cupomRepository.js';
+import { Cupom, alterarCupom, deletarCupom, listarCupons, buscarId, buscarNome} from '../repository/cupomRepository.js';
 import { Router } from 'express';
 
 const server = Router();
@@ -10,30 +10,12 @@ server.post('/cadastro/cupom', async (req, resp)=> {
         resp.send(cupom)
         
     }catch(err){
-        console.log(err)
         return resp.status(400).send({
             erro: "Ops, algo não está funcionando corretamente!!"
         })
     }
 })
 
-server.put('/cadastro/cupom/:id', async(req, resp) =>{
-    try{
-        const {id} = req.params;
-        const cupom = req.body;
-
-        const resposta = await alterarCupom(id, cupom);
-        if(resposta != 1)
-            throw new Error('Cupom não pode ser alterado')
-        else
-            resp.status(204).send();
-    }
-    catch(err){
-        resp.status(400).send({
-            erro:err.message
-        }) 
-    }
-})
 
 server.get('/cupom', async (req, resp) =>{
     try{
@@ -58,6 +40,7 @@ server.get('/busca/cupom', async (req, resp) =>{
             resp.send(cupom);
     }
     catch(err){
+        console.log(err)
         resp.status(400).send({
             erro:"Ops, algo não está funcionando corretamente!!"
         })
@@ -75,9 +58,29 @@ server.get('/consulta/cupom/:id', async (req, resp) =>{
             resp.send(cupom);
     }
     catch(err){
+        console.log(err)
         resp.status(400).send({
             erro:"Ops, algo não está funcionando corretamente!!"
         })
+    }
+})
+
+server.put('/cadastro/cupom/:id', async(req, resp) =>{
+    try{
+        const {id} = req.params;
+        const cupom = req.body;
+
+        const resposta = await alterarCupom(id, cupom);
+        if(resposta != 1)
+            throw new Error('Cupom não pode ser alterado')
+        else
+            resp.status(204).send();
+    }
+    catch(err){
+        console.log(err)
+        resp.status(400).send({
+            erro:err.message
+        }) 
     }
 })
 
@@ -90,6 +93,7 @@ server.delete('/cupom/:id', async (req, resp) => {
         resp.status(204).send(); 
     }   
     catch(err){
+        console.log(err)
         resp.status(400).send({
             erro:"Ops, algo não está funcionando corretamente!!"
         })

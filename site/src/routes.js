@@ -25,7 +25,7 @@ import CstEstoque from './Pages/Admin/ConsultarProdutos';
 import CstPedidos from './Pages/Admin/ConsultarPedidos';
 import LoginAdm from './Pages/Admin/LoginAdm';
 import Cadastro from './Pages/Admin/CadastroProduto';
-import Cupom from './Pages/Admin/cadastroCupom';
+import CupomCad from './Pages/Admin/cadastroCupom';
 import ConsultarCupom from './Pages/Admin/ConsultarCupom';
 
 export default function Index(){
@@ -54,8 +54,8 @@ export default function Index(){
                 <Route path="/loginadm" element={<LoginAdm />} />
                 <Route path="/adm/produto" element={<Cadastro />} />
                 <Route path="/adm/produto/:id" element={<Cadastro />} />
-                <Route path="/cupom" element={<Cupom/>} />
-                <Route path="/alterar/:idParam" element={<Cupom/>} />
+                <Route path="/cupom" element={<CupomCad/>} />
+                <Route path="/alterar/:idParam" element={<CupomCad/>} />
                 <Route path="/consulta/cupom" element={<ConsultarCupom/>} />
             </Routes>
         </BrowserRouter>

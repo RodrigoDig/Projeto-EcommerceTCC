@@ -42,12 +42,10 @@ export async function atualizarCupom(cod) {
 export async function listarCupons(){
     const comando = `
         SELECT ID_CUPOM        id,
-                NM_CUPOM       nome,
-                DS_CODIGO      codigo,
-                VL_CUPOM       valor,
-                DT_CADASTRO    cadastro,
-                DT_VENCIMENTO  vencimento
-          FROM TB_CUPOM`;
+                COD_CUPOM    codigo,
+                VL_CUPOM      valor,
+                QTD_RESTANTE  restante
+        FROM TB_CUPOM`;
     
     const [linhas] = await con.query(comando)
     return linhas;
@@ -56,11 +54,9 @@ export async function listarCupons(){
 export async function buscarId(id){
     const comando = `
         SELECT ID_CUPOM        id,
-                NM_CUPOM       nome,
-                DS_CODIGO      codigo,
-                VL_CUPOM       valor,   
-                DT_CADASTRO    cadastro,
-                DT_VENCIMENTO  vencimento
+                COD_CUPOM    codigo,
+                VL_CUPOM      valor,
+                QTD_RESTANTE  restante
           FROM TB_CUPOM
         WHERE ID_CUPOM = ?`;
     
@@ -71,11 +67,11 @@ export async function buscarId(id){
 export async function buscarNome(nome){
     const comando = `
         SELECT ID_CUPOM       id,
-                COD_CODIGO    codigo,
+                COD_CUPOM    codigo,
                 VL_CUPOM      valor,
                 QTD_RESTANTE  restante
           FROM TB_CUPOM
-        WHERE NM_CUPOM LIKE ?`;
+        WHERE COD_CUPOM LIKE ?`;
     
     const [linhas] = await con.query(comando, [`%${nome}%`])
     return linhas;
@@ -93,7 +89,7 @@ export async function deletarCupom(id){
 export async function alterarCupom(id, cupom){
     const comando = `
         UPDATE TB_CUPOM
-            SET COD_CODIGO       = ?,
+            SET COD_CUPOM       = ?,
                 VL_CUPOM        = ?,
                 QTD_RESTANTE   = ?
         WHERE ID_CUPOM = ?`;

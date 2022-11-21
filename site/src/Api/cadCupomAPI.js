@@ -6,25 +6,21 @@ const api = axios.create({
     baseURL: API_URL
 })
 
-export async function cadCupom(nome, codigo, valor, cadastro, vencimento){
+export async function Cupom(codigo, valor, restante){
     const r = await api.post('/cadastro/cupom', {
-        nome,
         codigo,
         valor,
-        cadastro,
-        vencimento
+        restante
     })
 
     return r.data;
 }
 
-export async function alterarCupom(id, nome, codigo, valor, cadastro, vencimento){
+export async function alterarCupom(id, codigo, valor, restante){
     const r = await api.put( `/cadastro/cupom/${id}`, {
-        nome,
         codigo,
         valor,
-        cadastro,
-        vencimento
+        restante
     })
 
     return r.data;
